@@ -5,9 +5,11 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.3",
+    "material-ui": "0.16.1",
     "node-sass": "3.10.1",
     "react": "15.3.2",
     "react-dom": "15.3.2",
+    "react-tap-event-plugin": "1.0.0",
     "sass-loader": "4.0.2"
   },
   "description": "Experimental learning exercises for my kids",

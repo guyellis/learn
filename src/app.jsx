@@ -1,8 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './index.scss';
-import React from 'react';
+require('bootstrap/dist/css/bootstrap.min.css');
+const styles = require('./index.scss');
+const React = require('react');
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div>
@@ -14,3 +14,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+module.exports = App;
