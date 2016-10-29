@@ -1,0 +1,19 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "Experimental learning exercises for my kids",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyellis/learn.git"
+  },
+  "author": "Guy Ellis <wildfiction@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guyellis/learn/issues"
+  },
+  "homepage": "https://github.com/guyellis/learn#readme"
+}
