@@ -1,24 +1,8 @@
 {
-  "name": "learn",
-  "version": "0.0.1",
-  "description": "Experimental learning exercises for my kids",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "webpack-dev-server --progress --profile --colors",
-    "lint": "eslint --ext js --ext jsx src || exit 0",
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guyellis/learn.git"
-  },
   "author": "Guy Ellis <wildfiction@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/guyellis/learn/issues"
   },
-  "homepage": "https://github.com/guyellis/learn#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.3",
     "node-sass": "^3.10.1",
@@ -26,6 +10,7 @@
     "react-dom": "15.3.2",
     "sass-loader": "^4.0.2"
   },
+  "description": "Experimental learning exercises for my kids",
   "devDependencies": {
     "babel-core": "6.17.0",
     "babel-loader": "6.2.5",
@@ -47,5 +32,20 @@
     "webpack": "1.13.2",
     "webpack-cleanup-plugin": "^0.4.1",
     "webpack-dev-server": "1.16.2"
-  }
+  },
+  "homepage": "https://github.com/guyellis/learn#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "learn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyellis/learn.git"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "lint": "eslint --ext js --ext jsx src || exit 0",
+    "start": "webpack-dev-server --progress --profile --colors",
+    "test": "mocha"
+  },
+  "version": "0.0.1"
 }
