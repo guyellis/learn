@@ -5,9 +5,9 @@ const App = require('./app.jsx');
 const injectTapEventPlugin = require('react-tap-event-plugin');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
-const darkBaseTheme = require('material-ui/styles/baseThemes/darkBaseTheme').default;
+const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
 
-const muiTheme = getMuiTheme(darkBaseTheme);
+const muiTheme = getMuiTheme(lightBaseTheme);
 
 injectTapEventPlugin();
 
