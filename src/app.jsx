@@ -42,6 +42,9 @@ class App extends React.Component {
 
   checkAnswer() {
     const actual = parseInt(this.state.answer, 10);
+    if(isNaN(actual)) {
+      return;
+    }
     const expected = this.state.left + this.state.right;
     const correct = actual === expected;
     const answer = '';
@@ -64,17 +67,20 @@ class App extends React.Component {
   render() {
     const numberStyle = {
       fontSize: 'xx-large',
-      margin: '15px'
+      margin: '10px'
     };
     const checkStyle = {
-      margin: '15px'
+      margin: '10px'
     };
     const textStyle = {
       border: 'medium solid black',
       height: '80px',
       width: '80px',
-      textAlign: 'center'
+      fontSize: 'xx-large'
     };
+    const inputStyle = {
+      textAlign: 'center',
+    }
     const resultStyle = {
       fontSize: 'xx-large',
       color: this.state.correct ? 'darkgreen' : 'red'
@@ -94,6 +100,7 @@ class App extends React.Component {
             value={this.state.answer}
             type='number'
             style={textStyle}
+            inputStyle={inputStyle}
             onChange={this.onChange}
             onKeyPress={this.handleKeyPress}
           />
@@ -108,6 +115,9 @@ class App extends React.Component {
         {!!this.state.result &&
           <div style={resultStyle}>{this.state.result}</div>
         }
+        <div style={{marginTop: '50px'}}>
+          {'Created for Sonali and Kai.'}
+        </div>
       </div>
     )
   }
