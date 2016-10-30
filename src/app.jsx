@@ -43,6 +43,7 @@ class App extends React.Component {
           : <LearnMath
             lower={this.state.lower}
             sign={this.state.sign}
+            toggleSetup={this.toggleSetup}
             upper={this.state.upper}
           />
         }

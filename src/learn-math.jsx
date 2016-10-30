@@ -1,6 +1,7 @@
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
+const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 
 class LearnMath extends React.Component {
@@ -140,6 +141,13 @@ class LearnMath extends React.Component {
         <div style={{ marginTop: '50px' }}>
           {'Created for Sonali and Kai.'}
         </div>
+        <FloatingActionButton
+          onClick={this.props.toggleSetup}
+          title="Edit Settings"
+          style={checkStyle}
+        >
+          <EditIcon />
+        </FloatingActionButton>
       </div>
     );
   }
@@ -148,6 +156,7 @@ class LearnMath extends React.Component {
 LearnMath.propTypes = {
   lower: React.PropTypes.number.isRequired,
   sign: React.PropTypes.string.isRequired,
+  toggleSetup: React.PropTypes.func.isRequired,
   upper: React.PropTypes.number.isRequired,
 };
 
