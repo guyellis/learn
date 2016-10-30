@@ -7,11 +7,55 @@ const AddCircle = require('material-ui/svg-icons/content/add-circle').default;
 const AddCircleOutline = require('material-ui/svg-icons/content/add-circle-outline').default;
 const RemoveCircle = require('material-ui/svg-icons/content/remove-circle').default;
 const RemoveCircleOutline = require('material-ui/svg-icons/content/remove-circle-outline').default;
+const constants = require('./constants');
 // const SvgIcon = require('material-ui/SvgIcon');
 
 // eslint-disable-next-line react/prefer-stateless-function
 class LearnSetup extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      lower: this.props.lower,
+      sign: this.props.sign,
+      upper: this.props.upper,
+      errors: {},
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.save = this.save.bind(this);
+  }
+
+  onChange(e) {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  save() {
+    const { upper: upperS, lower: lowerS } = this.state;
+    const errors = {};
+    const upper = parseInt(upperS, 10);
+    const lower = parseInt(lowerS, 10);
+    if (isNaN(upper)) {
+      errors.upper = 'Must be a number';
+    }
+    if (isNaN(lower)) {
+      errors.lower = 'Must be a number';
+    }
+    if (!isNaN(lower) && !isNaN(upper)) {
+      if (upper <= lower) {
+        errors.lower = `Must be lower than ${constants.upperText}`;
+        errors.upper = `Must be higher than ${constants.lowerText}`;
+      }
+    }
+    if (Object.keys(errors).length > 0) {
+      this.setState({ errors });
+    } else {
+      this.props.saveSettings(Object.assign({}, this.state, { upper, lower }));
+    }
+  }
 
   render() {
     // const DivideIcon = props => (
@@ -23,10 +67,11 @@ class LearnSetup extends React.Component {
     // );
 
     const {
-      onChange,
+      errors,
+      lower,
       sign,
-      toggleSetup,
-    } = this.props;
+      upper,
+    } = this.state;
     // const disabled = true;
     const styles = {
       buttonGroup: {
@@ -46,7 +91,7 @@ class LearnSetup extends React.Component {
         <RadioButtonGroup
           defaultSelected={sign}
           name="sign"
-          onChange={onChange}
+          onChange={this.onChange}
           style={styles.buttonGroup}
         >
           <RadioButton
@@ -78,27 +123,29 @@ class LearnSetup extends React.Component {
         </RadioButtonGroup>
         <div>
           <TextField
-            floatingLabelText="Lower"
+            errorText={errors.lower}
+            floatingLabelText={constants.lowerText}
             hintText="Lower Limit"
             name="lower"
-            onChange={onChange}
+            onChange={this.onChange}
             type="number"
-            value={this.props.lower}
+            value={lower}
           />
         </div>
         <div>
           <TextField
-            floatingLabelText="Upper"
+            errorText={errors.upper}
+            floatingLabelText={constants.upperText}
             hintText="Upper Limit"
             name="upper"
-            onChange={onChange}
+            onChange={this.onChange}
             type="number"
-            value={this.props.upper}
+            value={upper}
           />
         </div>
         <FloatingActionButton
           style={styles.doneButton}
-          onClick={toggleSetup}
+          onClick={this.save}
           title="Save and Go To Exercise"
         >
           <DoneIcon />
@@ -110,9 +157,8 @@ class LearnSetup extends React.Component {
 
 LearnSetup.propTypes = {
   lower: React.PropTypes.number.isRequired,
-  onChange: React.PropTypes.func.isRequired,
   sign: React.PropTypes.string.isRequired,
-  toggleSetup: React.PropTypes.func.isRequired,
+  saveSettings: React.PropTypes.func.isRequired,
   upper: React.PropTypes.number.isRequired,
 };
 

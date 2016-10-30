@@ -12,24 +12,31 @@ class App extends React.Component {
       sign: '+',
       upper: 10,
     };
-    this.onChange = this.onChange.bind(this);
+    this.saveSettings = this.saveSettings.bind(this);
     this.toggleSetup = this.toggleSetup.bind(this);
   }
 
-  onChange(e) {
-    const { name, value } = e.target;
-    const numbers = ['upper', 'lower'];
-    if (numbers.includes(name)) {
-      if (!isNaN(parseInt(value, 10))) {
-        this.setState({
-          [name]: parseInt(value, 10),
-        });
-      }
-    } else {
-      this.setState({
-        [name]: value,
-      });
-    }
+  // onChange(e) {
+  //   const { name, value } = e.target;
+  //   const numbers = ['upper', 'lower'];
+  //   if (numbers.includes(name)) {
+  //     if (!isNaN(parseInt(value, 10))) {
+  //       this.setState({
+  //         [name]: parseInt(value, 10),
+  //       });
+  //     }
+  //   } else {
+  //     this.setState({!
+  //       [name]: value,
+  //     });
+  //   }
+  // }
+
+  saveSettings(settings) {
+    this.setState(Object.assign({},
+      settings,
+      { setup: false }
+    ));
   }
 
   toggleSetup() {
@@ -45,9 +52,8 @@ class App extends React.Component {
         {setup
           ? <LearnSetup
             lower={this.state.lower}
-            onChange={this.onChange}
             sign={this.state.sign}
-            toggleSetup={this.toggleSetup}
+            saveSettings={this.saveSettings}
             upper={this.state.upper}
           />
           : <LearnMath
