@@ -27,9 +27,14 @@ class LearnMath extends React.Component {
   }
 
   reset() {
+    let left = this.getRandom();
+    let right = this.getRandom();
+    if(this.state.sign === '-' && right > left) {
+      [left, right] = [right, left];
+    }
     this.setState({
-      left: this.getRandom(),
-      right: this.getRandom()
+      left,
+      right
     })
   }
 
@@ -44,7 +49,9 @@ class LearnMath extends React.Component {
     if(isNaN(actual)) {
       return;
     }
-    const expected = this.state.left + this.state.right;
+    const expected = this.state.sign === '+'
+      ? this.state.left + this.state.right
+      : this.state.left - this.state.right;
     const correct = actual === expected;
     const answer = '';
     this.setState({
@@ -60,6 +67,22 @@ class LearnMath extends React.Component {
   handleKeyPress (event) {
     if(event.key === 'Enter') {
       this.checkAnswer();
+    }
+  }
+
+  getTitle() {
+    const title = ' the numbers';
+    switch(this.props.sign) {
+      case '+':
+        return 'Add' + title;
+      case '-':
+        return 'Subtract' + title;
+      case '/':
+        return 'Divide' + title;
+      case 'x':
+        return 'Multiply' + title;
+      default:
+        return 'Uknown sign: ' + this.props.sign
     }
   }
 
@@ -87,9 +110,9 @@ class LearnMath extends React.Component {
     return (
       <div>
         <div>
-          <h1>Add the numbers</h1>
+          <h1>{this.getTitle()}</h1>
           <span style={numberStyle}>{this.state.left}</span>
-          <span style={numberStyle}>{'+'}</span>
+          <span style={numberStyle}>{this.props.sign}</span>
           <span style={numberStyle}>{this.state.right}</span>
           <span style={numberStyle}>{'='}</span>
           <TextField

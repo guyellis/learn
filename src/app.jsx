@@ -5,7 +5,9 @@ const LearnMath = require('./learn-math');
 class App extends React.Component {
   render() {
     return (
-      <LearnMath sign={'+'} />
+      <LearnMath
+        sign={'-'}
+      />
     )
   }
 }
