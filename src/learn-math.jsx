@@ -1,9 +1,9 @@
-const React = require('react');
-const TextField = require('material-ui/TextField').default;
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
 const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
-const ResetIcon = require('material-ui/svg-icons/av/replay').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const React = require('react');
+const ResetIcon = require('material-ui/svg-icons/av/replay').default;
+const TextField = require('material-ui/TextField').default;
 
 class LearnMath extends React.Component {
   constructor(props) {
@@ -25,10 +25,15 @@ class LearnMath extends React.Component {
     this.reset = this.reset.bind(this);
     this.runningTotal = this.runningTotal.bind(this);
     this.setNextTask = this.setNextTask.bind(this);
+    this.focus = this.focus.bind(this);
   }
 
   componentWillMount() {
     this.setNextTask();
+  }
+
+  componentDidMount() {
+    this.focus();
   }
 
   onChange(e) {
@@ -71,6 +76,12 @@ class LearnMath extends React.Component {
     });
   }
 
+  focus() {
+    if (this.answerInput) {
+      this.answerInput.focus();
+    }
+  }
+
   runningTotal() {
     const { correctCount, totalCount, startTime } = this.state;
     const seconds = Math.round((Date.now() - startTime) / 1000);
@@ -83,6 +94,7 @@ class LearnMath extends React.Component {
       correctCount: 0,
       totalCount: 0,
     });
+    this.focus();
   }
 
   handleKeyPress(event) {
@@ -93,29 +105,30 @@ class LearnMath extends React.Component {
 
   checkAnswer() {
     const actual = parseInt(this.state.answer, 10);
-    if (isNaN(actual)) {
-      return;
+    if (!isNaN(actual)) {
+      let { correctCount, totalCount } = this.state;
+      totalCount += 1;
+      const expected = this.state.sign === '+'
+        ? this.state.left + this.state.right
+        : this.state.left - this.state.right;
+      const correct = actual === expected;
+      if (correct) {
+        correctCount += 1;
+      }
+      const answer = '';
+      this.setState({
+        answer,
+        correct,
+        correctCount,
+        result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
+        totalCount,
+      });
+      if (correct) {
+        this.setNextTask();
+      }
     }
-    let { correctCount, totalCount } = this.state;
-    totalCount += 1;
-    const expected = this.state.sign === '+'
-      ? this.state.left + this.state.right
-      : this.state.left - this.state.right;
-    const correct = actual === expected;
-    if (correct) {
-      correctCount += 1;
-    }
-    const answer = '';
-    this.setState({
-      answer,
-      correct,
-      correctCount,
-      result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
-      totalCount,
-    });
-    if (correct) {
-      this.setNextTask();
-    }
+
+    this.focus();
   }
 
   render() {
@@ -156,7 +169,7 @@ class LearnMath extends React.Component {
           <TextField
             name="answer"
             hintText=""
-            autoFocus
+            ref={(input) => { this.answerInput = input; }}
             value={this.state.answer}
             type="number"
             style={textStyle}
