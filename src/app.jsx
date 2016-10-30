@@ -1,5 +1,5 @@
 require('bootstrap/dist/css/bootstrap.min.css');
-const styles = require('./index.scss');
+// const styles = require('./index.scss');
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
@@ -58,8 +58,8 @@ class App extends React.Component {
     }
   }
 
-  handleKeyPress = (event) => {
-    if(event.key == 'Enter') {
+  handleKeyPress (event) {
+    if(event.key === 'Enter') {
       this.checkAnswer();
     }
   }
