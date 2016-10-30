@@ -2,7 +2,7 @@
 
 Experimental learning exercises for my kids
 
-Currently statically hosted at [learn.guyellisrocks.com](http://learn.guyellisrocks.com).
+Statically hosted at [learn.guyellisrocks.com](http://learn.guyellisrocks.com).
 
 ## Why?
 
