@@ -30,7 +30,9 @@ class LearnMath extends React.Component {
   }
 
   getRandom() {
-    return Math.round(Math.random() * this.state.upper);
+    const min = Math.ceil(this.state.lower);
+    const max = Math.floor(this.state.upper);
+    return Math.floor(Math.random() * ((max - min) + 1)) + min;
   }
 
   getTitle() {

@@ -1,5 +1,5 @@
 const React = require('react');
-// const TextField = require('material-ui/TextField').default;
+const TextField = require('material-ui/TextField').default;
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 const { RadioButton, RadioButtonGroup } = require('material-ui/RadioButton');
@@ -28,19 +28,38 @@ class LearnSetup extends React.Component {
       toggleSetup,
     } = this.props;
     // const disabled = true;
+    const styles = {
+      buttonGroup: {
+        display: 'flex',
+      },
+      radioButton: {
+        margin: '5px',
+        width: 'auto',
+      },
+      doneButton: {
+        marginTop: '40px',
+      },
+    };
     return (
       <div>
         <h1>Settings</h1>
-        <RadioButtonGroup name="sign" defaultSelected={sign} onChange={onChange}>
+        <RadioButtonGroup
+          defaultSelected={sign}
+          name="sign"
+          onChange={onChange}
+          style={styles.buttonGroup}
+        >
           <RadioButton
-            value="+"
             checkedIcon={<AddCircle />}
+            style={styles.radioButton}
             uncheckedIcon={<AddCircleOutline />}
+            value="+"
           />
           <RadioButton
-            value="-"
             checkedIcon={<RemoveCircle />}
+            style={styles.radioButton}
             uncheckedIcon={<RemoveCircleOutline />}
+            value="-"
           />
           {/*
           <RadioButton
@@ -57,7 +76,28 @@ class LearnSetup extends React.Component {
           />
           */}
         </RadioButtonGroup>
+        <div>
+          <TextField
+            floatingLabelText="Lower"
+            hintText="Lower Limit"
+            name="lower"
+            onChange={onChange}
+            type="number"
+            value={this.props.lower}
+          />
+        </div>
+        <div>
+          <TextField
+            floatingLabelText="Upper"
+            hintText="Upper Limit"
+            name="upper"
+            onChange={onChange}
+            type="number"
+            value={this.props.upper}
+          />
+        </div>
         <FloatingActionButton
+          style={styles.doneButton}
           onClick={toggleSetup}
           title="Save and Go To Exercise"
         >
@@ -69,11 +109,11 @@ class LearnSetup extends React.Component {
 }
 
 LearnSetup.propTypes = {
-  // lower: React.PropTypes.number.isRequired,
+  lower: React.PropTypes.number.isRequired,
   onChange: React.PropTypes.func.isRequired,
   sign: React.PropTypes.string.isRequired,
   toggleSetup: React.PropTypes.func.isRequired,
-  // upper: React.PropTypes.number.isRequired,
+  upper: React.PropTypes.number.isRequired,
 };
 
 module.exports = LearnSetup;
