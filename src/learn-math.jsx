@@ -2,25 +2,33 @@ const React = require('react');
 const TextField = require('material-ui/TextField').default;
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
 const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
+const ResetIcon = require('material-ui/svg-icons/av/replay').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 
 class LearnMath extends React.Component {
   constructor(props) {
     super();
+
     this.state = {
       answer: '',
+      correctCount: 0,
       lower: props.lower,
       sign: props.sign,
+      startTime: Date.now(),
+      totalCount: 0,
       upper: props.upper,
     };
+
     this.checkAnswer = this.checkAnswer.bind(this);
-    this.reset = this.reset.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.reset = this.reset.bind(this);
+    this.runningTotal = this.runningTotal.bind(this);
+    this.setNextTask = this.setNextTask.bind(this);
   }
 
   componentWillMount() {
-    this.reset();
+    this.setNextTask();
   }
 
   onChange(e) {
@@ -51,13 +59,7 @@ class LearnMath extends React.Component {
     }
   }
 
-  handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      this.checkAnswer();
-    }
-  }
-
-  reset() {
+  setNextTask() {
     let left = this.getRandom();
     let right = this.getRandom();
     if (this.state.sign === '-' && right > left) {
@@ -69,23 +71,50 @@ class LearnMath extends React.Component {
     });
   }
 
+  runningTotal() {
+    const { correctCount, totalCount, startTime } = this.state;
+    const seconds = Math.round((Date.now() - startTime) / 1000);
+    return `${correctCount} / ${totalCount}  (${seconds}s)`;
+  }
+
+  reset() {
+    this.setState({
+      startTime: Date.now(),
+      correctCount: 0,
+      totalCount: 0,
+    });
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.checkAnswer();
+    }
+  }
+
   checkAnswer() {
     const actual = parseInt(this.state.answer, 10);
     if (isNaN(actual)) {
       return;
     }
+    let { correctCount, totalCount } = this.state;
+    totalCount += 1;
     const expected = this.state.sign === '+'
       ? this.state.left + this.state.right
       : this.state.left - this.state.right;
     const correct = actual === expected;
+    if (correct) {
+      correctCount += 1;
+    }
     const answer = '';
     this.setState({
-      result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
-      correct,
       answer,
+      correct,
+      correctCount,
+      result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
+      totalCount,
     });
     if (correct) {
-      this.reset();
+      this.setNextTask();
     }
   }
 
@@ -109,6 +138,12 @@ class LearnMath extends React.Component {
     const resultStyle = {
       fontSize: 'xx-large',
       color: this.state.correct ? 'darkgreen' : 'red',
+    };
+    const styles = {
+      totals: {
+        fontSize: 'xx-large',
+        color: 'blue',
+      },
     };
     return (
       <div>
@@ -140,6 +175,9 @@ class LearnMath extends React.Component {
         {!!this.state.result &&
           <div style={resultStyle}>{this.state.result}</div>
         }
+        {!!this.state.totalCount &&
+          <div style={styles.totals}>{this.runningTotal()}</div>
+        }
         <div style={{ marginTop: '50px' }}>
           {'Created for Sonali and Kai.'}
         </div>
@@ -149,6 +187,13 @@ class LearnMath extends React.Component {
           style={checkStyle}
         >
           <EditIcon />
+        </FloatingActionButton>
+        <FloatingActionButton
+          onClick={this.reset}
+          title="Edit Settings"
+          style={checkStyle}
+        >
+          <ResetIcon />
         </FloatingActionButton>
       </div>
     );
