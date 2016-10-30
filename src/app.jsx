@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      setup: true
+      setup: true,
     };
   }
 
@@ -15,7 +15,7 @@ class App extends React.Component {
       <LearnMath
         sign={'+'}
       />
-    )
+    );
   }
 }
 

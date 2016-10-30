@@ -15,4 +15,4 @@ ReactDOM.render((
   <MuiThemeProvider muiTheme={muiTheme}>
     <App />
   </MuiThemeProvider>
-), document.querySelector("#app"));
+), document.querySelector('#app'));

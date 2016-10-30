@@ -8,9 +8,10 @@ const AUTOPREFIXER_BROWSERS = [
   'Opera >= 12',
   'Safari >= 7.1',
 ];
+const autoprefixer = require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS });
 
 module.exports = {
-	plugins: [
-		require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-	]
-}
+  plugins: [
+    autoprefixer,
+  ],
+};

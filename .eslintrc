@@ -1,0 +1,16 @@
+{
+  "ecmaFeatures": {
+    "es6": true,
+    "jsx": true,
+    "modules": false
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb"
+  ]
+}
