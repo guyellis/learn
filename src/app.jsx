@@ -13,7 +13,9 @@ class App extends React.Component {
   render() {
     return (
       <LearnMath
+        lower={0}
         sign={'+'}
+        upper={10}
       />
     );
   }

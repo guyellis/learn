@@ -8,9 +8,9 @@ class LearnMath extends React.Component {
     super();
     this.state = {
       answer: '',
-      lower: 0,
+      lower: props.lower,
       sign: props.sign,
-      upper: 5,
+      upper: props.upper,
     };
     this.checkAnswer = this.checkAnswer.bind(this);
     this.reset = this.reset.bind(this);
@@ -146,7 +146,9 @@ class LearnMath extends React.Component {
 }
 
 LearnMath.propTypes = {
+  lower: React.PropTypes.number.isRequired,
   sign: React.PropTypes.string.isRequired,
+  upper: React.PropTypes.number.isRequired,
 };
 
 module.exports = LearnMath;
