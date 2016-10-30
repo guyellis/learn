@@ -16,22 +16,6 @@ class App extends React.Component {
     this.toggleSetup = this.toggleSetup.bind(this);
   }
 
-  // onChange(e) {
-  //   const { name, value } = e.target;
-  //   const numbers = ['upper', 'lower'];
-  //   if (numbers.includes(name)) {
-  //     if (!isNaN(parseInt(value, 10))) {
-  //       this.setState({
-  //         [name]: parseInt(value, 10),
-  //       });
-  //     }
-  //   } else {
-  //     this.setState({!
-  //       [name]: value,
-  //     });
-  //   }
-  // }
-
   saveSettings(settings) {
     this.setState(Object.assign({},
       settings,
