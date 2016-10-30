@@ -16,6 +16,7 @@ class App extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.reset = this.reset.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   getRandom() {
@@ -39,7 +40,7 @@ class App extends React.Component {
     });
   }
 
-  checkAnswer(e) {
+  checkAnswer() {
     const actual = parseInt(this.state.answer, 10);
     const expected = this.state.left + this.state.right;
     const correct = actual === expected;
@@ -52,7 +53,12 @@ class App extends React.Component {
     if(correct) {
       this.reset();
     }
-    console.log('checkAnswer clicked', this.state);
+  }
+
+  handleKeyPress = (event) => {
+    if(event.key == 'Enter') {
+      this.checkAnswer();
+    }
   }
 
   render() {
@@ -69,6 +75,10 @@ class App extends React.Component {
       width: '80px',
       textAlign: 'center'
     };
+    const resultStyle = {
+      fontSize: 'xx-large',
+      color: this.state.correct ? 'darkgreen' : 'red'
+    }
     return (
       <div>
         <div>
@@ -80,10 +90,12 @@ class App extends React.Component {
           <TextField
             name='answer'
             hintText=''
+            autoFocus={true}
             value={this.state.answer}
             type='number'
             style={textStyle}
             onChange={this.onChange}
+            onKeyPress={this.handleKeyPress}
           />
           <FloatingActionButton
             onClick={this.checkAnswer}
@@ -94,7 +106,7 @@ class App extends React.Component {
           </FloatingActionButton>
         </div>
         {!!this.state.result &&
-          <div>{this.state.result}</div>
+          <div style={resultStyle}>{this.state.result}</div>
         }
       </div>
     )
