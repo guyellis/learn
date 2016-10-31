@@ -90,6 +90,22 @@ class LearnMath extends React.Component {
     }
   }
 
+  getExpected() {
+    const { left, right } = this.state;
+    switch (this.state.sign) {
+      case '+':
+        return left + right;
+      case '-':
+        return left - right;
+      case '*':
+        return left * right;
+      case '/':
+        return left / right;
+      default:
+        return 0;
+    }
+  }
+
   focus() {
     if (this.answerInput) {
       this.answerInput.focus();
@@ -122,9 +138,7 @@ class LearnMath extends React.Component {
     if (!isNaN(actual)) {
       let { correctCount, totalCount } = this.state;
       totalCount += 1;
-      const expected = this.state.sign === '+'
-        ? this.state.left + this.state.right
-        : this.state.left - this.state.right;
+      const expected = this.getExpected();
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
