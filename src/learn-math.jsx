@@ -5,6 +5,11 @@ const React = require('react');
 const ResetIcon = require('material-ui/svg-icons/av/replay').default;
 const TextField = require('material-ui/TextField').default;
 
+const numberStyle = {
+  fontSize: 'xx-large',
+  margin: '10px',
+};
+
 class LearnMath extends React.Component {
   constructor(props) {
     super();
@@ -76,6 +81,15 @@ class LearnMath extends React.Component {
     });
   }
 
+  getSign() {
+    switch (this.props.sign) {
+      case '/':
+        return (<span style={numberStyle}>&divide;</span>);
+      default:
+        return (<span style={numberStyle}>{this.props.sign}</span>);
+    }
+  }
+
   focus() {
     if (this.answerInput) {
       this.answerInput.focus();
@@ -132,10 +146,6 @@ class LearnMath extends React.Component {
   }
 
   render() {
-    const numberStyle = {
-      fontSize: 'xx-large',
-      margin: '10px',
-    };
     const checkStyle = {
       margin: '10px',
     };
@@ -163,7 +173,7 @@ class LearnMath extends React.Component {
         <div>
           <h1>{this.getTitle()}</h1>
           <span style={numberStyle}>{this.state.left}</span>
-          <span style={numberStyle}>{this.props.sign}</span>
+          {this.getSign()}
           <span style={numberStyle}>{this.state.right}</span>
           <span style={numberStyle}>{'='}</span>
           <TextField
