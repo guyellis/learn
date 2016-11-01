@@ -2,21 +2,30 @@ require('bootstrap/dist/css/bootstrap.min.css');
 const React = require('react');
 const LearnMath = require('./learn-math');
 const LearnSetup = require('./setup');
+const constants = require('./constants');
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
+    let settings;
+    try {
+      settings = JSON.parse(localStorage.getItem(constants.settings) || '{}');
+    } catch (e) {
+      settings = {};
+    }
+
+    this.state = Object.assign({
       lower: 0,
       setup: true,
       sign: '+',
       upper: 10,
-    };
+    }, settings);
     this.saveSettings = this.saveSettings.bind(this);
     this.toggleSetup = this.toggleSetup.bind(this);
   }
 
   saveSettings(settings) {
+    localStorage.setItem(constants.settings, JSON.stringify(settings));
     this.setState(Object.assign({},
       settings,
       { setup: false }
