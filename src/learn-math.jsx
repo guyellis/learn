@@ -89,10 +89,14 @@ class LearnMath extends React.Component {
     if (this.state.sign === '-' && right > left) {
       [left, right] = [right, left];
     }
-    this.setState({
-      left,
-      right,
-    });
+    if (this.isSameProblem(left, right)) {
+      this.setNextTask();
+    } else {
+      this.setState({
+        left,
+        right,
+      });
+    }
   }
 
   getSign() {
@@ -118,6 +122,15 @@ class LearnMath extends React.Component {
       default:
         return 0;
     }
+  }
+
+  isSameProblem(left, right) {
+    if (this.state.upper - this.state.lower < 3) {
+      return false;
+    }
+    const newNumbers = [left, right].sort();
+    const oldNumbers = [this.state.left, this.state.right].sort();
+    return newNumbers[0] === oldNumbers[0] && newNumbers[1] === oldNumbers[1];
   }
 
   save() {
