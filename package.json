@@ -11,7 +11,7 @@
     "material-ui": "0.16.1",
     "node-sass": "3.11.2",
     "react": "15.3.2",
-    "react-dom": "15.3.2",
+    "react-dom": "15.4.0",
     "react-tap-event-plugin": "1.0.0",
     "sass-loader": "4.0.2",
     "webpack": "1.13.3",
