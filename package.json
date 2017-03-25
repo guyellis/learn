@@ -14,7 +14,7 @@
     "react-dom": "15.3.2",
     "react-tap-event-plugin": "1.0.0",
     "sass-loader": "4.0.2",
-    "webpack": "1.13.3",
+    "webpack": "2.3.2",
     "webpack-cleanup-plugin": "0.4.1"
   },
   "description": "Experimental learning exercises for my kids",
