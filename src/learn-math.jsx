@@ -217,7 +217,7 @@ class LearnMath extends React.Component {
     this.focus();
   }
 
-/*
+  /*
   <Table>
     <TableBody>
       <TableRow>
@@ -251,8 +251,7 @@ class LearnMath extends React.Component {
         <TableRowColumn>{`${score.time}s`}</TableRowColumn>
         <TableRowColumn>{score.correctCount}</TableRowColumn>
         <TableRowColumn>{score.totalCount}</TableRowColumn>
-      </TableRow>)
-    );
+      </TableRow>));
     const checkStyle = {
       margin: '10px',
     };

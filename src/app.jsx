@@ -28,8 +28,7 @@ class App extends React.Component {
     localStorage.setItem(constants.settings, JSON.stringify(settings));
     this.setState(Object.assign({},
       settings,
-      { setup: false }
-    ));
+      { setup: false }));
   }
 
   toggleSetup() {
