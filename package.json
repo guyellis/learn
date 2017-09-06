@@ -14,7 +14,7 @@
     "react-dom": "15.6.1",
     "react-tap-event-plugin": "2.0.1",
     "sass-loader": "6.0.6",
-    "webpack": "3.5.5",
+    "webpack": "3.5.6",
     "webpack-cleanup-plugin": "0.5.1",
     "webpack-dashboard": "1.0.0-5"
   },
