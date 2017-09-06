@@ -3,6 +3,7 @@ const React = require('react');
 const LearnMath = require('./learn-math');
 const LearnSetup = require('./setup');
 const constants = require('./constants');
+const { Link, Route } = require('react-router-dom');
 
 class App extends React.Component {
   constructor() {
@@ -22,6 +23,32 @@ class App extends React.Component {
     }, settings);
     this.saveSettings = this.saveSettings.bind(this);
     this.toggleSetup = this.toggleSetup.bind(this);
+    this.simple = this.simple.bind(this);
+    this.setup = this.setup.bind(this);
+  }
+
+  setup() {
+    return (<LearnSetup
+      lower={this.state.lower}
+      sign={this.state.sign}
+      saveSettings={this.saveSettings}
+      upper={this.state.upper}
+    />);
+  }
+
+  simple() {
+    return (<LearnMath
+      lower={this.state.lower}
+      sign={this.state.sign}
+      toggleSetup={this.toggleSetup}
+      upper={this.state.upper}
+    />);
+  }
+
+  toggleSetup() {
+    this.setState({
+      setup: !this.state.setup,
+    });
   }
 
   saveSettings(settings) {
@@ -31,30 +58,20 @@ class App extends React.Component {
       { setup: false }));
   }
 
-  toggleSetup() {
-    this.setState({
-      setup: !this.state.setup,
-    });
-  }
-
   render() {
-    const { setup } = this.state;
     return (
       <div>
-        {setup
-          ? <LearnSetup
-            lower={this.state.lower}
-            sign={this.state.sign}
-            saveSettings={this.saveSettings}
-            upper={this.state.upper}
-          />
-          : <LearnMath
-            lower={this.state.lower}
-            sign={this.state.sign}
-            toggleSetup={this.toggleSetup}
-            upper={this.state.upper}
-          />
-        }
+        <nav>
+          <Link to="/setup">Setup</Link>
+          <Link to="/simple">Simple</Link>
+          <Link to="/drill">Drill</Link>
+        </nav>
+        <div>
+          <Route path="/setup" render={this.setup} />
+        </div>
+        <div>
+          <Route path="/simple" render={this.simple} />
+        </div>
       </div>
     );
   }
