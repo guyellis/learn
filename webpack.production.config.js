@@ -1,40 +1,28 @@
-
 const webpack = require('webpack');
 const path = require('path');
 const loaders = require('./webpack.loaders');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// local css modules
 loaders.push({
-  test: /[/\\]src[/\\].*\.css/,
-  exclude: /(node_modules|bower_components|public)/,
-  loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'),
-});
-
-// local scss modules
-loaders.push({
-  test: /[/\\]src[/\\].*\.scss/,
-  exclude: /(node_modules|bower_components|public)/,
-  loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'),
-});
-// global css files
-loaders.push({
-  test: /[/\\](node_modules|global)[/\\].*\.css$/,
-  loader: ExtractTextPlugin.extract('style', 'css'),
+  test: /\.scss$/,
+  loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded' }),
+  exclude: ['node_modules'],
 });
 
 module.exports = {
   entry: [
     './src/index.jsx',
+    './src/index.scss',
   ],
   output: {
+    publicPath: './',
     path: path.join(__dirname, 'public'),
     filename: '[chunkhash].js',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     loaders,
@@ -54,14 +42,17 @@ module.exports = {
         drop_debugger: true,
       },
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('[contenthash].css', {
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new ExtractTextPlugin({
+      filename: 'style.css',
       allChunks: true,
     }),
     new HtmlWebpackPlugin({
       template: './src/template.html',
-      title: 'Learn',
+      files: {
+        css: ['style.css'],
+        js: ['bundle.js'],
+      },
     }),
-    new webpack.optimize.DedupePlugin(),
   ],
 };

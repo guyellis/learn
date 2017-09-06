@@ -15,7 +15,8 @@
     "react-tap-event-plugin": "2.0.1",
     "sass-loader": "6.0.6",
     "webpack": "3.5.5",
-    "webpack-cleanup-plugin": "0.5.1"
+    "webpack-cleanup-plugin": "0.5.1",
+    "webpack-dashboard": "1.0.0-5"
   },
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
@@ -44,7 +45,7 @@
     "webpack-dev-server": "2.7.1"
   },
   "engines": {
-    "node": "7.0.0"
+    "node": "8.0.0"
   },
   "homepage": "https://github.com/guyellis/learn#readme",
   "license": "MIT",
@@ -67,5 +68,5 @@
     "start": "webpack-dev-server --progress --profile --colors",
     "test": "npm run lint && mocha"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
