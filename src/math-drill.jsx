@@ -12,6 +12,7 @@ const SelectField = require('material-ui/SelectField').default;
 const TextField = require('material-ui/TextField').default;
 const QuizLine = require('./quiz-line');
 const helper = require('./helper');
+const RunningResults = require('./running-results');
 
 const {
   alphabet,
@@ -45,6 +46,7 @@ class MathDrill extends React.Component {
       levelIndex: 0, // A
       lower: 1,
       opIndex: 0, // +
+      running: [], // running results of quiz
       upper: 3,
     };
 
@@ -87,10 +89,12 @@ class MathDrill extends React.Component {
     this.setNextTask();
     const { minutes = '1' } = this.state;
     const seconds = parseFloat(minutes, 10) * 60;
+    const startTime = moment();
     const endTime = moment().add(seconds, 'seconds');
     const timerId = setInterval(this.onInterval, 1000);
     this.setState({
       currentAction: 'running',
+      startTime,
       endTime,
       timerId,
       seconds,
@@ -105,18 +109,11 @@ class MathDrill extends React.Component {
     });
   }
 
-  getRandom() {
-    const min = Math.ceil(this.state.lower);
-    const max = Math.floor(this.state.upper);
-    return Math.floor(Math.random() * ((max - min) + 1)) + min;
-  }
-
   setNextTask() {
     const { levelIndex, opIndex, currentTask } = this.state;
     const nextTask = helper.getLowerUpper(levelIndex, opIndex);
 
     if (nextTask.every((item, index) => currentTask[index] === item)) {
-      // 
       this.setNextTask();
     } else {
       this.setState({
@@ -209,22 +206,32 @@ class MathDrill extends React.Component {
 
   checkAnswer() {
     const actual = parseInt(this.state.answer, 10);
-    if (!isNaN(actual)) {
+    const { timeIsUp } = this.state;
+    if (!isNaN(actual) && !timeIsUp) {
+      const { currentTask: task, running = [] } = this.state;
       let { correctCount, totalCount } = this.state;
       totalCount += 1;
-      const expected = this.getExpected();
+      const [,,, expected] = task;
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
       }
       const answer = '';
+
+      const { previousTime = this.state.startTime } = this.state;
+      const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
+
+      running.push({ task, actual, timeTaken });
       this.setState({
         answer,
         correct,
         correctCount,
+        previousTime: moment(),
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
+        running,
         totalCount,
       });
+
       if (correct) {
         this.setNextTask();
       }
@@ -302,6 +309,8 @@ class MathDrill extends React.Component {
       level = 0,
       opIndex,
       timeLeft,
+      result = '',
+      running,
     } = this.state || {};
 
     if (!currentTask) {
@@ -327,6 +336,10 @@ class MathDrill extends React.Component {
             handleKeyPress={this.handleKeyPress}
             onChange={this.onChange}
             problem={currentTask}
+          />
+          <RunningResults
+            result={result}
+            running={running}
           />
         </div>
       </div>);
