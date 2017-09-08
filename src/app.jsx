@@ -3,7 +3,8 @@ const React = require('react');
 const LearnMath = require('./learn-math');
 const LearnSetup = require('./setup');
 const constants = require('./constants');
-const { Link, Route } = require('react-router-dom');
+const { Route, Redirect } = require('react-router-dom');
+const Drill = require('./math-drill');
 
 class App extends React.Component {
   constructor() {
@@ -61,17 +62,23 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        {/*
         <nav>
           <Link to="/setup">Setup</Link>
           <Link to="/simple">Simple</Link>
           <Link to="/drill">Drill</Link>
         </nav>
+        */}
         <div>
           <Route path="/setup" render={this.setup} />
         </div>
         <div>
           <Route path="/simple" render={this.simple} />
         </div>
+        <div>
+          <Route path="/drill" exact component={Drill} />
+        </div>
+        <Redirect to="/drill" />
       </div>
     );
   }
