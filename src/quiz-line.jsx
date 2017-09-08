@@ -22,12 +22,13 @@ const inputStyle = {
   textAlign: 'center',
 };
 function quizLine(props) {
-  const operator = ['+', '-', 'x', '/'][props.operator];
+  const [left, right, opIndex] = props.problem;
+  const operator = ['+', '-', 'x', '/'][opIndex];
   return (
     <div>
-      <span style={numberStyle}>{props.left}</span>
+      <span style={numberStyle}>{left}</span>
       <span style={numberStyle}>{operator}</span>
-      <span style={numberStyle}>{props.right}</span>
+      <span style={numberStyle}>{right}</span>
       <span style={numberStyle}>{'='}</span>
       <TextField
         name="answer"
@@ -51,13 +52,11 @@ function quizLine(props) {
 }
 
 quizLine.propTypes = {
-  answer: PropTypes.number.isRequired,
+  answer: PropTypes.string.isRequired,
   checkAnswer: PropTypes.func.isRequired,
   handleKeyPress: PropTypes.func.isRequired,
-  left: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
-  operator: PropTypes.number.isRequired,
-  right: PropTypes.number.isRequired,
+  problem: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 module.exports = quizLine;

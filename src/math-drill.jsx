@@ -1,25 +1,29 @@
-const { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } = require('material-ui/Table');
 const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
-const DoneIcon = require('material-ui/svg-icons/action/done').default;
-const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
+// const DoneIcon = require('material-ui/svg-icons/action/done').default;
+// const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
 const FlatButton = require('material-ui/FlatButton').default;
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+// const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 const MenuItem = require('material-ui/MenuItem').default;
 const moment = require('moment');
 const React = require('react');
-const ResetIcon = require('material-ui/svg-icons/av/replay').default;
-const SaveIcon = require('material-ui/svg-icons/content/save').default;
+// const ResetIcon = require('material-ui/svg-icons/av/replay').default;
+// const SaveIcon = require('material-ui/svg-icons/content/save').default;
 const SelectField = require('material-ui/SelectField').default;
 const TextField = require('material-ui/TextField').default;
 const QuizLine = require('./quiz-line');
+const helper = require('./helper');
 
-const numberStyle = {
-  fontSize: 'xx-large',
-  margin: '10px',
-};
+const {
+  alphabet,
+  // getLowerUpper,
+  operations,
+} = helper;
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const operations = ['+', '-', 'x', '/'];
+// const numberStyle = {
+//   fontSize: 'xx-large',
+//   margin: '10px',
+// };
+
 
 function getScores() {
   let scores;
@@ -37,9 +41,10 @@ class MathDrill extends React.Component {
 
     // TODO: opIndex, levelIndex to localStorage and restore at startup
     this.state = {
-      opIndex: 0, // +
+      currentTask: [],
       levelIndex: 0, // A
       lower: 1,
+      opIndex: 0, // +
       upper: 3,
     };
 
@@ -56,7 +61,7 @@ class MathDrill extends React.Component {
   }
 
   componentWillMount() {
-    this.setNextTask();
+    // this.setNextTask();
   }
 
   componentDidMount() {
@@ -106,48 +111,17 @@ class MathDrill extends React.Component {
     return Math.floor(Math.random() * ((max - min) + 1)) + min;
   }
 
-  getTitle() {
-    const title = ' the numbers';
-    switch (this.props.sign) {
-      case '+':
-        return `Add${title}`;
-      case '-':
-        return `Subtract${title}`;
-      case '/':
-        return `Divide${title}`;
-      case 'x':
-        return `Multiply${title}`;
-      default:
-        return `Uknown sign: ${this.props.sign}`;
-    }
-  }
-
   setNextTask() {
-    let left = this.getRandom();
-    let right = this.getRandom();
-    if (this.state.sign === '-' && right > left) {
-      [left, right] = [right, left];
-    }
-    if (this.isSameProblem(left, right)) {
+    const { levelIndex, opIndex, currentTask } = this.state;
+    const nextTask = helper.getLowerUpper(levelIndex, opIndex);
+
+    if (nextTask.every((item, index) => currentTask[index] === item)) {
+      // 
       this.setNextTask();
     } else {
       this.setState({
-        currentTask: {
-          left,
-          right,
-          operator: this.state.opIndex,
-          answer: this.getExpected(left, right),
-        },
+        currentTask: nextTask,
       });
-    }
-  }
-
-  getSign() {
-    switch (this.state.operator) {
-      case '/':
-        return (<span style={numberStyle}>&divide;</span>);
-      default:
-        return (<span style={numberStyle}>{this.props.sign}</span>);
     }
   }
 
@@ -187,7 +161,7 @@ class MathDrill extends React.Component {
         lower,
         sign,
         upper,
-      } = this.props;
+      } = this.state;
       scores.unshift({
         correctCount,
         date: new Date().toISOString(),
@@ -259,127 +233,8 @@ class MathDrill extends React.Component {
     this.focus();
   }
 
-  oldrender() {
-    const { scores = [] } = this.state;
-    const header = (
-      <TableHeader displaySelectAll={false}>
-        <TableRow>
-          <TableHeaderColumn>Date</TableHeaderColumn>
-          <TableHeaderColumn>Lower</TableHeaderColumn>
-          <TableHeaderColumn>Upper</TableHeaderColumn>
-          <TableHeaderColumn>Sign</TableHeaderColumn>
-          <TableHeaderColumn>Time</TableHeaderColumn>
-          <TableHeaderColumn>Correct</TableHeaderColumn>
-          <TableHeaderColumn>Total</TableHeaderColumn>
-        </TableRow>
-      </TableHeader>
-    );
-    const rows = scores.map(score =>
-      (<TableRow key={score.date}>
-        <TableRowColumn>{score.date}</TableRowColumn>
-        <TableRowColumn>{score.lower}</TableRowColumn>
-        <TableRowColumn>{score.upper}</TableRowColumn>
-        <TableRowColumn>{score.sign}</TableRowColumn>
-        <TableRowColumn>{`${score.time}s`}</TableRowColumn>
-        <TableRowColumn>{score.correctCount}</TableRowColumn>
-        <TableRowColumn>{score.totalCount}</TableRowColumn>
-      </TableRow>));
-    const checkStyle = {
-      margin: '10px',
-    };
-    const textStyle = {
-      border: 'medium solid black',
-      height: '80px',
-      width: '80px',
-      fontSize: 'xx-large',
-    };
-    const inputStyle = {
-      textAlign: 'center',
-    };
-    const resultStyle = {
-      fontSize: 'xx-large',
-      color: this.state.correct ? 'darkgreen' : 'red',
-    };
-    const styles = {
-      totals: {
-        fontSize: 'xx-large',
-        color: 'blue',
-      },
-    };
-    return (
-      <div>
-        <div>
-          <h1>{this.getTitle()}</h1>
-          <span style={numberStyle}>{this.state.left}</span>
-          {this.getSign()}
-          <span style={numberStyle}>{this.state.right}</span>
-          <span style={numberStyle}>{'='}</span>
-          <TextField
-            name="answer"
-            hintText=""
-            ref={(input) => { this.answerInput = input; }}
-            value={this.state.answer}
-            type="number"
-            style={textStyle}
-            inputStyle={inputStyle}
-            onChange={this.onChange}
-            onKeyPress={this.handleKeyPress}
-          />
-          <FloatingActionButton
-            onClick={this.checkAnswer}
-            title="Check Answer"
-            style={checkStyle}
-          >
-            <DoneIcon />
-          </FloatingActionButton>
-        </div>
-        {!!this.state.result &&
-          <div style={resultStyle}>{this.state.result}</div>
-        }
-        {!!this.state.totalCount &&
-          <div style={styles.totals}>{this.runningTotal()}</div>
-        }
-        <div style={{ marginTop: '50px' }}>
-          {'Created for Sonali and Kai.'}
-        </div>
-        <div>
-          <FloatingActionButton
-            onClick={this.props.toggleSetup}
-            title="Edit Settings"
-            style={checkStyle}
-          >
-            <EditIcon />
-          </FloatingActionButton>
-          <FloatingActionButton
-            onClick={this.reset}
-            title="Reset"
-            style={checkStyle}
-          >
-            <ResetIcon />
-          </FloatingActionButton>
-          <FloatingActionButton
-            onClick={this.save}
-            title="Save Results"
-            style={checkStyle}
-          >
-            <SaveIcon />
-          </FloatingActionButton>
-        </div>
-        <div>
-          {!!scores.length &&
-            <Table>
-              {header}
-              <TableBody displayRowCheckbox={false}>
-                {rows}
-              </TableBody>
-            </Table>
-          }
-        </div>
-      </div>
-    );
-  }
-
   renderOptions() {
+    // eslint-disable-next-line no-console
     console.log('state:', this.state);
     const {
       level = 0,
@@ -393,6 +248,7 @@ class MathDrill extends React.Component {
         pointerEvents: 'none',
         opacity: 0.4,
       } : {};
+    // eslint-disable-next-line no-console
     console.log('level:', level);
     return (<div style={divStyle}>
       <SelectField
@@ -441,27 +297,18 @@ class MathDrill extends React.Component {
 
   renderRunning() {
     const {
-      completed = [],
-      currentAction,
+      answer = '',
       currentTask,
-      errors = {},
       level = 0,
-      minutes = 1,
       opIndex,
       timeLeft,
     } = this.state || {};
 
     if (!currentTask) {
+      // eslint-disable-next-line no-console
       console.warn('No currentTask defined in renderRunning');
       return null;
     }
-
-    const {
-      answer,
-      left,
-      operator,
-      right,
-    } = currentTask;
 
     const spanStyle = {
       paddingLeft: 20,
@@ -478,10 +325,8 @@ class MathDrill extends React.Component {
             answer={answer}
             checkAnswer={this.checkAnswer}
             handleKeyPress={this.handleKeyPress}
-            left={left}
             onChange={this.onChange}
-            operator={operator}
-            right={right}
+            problem={currentTask}
           />
         </div>
       </div>);
@@ -501,12 +346,5 @@ class MathDrill extends React.Component {
     }
   }
 }
-
-// MathDrill.propTypes = {
-//   lower: React.PropTypes.number.isRequired,
-//   sign: React.PropTypes.string.isRequired,
-//   toggleSetup: React.PropTypes.func.isRequired,
-//   upper: React.PropTypes.number.isRequired,
-// };
 
 module.exports = MathDrill;
