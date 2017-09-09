@@ -31,14 +31,15 @@ function quizLine(props) {
       <span style={numberStyle}>{right}</span>
       <span style={numberStyle}>{'='}</span>
       <TextField
-        name="answer"
+        autoFocus
         hintText=""
-        value={props.answer}
-        type="number"
-        style={textStyle}
         inputStyle={inputStyle}
+        name="answer"
         onChange={props.onChange}
         onKeyPress={props.handleKeyPress}
+        style={textStyle}
+        type="number"
+        value={props.answer}
       />
       <FloatingActionButton
         onClick={props.checkAnswer}

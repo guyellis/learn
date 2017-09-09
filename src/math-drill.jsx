@@ -51,7 +51,6 @@ class MathDrill extends React.Component {
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
-    this.focus = this.focus.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onStart = this.onStart.bind(this);
@@ -62,13 +61,6 @@ class MathDrill extends React.Component {
     this.onInterval = this.onInterval.bind(this);
   }
 
-  componentWillMount() {
-    // this.setNextTask();
-  }
-
-  componentDidMount() {
-    this.focus();
-  }
 
   onInterval() {
     const {
@@ -177,11 +169,6 @@ class MathDrill extends React.Component {
     }
   }
 
-  focus() {
-    if (this.answerInput) {
-      this.answerInput.focus();
-    }
-  }
 
   runningTotal() {
     const { correctCount, totalCount, startTime } = this.state;
@@ -195,7 +182,6 @@ class MathDrill extends React.Component {
       correctCount: 0,
       totalCount: 0,
     });
-    this.focus();
   }
 
   handleKeyPress(event) {
@@ -236,8 +222,6 @@ class MathDrill extends React.Component {
         this.setNextTask();
       }
     }
-
-    this.focus();
   }
 
   renderOptions() {
@@ -288,9 +272,9 @@ class MathDrill extends React.Component {
         hintText="Minutes"
         name="minutes"
         onChange={this.onChange}
+        style={{ width: 100, paddingLeft: 20 }}
         type="number"
         value={minutes}
-        style={{ width: 100, paddingLeft: 20 }}
       />
       <FlatButton
         label="Start"
