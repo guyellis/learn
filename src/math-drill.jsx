@@ -221,7 +221,7 @@ class MathDrill extends React.Component {
       const { previousTime = this.state.startTime } = this.state;
       const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
 
-      running.push({ task, actual, timeTaken });
+      running.push({ task, actual, timeTaken, id: running.length });
       this.setState({
         answer,
         correct,
