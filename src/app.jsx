@@ -2,7 +2,7 @@ require('bootstrap/dist/css/bootstrap.min.css');
 const React = require('react');
 const Home = require('./learn/home');
 const { Route, Redirect } = require('react-router-dom');
-const Drill = require('./learn/math/drill/math-drill');
+const Drill = require('./learn/math/drill');
 
 function app() {
   return (
