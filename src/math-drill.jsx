@@ -329,6 +329,15 @@ class MathDrill extends React.Component {
       </div>);
   }
 
+  renderFinished() {
+    return (
+      <div>
+        {'Finished'}
+        {this.state.currentAction}
+      </div>
+    );
+  }
+
   render() {
     const {
       currentAction = 'start',
