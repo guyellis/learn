@@ -1,21 +1,8 @@
 const helper = require('./helper');
 const moment = require('moment');
 const Options = require('./options');
-const QuizLine = require('./quiz-line');
 const React = require('react');
-const RunningResults = require('./running-results');
-
-const {
-  alphabet,
-  // getLowerUpper,
-  operations,
-} = helper;
-
-// const numberStyle = {
-//   fontSize: 'xx-large',
-//   margin: '10px',
-// };
-
+const Running = require('./running');
 
 function getScores() {
   let scores;
@@ -243,43 +230,27 @@ class MathDrill extends React.Component {
     const {
       answer = '',
       currentTask,
-      level = 0,
+      levelIndex,
       opIndex,
       timeLeft,
       result = '',
       running,
-    } = this.state || {};
+    } = this.state;
 
-    if (!currentTask) {
-      // eslint-disable-next-line no-console
-      console.warn('No currentTask defined in renderRunning');
-      return null;
-    }
-
-    const spanStyle = {
-      paddingLeft: 20,
-    };
     return (
-      <div>
-        <div>
-          <span style={spanStyle}>{`Level: ${alphabet[level]}`}</span>
-          <span style={spanStyle}>{`Operation: ${operations[opIndex]}`}</span>
-          <span style={spanStyle}>{`Time Left: ${timeLeft} seconds`}</span>
-        </div>
-        <div>
-          <QuizLine
-            answer={answer}
-            checkAnswer={this.checkAnswer}
-            handleKeyPress={this.handleKeyPress}
-            onChange={this.onChange}
-            problem={currentTask}
-          />
-          <RunningResults
-            result={result}
-            running={running}
-          />
-        </div>
-      </div>);
+      <Running
+        answer={answer}
+        checkAnswer={this.checkAnswer}
+        currentTask={currentTask}
+        handleKeyPress={this.handleKeyPress}
+        levelIndex={levelIndex}
+        onChange={this.onChange}
+        opIndex={opIndex}
+        result={result}
+        runningLine={running}
+        timeLeft={timeLeft}
+      />
+    );
   }
 
   renderFinished() {
