@@ -104,7 +104,7 @@ class MathDrill extends React.Component {
   setNextTask() {
     const { levelIndex, opIndex, currentTask } = this.state;
     const nextTask = helper.getLowerUpper(levelIndex, opIndex);
-
+    console.log('setNextTask', levelIndex, opIndex, nextTask);
     if (nextTask.every((item, index) => currentTask[index] === item)) {
       this.setNextTask();
     } else {
@@ -228,7 +228,7 @@ class MathDrill extends React.Component {
     // eslint-disable-next-line no-console
     console.log('state:', this.state);
     const {
-      level = 0,
+      levelIndex,
       opIndex,
       errors = {},
       minutes = 1,
@@ -240,12 +240,12 @@ class MathDrill extends React.Component {
         opacity: 0.4,
       } : {};
     // eslint-disable-next-line no-console
-    console.log('level:', level);
+    console.log('level:', levelIndex);
     return (<div style={divStyle}>
       <SelectField
         floatingLabelText="Level"
-        value={level}
-        onChange={(e, i, v) => this.setState({ level: v })}
+        value={levelIndex}
+        onChange={(e, i, v) => this.setState({ levelIndex: v })}
         name="level"
         style={{ width: 100 }}
       >
