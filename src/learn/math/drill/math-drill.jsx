@@ -1,17 +1,8 @@
-const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
-// const DoneIcon = require('material-ui/svg-icons/action/done').default;
-// const EditIcon = require('material-ui/svg-icons/editor/mode-edit').default;
-const FlatButton = require('material-ui/FlatButton').default;
-// const FloatingActionButton = require('material-ui/FloatingActionButton').default;
-const MenuItem = require('material-ui/MenuItem').default;
-const moment = require('moment');
-const React = require('react');
-// const ResetIcon = require('material-ui/svg-icons/av/replay').default;
-// const SaveIcon = require('material-ui/svg-icons/content/save').default;
-const SelectField = require('material-ui/SelectField').default;
-const TextField = require('material-ui/TextField').default;
-const QuizLine = require('./quiz-line');
 const helper = require('./helper');
+const moment = require('moment');
+const Options = require('./options');
+const QuizLine = require('./quiz-line');
+const React = require('react');
 const RunningResults = require('./running-results');
 
 const {
@@ -59,8 +50,8 @@ class MathDrill extends React.Component {
     this.save = this.save.bind(this);
     this.setNextTask = this.setNextTask.bind(this);
     this.onInterval = this.onInterval.bind(this);
+    this.setParentState = this.setParentState.bind(this);
   }
-
 
   onInterval() {
     const {
@@ -99,6 +90,10 @@ class MathDrill extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  setParentState(state) {
+    this.setState(state);
   }
 
   setNextTask() {
@@ -230,60 +225,18 @@ class MathDrill extends React.Component {
     const {
       levelIndex,
       opIndex,
-      errors = {},
-      minutes = 1,
-      currentAction,
+      minutes = '1',
     } = this.state || {};
-    const divStyle = currentAction === 'running'
-      ? {
-        pointerEvents: 'none',
-        opacity: 0.4,
-      } : {};
-    // eslint-disable-next-line no-console
-    console.log('level:', levelIndex);
-    return (<div style={divStyle}>
-      <SelectField
-        floatingLabelText="Level"
-        value={levelIndex}
-        onChange={(e, i, v) => this.setState({ levelIndex: v })}
-        name="level"
-        style={{ width: 100 }}
-      >
-        {
-          alphabet.map((letter, index) =>
-            <MenuItem key={letter} value={index} primaryText={letter} />)
-        }
-      </SelectField>
-      <SelectField
-        floatingLabelText="Operation"
-        value={opIndex}
-        onChange={(e, i, v) => this.setState({ opIndex: v })}
-        name="operation"
-        style={{ width: 100 }}
-      >
-        {
-          operations.map((operation, index) =>
-            <MenuItem key={operation} value={index} primaryText={operation} />)
-        }
-      </SelectField>
-      <TextField
-        errorText={errors.minutes}
-        floatingLabelText="Time"
-        hintText="Minutes"
-        name="minutes"
+    return (
+      <Options
+        levelIndex={levelIndex}
+        minutes={minutes}
         onChange={this.onChange}
-        style={{ width: 100, paddingLeft: 20 }}
-        type="number"
-        value={minutes}
+        onStart={this.onStart}
+        opIndex={opIndex}
+        setParentState={this.setParentState}
       />
-      <FlatButton
-        label="Start"
-        labelPosition="before"
-        primary
-        onClick={this.onStart}
-        icon={<AVPlayArrow />}
-      />
-    </div>);
+    );
   }
 
   renderRunning() {
