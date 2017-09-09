@@ -1,4 +1,4 @@
-const helper = require('../src/helper');
+const helper = require('../src/learn/math/drill/helper');
 const assert = require('assert');
 
 describe('Helper', () => {

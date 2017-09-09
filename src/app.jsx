@@ -1,10 +1,10 @@
 require('bootstrap/dist/css/bootstrap.min.css');
 const React = require('react');
-const LearnMath = require('./learn-math');
-const LearnSetup = require('./setup');
-const constants = require('./constants');
+const LearnMath = require('./learn/math/basic/learn-math');
+const LearnSetup = require('./learn/math/basic/setup');
+const constants = require('./learn/math/basic/constants');
 const { Route, Redirect } = require('react-router-dom');
-const Drill = require('./math-drill');
+const Drill = require('./learn/math/drill/math-drill');
 
 class App extends React.Component {
   constructor() {
