@@ -25,7 +25,7 @@ class MathDrill extends React.Component {
       levelIndex: 0, // A
       lower: 1,
       opIndex: 0, // +
-      running: [], // running results of quiz
+      previousResults: [], // previousResults results of quiz
       upper: 3,
     };
 
@@ -173,7 +173,7 @@ class MathDrill extends React.Component {
     const actual = parseInt(answer, 10);
     const { timeIsUp } = this.state;
     if (!isNaN(actual) && !timeIsUp) {
-      const { currentTask: task, running = [] } = this.state;
+      const { currentTask: task, previousResults = [] } = this.state;
       let { correctCount, totalCount } = this.state;
       totalCount += 1;
       const [,,, expected] = task;
@@ -185,13 +185,13 @@ class MathDrill extends React.Component {
       const { previousTime = this.state.startTime } = this.state;
       const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
 
-      running.push({ task, actual, timeTaken, id: running.length });
+      previousResults.push({ task, actual, timeTaken, id: previousResults.length });
       this.setState({
         correct,
         correctCount,
         previousTime: moment(),
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
-        running,
+        previousResults,
         totalCount,
       });
 
@@ -228,7 +228,7 @@ class MathDrill extends React.Component {
       opIndex,
       timeLeft,
       result = '',
-      running,
+      previousResults,
     } = this.state;
 
     return (
@@ -238,7 +238,7 @@ class MathDrill extends React.Component {
         levelIndex={levelIndex}
         opIndex={opIndex}
         result={result}
-        runningLine={running}
+        previousResults={previousResults}
         timeLeft={timeLeft}
       />
     );

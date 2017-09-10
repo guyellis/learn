@@ -18,8 +18,8 @@ const correctStyle = Object.assign({ color: 'green' }, lineStyle);
 const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
 
 function runningResults(props) {
-  const { running } = props;
-  const lastThree = running.slice(Math.max(0, running.length - 3)).reverse();
+  const { previousResults } = props;
+  const lastThree = previousResults.slice(Math.max(0, previousResults.length - 3)).reverse();
   const previousResultRows = lastThree.map(({ task, actual, timeTaken, id }) => {
     const [left, right, opIndex, answer] = task;
     const correct = answer === actual;
@@ -42,7 +42,12 @@ function runningResults(props) {
 }
 
 runningResults.propTypes = {
-  running: PropTypes.arrayOf(PropTypes.object).isRequired,
+  previousResults: PropTypes.arrayOf(PropTypes.shape({
+    task: PropTypes.array.isRequired, // left, right, opIndex, answer
+    actual: PropTypes.number.isRequired,
+    timeTaken: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 module.exports = runningResults;

@@ -16,7 +16,7 @@ function running(props) {
     opIndex,
     timeLeft,
     result = '',
-    runningLine,
+    previousResults,
   } = props;
 
   if (!currentTask) {
@@ -42,7 +42,7 @@ function running(props) {
         />
         <RunningResults
           result={result}
-          running={runningLine}
+          previousResults={previousResults}
         />
       </div>
     </div>);
@@ -54,7 +54,12 @@ running.propTypes = {
   levelIndex: PropTypes.number.isRequired,
   opIndex: PropTypes.number.isRequired,
   result: PropTypes.string.isRequired,
-  runningLine: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  previousResults: PropTypes.arrayOf(PropTypes.shape({
+    task: PropTypes.array.isRequired, // left, right, opIndex, answer
+    actual: PropTypes.number.isRequired,
+    timeTaken: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  })).isRequired,
   timeLeft: PropTypes.number.isRequired,
 };
 
