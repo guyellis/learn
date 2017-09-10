@@ -30,7 +30,6 @@ class MathDrill extends React.Component {
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onStart = this.onStart.bind(this);
     this.reset = this.reset.bind(this);
@@ -169,14 +168,9 @@ class MathDrill extends React.Component {
     });
   }
 
-  handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      this.checkAnswer();
-    }
-  }
 
-  checkAnswer() {
-    const actual = parseInt(this.state.answer, 10);
+  checkAnswer(answer) {
+    const actual = parseInt(answer, 10);
     const { timeIsUp } = this.state;
     if (!isNaN(actual) && !timeIsUp) {
       const { currentTask: task, running = [] } = this.state;
@@ -187,14 +181,12 @@ class MathDrill extends React.Component {
       if (correct) {
         correctCount += 1;
       }
-      const answer = '';
 
       const { previousTime = this.state.startTime } = this.state;
       const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
 
       running.push({ task, actual, timeTaken, id: running.length });
       this.setState({
-        answer,
         correct,
         correctCount,
         previousTime: moment(),
@@ -231,7 +223,6 @@ class MathDrill extends React.Component {
 
   renderRunning() {
     const {
-      answer = '',
       currentTask,
       levelIndex,
       opIndex,
@@ -242,12 +233,9 @@ class MathDrill extends React.Component {
 
     return (
       <Running
-        answer={answer}
         checkAnswer={this.checkAnswer}
         currentTask={currentTask}
-        handleKeyPress={this.handleKeyPress}
         levelIndex={levelIndex}
-        onChange={this.onChange}
         opIndex={opIndex}
         result={result}
         runningLine={running}

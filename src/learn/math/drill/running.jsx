@@ -11,7 +11,6 @@ const {
 
 function running(props) {
   const {
-    answer = '',
     currentTask,
     levelIndex,
     opIndex,
@@ -38,10 +37,7 @@ function running(props) {
       </div>
       <div>
         <QuizLine
-          answer={answer}
           checkAnswer={props.checkAnswer}
-          handleKeyPress={props.handleKeyPress}
-          onChange={props.onChange}
           problem={currentTask}
         />
         <RunningResults
@@ -53,12 +49,9 @@ function running(props) {
 }
 
 running.propTypes = {
-  answer: PropTypes.string.isRequired,
   checkAnswer: PropTypes.func.isRequired,
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  handleKeyPress: PropTypes.func.isRequired,
   levelIndex: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
   opIndex: PropTypes.number.isRequired,
   result: PropTypes.string.isRequired,
   runningLine: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types

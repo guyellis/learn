@@ -21,43 +21,70 @@ const textStyle = {
 const inputStyle = {
   textAlign: 'center',
 };
-function quizLine(props) {
-  const [left, right, opIndex] = props.problem;
-  const operator = ['+', '-', 'x', '/'][opIndex];
-  return (
-    <div>
-      <span style={numberStyle}>{left}</span>
-      <span style={numberStyle}>{operator}</span>
-      <span style={numberStyle}>{right}</span>
-      <span style={numberStyle}>{'='}</span>
-      <TextField
-        autoFocus
-        hintText=""
-        inputStyle={inputStyle}
-        name="answer"
-        onChange={props.onChange}
-        onKeyPress={props.handleKeyPress}
-        style={textStyle}
-        type="number"
-        value={props.answer}
-      />
-      <FloatingActionButton
-        onClick={props.checkAnswer}
-        title="Check Answer"
-        style={checkStyle}
-      >
-        <DoneIcon />
-      </FloatingActionButton>
-    </div>
-  );
+
+class QuizLine extends React.Component {
+  constructor() {
+    super();
+    this.onChange = this.onChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.checkAnswer = this.checkAnswer.bind(this);
+    this.state = { answer: '' };
+  }
+
+  onChange(e) {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  checkAnswer() {
+    this.props.checkAnswer(this.state.answer);
+    this.setState({
+      answer: '',
+    });
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.checkAnswer();
+    }
+  }
+  render() {
+    const [left, right, opIndex] = this.props.problem;
+    const operator = ['+', '-', 'x', '/'][opIndex];
+    return (
+      <div>
+        <span style={numberStyle}>{left}</span>
+        <span style={numberStyle}>{operator}</span>
+        <span style={numberStyle}>{right}</span>
+        <span style={numberStyle}>{'='}</span>
+        <TextField
+          autoFocus
+          hintText=""
+          inputStyle={inputStyle}
+          name="answer"
+          onChange={this.onChange}
+          onKeyPress={this.handleKeyPress}
+          style={textStyle}
+          type="number"
+          value={this.state.answer}
+        />
+        <FloatingActionButton
+          onClick={this.checkAnswer}
+          title="Check Answer"
+          style={checkStyle}
+        >
+          <DoneIcon />
+        </FloatingActionButton>
+      </div>
+    );
+  }
 }
 
-quizLine.propTypes = {
-  answer: PropTypes.string.isRequired,
+QuizLine.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
-  handleKeyPress: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
   problem: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
-module.exports = quizLine;
+module.exports = QuizLine;
