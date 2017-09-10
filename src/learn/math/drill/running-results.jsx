@@ -46,10 +46,10 @@ function runningResults(props) {
 
 runningResults.propTypes = {
   previousResults: PropTypes.arrayOf(PropTypes.shape({
-    task: PropTypes.array.isRequired, // left, right, opIndex, answer
     actual: PropTypes.number.isRequired,
-    timeTaken: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
+    task: PropTypes.array.isRequired, // left, right, opIndex, answer
+    timeTaken: PropTypes.number.isRequired,
   })).isRequired,
   showIndex: PropTypes.bool,
 };

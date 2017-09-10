@@ -16,8 +16,9 @@ const {
 function options(props) {
   const {
     levelIndex,
-    opIndex,
     minutes,
+    onscreenKeyboard,
+    opIndex,
     totalProblems,
   } = props;
 
@@ -70,11 +71,11 @@ function options(props) {
     </div>
     <div>
       <Toggle
-        defaultToggled={props.onscreenKeyboard}
         label="Use onscreen keyboard"
         labelPosition="right"
         name="onscreenKeyboard"
         onToggle={props.onChange}
+        toggled={onscreenKeyboard}
       />
     </div>
     <div>

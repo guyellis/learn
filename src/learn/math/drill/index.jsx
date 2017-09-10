@@ -76,7 +76,9 @@ class MathDrill extends React.Component {
   }
 
   onChange(e) {
-    const { name, value } = e.target;
+    const { name } = e.target;
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
     this.setState({
       [name]: value,
     });
@@ -178,6 +180,7 @@ class MathDrill extends React.Component {
       opIndex,
       totalProblems,
     } = this.state || {};
+
     return (
       <Options
         levelIndex={levelIndex}

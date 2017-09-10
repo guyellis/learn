@@ -3,7 +3,6 @@ const PropTypes = require('prop-types');
 const QuizLine = require('./quiz-line');
 const React = require('react');
 const RunningResults = require('./running-results');
-const Keyboard = require('./keyboard');
 
 const {
   alphabet,
@@ -46,10 +45,8 @@ function running(props) {
       <div>
         <QuizLine
           checkAnswer={props.checkAnswer}
-          problem={currentTask}
-        />
-        <Keyboard
           onscreenKeyboard={onscreenKeyboard}
+          problem={currentTask}
         />
         <RunningResults
           previousResults={lastThree}
