@@ -16,6 +16,7 @@ function running(props) {
     opIndex,
     timeLeft,
     previousResults,
+    questionsRemaining,
   } = props;
 
   if (!currentTask) {
@@ -35,7 +36,10 @@ function running(props) {
       <div>
         <span style={spanStyle}>{`Level: ${alphabet[levelIndex]}`}</span>
         <span style={spanStyle}>{`Operation: ${operations[opIndex]}`}</span>
+      </div>
+      <div>
         <span style={spanStyle}>{`Time Left: ${timeLeft} seconds`}</span>
+        <span style={spanStyle}>{`Questions Remaining: ${questionsRemaining}`}</span>
       </div>
       <div>
         <QuizLine
@@ -44,6 +48,7 @@ function running(props) {
         />
         <RunningResults
           previousResults={lastThree}
+          showIndex
         />
       </div>
     </div>);
@@ -60,6 +65,7 @@ running.propTypes = {
     timeTaken: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,
+  questionsRemaining: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
 };
 

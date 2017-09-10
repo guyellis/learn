@@ -18,12 +18,16 @@ const correctStyle = Object.assign({ color: 'green' }, lineStyle);
 const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
 
 function runningResults(props) {
-  const { previousResults } = props;
+  const { previousResults, showIndex } = props;
   const previousResultRows = previousResults.map(({ task, actual, timeTaken, id }) => {
     const [left, right, opIndex, answer] = task;
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
     return (<div key={id} style={style}>
+      {
+        showIndex &&
+        <span style={spanStyle}>{`${id + 1})`}</span>
+      }
       <span style={spanStyle}>{left}</span>
       <span style={spanStyle}>{operations[opIndex]}</span>
       <span style={spanStyle}>{right}</span>
@@ -47,6 +51,11 @@ runningResults.propTypes = {
     timeTaken: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,
+  showIndex: PropTypes.bool,
+};
+
+runningResults.defaultProps = {
+  showIndex: false,
 };
 
 module.exports = runningResults;

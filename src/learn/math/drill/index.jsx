@@ -58,7 +58,7 @@ class MathDrill extends React.Component {
 
   onStart() {
     this.setNextTask();
-    const { minutes = '1' } = this.state;
+    const { minutes = '1', totalProblems } = this.state;
     const seconds = parseFloat(minutes, 10) * 60;
     const startTime = moment();
     const endTime = moment().add(seconds, 'seconds');
@@ -70,6 +70,7 @@ class MathDrill extends React.Component {
       timerId,
       seconds,
       timeLeft: seconds,
+      questionsRemaining: parseInt(totalProblems, 10),
     });
   }
 
@@ -130,8 +131,8 @@ class MathDrill extends React.Component {
 
   checkAnswer(answer) {
     const actual = parseInt(answer, 10);
-    let { currentAction } = this.state;
-    const { totalProblems } = this.state;
+    let { currentAction, totalProblems } = this.state;
+    totalProblems = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
       let { correctCount = 0, totalCount } = this.state;
@@ -142,7 +143,7 @@ class MathDrill extends React.Component {
         correctCount += 1;
       }
 
-      if (correctCount === parseInt(totalProblems, 10)) {
+      if (correctCount === totalProblems) {
         clearInterval(this.state.timerId);
         currentAction = 'finished';
       }
@@ -159,6 +160,7 @@ class MathDrill extends React.Component {
         previousResults,
         totalCount,
         currentAction,
+        questionsRemaining: totalProblems - correctCount,
       });
 
       if (correct) {
@@ -194,6 +196,7 @@ class MathDrill extends React.Component {
       opIndex,
       timeLeft,
       previousResults,
+      questionsRemaining,
     } = this.state;
 
     return (
@@ -204,6 +207,7 @@ class MathDrill extends React.Component {
         opIndex={opIndex}
         previousResults={previousResults}
         timeLeft={timeLeft}
+        questionsRemaining={questionsRemaining}
       />
     );
   }
