@@ -34,8 +34,6 @@ class MathDrill extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onStart = this.onStart.bind(this);
-    this.reset = this.reset.bind(this);
-    this.runningTotal = this.runningTotal.bind(this);
     this.save = this.save.bind(this);
     this.setNextTask = this.setNextTask.bind(this);
     this.onInterval = this.onInterval.bind(this);
@@ -47,14 +45,13 @@ class MathDrill extends React.Component {
       endTime,
     } = this.state;
     const timeLeft = Math.round(endTime.diff(moment()) / 1000);
-    const timeIsUp = timeLeft <= 0;
-    if (timeIsUp) {
+    let { currentAction } = this.state;
+    if (timeLeft <= 0) {
       clearInterval(this.state.timerId);
+      currentAction = 'finished';
     }
-    const currentAction = timeIsUp ? 'finished' : this.state.currentAction;
     this.setState({
       currentAction,
-      timeIsUp,
       timeLeft,
     });
   }
@@ -90,7 +87,7 @@ class MathDrill extends React.Component {
   setNextTask() {
     const { levelIndex, opIndex, currentTask } = this.state;
     const nextTask = helper.getLowerUpper(levelIndex, opIndex);
-    console.log('setNextTask', levelIndex, opIndex, nextTask);
+
     if (nextTask.every((item, index) => currentTask[index] === item)) {
       this.setNextTask();
     } else {
@@ -98,30 +95,6 @@ class MathDrill extends React.Component {
         currentTask: nextTask,
       });
     }
-  }
-
-  getExpected(left, right) {
-    switch (this.state.opIndex) {
-      case 0:
-        return left + right;
-      case 1:
-        return left - right;
-      case 2:
-        return left * right;
-      case 3:
-        return left / right;
-      default:
-        return 0;
-    }
-  }
-
-  isSameProblem(left, right) {
-    if (this.state.upper - this.state.lower < 3) {
-      return false;
-    }
-    const newNumbers = [left, right].sort();
-    const oldNumbers = [this.state.left, this.state.right].sort();
-    return newNumbers[0] === oldNumbers[0] && newNumbers[1] === oldNumbers[1];
   }
 
   save() {
@@ -155,26 +128,11 @@ class MathDrill extends React.Component {
     }
   }
 
-
-  runningTotal() {
-    const { correctCount, totalCount, startTime } = this.state;
-    const seconds = Math.round((Date.now() - startTime) / 1000);
-    return `${correctCount} / ${totalCount}  (${seconds}s)`;
-  }
-
-  reset() {
-    this.setState({
-      startTime: Date.now(),
-      correctCount: 0,
-      totalCount: 0,
-    });
-  }
-
-
   checkAnswer(answer) {
     const actual = parseInt(answer, 10);
-    const { timeIsUp } = this.state;
-    if (!isNaN(actual) && !timeIsUp) {
+    let { currentAction } = this.state;
+    const { totalProblems } = this.state;
+    if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
       let { correctCount, totalCount } = this.state;
       totalCount += 1;
@@ -182,6 +140,11 @@ class MathDrill extends React.Component {
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
+      }
+
+      if (correctCount === totalProblems) {
+        clearInterval(this.state.timerId);
+        currentAction = 'finished';
       }
 
       const { previousTime = this.state.startTime } = this.state;
@@ -195,6 +158,7 @@ class MathDrill extends React.Component {
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
         previousResults,
         totalCount,
+        currentAction,
       });
 
       if (correct) {
@@ -204,8 +168,6 @@ class MathDrill extends React.Component {
   }
 
   renderOptions() {
-    // eslint-disable-next-line no-console
-    console.log('state:', this.state);
     const {
       levelIndex,
       minutes,

@@ -13,16 +13,13 @@ const {
 } = helper;
 
 function options(props) {
-  // eslint-disable-next-line no-console
-  console.log('props:', props);
   const {
     levelIndex,
     opIndex,
     minutes,
     totalProblems,
   } = props;
-    // eslint-disable-next-line no-console
-  console.log('level:', levelIndex);
+
   return (<div>
     <div>
       <SelectField
