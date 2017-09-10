@@ -19,50 +19,66 @@ function options(props) {
     levelIndex,
     opIndex,
     minutes,
+    totalProblems,
   } = props;
     // eslint-disable-next-line no-console
   console.log('level:', levelIndex);
   return (<div>
-    <SelectField
-      floatingLabelText="Level"
-      value={levelIndex}
-      onChange={(e, i, v) => props.setParentState({ levelIndex: v })}
-      name="level"
-      style={{ width: 100 }}
-    >
-      {
-        alphabet.map((letter, index) =>
-          <MenuItem key={letter} value={index} primaryText={letter} />)
-      }
-    </SelectField>
-    <SelectField
-      floatingLabelText="Operation"
-      value={opIndex}
-      onChange={(e, i, v) => props.setParentState({ opIndex: v })}
-      name="operation"
-      style={{ width: 100 }}
-    >
-      {
-        operations.map((operation, index) =>
-          <MenuItem key={operation} value={index} primaryText={operation} />)
-      }
-    </SelectField>
-    <TextField
-      floatingLabelText="Time"
-      hintText="Minutes"
-      name="minutes"
-      onChange={props.onChange}
-      style={{ width: 100, paddingLeft: 20 }}
-      type="number"
-      value={minutes}
-    />
-    <FlatButton
-      label="Start"
-      labelPosition="before"
-      primary
-      onClick={props.onStart}
-      icon={<AVPlayArrow />}
-    />
+    <div>
+      <SelectField
+        floatingLabelText="Level"
+        value={levelIndex}
+        onChange={(e, i, v) => props.setParentState({ levelIndex: v })}
+        name="level"
+        style={{ width: 100 }}
+      >
+        {
+          alphabet.map((letter, index) =>
+            <MenuItem key={letter} value={index} primaryText={letter} />)
+        }
+      </SelectField>
+      <SelectField
+        floatingLabelText="Operation"
+        value={opIndex}
+        onChange={(e, i, v) => props.setParentState({ opIndex: v })}
+        name="operation"
+        style={{ width: 100 }}
+      >
+        {
+          operations.map((operation, index) =>
+            <MenuItem key={operation} value={index} primaryText={operation} />)
+        }
+      </SelectField>
+    </div>
+    <div>
+      <TextField
+        floatingLabelText="Time"
+        hintText="1"
+        name="minutes"
+        onChange={props.onChange}
+        style={{ width: 100, marginLeft: 20 }}
+        type="number"
+        value={minutes}
+      />
+      <TextField
+        floatingLabelText="Total Questions"
+        hintText="20"
+        name="totalProblems"
+        onChange={props.onChange}
+        style={{ width: 150, maarginLeft: 40 }}
+        type="number"
+        value={totalProblems}
+      />
+    </div>
+    <div>
+      <FlatButton
+        label="Start"
+        labelPosition="before"
+        primary
+        onClick={props.onStart}
+        icon={<AVPlayArrow />}
+      />
+    </div>
   </div>);
 }
 
@@ -74,6 +90,7 @@ options.propTypes = {
   onStart: PropTypes.func.isRequired,
   opIndex: PropTypes.number.isRequired,
   setParentState: PropTypes.func.isRequired,
+  totalProblems: PropTypes.string.isRequired,
 };
 
 module.exports = options;

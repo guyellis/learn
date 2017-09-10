@@ -27,6 +27,8 @@ class MathDrill extends React.Component {
       opIndex: 0, // +
       previousResults: [], // previousResults results of quiz
       upper: 3,
+      minutes: '1',
+      totalProblems: '20',
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
@@ -206,8 +208,9 @@ class MathDrill extends React.Component {
     console.log('state:', this.state);
     const {
       levelIndex,
+      minutes,
       opIndex,
-      minutes = '1',
+      totalProblems,
     } = this.state || {};
     return (
       <Options
@@ -217,6 +220,7 @@ class MathDrill extends React.Component {
         onStart={this.onStart}
         opIndex={opIndex}
         setParentState={this.setParentState}
+        totalProblems={totalProblems}
       />
     );
   }
@@ -247,14 +251,14 @@ class MathDrill extends React.Component {
       previousResults,
       seconds,
       timeLeft,
-      totalProblems = 20,
+      totalProblems,
     } = this.state;
     return (
       <Finished
         previousResults={previousResults}
         timeAllowed={seconds}
         timeLeft={timeLeft}
-        totalProblems={totalProblems}
+        totalProblems={parseInt(totalProblems, 10)}
       />
     );
   }
