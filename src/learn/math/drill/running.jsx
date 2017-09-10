@@ -3,6 +3,7 @@ const PropTypes = require('prop-types');
 const QuizLine = require('./quiz-line');
 const React = require('react');
 const RunningResults = require('./running-results');
+const Keyboard = require('./keyboard');
 
 const {
   alphabet,
@@ -13,10 +14,11 @@ function running(props) {
   const {
     currentTask,
     levelIndex,
+    onscreenKeyboard,
     opIndex,
-    timeLeft,
     previousResults,
     questionsRemaining,
+    timeLeft,
   } = props;
 
   if (!currentTask) {
@@ -46,6 +48,9 @@ function running(props) {
           checkAnswer={props.checkAnswer}
           problem={currentTask}
         />
+        <Keyboard
+          onscreenKeyboard={onscreenKeyboard}
+        />
         <RunningResults
           previousResults={lastThree}
           showIndex
@@ -59,6 +64,7 @@ running.propTypes = {
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   levelIndex: PropTypes.number.isRequired,
   opIndex: PropTypes.number.isRequired,
+  onscreenKeyboard: PropTypes.bool.isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     actual: PropTypes.number.isRequired,

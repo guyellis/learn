@@ -29,6 +29,7 @@ class MathDrill extends React.Component {
       upper: 3,
       minutes: '1',
       totalProblems: '20',
+      onscreenKeyboard: true,
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
@@ -173,6 +174,7 @@ class MathDrill extends React.Component {
     const {
       levelIndex,
       minutes,
+      onscreenKeyboard,
       opIndex,
       totalProblems,
     } = this.state || {};
@@ -181,6 +183,7 @@ class MathDrill extends React.Component {
         levelIndex={levelIndex}
         minutes={minutes}
         onChange={this.onChange}
+        onscreenKeyboard={onscreenKeyboard}
         onStart={this.onStart}
         opIndex={opIndex}
         setParentState={this.setParentState}
@@ -193,10 +196,11 @@ class MathDrill extends React.Component {
     const {
       currentTask,
       levelIndex,
+      onscreenKeyboard,
       opIndex,
-      timeLeft,
       previousResults,
       questionsRemaining,
+      timeLeft,
     } = this.state;
 
     return (
@@ -204,10 +208,11 @@ class MathDrill extends React.Component {
         checkAnswer={this.checkAnswer}
         currentTask={currentTask}
         levelIndex={levelIndex}
+        onscreenKeyboard={onscreenKeyboard}
         opIndex={opIndex}
         previousResults={previousResults}
-        timeLeft={timeLeft}
         questionsRemaining={questionsRemaining}
+        timeLeft={timeLeft}
       />
     );
   }

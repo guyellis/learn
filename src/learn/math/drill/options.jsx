@@ -6,6 +6,7 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const SelectField = require('material-ui/SelectField').default;
 const TextField = require('material-ui/TextField').default;
+const Toggle = require('material-ui/Toggle').default;
 
 const {
   alphabet,
@@ -68,6 +69,15 @@ function options(props) {
       />
     </div>
     <div>
+      <Toggle
+        defaultToggled={props.onscreenKeyboard}
+        label="Use onscreen keyboard"
+        labelPosition="right"
+        name="onscreenKeyboard"
+        onToggle={props.onChange}
+      />
+    </div>
+    <div>
       <FlatButton
         label="Start"
         labelPosition="before"
@@ -86,6 +96,7 @@ options.propTypes = {
   onChange: PropTypes.func.isRequired,
   onStart: PropTypes.func.isRequired,
   opIndex: PropTypes.number.isRequired,
+  onscreenKeyboard: PropTypes.bool.isRequired,
   setParentState: PropTypes.func.isRequired,
   totalProblems: PropTypes.string.isRequired,
 };
