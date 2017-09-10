@@ -76,7 +76,7 @@ function finished(props) {
     </div>
     <h4>{'The problem that took you the longest to answer'}</h4>
     <RunningResults previousResults={[longestTime]} />
-    <h4>{'The problem you answerd the fastest'}</h4>
+    <h4>{'The problem you answered the fastest'}</h4>
     <RunningResults previousResults={[shortestTime]} />
     {!!incorrects.length &&
       <div>
