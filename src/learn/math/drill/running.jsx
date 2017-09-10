@@ -15,7 +15,6 @@ function running(props) {
     levelIndex,
     opIndex,
     timeLeft,
-    result = '',
     previousResults,
   } = props;
 
@@ -28,6 +27,9 @@ function running(props) {
   const spanStyle = {
     paddingLeft: 20,
   };
+
+  const lastThree = previousResults.slice(Math.max(0, previousResults.length - 3)).reverse();
+
   return (
     <div>
       <div>
@@ -41,8 +43,7 @@ function running(props) {
           problem={currentTask}
         />
         <RunningResults
-          result={result}
-          previousResults={previousResults}
+          previousResults={lastThree}
         />
       </div>
     </div>);
@@ -53,7 +54,6 @@ running.propTypes = {
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   levelIndex: PropTypes.number.isRequired,
   opIndex: PropTypes.number.isRequired,
-  result: PropTypes.string.isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     actual: PropTypes.number.isRequired,

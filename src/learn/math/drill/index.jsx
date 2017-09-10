@@ -227,7 +227,6 @@ class MathDrill extends React.Component {
       levelIndex,
       opIndex,
       timeLeft,
-      result = '',
       previousResults,
     } = this.state;
 
@@ -237,9 +236,25 @@ class MathDrill extends React.Component {
         currentTask={currentTask}
         levelIndex={levelIndex}
         opIndex={opIndex}
-        result={result}
         previousResults={previousResults}
         timeLeft={timeLeft}
+      />
+    );
+  }
+
+  renderFinished() {
+    const {
+      previousResults,
+      seconds,
+      timeLeft,
+      totalProblems = 20,
+    } = this.state;
+    return (
+      <Finished
+        previousResults={previousResults}
+        timeAllowed={seconds}
+        timeLeft={timeLeft}
+        totalProblems={totalProblems}
       />
     );
   }
@@ -254,7 +269,7 @@ class MathDrill extends React.Component {
       case 'running':
         return this.renderRunning();
       case 'finished':
-        return (<Finished />);
+        return this.renderFinished();
       default:
         throw new Error(`Unknown currentAction ${currentAction}`);
     }

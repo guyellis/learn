@@ -19,8 +19,7 @@ const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
 
 function runningResults(props) {
   const { previousResults } = props;
-  const lastThree = previousResults.slice(Math.max(0, previousResults.length - 3)).reverse();
-  const previousResultRows = lastThree.map(({ task, actual, timeTaken, id }) => {
+  const previousResultRows = previousResults.map(({ task, actual, timeTaken, id }) => {
     const [left, right, opIndex, answer] = task;
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
