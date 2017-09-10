@@ -3,6 +3,7 @@ const moment = require('moment');
 const Options = require('./options');
 const React = require('react');
 const Running = require('./running');
+const Finished = require('./finished');
 
 function getScores() {
   let scores;
@@ -49,9 +50,11 @@ class MathDrill extends React.Component {
     if (timeIsUp) {
       clearInterval(this.state.timerId);
     }
+    const currentAction = timeIsUp ? 'finished' : this.state.currentAction;
     this.setState({
-      timeLeft,
+      currentAction,
       timeIsUp,
+      timeLeft,
     });
   }
 
@@ -253,15 +256,6 @@ class MathDrill extends React.Component {
     );
   }
 
-  renderFinished() {
-    return (
-      <div>
-        {'Finished'}
-        {this.state.currentAction}
-      </div>
-    );
-  }
-
   render() {
     const {
       currentAction = 'start',
@@ -271,6 +265,8 @@ class MathDrill extends React.Component {
         return this.renderOptions();
       case 'running':
         return this.renderRunning();
+      case 'finished':
+        return (<Finished />);
       default:
         throw new Error(`Unknown currentAction ${currentAction}`);
     }
