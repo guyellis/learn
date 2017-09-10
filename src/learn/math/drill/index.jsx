@@ -134,7 +134,7 @@ class MathDrill extends React.Component {
     const { totalProblems } = this.state;
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
-      let { correctCount, totalCount } = this.state;
+      let { correctCount = 0, totalCount } = this.state;
       totalCount += 1;
       const [,,, expected] = task;
       const correct = actual === expected;
@@ -142,7 +142,7 @@ class MathDrill extends React.Component {
         correctCount += 1;
       }
 
-      if (correctCount === totalProblems) {
+      if (correctCount === parseInt(totalProblems, 10)) {
         clearInterval(this.state.timerId);
         currentAction = 'finished';
       }
@@ -237,7 +237,9 @@ class MathDrill extends React.Component {
       case 'finished':
         return this.renderFinished();
       default:
-        throw new Error(`Unknown currentAction ${currentAction}`);
+        // eslint-disable-next-line no-console
+        console.error(`Unknown currentAction ${currentAction}`);
+        return null;
     }
   }
 }
