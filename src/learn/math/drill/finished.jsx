@@ -64,7 +64,7 @@ function finished(props) {
     shortestTime,
   } = crunchedResults;
 
-  const slowSort = previousResults.sort((a, b) => a.timeTaken < b.timeTaken);
+  const slowSort = previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
 
   return (<div>
     <h1>{'Finished'}</h1>
