@@ -23,11 +23,15 @@ const inputStyle = {
 };
 const answerStyle = Object.assign(
   {},
-  textStyle,
   {
     height: '40px',
-    width: '40px',
+    width: '60px',
+    paddingBottom: '5px',
+    paddingLeft: '5px',
     display: 'inline-flex',
+    outline: 'medium solid black',
+    outlineOffset: '5px',
+    fontSize: 'xx-large',
   });
 
 class QuizLine extends React.Component {
