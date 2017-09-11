@@ -1,5 +1,5 @@
 const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
-const FlatButton = require('material-ui/FlatButton').default;
+const RaisedButton = require('material-ui/RaisedButton').default;
 const helper = require('./helper');
 const MenuItem = require('material-ui/MenuItem').default;
 const PropTypes = require('prop-types');
@@ -79,7 +79,7 @@ function options(props) {
       />
     </div>
     <div>
-      <FlatButton
+      <RaisedButton
         label="Start"
         labelPosition="before"
         primary

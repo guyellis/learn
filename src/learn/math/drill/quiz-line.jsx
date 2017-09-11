@@ -21,7 +21,14 @@ const textStyle = {
 const inputStyle = {
   textAlign: 'center',
 };
-const answerStyle = {};
+const answerStyle = Object.assign(
+  {},
+  textStyle,
+  {
+    height: '40px',
+    width: '40px',
+    display: 'inline-flex',
+  });
 
 class QuizLine extends React.Component {
   constructor() {
@@ -117,12 +124,10 @@ class QuizLine extends React.Component {
           </FloatingActionButton>
         </div>
         <div>
-          {
-            onscreenKeyboard &&
-            <Keyboard
-              keyPress={this.keyPress}
-            />
-          }
+          <Keyboard
+            keyPress={this.keyPress}
+            onscreenKeyboard={onscreenKeyboard}
+          />
         </div>
       </div>
     );
@@ -133,7 +138,6 @@ QuizLine.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   problem: PropTypes.arrayOf(PropTypes.number).isRequired,
-
 };
 
 module.exports = QuizLine;
