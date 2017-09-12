@@ -3,9 +3,13 @@ const React = require('react');
 const { Link } = require('react-router-dom');
 const RaisedButton = require('material-ui/RaisedButton').default;
 
+const style = {
+  marginTop: '50px',
+};
+
 function home() {
   return (
-    <div>
+    <div style={style}>
       <Link to="/math/drill">
         <RaisedButton
           label="Math Drill"
