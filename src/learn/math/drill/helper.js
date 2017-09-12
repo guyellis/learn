@@ -1,15 +1,25 @@
 // A collection of helper functions
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-// const operations = ['+', '-', 'x', '/'];
-const operations = ['+', '-', 'x'];
+const operations = ['+', '-', 'x', '\u00F7'];
 
 const special1 = [...Array(9).keys()].map(a => [0, a + 1]);
 const special2 = [...Array(9).keys()].map(a => [a + 1, 0]);
 const special3 = [...Array(10).keys()].map(a => [a + 1, 0]);
 const special4 = [...Array(18).keys()].map(a => [a + 1, a + 1]);
 const special5 = [...Array(9).keys()].map(a => [1, a + 1]);
-const special6 = [...Array(9).keys()].map(a => [a + 1, 1]);
+const special6 = [...Array(9).keys()].map(a => [a + 1, 1]); // [1...9, 1]
+const special7 = [...Array(9).keys()].map(a => [a + 1, a + 1]); // [[1,1],...[9,9]]
+
+const special8 = [...Array(8).keys()].map(a => a + 1) // [2...9]
+  .reduce((acc, denominator) => {
+    let numerator = denominator - 1;
+    while (numerator > 0) {
+      acc.push([numerator, denominator]);
+      numerator -= 1;
+    }
+    return acc;
+  }, []); // [[1,2],[1,3],[2,3]...]
 
 const levelOps = [
   // Addition +
@@ -99,6 +109,36 @@ const levelOps = [
     [], // Y
     [], // Z
   ],
+  // Division /
+  [
+    special6, // A
+    special7, // B
+    [[6, 2], [6, 3], [4, 2]], // C
+    [[8, 2], [8, 4], [10, 2], [10, 5]], // D
+    [[12, 2], [12, 6], [14, 2], [14, 7]], // E
+    [[16, 2], [16, 8], [18, 2], [18, 9]], // F
+    special8, // G
+    [[27, 9], [27, 3], [36, 9], [36, 4]], // H
+    [[45, 9], [45, 5], [9, 3]], // I
+    [[54, 9], [54, 6], [16, 4]], // J
+    [[63, 9], [63, 7], [25, 5]], // K
+    [[72, 9], [72, 8], [36, 6]], // L
+    [[12, 3], [12, 4], [49, 7]], // M
+    [[15, 3], [15, 5], [64, 8]], // N
+    [[18, 3], [18, 6], [81, 9]], // O
+    [[21, 3], [21, 7], [24, 3], [24, 8]], // P
+    [[56, 8], [56, 7], [48, 8], [48, 6]], // Q
+    [[40, 8], [40, 5], [32, 8], [32, 4]], // R
+    [[42, 7], [42, 6], [35, 7], [35, 5]], // S
+    [[28, 7], [28, 4], [30, 6], [30, 5]], // T
+    [[20, 4], [20, 5], [24, 6], [24, 4]], // U
+    [], // V
+    [], // W
+    [], // X
+    [], // Y
+    [], // Z
+  ],
+
 ];
 
 
@@ -111,7 +151,9 @@ function calculateAnswer([left, right], opIndex) {
     case 2:
       return left * right;
     case 3:
-      return left / right;
+      // When numerator is greater than denominator we're going to treat
+      // it as a zero
+      return Math.floor(left / right);
     default:
       return 0;
   }
