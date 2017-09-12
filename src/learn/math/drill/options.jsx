@@ -1,8 +1,9 @@
 const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
-const RaisedButton = require('material-ui/RaisedButton').default;
+const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 const helper = require('./helper');
 const MenuItem = require('material-ui/MenuItem').default;
 const PropTypes = require('prop-types');
+const RaisedButton = require('material-ui/RaisedButton').default;
 const React = require('react');
 const SelectField = require('material-ui/SelectField').default;
 const TextField = require('material-ui/TextField').default;
@@ -12,6 +13,14 @@ const {
   alphabet,
   operations,
 } = helper;
+
+const buttonStyle = {
+  margin: '5px',
+  fontSize: '2em',
+};
+const buttonIconStyle = {
+  color: 'white',
+};
 
 function options(props) {
   const {
@@ -24,18 +33,22 @@ function options(props) {
 
   return (<div>
     <div>
-      <SelectField
-        floatingLabelText="Level"
-        value={levelIndex}
-        onChange={(e, i, v) => props.setParentState({ levelIndex: v })}
-        name="level"
-        style={{ width: 100 }}
-      >
+      <div>
+        <h2>{'Level'}</h2>
         {
-          alphabet.map((letter, index) =>
-            <MenuItem key={letter} value={index} primaryText={letter} />)
+          alphabet.map((letter, index) => (
+            <FloatingActionButton
+              iconStyle={buttonIconStyle}
+              key={letter}
+              onClick={() => props.setParentState({ levelIndex: index })}
+              secondary={index === levelIndex}
+              style={buttonStyle}
+              title={letter}
+            >
+              {letter}
+            </FloatingActionButton>))
         }
-      </SelectField>
+      </div>
       <SelectField
         floatingLabelText="Operation"
         value={opIndex}
