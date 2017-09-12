@@ -5,37 +5,54 @@ const React = require('react');
 const Running = require('./running');
 const Finished = require('./finished');
 
-function getScores() {
-  let scores;
-  try {
-    scores = JSON.parse(localStorage.getItem('scores') || '[]');
-  } catch (e) {
-    scores = [];
-  }
-  return scores;
-}
-
 class MathDrill extends React.Component {
+  static save(keyValuePair) {
+    let options = localStorage.getItem('mathDrillOptions');
+    if (!options || !keyValuePair || !keyValuePair.hasOwnProperty) {
+      return;
+    }
+    options = JSON.parse(options);
+    Object.keys(options).forEach((key) => {
+      if (Object.prototype.hasOwnProperty.call(keyValuePair, key)) {
+        options[key] = keyValuePair[key];
+      }
+    });
+
+    localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+  }
+
   constructor() {
     super();
+
+    localStorage.getItem('mathDrillOptions');
+    let options = localStorage.getItem('mathDrillOptions');
+    if (options) {
+      options = JSON.parse(options);
+    } else {
+      options = {
+        levelIndex: 0, // A
+        minutes: '1',
+        onscreenKeyboard: true,
+        opIndex: 0, // +
+        totalProblems: '20',
+      };
+      localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+    }
 
     // TODO: opIndex, levelIndex to localStorage and restore at startup
     this.state = {
       currentTask: [],
-      levelIndex: 0, // A
-      lower: 1,
-      opIndex: 0, // +
+      levelIndex: options.levelIndex,
+      minutes: options.minutes,
+      onscreenKeyboard: options.onscreenKeyboard,
+      opIndex: options.opIndex,
       previousResults: [], // previousResults results of quiz
-      upper: 3,
-      minutes: '1',
-      totalProblems: '20',
-      onscreenKeyboard: true,
+      totalProblems: options.totalProblems,
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onStart = this.onStart.bind(this);
-    this.save = this.save.bind(this);
     this.setNextTask = this.setNextTask.bind(this);
     this.onInterval = this.onInterval.bind(this);
     this.setParentState = this.setParentState.bind(this);
@@ -78,14 +95,14 @@ class MathDrill extends React.Component {
   onChange(e) {
     const { name } = e.target;
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-
-    this.setState({
-      [name]: value,
-    });
+    const kvp = { [name]: value };
+    this.setState(kvp);
+    MathDrill.save(kvp);
   }
 
   setParentState(state) {
     this.setState(state);
+    MathDrill.save(state);
   }
 
   setNextTask() {
@@ -98,37 +115,6 @@ class MathDrill extends React.Component {
       this.setState({
         currentTask: nextTask,
       });
-    }
-  }
-
-  save() {
-    const {
-      startTime,
-      correctCount,
-      totalCount,
-    } = this.state;
-    if (totalCount) {
-      const scores = getScores();
-      const {
-        lower,
-        sign,
-        upper,
-      } = this.state;
-      scores.unshift({
-        correctCount,
-        date: new Date().toISOString(),
-        lower,
-        sign,
-        time: Math.round((Date.now() - startTime) / 1000),
-        totalCount,
-        upper,
-      });
-      if (scores.length > 10) {
-        scores.pop();
-      }
-      localStorage.setItem('scores', JSON.stringify(scores));
-      this.setState({ scores });
-      this.reset();
     }
   }
 
