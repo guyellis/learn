@@ -173,7 +173,7 @@ class LearnMath extends React.Component {
   runningTotal() {
     const { correctCount, totalCount, startTime } = this.state;
     const seconds = Math.round((Date.now() - startTime) / 1000);
-    return `${correctCount} / ${totalCount}  (${seconds}s)`;
+    return `${correctCount} / ${totalCount}  (${seconds} seconds)`;
   }
 
   reset() {
@@ -248,7 +248,7 @@ class LearnMath extends React.Component {
         <TableRowColumn>{score.lower}</TableRowColumn>
         <TableRowColumn>{score.upper}</TableRowColumn>
         <TableRowColumn>{score.sign}</TableRowColumn>
-        <TableRowColumn>{`${score.time}s`}</TableRowColumn>
+        <TableRowColumn>{`${score.time} seconds`}</TableRowColumn>
         <TableRowColumn>{score.correctCount}</TableRowColumn>
         <TableRowColumn>{score.totalCount}</TableRowColumn>
       </TableRow>));

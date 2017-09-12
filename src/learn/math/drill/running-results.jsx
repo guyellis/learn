@@ -34,7 +34,7 @@ function runningResults(props) {
       <span style={spanStyle}>{'='}</span>
       <span style={inABox}>{actual}</span>
       <span style={spanStyle}>{correct ? check : xmark}</span>
-      <span style={spanStyle}>{`${timeTaken}s`}</span>
+      <span style={spanStyle}>{`${timeTaken} seconds`}</span>
     </div>);
   });
   return (

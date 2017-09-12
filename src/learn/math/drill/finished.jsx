@@ -69,7 +69,7 @@ function finished(props) {
   return (<div>
     <h1>{'Finished'}</h1>
     <div>
-      {`You had ${timeLeft}s left out of the ${timeAllowed}s allowed.`}
+      {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
     </div>
     <div>
       {`You correctly answered ${correctCount} of the ${totalProblems} problems.`}
