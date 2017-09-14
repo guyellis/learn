@@ -28,6 +28,10 @@ class MathDrill extends React.Component {
     let options = localStorage.getItem('mathDrillOptions');
     if (options) {
       options = JSON.parse(options);
+      if (typeof options.userName !== 'string') {
+        options.userName = '';
+        localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+      }
       if (options.opIndex) {
         options.opIndexes = [options.opIndex];
         delete options.opIndex;
@@ -40,6 +44,7 @@ class MathDrill extends React.Component {
         onscreenKeyboard: true,
         opIndexes: [0], // +
         totalProblems: '20',
+        userName: '',
       };
       localStorage.setItem('mathDrillOptions', JSON.stringify(options));
     }
@@ -52,6 +57,7 @@ class MathDrill extends React.Component {
       opIndexes: options.opIndexes,
       previousResults: [], // previousResults results of quiz
       totalProblems: options.totalProblems,
+      userName: options.userName,
     };
 
     this.checkAnswer = this.checkAnswer.bind(this);
@@ -169,6 +175,7 @@ class MathDrill extends React.Component {
       onscreenKeyboard,
       opIndexes,
       totalProblems,
+      userName,
     } = this.state || {};
 
     return (
@@ -181,6 +188,7 @@ class MathDrill extends React.Component {
         opIndexes={opIndexes}
         setParentState={this.setParentState}
         totalProblems={totalProblems}
+        userName={userName}
       />
     );
   }

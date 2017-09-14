@@ -31,8 +31,9 @@ function options(props) {
     minutes,
     onscreenKeyboard,
     opIndexes,
-    totalProblems,
     setParentState,
+    totalProblems,
+    userName,
   } = props;
 
   function toggleOpIndex(opIndex) {
@@ -124,6 +125,18 @@ function options(props) {
         />
       </div>
       <div style={sectionStyle}>
+        <h3>{'Your Name'}</h3>
+        <TextField
+          floatingLabelText="Your Name"
+          hintText="Jemima Puddle-Duck"
+          name="userName"
+          onChange={props.onChange}
+          style={{ width: 250, maarginLeft: 40 }}
+          type="text"
+          value={userName}
+        />
+      </div>
+      <div style={sectionStyle}>
         <RaisedButton
           label="Start"
           labelPosition="before"
@@ -132,6 +145,7 @@ function options(props) {
           icon={<AVPlayArrow />}
         />
       </div>
+      <div style={sectionStyle} />
     </div>);
 }
 
@@ -140,11 +154,12 @@ options.propTypes = {
   levelIndex: PropTypes.number.isRequired,
   minutes: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onscreenKeyboard: PropTypes.bool.isRequired,
   onStart: PropTypes.func.isRequired,
   opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
   setParentState: PropTypes.func.isRequired,
   totalProblems: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
 };
 
 module.exports = options;
