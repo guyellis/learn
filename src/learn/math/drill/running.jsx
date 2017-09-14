@@ -14,7 +14,7 @@ function running(props) {
     currentTask,
     levelIndex,
     onscreenKeyboard,
-    opIndex,
+    opIndexes,
     previousResults,
     questionsRemaining,
     timeLeft,
@@ -36,7 +36,7 @@ function running(props) {
     <div>
       <div>
         <span style={spanStyle}>{`Level: ${alphabet[levelIndex]}`}</span>
-        <span style={spanStyle}>{`Operation: ${operations[opIndex]}`}</span>
+        <span style={spanStyle}>{`Operation(s): ${opIndexes.map(i => operations[i]).join()}`}</span>
       </div>
       <div>
         <span style={spanStyle}>{`Time Left: ${timeLeft} seconds`}</span>
@@ -60,7 +60,7 @@ running.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   levelIndex: PropTypes.number.isRequired,
-  opIndex: PropTypes.number.isRequired,
+  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer

@@ -30,10 +30,26 @@ function options(props) {
     levelIndex,
     minutes,
     onscreenKeyboard,
-    opIndex,
+    opIndexes,
     totalProblems,
     setParentState,
   } = props;
+
+  function toggleOpIndex(opIndex) {
+    const position = props.opIndexes.indexOf(opIndex);
+    let operatIndexes;
+    if (position >= 0) {
+      operatIndexes = props.opIndexes;
+      if (props.opIndexes.length > 1) {
+        // Don't allow count to fall under 1
+        operatIndexes.splice(position, 1);
+      }
+    } else {
+      operatIndexes = props.opIndexes.concat(opIndex);
+    }
+
+    props.setParentState({ opIndexes: operatIndexes });
+  }
 
   return (
     <div>
@@ -63,8 +79,8 @@ function options(props) {
               <FloatingActionButton
                 iconStyle={buttonIconStyle}
                 key={operation}
-                onClick={() => setParentState({ opIndex: index })}
-                secondary={index === opIndex}
+                onClick={() => toggleOpIndex(index)}
+                secondary={opIndexes.includes(index)}
                 style={buttonStyle}
                 title={operation}
               >
@@ -125,7 +141,7 @@ options.propTypes = {
   minutes: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onStart: PropTypes.func.isRequired,
-  opIndex: PropTypes.number.isRequired,
+  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   setParentState: PropTypes.func.isRequired,
   totalProblems: PropTypes.string.isRequired,

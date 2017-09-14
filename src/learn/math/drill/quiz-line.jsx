@@ -4,23 +4,30 @@ const Keyboard = require('./keyboard');
 const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
+const helper = require('./helper');
+
+const { operations } = helper;
 
 const numberStyle = {
   fontSize: 'xx-large',
   margin: '10px',
 };
+
 const checkStyle = {
   margin: '10px',
 };
+
 const textStyle = {
   border: 'medium solid black',
   height: '80px',
   width: '80px',
   fontSize: 'xx-large',
 };
+
 const inputStyle = {
   textAlign: 'center',
 };
+
 const answerStyle = Object.assign(
   {},
   {
@@ -94,7 +101,7 @@ class QuizLine extends React.Component {
     const { answer } = this.state;
     const { onscreenKeyboard, problem } = this.props;
     const [left, right, opIndex] = problem;
-    const operator = ['+', '-', 'x', '/'][opIndex];
+    const operator = operations[opIndex];
     return (
       <div>
         <div>
@@ -105,7 +112,7 @@ class QuizLine extends React.Component {
           {
             onscreenKeyboard
               ? <span style={answerStyle}>
-                {answer}
+                {answer || '?'}
               </span>
               : <TextField
                 autoFocus

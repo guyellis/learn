@@ -28,24 +28,28 @@ class MathDrill extends React.Component {
     let options = localStorage.getItem('mathDrillOptions');
     if (options) {
       options = JSON.parse(options);
+      if (options.opIndex) {
+        options.opIndexes = [options.opIndex];
+        delete options.opIndex;
+        localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+      }
     } else {
       options = {
         levelIndex: 0, // A
         minutes: '1',
         onscreenKeyboard: true,
-        opIndex: 0, // +
+        opIndexes: [0], // +
         totalProblems: '20',
       };
       localStorage.setItem('mathDrillOptions', JSON.stringify(options));
     }
 
-    // TODO: opIndex, levelIndex to localStorage and restore at startup
     this.state = {
       currentTask: [],
       levelIndex: options.levelIndex,
       minutes: options.minutes,
       onscreenKeyboard: options.onscreenKeyboard,
-      opIndex: options.opIndex,
+      opIndexes: options.opIndexes,
       previousResults: [], // previousResults results of quiz
       totalProblems: options.totalProblems,
     };
@@ -106,8 +110,8 @@ class MathDrill extends React.Component {
   }
 
   setNextTask() {
-    const { levelIndex, opIndex, currentTask } = this.state;
-    const nextTask = helper.getLowerUpper(levelIndex, opIndex);
+    const { levelIndex, opIndexes, currentTask } = this.state;
+    const nextTask = helper.getLowerUpper(levelIndex, opIndexes);
 
     if (nextTask.every((item, index) => currentTask[index] === item)) {
       this.setNextTask();
@@ -163,7 +167,7 @@ class MathDrill extends React.Component {
       levelIndex,
       minutes,
       onscreenKeyboard,
-      opIndex,
+      opIndexes,
       totalProblems,
     } = this.state || {};
 
@@ -174,7 +178,7 @@ class MathDrill extends React.Component {
         onChange={this.onChange}
         onscreenKeyboard={onscreenKeyboard}
         onStart={this.onStart}
-        opIndex={opIndex}
+        opIndexes={opIndexes}
         setParentState={this.setParentState}
         totalProblems={totalProblems}
       />
@@ -186,7 +190,7 @@ class MathDrill extends React.Component {
       currentTask,
       levelIndex,
       onscreenKeyboard,
-      opIndex,
+      opIndexes,
       previousResults,
       questionsRemaining,
       timeLeft,
@@ -198,7 +202,7 @@ class MathDrill extends React.Component {
         currentTask={currentTask}
         levelIndex={levelIndex}
         onscreenKeyboard={onscreenKeyboard}
-        opIndex={opIndex}
+        opIndexes={opIndexes}
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}
         timeLeft={timeLeft}

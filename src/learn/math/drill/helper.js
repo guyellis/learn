@@ -162,9 +162,12 @@ function calculateAnswer([left, right], opIndex) {
 /**
  * 
  * @param {number} levelIndex - 0 through 25 - each letter of the alphabet
- * @param {number} opIndex - 0 through 3 - operators +, -, *, /
+ * @param {number[]} opIndexes - An array of 0 through 3 - operators +, -, *, /
  */
-function getLowerUpper(levelIndexParam, opIndex) {
+function getLowerUpper(levelIndexParam, opIndexes) {
+  // Pick a random value from the opIndexes array
+  const opIndex = opIndexes[Math.floor(Math.random() * opIndexes.length)];
+
   // Pick a collection of levels based on the opIndex
   const levels = levelOps[opIndex].filter(level => !!level.length);
   // Some of the last few levels are intentionally empty because it's just a repeat of
