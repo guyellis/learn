@@ -55,16 +55,30 @@ function finished(props) {
       longestTime,
       shortestTime,
     };
-  }, { correctCount: 0, incorrects: [], longestTime: null, shortestTime: null });
+  }, { correctCount: 0, incorrects: [] });
 
   const {
     incorrects,
     correctCount,
-    longestTime,
-    shortestTime,
+    longestTime: long,
+    shortestTime: short,
   } = crunchedResults;
 
+  const longestTime = long ? [long] : [];
+  const shortestTime = short ? [short] : [];
+
   const slowSort = previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
+
+  if (!longestTime.length) {
+    return (
+      <div>
+        <h1>{'Finished'}</h1>
+        <div>
+          {'Looks like you didn\'t get a chance to do anything that round!'}
+        </div>
+      </div>
+    );
+  }
 
   return (<div>
     <h1>{'Finished'}</h1>
@@ -75,9 +89,9 @@ function finished(props) {
       {`You correctly answered ${correctCount} of the ${totalProblems} problems.`}
     </div>
     <h4>{'The problem that took you the longest to answer'}</h4>
-    <RunningResults previousResults={[longestTime]} />
+    <RunningResults previousResults={longestTime} />
     <h4>{'The problem you answered the fastest'}</h4>
-    <RunningResults previousResults={[shortestTime]} />
+    <RunningResults previousResults={shortestTime} />
     {!!incorrects.length &&
       <div>
         <h4>{'The ones that you got wrong'}</h4>
