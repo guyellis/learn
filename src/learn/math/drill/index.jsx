@@ -1,41 +1,40 @@
+const db = require('../../db');
+const Finished = require('./finished');
 const helper = require('./helper');
 const moment = require('moment');
 const Options = require('./options');
 const React = require('react');
 const Running = require('./running');
-const Finished = require('./finished');
 
 class MathDrill extends React.Component {
   static save(keyValuePair) {
-    let options = localStorage.getItem('mathDrillOptions');
+    const options = db.getOptions();
     if (!options || !keyValuePair || !keyValuePair.hasOwnProperty) {
       return;
     }
-    options = JSON.parse(options);
+
     Object.keys(options).forEach((key) => {
       if (Object.prototype.hasOwnProperty.call(keyValuePair, key)) {
         options[key] = keyValuePair[key];
       }
     });
 
-    localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+    db.saveOptions(options);
   }
 
   constructor() {
     super();
 
-    localStorage.getItem('mathDrillOptions');
-    let options = localStorage.getItem('mathDrillOptions');
+    let options = db.getOptions();
     if (options) {
-      options = JSON.parse(options);
       if (typeof options.userName !== 'string') {
         options.userName = '';
-        localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+        db.saveOptions(options);
       }
       if (options.opIndex) {
         options.opIndexes = [options.opIndex];
         delete options.opIndex;
-        localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+        db.saveOptions(options);
       }
     } else {
       options = {
@@ -46,7 +45,7 @@ class MathDrill extends React.Component {
         totalProblems: '20',
         userName: '',
       };
-      localStorage.setItem('mathDrillOptions', JSON.stringify(options));
+      db.saveOptions(options);
     }
 
     this.state = {
