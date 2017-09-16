@@ -220,7 +220,10 @@ function appendScore(results) {
   const key = levelIndex.toString() + opIndexes.join('');
   const completed = questionsRemaining === 0;
   const timeTaken = (minutes * 60) - timeLeft;
-  const timePerQuestion = parseFloat((timeTaken / correctCount).toFixed(1));
+
+  const timePerQuestion = correctCount === 0
+    ? NaN
+    : parseFloat((timeTaken / correctCount).toFixed(1));
   const incorrectCount = previousResults.length - correctCount;
   const date = Date.now();
 
@@ -248,12 +251,19 @@ function appendScore(results) {
 
   const resultInfo = {};
 
-  // 4 scenarios
+  // 5 scenarios
   // 1. No matching problems - first time this test has been done.
   // 2. Equals previous high score
   // 3. Beats previous high score
   // 4. Worse than previous high score
-  if (matchingProblems.length) {
+  // 5. Zero questions answered
+  if (isNaN(timePerQuestion)) {
+    resultInfo.text =
+`You didn't answer any questions correctly so we are not going to use this score \
+as part of your high scores. If you are struggling with these problems then try an \
+easier level or an ${'easier'} operator.`;
+    resultInfo.newRecordInfo = RECORD_MISS;
+  } else if (matchingProblems.length) {
     const { timePerQuestion: bestTimePerQuestion } = matchingProblems[0];
     if (timePerQuestion === bestTimePerQuestion) {
       resultInfo.text =
@@ -282,7 +292,9 @@ beat this score. Good luck!`;
     resultInfo.newRecordInfo = RECORD_NOT_EXIST;
   }
 
-  matchingProblems.push(record);
+  if (!isNaN(timePerQuestion)) {
+    matchingProblems.push(record);
+  }
   db.saveScores(matchingProblems);
 
   return resultInfo;
