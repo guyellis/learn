@@ -72,15 +72,13 @@ class MathDrill extends React.Component {
       endTime,
     } = this.state;
     const timeLeft = Math.round(endTime.diff(moment()) / 1000);
-    let { currentAction } = this.state;
     if (timeLeft <= 0) {
-      clearInterval(this.state.timerId);
-      currentAction = 'finished';
+      this.endQuiz({ timeLeft });
+    } else {
+      this.setState({
+        timeLeft,
+      });
     }
-    this.setState({
-      currentAction,
-      timeLeft,
-    });
   }
 
   onStart() {
@@ -127,9 +125,17 @@ class MathDrill extends React.Component {
     }
   }
 
+  endQuiz(otherState = {}) {
+    clearInterval(this.state.timerId);
+    this.setState(Object.assign({
+      currentAction: 'finished',
+      timerId: null,
+    }, otherState));
+  }
+
   checkAnswer(answer) {
     const actual = parseInt(answer, 10);
-    let { currentAction, totalProblems } = this.state;
+    let { totalProblems } = this.state;
     totalProblems = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
@@ -141,28 +147,27 @@ class MathDrill extends React.Component {
         correctCount += 1;
       }
 
-      if (correctCount === totalProblems) {
-        clearInterval(this.state.timerId);
-        currentAction = 'finished';
-      }
-
       const { previousTime = this.state.startTime } = this.state;
       const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
 
       previousResults.push({ task, actual, timeTaken, id: previousResults.length });
-      this.setState({
+      const otherState = {
         correct,
         correctCount,
         previousTime: moment(),
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
         previousResults,
         totalCount,
-        currentAction,
         questionsRemaining: totalProblems - correctCount,
-      });
+      };
 
-      if (correct) {
-        this.setNextTask();
+      if (correctCount === totalProblems) {
+        this.endQuiz(otherState);
+      } else {
+        this.setState(otherState);
+        if (correct) {
+          this.setNextTask();
+        }
       }
     }
   }
