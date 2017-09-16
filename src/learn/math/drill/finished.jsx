@@ -1,10 +1,58 @@
 const PropTypes = require('prop-types');
 const React = require('react');
 const RunningResults = require('./running-results');
+const constants = require('../../common/constants');
+
+const {
+  RECORD_NEW,
+  RECORD_EQUAL,
+  RECORD_MISS,
+  RECORD_NOT_EXIST,
+} = constants;
+
+const baseRecordStyle = {
+  color: 'black',
+  backgroundColor: '#8bc78b',
+  padding: '20px',
+  borderRadius: '5px',
+  marginBottom: '10px',
+};
+
+const newRecordStyle = baseRecordStyle;
+
+const missRecordStyle = Object.assign({}, baseRecordStyle, {
+  backgroundColor: '#ecc9e0',
+});
+
+const notExistRecordStyle = Object.assign({}, baseRecordStyle, {
+  color: 'white',
+  backgroundColor: '##8583dc',
+});
+
+function processResultInfo(resultInfo) {
+  const { newRecordInfo, text } = resultInfo;
+  let style;
+  switch (newRecordInfo) {
+    case RECORD_NEW:
+    case RECORD_EQUAL:
+      style = newRecordStyle;
+      break;
+    case RECORD_MISS:
+      style = missRecordStyle;
+      break;
+    case RECORD_NOT_EXIST:
+      style = notExistRecordStyle;
+      break;
+    default:
+      return (<div>{`Unknown newRecordInfo ${newRecordInfo} in switch case`}</div>);
+  }
+  return (<div style={style}>{text}</div>);
+}
 
 function finished(props) {
   const {
     previousResults,
+    resultInfo,
     timeAllowed,
     timeLeft,
     totalProblems,
@@ -82,6 +130,7 @@ function finished(props) {
 
   return (<div>
     <h1>{'Finished'}</h1>
+    {processResultInfo(resultInfo)}
     <div>
       {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
     </div>
@@ -112,6 +161,10 @@ finished.propTypes = {
     timeTaken: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,
+  resultInfo: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    newRecordInfo: PropTypes.string.isRequired,
+  }).isRequired,
   timeAllowed: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
   totalProblems: PropTypes.number.isRequired,

@@ -127,10 +127,18 @@ class MathDrill extends React.Component {
 
   endQuiz(otherState = {}) {
     clearInterval(this.state.timerId);
+    // Need to do this to get latest results. Merging in otherState
+    // with state will provide the final results. We can't rely on
+    // a call to this.setState() in a previous method because it batches
+    // its calls and may not have updated state.
+    const state = Object.assign({},
+      this.state,
+      otherState);
+    const resultInfo = helper.appendScore(state);
     this.setState(Object.assign({
       currentAction: 'finished',
       timerId: null,
-    }, otherState));
+    }, otherState, { resultInfo }));
   }
 
   checkAnswer(answer) {
@@ -148,8 +156,7 @@ class MathDrill extends React.Component {
       }
 
       const { previousTime = this.state.startTime } = this.state;
-      const timeTaken = Math.round(moment().diff(previousTime) / 100) / 10;
-
+      const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
       previousResults.push({ task, actual, timeTaken, id: previousResults.length });
       const otherState = {
         correct,
@@ -225,6 +232,7 @@ class MathDrill extends React.Component {
   renderFinished() {
     const {
       previousResults,
+      resultInfo,
       seconds,
       timeLeft,
       totalProblems,
@@ -232,6 +240,7 @@ class MathDrill extends React.Component {
     return (
       <Finished
         previousResults={previousResults}
+        resultInfo={resultInfo}
         timeAllowed={seconds}
         timeLeft={timeLeft}
         totalProblems={parseInt(totalProblems, 10)}

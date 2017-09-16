@@ -1,4 +1,13 @@
 // A collection of helper functions
+const db = require('../../db');
+const constants = require('../../common/constants');
+
+const {
+  RECORD_NEW,
+  RECORD_EQUAL,
+  RECORD_MISS,
+  RECORD_NOT_EXIST,
+} = constants;
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const operations = ['+', '-', 'x', '\u00F7'];
@@ -193,8 +202,95 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   return [...pair, opIndex, calculateAnswer(pair, opIndex)];
 }
 
+function appendScore(results) {
+  const {
+    correctCount,
+    levelIndex,
+    minutes,
+    opIndexes: operatorIndexes,
+    previousResults,
+    questionsRemaining,
+    timeLeft,
+    totalProblems,
+  } = results;
+  const opIndexes = operatorIndexes.sort();
+  // The key identifies a problem set by level and operators. This allows us
+  // to search for previous scores that used that combination to see if this
+  // is a new record.
+  const key = levelIndex.toString() + opIndexes.join('');
+  const completed = questionsRemaining === 0;
+  const timeTaken = (minutes * 60) - timeLeft;
+  const timePerQuestion = parseFloat((timeTaken / correctCount).toFixed(1));
+  const incorrectCount = previousResults.length - correctCount;
+  const date = Date.now();
+
+  const record = {
+    completed,
+    correctCount,
+    date,
+    incorrectCount,
+    key,
+    levelIndex,
+    minutes,
+    opIndexes,
+    previousResults,
+    questionsRemaining,
+    timeLeft,
+    timePerQuestion,
+    timeTaken,
+    totalProblems,
+  };
+
+  const existingScores = db.getScores() || [];
+
+  const matchingProblems = existingScores.filter(score => score.key === key).sort((a, b) =>
+    a.timePerQuestion - b.timePerQuestion);
+
+  const resultInfo = {};
+
+  // 4 scenarios
+  // 1. No matching problems - first time this test has been done.
+  // 2. Equals previous high score
+  // 3. Beats previous high score
+  // 4. Worse than previous high score
+  if (matchingProblems.length) {
+    const { timePerQuestion: bestTimePerQuestion } = matchingProblems[0];
+    if (timePerQuestion === bestTimePerQuestion) {
+      resultInfo.text =
+`Your time is equal to your best score of ${timePerQuestion} seconds per question. Great job!`;
+      resultInfo.newRecordInfo = RECORD_EQUAL;
+    } else if (timePerQuestion < bestTimePerQuestion) {
+      const diff = bestTimePerQuestion - timePerQuestion;
+      resultInfo.text =
+`NEW RECORD! Awesome work! You beat your best score by ${diff} seconds per question. \
+Your previous best score was ${bestTimePerQuestion} per second and your new best score \
+is ${timePerQuestion}. You are going places!`;
+      resultInfo.newRecordInfo = RECORD_NEW;
+    } else {
+      const diff = timePerQuestion - bestTimePerQuestion;
+      resultInfo.text =
+`In this quiz you answered the questions at a rate of ${timePerQuestion} seconds \
+per question. Your best score is ${bestTimePerQuestion} per second which is ${diff} \
+seconds per question faster than this. Try again to see if you can beat your best score. \
+Good luck!`;
+      resultInfo.newRecordInfo = RECORD_MISS;
+    }
+  } else {
+    resultInfo.text = `This is the first time you've done this problem. You took \
+${timePerQuestion} seconds per question. Do this test again to see if you can \
+beat this score. Good luck!`;
+    resultInfo.newRecordInfo = RECORD_NOT_EXIST;
+  }
+
+  matchingProblems.push(record);
+  db.saveScores(matchingProblems);
+
+  return resultInfo;
+}
+
 module.exports = {
   alphabet,
+  appendScore,
   calculateAnswer,
   getLowerUpper,
   operations,
