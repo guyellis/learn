@@ -5,6 +5,7 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
 const helper = require('./helper');
+const RunningResults = require('./running-results');
 
 const { operations } = helper;
 
@@ -40,6 +41,17 @@ const answerStyle = Object.assign(
     outlineOffset: '5px',
     fontSize: 'xx-large',
   });
+
+const lastResultCorrectStyle = {
+  borderRadius: '5px',
+  border: 'medium solid green',
+  display: 'inline-block',
+  paddingRight: '20px',
+};
+
+const lastResultIncorrectStyle = Object.assign({}, lastResultCorrectStyle, {
+  border: 'medium solid red',
+});
 
 class QuizLine extends React.Component {
   constructor() {
@@ -97,6 +109,37 @@ class QuizLine extends React.Component {
     }
   }
 
+  renderLastResult() {
+    const { lastResult } = this.props;
+    if (!lastResult) {
+      const divStyle = Object.assign({},
+        lastResultCorrectStyle, {
+          paddingBottom: '5px',
+          paddingLeft: '10px',
+          paddingRight: '10px',
+          paddingTop: '5px',
+        });
+
+      return (
+        <div style={divStyle}>
+          {'Ready for your first answer...'}
+        </div>
+      );
+    }
+    const { actual, task } = lastResult;
+    const [,,, answer] = task;
+
+    const borderStyle = answer === actual
+      ? lastResultCorrectStyle
+      : lastResultIncorrectStyle;
+
+    return (
+      <div style={borderStyle}>
+        <RunningResults previousResults={[lastResult]} />
+      </div>
+    );
+  }
+
   render() {
     const { answer } = this.state;
     const { onscreenKeyboard, problem } = this.props;
@@ -134,6 +177,7 @@ class QuizLine extends React.Component {
             <DoneIcon />
           </FloatingActionButton>
         </div>
+        {this.renderLastResult()}
         <div>
           <Keyboard
             keyPress={this.keyPress}
@@ -149,6 +193,16 @@ QuizLine.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   problem: PropTypes.arrayOf(PropTypes.number).isRequired,
+  lastResult: PropTypes.shape({
+    actual: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    task: PropTypes.array.isRequired, // left, right, opIndex, answer
+    timeTaken: PropTypes.number.isRequired,
+  }),
+};
+
+QuizLine.defaultProps = {
+  lastResult: null,
 };
 
 module.exports = QuizLine;

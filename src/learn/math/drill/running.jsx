@@ -30,7 +30,8 @@ function running(props) {
     paddingLeft: 20,
   };
 
-  const lastThree = previousResults.slice(Math.max(0, previousResults.length - 3)).reverse();
+  const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
+  const lastResult = lastTen[0];
 
   return (
     <div>
@@ -47,9 +48,10 @@ function running(props) {
           checkAnswer={props.checkAnswer}
           onscreenKeyboard={onscreenKeyboard}
           problem={currentTask}
+          lastResult={lastResult}
         />
         <RunningResults
-          previousResults={lastThree}
+          previousResults={lastTen}
           showIndex
         />
       </div>

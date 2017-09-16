@@ -279,7 +279,7 @@ is ${timePerQuestion}. You are going places!`;
     } else {
       const diff = timePerQuestion - bestTimePerQuestion;
       resultInfo.text =
-`In this quiz you answered the questions at a rate of ${timePerQuestion} seconds \
+`You answered the questions at a rate of ${timePerQuestion} seconds \
 per question. Your best score is ${bestTimePerQuestion} per second which is ${diff} \
 seconds per question faster than this. Try again to see if you can beat your best score. \
 Good luck!`;
