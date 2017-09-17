@@ -32,14 +32,11 @@ const inputStyle = {
 const answerStyle = Object.assign(
   {},
   {
-    height: '40px',
-    width: '60px',
-    paddingBottom: '5px',
-    paddingLeft: '5px',
-    display: 'inline-flex',
-    outline: 'medium solid black',
-    outlineOffset: '5px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
     fontSize: 'xx-large',
+    backgroundColor: 'green',
+    color: 'white',
   });
 
 const lastResultCorrectStyle = {
@@ -52,6 +49,11 @@ const lastResultCorrectStyle = {
 const lastResultIncorrectStyle = Object.assign({}, lastResultCorrectStyle, {
   border: 'medium solid red',
 });
+
+const quizLineStyle = {
+  marginTop: '10px',
+  marginBottom: '10px',
+};
 
 class QuizLine extends React.Component {
   constructor() {
@@ -158,7 +160,7 @@ class QuizLine extends React.Component {
     const operator = operations[opIndex];
     return (
       <div>
-        <div>
+        <div style={quizLineStyle}>
           <span style={numberStyle}>{left}</span>
           <span style={numberStyle}>{operator}</span>
           <span style={numberStyle}>{right}</span>
@@ -180,13 +182,16 @@ class QuizLine extends React.Component {
                 value={answer}
               />
           }
-          <FloatingActionButton
-            onClick={this.checkAnswer}
-            style={checkStyle}
-            title="Check Answer"
-          >
-            <DoneIcon />
-          </FloatingActionButton>
+          {
+            !onscreenKeyboard &&
+            <FloatingActionButton
+              onClick={this.checkAnswer}
+              style={checkStyle}
+              title="Check Answer"
+            >
+              <DoneIcon />
+            </FloatingActionButton>
+          }
         </div>
         {this.renderLastResult()}
         {this.renderNewRecord()}
