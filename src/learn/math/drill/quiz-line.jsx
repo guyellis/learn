@@ -125,8 +125,10 @@ class QuizLine extends React.Component {
 `Current Speed ${current} and Record ${existing}${isNewRecord ? ' NEW RECORD!' : ''}`;
 
     return (
-      <div style={lastResultCorrectStyle}>
-        {recordText}
+      <div>
+        <div style={lastResultCorrectStyle}>
+          {recordText}
+        </div>
       </div>
     );
   }
