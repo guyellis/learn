@@ -109,6 +109,17 @@ class QuizLine extends React.Component {
     }
   }
 
+  renderNewRecord() {
+    if (this.props.newRecord) {
+      return (
+        <div style={lastResultCorrectStyle}>
+          {'New Record in Progress!'}
+        </div>
+      );
+    }
+    return null;
+  }
+
   renderLastResult() {
     const { lastResult } = this.props;
     if (!lastResult) {
@@ -178,6 +189,7 @@ class QuizLine extends React.Component {
           </FloatingActionButton>
         </div>
         {this.renderLastResult()}
+        {this.renderNewRecord()}
         <div>
           <Keyboard
             keyPress={this.keyPress}
@@ -191,14 +203,15 @@ class QuizLine extends React.Component {
 
 QuizLine.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
-  problem: PropTypes.arrayOf(PropTypes.number).isRequired,
   lastResult: PropTypes.shape({
     actual: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     timeTaken: PropTypes.number.isRequired,
   }),
+  newRecord: PropTypes.bool.isRequired,
+  onscreenKeyboard: PropTypes.bool.isRequired,
+  problem: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 QuizLine.defaultProps = {

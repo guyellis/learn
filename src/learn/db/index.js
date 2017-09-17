@@ -25,6 +25,12 @@ class DB {
     DB.setItem(MATH_DRILL_SCORES, data);
   }
 
+  static appendScore(score) {
+    const scores = DB.getScores() || [];
+    scores.push(score);
+    DB.saveScores(scores);
+  }
+
   static getScores() {
     return DB.getItem(MATH_DRILL_SCORES);
   }

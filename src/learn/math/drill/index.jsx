@@ -83,19 +83,26 @@ class MathDrill extends React.Component {
 
   onStart() {
     this.setNextTask();
-    const { minutes = '1', totalProblems } = this.state;
+    const {
+      levelIndex,
+      minutes = '1',
+      opIndexes,
+      totalProblems,
+    } = this.state;
     const seconds = parseFloat(minutes, 10) * 60;
     const startTime = moment();
     const endTime = moment().add(seconds, 'seconds');
     const timerId = setInterval(this.onInterval, 1000);
+    const currentRecord = helper.getCurrentRecord(levelIndex, opIndexes);
     this.setState({
       currentAction: 'running',
-      startTime,
+      currentRecord,
       endTime,
-      timerId,
-      seconds,
-      timeLeft: seconds,
       questionsRemaining: parseInt(totalProblems, 10),
+      seconds,
+      startTime,
+      timeLeft: seconds,
+      timerId,
     });
   }
 
@@ -179,6 +186,34 @@ class MathDrill extends React.Component {
     }
   }
 
+  currentTimePerQuestion() {
+    const {
+      previousResults,
+      startTime,
+    } = this.state;
+
+    const timeElapsed = moment().diff(startTime) / 1000;
+    const correctQuestions = previousResults.reduce((acc, result) => {
+      // result: {"task":[1,3,0,4],"actual":4,"timeTaken":2.5,"id":0}
+      const { task, actual } = result;
+      const [,,, answer] = task;
+      return acc + Number(actual === answer);
+    }, 0);
+    return correctQuestions
+      ? timeElapsed / correctQuestions
+      : NaN;
+  }
+
+  newRecord() {
+    const { currentRecord } = this.state;
+    if (!currentRecord) {
+      return false;
+    }
+    const { timePerQuestion } = currentRecord;
+    const currentTime = this.currentTimePerQuestion();
+    return isNaN(currentTime) ? false : timePerQuestion > currentTime;
+  }
+
   renderOptions() {
     const {
       levelIndex,
@@ -225,6 +260,7 @@ class MathDrill extends React.Component {
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}
         timeLeft={timeLeft}
+        newRecord={this.newRecord()}
       />
     );
   }

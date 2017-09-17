@@ -13,6 +13,7 @@ function running(props) {
   const {
     currentTask,
     levelIndex,
+    newRecord,
     onscreenKeyboard,
     opIndexes,
     previousResults,
@@ -46,9 +47,10 @@ function running(props) {
       <div>
         <QuizLine
           checkAnswer={props.checkAnswer}
+          lastResult={lastResult}
+          newRecord={newRecord}
           onscreenKeyboard={onscreenKeyboard}
           problem={currentTask}
-          lastResult={lastResult}
         />
         <RunningResults
           previousResults={lastTen}
@@ -62,8 +64,9 @@ running.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   levelIndex: PropTypes.number.isRequired,
-  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  newRecord: PropTypes.bool.isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
+  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     actual: PropTypes.number.isRequired,
@@ -72,6 +75,10 @@ running.propTypes = {
   })).isRequired,
   questionsRemaining: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
+};
+
+running.defaultProps = {
+  currentRecord: null,
 };
 
 module.exports = running;

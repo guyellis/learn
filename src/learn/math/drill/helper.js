@@ -202,6 +202,22 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   return [...pair, opIndex, calculateAnswer(pair, opIndex)];
 }
 
+// The key identifies a problem set by level and operators. This allows us
+// to search for previous scores that used that combination to see if this
+// is a new record.
+function createKey(levelIndex, opIndexes) {
+  return levelIndex.toString() + opIndexes.join('');
+}
+
+function getCurrentRecord(levelIndex, opIndexes) {
+  const existingScores = db.getScores() || [];
+  const key = createKey(levelIndex, opIndexes);
+
+  const matchingProblems = existingScores.filter(score => score.key === key).sort((a, b) =>
+    a.timePerQuestion - b.timePerQuestion);
+  return matchingProblems[0];
+}
+
 function appendScore(results) {
   const {
     correctCount,
@@ -214,10 +230,7 @@ function appendScore(results) {
     totalProblems,
   } = results;
   const opIndexes = operatorIndexes.sort();
-  // The key identifies a problem set by level and operators. This allows us
-  // to search for previous scores that used that combination to see if this
-  // is a new record.
-  const key = levelIndex.toString() + opIndexes.join('');
+
   const completed = questionsRemaining === 0;
   const timeTaken = (minutes * 60) - timeLeft;
 
@@ -232,7 +245,7 @@ function appendScore(results) {
     correctCount,
     date,
     incorrectCount,
-    key,
+    key: createKey(levelIndex, opIndexes),
     levelIndex,
     minutes,
     opIndexes,
@@ -244,12 +257,8 @@ function appendScore(results) {
     totalProblems,
   };
 
-  const existingScores = db.getScores() || [];
-
-  const matchingProblems = existingScores.filter(score => score.key === key).sort((a, b) =>
-    a.timePerQuestion - b.timePerQuestion);
-
   const resultInfo = {};
+  const currentRecord = getCurrentRecord(levelIndex, opIndexes);
 
   // 5 scenarios
   // 1. No matching problems - first time this test has been done.
@@ -263,14 +272,14 @@ function appendScore(results) {
 as part of your high scores. If you are struggling with these problems then try an \
 easier level or an ${'easier'} operator.`;
     resultInfo.newRecordInfo = RECORD_MISS;
-  } else if (matchingProblems.length) {
-    const { timePerQuestion: bestTimePerQuestion } = matchingProblems[0];
+  } else if (currentRecord) {
+    const { timePerQuestion: bestTimePerQuestion } = currentRecord;
     if (timePerQuestion === bestTimePerQuestion) {
       resultInfo.text =
 `Your time is equal to your best score of ${timePerQuestion} seconds per question. Great job!`;
       resultInfo.newRecordInfo = RECORD_EQUAL;
     } else if (timePerQuestion < bestTimePerQuestion) {
-      const diff = bestTimePerQuestion - timePerQuestion;
+      const diff = (bestTimePerQuestion - timePerQuestion).toFixed(1);
       resultInfo.text =
 `NEW RECORD! Awesome work! You beat your best score by ${diff} seconds per question. \
 Your previous best score was ${bestTimePerQuestion} per second and your new best score \
@@ -293,9 +302,8 @@ beat this score. Good luck!`;
   }
 
   if (!isNaN(timePerQuestion)) {
-    matchingProblems.push(record);
+    db.appendScore(record);
   }
-  db.saveScores(matchingProblems);
 
   return resultInfo;
 }
@@ -304,6 +312,7 @@ module.exports = {
   alphabet,
   appendScore,
   calculateAnswer,
+  getCurrentRecord,
   getLowerUpper,
   operations,
 };
