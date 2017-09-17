@@ -40,3 +40,4 @@ jspm_packages
 public
 
 .vscode/chrome/
+.nyc_output/
