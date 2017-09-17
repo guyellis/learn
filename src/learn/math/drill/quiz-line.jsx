@@ -118,11 +118,11 @@ class QuizLine extends React.Component {
       existingRecordTimePerQuestion,
     } = this.props.newRecord;
 
-    const current = isNaN(currentTimePerQuestion) ? '?' : currentTimePerQuestion;
+    const current = isNaN(currentTimePerQuestion) ? '[none]' : currentTimePerQuestion;
+    const existing = existingRecordTimePerQuestion || '[none]';
 
     const recordText =
-`Current speed ${current}. Record ${existingRecordTimePerQuestion}\
-${isNewRecord ? ' NEW RECORD!' : ''}`;
+`Current Speed ${current} and Record ${existing}${isNewRecord ? ' NEW RECORD!' : ''}`;
 
     return (
       <div style={lastResultCorrectStyle}>

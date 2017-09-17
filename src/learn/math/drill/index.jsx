@@ -205,12 +205,16 @@ class MathDrill extends React.Component {
   }
 
   newRecord() {
+    const currentTime = this.currentTimePerQuestion();
     const { currentRecord } = this.state;
     if (!currentRecord) {
-      return false;
+      return {
+        isNewRecord: false,
+        currentTimePerQuestion: currentTime,
+        existingRecordTimePerQuestion: NaN,
+      };
     }
     const { timePerQuestion } = currentRecord;
-    const currentTime = this.currentTimePerQuestion();
     return {
       isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
       currentTimePerQuestion: currentTime,
