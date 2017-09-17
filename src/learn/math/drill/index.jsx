@@ -200,7 +200,7 @@ class MathDrill extends React.Component {
       return acc + Number(actual === answer);
     }, 0);
     return correctQuestions
-      ? timeElapsed / correctQuestions
+      ? parseFloat((timeElapsed / correctQuestions).toFixed(1))
       : NaN;
   }
 
@@ -211,7 +211,11 @@ class MathDrill extends React.Component {
     }
     const { timePerQuestion } = currentRecord;
     const currentTime = this.currentTimePerQuestion();
-    return isNaN(currentTime) ? false : timePerQuestion > currentTime;
+    return {
+      isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
+      currentTimePerQuestion: currentTime,
+      existingRecordTimePerQuestion: timePerQuestion,
+    };
   }
 
   renderOptions() {

@@ -64,7 +64,11 @@ running.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   levelIndex: PropTypes.number.isRequired,
-  newRecord: PropTypes.bool.isRequired,
+  newRecord: PropTypes.shape({
+    isNewRecord: PropTypes.bool.isRequired,
+    currentTimePerQuestion: PropTypes.number.isRequired,
+    existingRecordTimePerQuestion: PropTypes.number.isRequired,
+  }).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({

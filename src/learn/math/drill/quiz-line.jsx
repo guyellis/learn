@@ -112,14 +112,23 @@ class QuizLine extends React.Component {
   }
 
   renderNewRecord() {
-    if (this.props.newRecord) {
-      return (
-        <div style={lastResultCorrectStyle}>
-          {'New Record in Progress!'}
-        </div>
-      );
-    }
-    return null;
+    const {
+      isNewRecord,
+      currentTimePerQuestion,
+      existingRecordTimePerQuestion,
+    } = this.props.newRecord;
+
+    const current = isNaN(currentTimePerQuestion) ? '?' : currentTimePerQuestion;
+
+    const recordText =
+`Current speed ${current}. Record ${existingRecordTimePerQuestion}\
+${isNewRecord ? ' NEW RECORD!' : ''}`;
+
+    return (
+      <div style={lastResultCorrectStyle}>
+        {recordText}
+      </div>
+    );
   }
 
   renderLastResult() {
@@ -131,6 +140,7 @@ class QuizLine extends React.Component {
           paddingLeft: '10px',
           paddingRight: '10px',
           paddingTop: '5px',
+          display: 'block',
         });
 
       return (
@@ -214,7 +224,11 @@ QuizLine.propTypes = {
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     timeTaken: PropTypes.number.isRequired,
   }),
-  newRecord: PropTypes.bool.isRequired,
+  newRecord: PropTypes.shape({
+    isNewRecord: PropTypes.bool.isRequired,
+    currentTimePerQuestion: PropTypes.number.isRequired,
+    existingRecordTimePerQuestion: PropTypes.number.isRequired,
+  }).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   problem: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
