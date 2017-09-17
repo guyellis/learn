@@ -26,7 +26,7 @@ const missRecordStyle = Object.assign({}, baseRecordStyle, {
 
 const notExistRecordStyle = Object.assign({}, baseRecordStyle, {
   color: 'white',
-  backgroundColor: '##8583dc',
+  backgroundColor: '#8583dc',
 });
 
 function processResultInfo(resultInfo) {
