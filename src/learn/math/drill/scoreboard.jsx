@@ -119,9 +119,12 @@ function scoreboard() {
           {
             levels.map((level, index) => (level
               ? <TableRow key={alphabet[index]}>
-                <TableRowColumn>{alphabet[index]}</TableRowColumn>
+                <TableRowColumn key={alphabet[index]}>{alphabet[index]}</TableRowColumn>
                 {
-                  level.map(badges => (<TableRowColumn>{badge(badges)}</TableRowColumn>))
+                  level.map((badges, badgeIndex) => (
+                    <TableRowColumn key={`${colorText[badgeIndex]}`}>
+                      {badge(badges)}
+                    </TableRowColumn>))
                 }
               </TableRow>
               : null

@@ -287,7 +287,7 @@ Your previous best score was ${bestTimePerQuestion} per second and your new best
 is ${timePerQuestion}. You are going places!`;
       resultInfo.newRecordInfo = RECORD_NEW;
     } else {
-      const diff = timePerQuestion - bestTimePerQuestion;
+      const diff = (timePerQuestion - bestTimePerQuestion).toFixed(1);
       resultInfo.text =
 `You answered the questions at a rate of ${timePerQuestion} seconds \
 per question. Your best score is ${bestTimePerQuestion} per second which is ${diff} \
@@ -348,9 +348,20 @@ function getScoreboard() {
     }
   }, [null, null, null, null]);
 
-  // If a level is an array of nulls then replace that array of (4) nulls with
-  // a null.
-  const levels = baseLevels.map(level => (level.some(Boolean) ? level : null));
+  const ops = opCounters.map(Boolean);
+
+  const levels = baseLevels.map((level) => {
+    if (level.some(Boolean)) {
+      return ops.reduce((acc, op, index) => {
+        if (op) {
+          acc.push(level[index]);
+        }
+        return acc;
+      }, []);
+    }
+    // If a level is an array of nulls then replace that array of (4) nulls with a null.
+    return null;
+  });
 
   /*
   1. For titles - 4 element array - which operators are stored.
@@ -381,7 +392,7 @@ function getScoreboard() {
   // ]];
 
   return {
-    ops: opCounters.map(Boolean),
+    ops,
     totals,
     levels,
   };
