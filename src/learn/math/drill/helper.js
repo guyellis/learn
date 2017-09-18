@@ -309,12 +309,91 @@ beat this score. Good luck!`;
   return resultInfo;
 }
 
+function getScoreboard() {
+  const scores = db.getScores() || [];
+  const totals = [0, 0, 0, 0];
+  const opCounters = [0, 0, 0, 0];
+  // A 2 dimensional array of 26 Levels each with an array of 4 nulls
+  /*
+    [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null],
+      ...
+    ]
+  */
+  const baseLevels = [...Array(26).keys()].map(() => [...Array(4).keys()].map(() => null));
+  scores.forEach((score) => {
+    const {
+      levelIndex,
+      correctCount,
+      opIndexes,
+      timePerQuestion,
+    } = score;
+
+    // Filter down the scores to just those that have:
+    // 1. at least 1 correct answer
+    // 2. Only include single-select operators. (i.e. no multi-select mix-n-match)
+    if (correctCount > 0 && opIndexes.length === 1) {
+      const opIndex = opIndexes[0];
+      const badges = baseLevels[levelIndex][opIndex] || [0, 0, 0, 0];
+      opCounters[opIndex] += 1;
+
+      const badgeColorIndex = [0, 2, 3, 4].reduce((badgeColor, boundary, index) =>
+        (timePerQuestion > boundary ? index : badgeColor), 0);
+      totals[badgeColorIndex] += 1;
+      badges[badgeColorIndex] += 1;
+
+      baseLevels[levelIndex][opIndex] = badges;
+    }
+  }, [null, null, null, null]);
+
+  // If a level is an array of nulls then replace that array of (4) nulls with
+  // a null.
+  const levels = baseLevels.map(level => (level.some(Boolean) ? level : null));
+
+  /*
+  1. For titles - 4 element array - which operators are stored.
+  2. For totals - 4 element array - 1 element for each Badge Color
+  3. For scores:
+     Levels array
+       Nested operator array
+         Nested collection of badges indexes + counts
+         [          
+           [        // Level A 
+             [      // Operator +
+               3,   // 3 Gold Badges
+               0,   // 0 Silver Badges
+               7,   // 7 Bronze Badges
+               0,   // 0 Blue Badges 
+             ]
+           ]
+         ]
+  */
+
+  // const levels = [[
+  //   [3, 0, 7, 0], [3, 0, 7, 0],
+  // ], [
+  //   null, [3, 0, 7, 0],
+  // ],
+  // null, [
+  //   [7, 7, 7, 7], null,
+  // ]];
+
+  return {
+    ops: opCounters.map(Boolean),
+    totals,
+    levels,
+  };
+}
+
 module.exports = {
   alphabet,
   appendScore,
   calculateAnswer,
   getCurrentRecord,
   getLowerUpper,
+  getScoreboard,
   operationNames,
   operations,
 };

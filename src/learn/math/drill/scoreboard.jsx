@@ -1,10 +1,7 @@
-// const db = require('../../db');
-// const Finished = require('./finished');
-const helper = require('./helper');
 const { List, ListItem } = require('material-ui/List');
-// const Options = require('./options');
-const React = require('react');
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const helper = require('./helper');
+const React = require('react');
 
 const {
   Table,
@@ -32,18 +29,35 @@ const buttonIconStyle = {
 const colorText = ['Gold', 'Silver', 'Bronze', 'Blue'];
 const htmlColors = ['#ffd700', '#c0c0c0', '#8C7853', 'lightblue'];
 
-function badge(color, amount) {
+function badgeItem(color, amount) {
   const title = `${amount} ${colorText[color]}`;
   return (
     <FloatingActionButton
       iconStyle={buttonIconStyle}
       backgroundColor={htmlColors[color]}
+      key={color}
       style={buttonStyle}
       title={title}
       mini
     >
-      {amount}
+      {`${amount}`}
     </FloatingActionButton>);
+}
+
+function badge(badges) {
+  if (!badges) {
+    return null;
+  }
+  return (<span>
+    {
+      badges.map((amount, color) => {
+        if (!amount) {
+          return null;
+        }
+        return badgeItem(color, amount);
+      })
+    }
+  </span>);
 }
 
 const badgeBoundaries = [
@@ -54,22 +68,29 @@ const badgeBoundaries = [
 ];
 
 function scoreboard() {
-  // TODO: Calculate total badges
-  const totalBadges = [15, 3, 7, 8];
-
+  const { ops, totals, levels } = helper.getScoreboard();
+  /*
+  ops shape looks like this:
+  [{         // Operator: +
+    0: {     // Level: A
+      0: 3,  // Gold Badge - 3 times
+      2: 1,  // Bronze Badge - once
+    }
+  }]
+  */
   return (
     <div>
       <h3>{'Scoreboard'}</h3>
       <List>
         {
-          totalBadges.map((badgeTotal, index) => {
+          totals.map((total, colorIndex) => {
             const primaryText =
-            `${badgeTotal} ${colorText[index]} Badge(s) - ${badgeBoundaries[index]}`;
+            `${colorText[colorIndex]} Badge(s) - ${badgeBoundaries[colorIndex]}`;
             return (
               <ListItem
-                key={colorText[index]}
+                key={colorText[colorIndex]}
                 primaryText={primaryText}
-                leftIcon={badge(index, badgeTotal)}
+                leftIcon={badgeItem(colorIndex, total)}
               />
             );
           })
@@ -83,22 +104,27 @@ function scoreboard() {
           <TableRow>
             <TableHeaderColumn>{'Level'}</TableHeaderColumn>
             {
-              operationNames.map(operation => (
-                <TableHeaderColumn key={operation}>{operation}</TableHeaderColumn>
+              ops.map((op, index) => (op
+                ? <TableHeaderColumn
+                  key={operationNames[index]}
+                >
+                  {operationNames[index]}
+                </TableHeaderColumn>
+                : null
               ))
             }
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
           {
-            alphabet.map(letter => (
-              <TableRow key={letter}>
-                <TableRowColumn>{letter}</TableRowColumn>
-                <TableRowColumn>{badge(0, 1)}</TableRowColumn>
-                <TableRowColumn>{badge(1, 2)}</TableRowColumn>
-                <TableRowColumn>{badge(2, 1)}</TableRowColumn>
-                <TableRowColumn>{badge(3, 1)}</TableRowColumn>
+            levels.map((level, index) => (level
+              ? <TableRow key={alphabet[index]}>
+                <TableRowColumn>{alphabet[index]}</TableRowColumn>
+                {
+                  level.map(badges => (<TableRowColumn>{badge(badges)}</TableRowColumn>))
+                }
               </TableRow>
+              : null
             ))
           }
         </TableBody>
