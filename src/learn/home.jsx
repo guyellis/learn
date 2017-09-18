@@ -3,7 +3,7 @@ const RaisedButton = require('material-ui/RaisedButton').default;
 const React = require('react');
 
 const style = {
-  // marginTop: '50px',
+  marginTop: '20px',
 };
 
 const githubIconStyle = {
@@ -26,10 +26,19 @@ function home() {
           {'Issue'}
         </a>
       </div>
-      <div style={style}>
+      <div>
         <Link to="/math/drill">
           <RaisedButton
             label="Math Drill"
+            labelPosition="before"
+            primary
+          />
+        </Link>
+      </div>
+      <div style={style}>
+        <Link to="/math/scoreboard">
+          <RaisedButton
+            label="Scoreboard"
             labelPosition="before"
             primary
           />
