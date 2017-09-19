@@ -186,42 +186,6 @@ class MathDrill extends React.Component {
     }
   }
 
-  currentTimePerQuestion() {
-    const {
-      previousResults,
-      startTime,
-    } = this.state;
-
-    const timeElapsed = moment().diff(startTime) / 1000;
-    const correctQuestions = previousResults.reduce((acc, result) => {
-      // result: {"task":[1,3,0,4],"actual":4,"timeTaken":2.5,"id":0}
-      const { task, actual } = result;
-      const [,,, answer] = task;
-      return acc + Number(actual === answer);
-    }, 0);
-    return correctQuestions
-      ? parseFloat((timeElapsed / correctQuestions).toFixed(1))
-      : NaN;
-  }
-
-  newRecord() {
-    const currentTime = this.currentTimePerQuestion();
-    const { currentRecord } = this.state;
-    if (!currentRecord) {
-      return {
-        isNewRecord: false,
-        currentTimePerQuestion: currentTime,
-        existingRecordTimePerQuestion: NaN,
-      };
-    }
-    const { timePerQuestion } = currentRecord;
-    return {
-      isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
-      currentTimePerQuestion: currentTime,
-      existingRecordTimePerQuestion: timePerQuestion,
-    };
-  }
-
   renderOptions() {
     const {
       levelIndex,
@@ -249,12 +213,14 @@ class MathDrill extends React.Component {
 
   renderRunning() {
     const {
+      currentRecord,
       currentTask,
       levelIndex,
       onscreenKeyboard,
       opIndexes,
       previousResults,
       questionsRemaining,
+      startTime,
       timeLeft,
     } = this.state;
 
@@ -268,7 +234,7 @@ class MathDrill extends React.Component {
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}
         timeLeft={timeLeft}
-        newRecord={this.newRecord()}
+        newRecord={helper.newRecord({ currentRecord, previousResults, startTime })}
       />
     );
   }
