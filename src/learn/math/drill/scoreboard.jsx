@@ -1,7 +1,10 @@
-const { List, ListItem } = require('material-ui/List');
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const Badge = require('./badge');
+const BadgeTotals = require('./badge-totals');
+const constants = require('../../common/constants');
 const helper = require('./helper');
 const React = require('react');
+
+const { COLOR_TEXT: colorText } = constants;
 
 const {
   Table,
@@ -17,33 +20,6 @@ const {
   operationNames,
 } = helper;
 
-const buttonStyle = {
-  margin: '5px',
-  fontSize: '2em',
-  // backgroundColor: 'black',
-};
-const buttonIconStyle = {
-  color: 'white',
-};
-
-const colorText = ['Gold', 'Silver', 'Bronze', 'Blue'];
-const htmlColors = ['#ffd700', '#c0c0c0', '#8C7853', 'lightblue'];
-
-function badgeItem(color, amount) {
-  const title = `${amount} ${colorText[color]}`;
-  return (
-    <FloatingActionButton
-      iconStyle={buttonIconStyle}
-      backgroundColor={htmlColors[color]}
-      key={color}
-      style={buttonStyle}
-      title={title}
-      mini
-    >
-      {`${amount}`}
-    </FloatingActionButton>);
-}
-
 function badge(badges) {
   if (!badges) {
     return null;
@@ -54,18 +30,18 @@ function badge(badges) {
         if (!amount) {
           return null;
         }
-        return badgeItem(color, amount);
+        const key = `${amount}${color}`;
+
+        return (
+          <Badge
+            key={key}
+            color={color}
+            content={amount.toString()}
+          />);
       })
     }
   </span>);
 }
-
-const badgeBoundaries = [
-  '2 seconds or less (per question)',
-  'between 2 and 3 seconds (per question)',
-  'between 3 and 4 seconds (per question)',
-  'more than 4 seconds (per question)',
-];
 
 function scoreboard() {
   const { ops, totals, levels } = helper.getScoreboard();
@@ -81,21 +57,7 @@ function scoreboard() {
   return (
     <div>
       <h3>{'Scoreboard'}</h3>
-      <List>
-        {
-          totals.map((total, colorIndex) => {
-            const primaryText =
-            `${colorText[colorIndex]} Badge(s) - ${badgeBoundaries[colorIndex]}`;
-            return (
-              <ListItem
-                key={colorText[colorIndex]}
-                primaryText={primaryText}
-                leftIcon={badgeItem(colorIndex, total)}
-              />
-            );
-          })
-        }
-      </List>
+      <BadgeTotals totals={totals} />
       <Table>
         <TableHeader
           displaySelectAll={false}

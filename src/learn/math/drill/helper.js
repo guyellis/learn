@@ -310,6 +310,11 @@ beat this score. Good luck!`;
   return resultInfo;
 }
 
+function getBadgeColorIndex(timePerQuestion) {
+  return [0, 2, 3, 4].reduce((badgeColor, boundary, index) =>
+    (timePerQuestion > boundary ? index : badgeColor), 0);
+}
+
 function getScoreboard() {
   const scores = db.getScores() || [];
   const totals = [0, 0, 0, 0];
@@ -340,8 +345,7 @@ function getScoreboard() {
       const badges = baseLevels[levelIndex][opIndex] || [0, 0, 0, 0];
       opCounters[opIndex] += 1;
 
-      const badgeColorIndex = [0, 2, 3, 4].reduce((badgeColor, boundary, index) =>
-        (timePerQuestion > boundary ? index : badgeColor), 0);
+      const badgeColorIndex = getBadgeColorIndex(timePerQuestion);
       totals[badgeColorIndex] += 1;
       badges[badgeColorIndex] += 1;
 
@@ -433,6 +437,7 @@ module.exports = {
   alphabet,
   appendScore,
   calculateAnswer,
+  getBadgeColorIndex,
   getCurrentRecord,
   getLowerUpper,
   getScoreboard,
