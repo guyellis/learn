@@ -44,6 +44,15 @@ function home() {
           />
         </Link>
       </div>
+      <div style={style}>
+        <Link to="/help">
+          <RaisedButton
+            label="Help"
+            labelPosition="before"
+            primary
+          />
+        </Link>
+      </div>
     </div>
   );
 }
