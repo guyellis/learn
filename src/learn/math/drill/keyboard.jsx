@@ -8,19 +8,25 @@ const buttonStyle = {
   margin: '5px',
   fontSize: '2em',
 };
+
 const buttonIconStyle = {
   color: 'white',
 };
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Keyboard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const buttons = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'back', 'enter', 'nothing'];
     this.click = buttons.reduce((acc, item) => {
       acc[item] = this.onClick.bind(this, item);
       return acc;
     }, {});
+
+    if (props.largeKeyboard) {
+      buttonIconStyle.height = '80px';
+      buttonIconStyle.width = '80px';
+    }
   }
 
   onClick(value) {
@@ -186,6 +192,7 @@ class Keyboard extends React.Component {
 Keyboard.propTypes = {
   keyPress: PropTypes.func.isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
+  largeKeyboard: PropTypes.bool.isRequired,
 };
 
 module.exports = Keyboard;

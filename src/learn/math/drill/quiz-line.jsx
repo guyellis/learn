@@ -211,6 +211,7 @@ class QuizLine extends React.Component {
           <Keyboard
             keyPress={this.keyPress}
             onscreenKeyboard={onscreenKeyboard}
+            largeKeyboard={this.props.largeKeyboard}
           />
         </div>
       </div>
@@ -232,6 +233,7 @@ QuizLine.propTypes = {
     existingRecordTimePerQuestion: PropTypes.number.isRequired,
   }).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
+  largeKeyboard: PropTypes.bool.isRequired,
   problem: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 

@@ -51,7 +51,7 @@ test you got ${totalCorrectAnswers} answer(s) correct.`;
         <Badge color={colorIndex} content={operation} />
       </span>
       <span>
-        {` - Congratulations on getting a new ${color} Badge for Level ${letter} ${operationName}!`}
+        {` Congratulations on getting a new ${color} Badge for Level ${letter} ${operationName}!`}
       </span>
     </div>
   );

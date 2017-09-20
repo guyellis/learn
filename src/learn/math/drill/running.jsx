@@ -12,6 +12,7 @@ const {
 function running(props) {
   const {
     currentTask,
+    largeKeyboard,
     levelIndex,
     newRecord,
     onscreenKeyboard,
@@ -51,6 +52,7 @@ function running(props) {
           newRecord={newRecord}
           onscreenKeyboard={onscreenKeyboard}
           problem={currentTask}
+          largeKeyboard={largeKeyboard}
         />
         <RunningResults
           previousResults={lastTen}
@@ -63,6 +65,7 @@ function running(props) {
 running.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  largeKeyboard: PropTypes.bool.isRequired,
   levelIndex: PropTypes.number.isRequired,
   newRecord: PropTypes.shape({
     isNewRecord: PropTypes.bool.isRequired,

@@ -31,6 +31,10 @@ class MathDrill extends React.Component {
         options.userName = '';
         db.saveOptions(options);
       }
+      if (typeof options.largeKeyboard !== 'boolean') {
+        options.largeKeyboard = false;
+        db.saveOptions(options);
+      }
       if (options.opIndex) {
         options.opIndexes = [options.opIndex];
         delete options.opIndex;
@@ -38,6 +42,7 @@ class MathDrill extends React.Component {
       }
     } else {
       options = {
+        largeKeyboard: false,
         levelIndex: 0, // A
         minutes: '1',
         onscreenKeyboard: true,
@@ -49,6 +54,7 @@ class MathDrill extends React.Component {
     }
 
     this.state = {
+      largeKeyboard: options.largeKeyboard,
       currentTask: [],
       levelIndex: options.levelIndex,
       minutes: options.minutes,
@@ -188,6 +194,7 @@ class MathDrill extends React.Component {
 
   renderOptions() {
     const {
+      largeKeyboard,
       levelIndex,
       minutes,
       onscreenKeyboard,
@@ -198,6 +205,7 @@ class MathDrill extends React.Component {
 
     return (
       <Options
+        largeKeyboard={largeKeyboard}
         levelIndex={levelIndex}
         minutes={minutes}
         onChange={this.onChange}
@@ -215,6 +223,7 @@ class MathDrill extends React.Component {
     const {
       currentRecord,
       currentTask,
+      largeKeyboard,
       levelIndex,
       onscreenKeyboard,
       opIndexes,
@@ -228,6 +237,7 @@ class MathDrill extends React.Component {
       <Running
         checkAnswer={this.checkAnswer}
         currentTask={currentTask}
+        largeKeyboard={largeKeyboard}
         levelIndex={levelIndex}
         onscreenKeyboard={onscreenKeyboard}
         opIndexes={opIndexes}

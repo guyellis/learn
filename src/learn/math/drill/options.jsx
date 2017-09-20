@@ -27,6 +27,7 @@ const sectionStyle = {
 
 function options(props) {
   const {
+    largeKeyboard,
     levelIndex,
     minutes,
     onscreenKeyboard,
@@ -124,8 +125,20 @@ function options(props) {
           toggled={onscreenKeyboard}
         />
       </div>
+      {onscreenKeyboard &&
+        <div style={sectionStyle}>
+          <h3>{'Large Keyboard'}</h3>
+          <Toggle
+            label="Large Keyboard"
+            labelPosition="right"
+            name="largeKeyboard"
+            onToggle={props.onChange}
+            toggled={largeKeyboard}
+          />
+        </div>
+      }
       <div style={sectionStyle}>
-        <h3>{'Your Name'}</h3>
+        <h3>{'Your Name (Optional)'}</h3>
         <TextField
           floatingLabelText="Your Name"
           hintText="Jemima Puddle-Duck"
@@ -151,6 +164,7 @@ function options(props) {
 
 
 options.propTypes = {
+  largeKeyboard: PropTypes.bool.isRequired,
   levelIndex: PropTypes.number.isRequired,
   minutes: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
