@@ -246,9 +246,13 @@ class MathDrill extends React.Component {
       seconds,
       timeLeft,
       totalProblems,
+      levelIndex,
+      opIndexes,
     } = this.state;
     return (
       <Finished
+        levelIndex={levelIndex}
+        opIndexes={opIndexes}
         previousResults={previousResults}
         resultInfo={resultInfo}
         timeAllowed={seconds}

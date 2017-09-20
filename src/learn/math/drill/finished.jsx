@@ -2,6 +2,7 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const RunningResults = require('./running-results');
 const constants = require('../../common/constants');
+const FinishedBadge = require('./finished-badge');
 
 const {
   RECORD_NEW,
@@ -51,6 +52,8 @@ function processResultInfo(resultInfo) {
 
 function finished(props) {
   const {
+    levelIndex,
+    opIndexes,
     previousResults,
     resultInfo,
     timeAllowed,
@@ -91,6 +94,7 @@ function finished(props) {
       }
     }
 
+
     if (answer === actual) {
       correctCount += 1;
     } else {
@@ -102,18 +106,21 @@ function finished(props) {
       incorrects,
       longestTime,
       shortestTime,
+      totalTime: acc.totalTime + timeTaken,
     };
-  }, { correctCount: 0, incorrects: [] });
+  }, { correctCount: 0, incorrects: [], totalTime: 0 });
 
   const {
     incorrects,
     correctCount,
     longestTime: long,
     shortestTime: short,
+    totalTime,
   } = crunchedResults;
 
   const longestTime = long ? [long] : [];
   const shortestTime = short ? [short] : [];
+  const timePerQuestion = (totalTime / correctCount).toFixed(1);
 
   const slowSort = previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
 
@@ -131,6 +138,12 @@ function finished(props) {
   return (<div>
     <h1>{'Finished'}</h1>
     {processResultInfo(resultInfo)}
+    <FinishedBadge
+      levelIndex={levelIndex}
+      opIndexes={opIndexes}
+      timePerQuestion={timePerQuestion}
+      totalCorrectAnswers={correctCount}
+    />
     <div>
       {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
     </div>
@@ -155,6 +168,8 @@ function finished(props) {
 }
 
 finished.propTypes = {
+  levelIndex: PropTypes.number.isRequired,
+  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     actual: PropTypes.number.isRequired,

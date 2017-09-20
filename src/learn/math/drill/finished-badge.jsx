@@ -4,7 +4,7 @@ const helper = require('./helper');
 const PropTypes = require('prop-types');
 const React = require('react');
 
-const { alphabet, operationNames } = helper;
+const { alphabet, operationNames, operations } = helper;
 
 const finishedBadgeStyle = {
 
@@ -39,17 +39,19 @@ test you got ${totalCorrectAnswers} answer(s) correct.`;
     return noBadge(message);
   }
 
-  const color = helper.getBadgeColorIndex(timePerQuestion);
+  const colorIndex = helper.getBadgeColorIndex(timePerQuestion);
+  const color = colorText[colorIndex];
   const letter = alphabet[levelIndex];
-  const operation = operationNames[opIndexes[0]];
+  const operationName = operationNames[opIndexes[0]];
+  const operation = operations[opIndexes[0]];
 
   return (
     <div style={finishedBadgeStyle}>
       <span>
-        <Badge color={color} content={'*'} />
+        <Badge color={colorIndex} content={operation} />
       </span>
       <span>
-        {` - Congratulations on getting a new ${colorText} Badge for Level ${letter} ${operation}!`}
+        {` - Congratulations on getting a new ${color} Badge for Level ${letter} ${operationName}!`}
       </span>
     </div>
   );
