@@ -1,4 +1,3 @@
-// const zango = require('zangodb');
 
 const MATH_DRILL_OPTIONS = 'mathDrillOptions';
 const MATH_DRILL_SCORES = 'mathDrillScores';

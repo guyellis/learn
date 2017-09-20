@@ -12,7 +12,7 @@ const {
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const operations = ['+', '-', 'x', '\u00F7'];
-const operationNames = ['Addition', 'Subtraction', 'Multipliation', 'Division'];
+const operationNames = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
 
 const special1 = [...Array(9).keys()].map(a => [0, a + 1]);
 const special2 = [...Array(9).keys()].map(a => [a + 1, 0]);

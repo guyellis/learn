@@ -75,8 +75,8 @@ This is entirely optional.
 
 ### Running
 
-One you start running the test you will see the Level, Operation(s) \
-Time Left and Questions Remaing at the top of the screen.
+Once you start running the test you will see the Level, Operation(s) \
+Time Left and Questions Remaining at the top of the screen.
 
 The current question will be presented right below that with a ? in a green \
 box where the answer will go.
@@ -95,7 +95,7 @@ on the Finished page.
 
 If you have earned a new badge you will see that here as well.
 
-There is also a summary of the question you answered quickets, slowest and \
+There is also a summary of the question you answered quickest, slowest and \
 all your results if you want to review them.
 
 # Scoreboard

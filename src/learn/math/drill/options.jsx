@@ -110,7 +110,7 @@ function options(props) {
           hintText="20"
           name="totalProblems"
           onChange={props.onChange}
-          style={{ width: 150, maarginLeft: 40 }}
+          style={{ width: 150, marginLeft: 40 }}
           type="number"
           value={totalProblems}
         />
@@ -144,7 +144,7 @@ function options(props) {
           hintText="Jemima Puddle-Duck"
           name="userName"
           onChange={props.onChange}
-          style={{ width: 250, maarginLeft: 40 }}
+          style={{ width: 250, marginLeft: 40 }}
           type="text"
           value={userName}
         />
