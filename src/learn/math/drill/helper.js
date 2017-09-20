@@ -338,9 +338,9 @@ function getScoreboard() {
     } = score;
 
     // Filter down the scores to just those that have:
-    // 1. at least 1 correct answer
+    // 1. at least 10 correct answer
     // 2. Only include single-select operators. (i.e. no multi-select mix-n-match)
-    if (correctCount > 0 && opIndexes.length === 1) {
+    if (correctCount > 9 && opIndexes.length === 1) {
       const opIndex = opIndexes[0];
       const badges = baseLevels[levelIndex][opIndex] || [0, 0, 0, 0];
       opCounters[opIndex] += 1;

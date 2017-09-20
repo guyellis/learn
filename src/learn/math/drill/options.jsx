@@ -103,7 +103,7 @@ function options(props) {
         />
       </div>
       <div style={sectionStyle}>
-        <h3>{'Total Questions'}</h3>
+        <h3>{'Total Questions (you only get badges for 10 or more correct questions)'}</h3>
         <TextField
           floatingLabelText="Total Questions"
           hintText="20"
