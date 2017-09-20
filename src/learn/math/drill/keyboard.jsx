@@ -46,144 +46,59 @@ class Keyboard extends React.Component {
       return null;
     }
 
+    const layout = [
+      [
+        '1', // key
+        ['1', 'One', 1, '1'],
+        ['2', 'Two', 2, '2'],
+        ['3', 'Three', 3, '3'],
+        [<ContentBackspace />, 'Backspace', 'back', '4'],
+      ],
+      [
+        '2', // key
+        ['4', 'Four', 4, '5'],
+        ['5', 'Five', 5, '6'],
+        ['6', 'Six', 6, '7'],
+        [' ', 'Nothing', 'nothing', '8'],
+      ],
+      [
+        '3', // key
+        ['7', 'Seven', 7, '9'],
+        ['8', 'Eight', 8, '10'],
+        ['9', 'Nine', 9, '11'],
+        [' ', 'Nothing', 'nothing', '12'],
+      ],
+      [
+        '4', // key
+        [' ', 'Nothing', 'nothing', '13'],
+        ['0', 'Zero', 0, '14'],
+        [' ', 'Nothing', 'nothing', '15'],
+        [<KeyboardReturn />, 'Enter', 'enter', '16'],
+      ],
+    ];
+
     return (
       <div>
-        <div>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[1]}
-            style={buttonStyle}
-            title="One"
-          >
-            {'1'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[2]}
-            style={buttonStyle}
-            title="Two"
-          >
-            {'2'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[3]}
-            style={buttonStyle}
-            title="Three"
-          >
-            {'3'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.back}
-            style={buttonStyle}
-            title="Backspace"
-          >
-            <ContentBackspace />
-          </FloatingActionButton>
-        </div>
-        <div>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[4]}
-            style={buttonStyle}
-            title="Four"
-          >
-            {'4'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[5]}
-            style={buttonStyle}
-            title="Five"
-          >
-            {'5'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[6]}
-            style={buttonStyle}
-            title="Six"
-          >
-            {'6'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.nothing}
-            style={buttonStyle}
-            title="Nothing"
-          >
-            {' '}
-          </FloatingActionButton>
-        </div>
-        <div>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[7]}
-            style={buttonStyle}
-            title="Seven"
-          >
-            {'7'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[8]}
-            style={buttonStyle}
-            title="Eight"
-          >
-            {'8'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[9]}
-            style={buttonStyle}
-            title="Nine"
-          >
-            {'9'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.nothing}
-            style={buttonStyle}
-            title="Nothing"
-          >
-            {' '}
-          </FloatingActionButton>
-        </div>
-        <div>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.nothing}
-            style={buttonStyle}
-            title="Nothing"
-          >
-            {' '}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click[0]}
-            style={buttonStyle}
-            title="Zero"
-          >
-            {'0'}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.nothing}
-            style={buttonStyle}
-            title="Nothing"
-          >
-            {' '}
-          </FloatingActionButton>
-          <FloatingActionButton
-            iconStyle={buttonIconStyle}
-            onClick={this.click.enter}
-            style={buttonStyle}
-            title="enter"
-          >
-            <KeyboardReturn />
-          </FloatingActionButton>
-        </div>
+        {
+          layout.map(lay => (<div key={lay[0]}>
+            {
+              lay.slice(1).map((item) => {
+                const [content, title, click, key] = item;
+                return (
+                  <FloatingActionButton
+                    iconStyle={buttonIconStyle}
+                    key={key}
+                    onClick={this.click[click]}
+                    style={buttonStyle}
+                    title={title}
+                  >
+                    {content}
+                  </FloatingActionButton>
+                );
+              })
+            }
+          </div>))
+        }
       </div>
     );
   }
