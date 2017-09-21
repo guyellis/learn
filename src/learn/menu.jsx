@@ -17,18 +17,20 @@ class ToolbarMenu extends React.Component {
     return (
       <Toolbar>
         <ToolbarGroup firstChild>
-          <Link to="/math/set">
+          <Link to="/">
             <RaisedButton
-              label="Set"
+              label="Home"
               primary
             />
           </Link>
-          <Link to="/math/go">
+          <ToolbarSeparator />
+          <Link to="/math/drill">
             <RaisedButton
-              label="Go"
+              label="Drill"
               primary
             />
           </Link>
+          <ToolbarSeparator />
           <Link to="/math/score">
             <RaisedButton
               label="Score"
@@ -50,16 +52,16 @@ class ToolbarMenu extends React.Component {
   }
 }
 
-ToolbarMenu.propTypes = {
-  // match: PropTypes.shape({
-  //   params: PropTypes.shape({
-  //     id: PropTypes.string.isRequired,
-  //     slug: PropTypes.string.isRequired,
-  //   }).isRequired,
-  // }).isRequired,
-  // history: React.PropTypes.shape({
-  //   push: React.PropTypes.func.isRequired,
-  // }).isRequired,
-};
+// ToolbarMenu.propTypes = {
+// match: PropTypes.shape({
+//   params: PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//     slug: PropTypes.string.isRequired,
+//   }).isRequired,
+// }).isRequired,
+// history: React.PropTypes.shape({
+//   push: React.PropTypes.func.isRequired,
+// }).isRequired,
+// };
 
 module.exports = ToolbarMenu;

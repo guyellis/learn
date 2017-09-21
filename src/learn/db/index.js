@@ -17,7 +17,34 @@ class DB {
   }
 
   static getOptions() {
-    return DB.getItem(MATH_DRILL_OPTIONS);
+    let options = DB.getItem(MATH_DRILL_OPTIONS);
+    if (options) {
+      if (typeof options.userName !== 'string') {
+        options.userName = '';
+        DB.saveOptions(options);
+      }
+      if (typeof options.largeKeyboard !== 'boolean') {
+        options.largeKeyboard = false;
+        DB.saveOptions(options);
+      }
+      if (options.opIndex) {
+        options.opIndexes = [options.opIndex];
+        delete options.opIndex;
+        DB.saveOptions(options);
+      }
+    } else {
+      options = {
+        largeKeyboard: false,
+        levelIndex: 0, // A
+        minutes: '1',
+        onscreenKeyboard: true,
+        opIndexes: [0], // +
+        totalProblems: '20',
+        userName: '',
+      };
+      DB.saveOptions(options);
+    }
+    return options;
   }
 
   static saveScores(data) {

@@ -25,33 +25,7 @@ class MathDrill extends React.Component {
   constructor() {
     super();
 
-    let options = db.getOptions();
-    if (options) {
-      if (typeof options.userName !== 'string') {
-        options.userName = '';
-        db.saveOptions(options);
-      }
-      if (typeof options.largeKeyboard !== 'boolean') {
-        options.largeKeyboard = false;
-        db.saveOptions(options);
-      }
-      if (options.opIndex) {
-        options.opIndexes = [options.opIndex];
-        delete options.opIndex;
-        db.saveOptions(options);
-      }
-    } else {
-      options = {
-        largeKeyboard: false,
-        levelIndex: 0, // A
-        minutes: '1',
-        onscreenKeyboard: true,
-        opIndexes: [0], // +
-        totalProblems: '20',
-        userName: '',
-      };
-      db.saveOptions(options);
-    }
+    const options = db.getOptions();
 
     this.state = {
       largeKeyboard: options.largeKeyboard,

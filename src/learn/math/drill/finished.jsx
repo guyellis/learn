@@ -120,7 +120,7 @@ function finished(props) {
 
   const longestTime = long ? [long] : [];
   const shortestTime = short ? [short] : [];
-  const timePerQuestion = (totalTime / correctCount).toFixed(1);
+  const timePerQuestion = parseFloat((totalTime / correctCount).toFixed(1));
 
   const slowSort = previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
 
