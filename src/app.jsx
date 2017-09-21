@@ -1,10 +1,9 @@
-require('bootstrap/dist/css/bootstrap.min.css');
-const React = require('react');
-const Home = require('./learn/home');
 const { Route, Redirect } = require('react-router-dom');
 const Drill = require('./learn/math/drill');
-const Scoreboard = require('./learn/math/drill/scoreboard');
 const Help = require('./learn/help');
+const Home = require('./learn/home');
+const React = require('react');
+const Scoreboard = require('./learn/math/drill/scoreboard');
 
 function app() {
   return (
