@@ -136,6 +136,12 @@ function finished(props) {
     );
   }
 
+  // TODO: Collect most recent 5 scores for this Level/Operation
+  const scoreBarTimes = [{
+    title: 'now',
+    timePerQuestion,
+  }];
+
   return (<div>
     <h1>{'Finished'}</h1>
     {processResultInfo(resultInfo)}
@@ -146,7 +152,7 @@ function finished(props) {
       totalCorrectAnswers={correctCount}
     />
     <ScoreBar
-      timePerQuestion={timePerQuestion}
+      times={scoreBarTimes}
     />
     <div>
       {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
