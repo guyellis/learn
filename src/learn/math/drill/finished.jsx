@@ -3,6 +3,7 @@ const React = require('react');
 const RunningResults = require('./running-results');
 const constants = require('../../common/constants');
 const FinishedBadge = require('./finished-badge');
+const ScoreBar = require('./score-bar');
 
 const {
   RECORD_NEW,
@@ -143,6 +144,9 @@ function finished(props) {
       opIndexes={opIndexes}
       timePerQuestion={timePerQuestion}
       totalCorrectAnswers={correctCount}
+    />
+    <ScoreBar
+      timePerQuestion={timePerQuestion}
     />
     <div>
       {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}

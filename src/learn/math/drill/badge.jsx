@@ -3,7 +3,10 @@ const FloatingActionButton = require('material-ui/FloatingActionButton').default
 const PropTypes = require('prop-types');
 const React = require('react');
 
-const { COLOR_TEXT: colorText } = constants;
+const {
+  COLOR_TEXT: colorText,
+  COLOR_HTML: htmlColors,
+} = constants;
 
 const buttonStyle = {
   margin: '5px',
@@ -13,8 +16,6 @@ const buttonStyle = {
 const buttonIconStyle = {
   color: 'white',
 };
-
-const htmlColors = ['#ffd700', '#c0c0c0', '#8C7853', 'lightblue'];
 
 function badge({ color, content }) {
   const title = `${content} ${colorText[color]}`;

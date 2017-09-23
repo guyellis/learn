@@ -8,6 +8,7 @@ const {
   RECORD_EQUAL,
   RECORD_MISS,
   RECORD_NOT_EXIST,
+  BADGE_BOUNDARIES: badgeBoundaries,
 } = constants;
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -311,7 +312,7 @@ beat this score. Good luck!`;
 }
 
 function getBadgeColorIndex(timePerQuestion) {
-  return [0, 2, 3, 4].reduce((badgeColor, boundary, index) =>
+  return badgeBoundaries.reduce((badgeColor, boundary, index) =>
     (timePerQuestion > boundary ? index : badgeColor), 0);
 }
 
