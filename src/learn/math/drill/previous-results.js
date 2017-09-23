@@ -1,24 +1,30 @@
 
-class PreviousResults {
-  constructor(initialResults) {
-    if (initialResults && !Array.isArray(initialResults)) {
-      throw new Error(`If an initialValue is passed to PreviousResults constructor it must be an array but it was ${typeof initialResults}`);
+class BaseArray {
+  constructor(initial) {
+    if (initial && !Array.isArray(initial)) {
+      throw new Error(`If an initial value is passed to BaseArray constructor it must be an array but it was ${typeof initial}`);
     }
-    this.results = initialResults || [];
+    this.array = initial || [];
   }
 
   first() {
-    return this.results[0];
+    return this.array[0];
   }
 
   last() {
-    return this.results.length
-      ? this.results[this.results.length - 1]
+    return this.array.length
+      ? this.array[this.array.length - 1]
       : undefined;
   }
 
+  push(item) {
+    this.array.push(item);
+  }
+}
+
+class PreviousResults extends BaseArray {
   getStats() {
-    return this.results.reduce((acc, problem) => {
+    return this.array.reduce((acc, problem) => {
       const { task, actual, timeTaken } = problem;
       const [,,, answer] = task;
 
