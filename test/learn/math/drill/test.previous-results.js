@@ -13,4 +13,17 @@ describe('previous-results', () => {
       totalTime: 0,
     });
   });
+
+  it('should slice an array', () => {
+    const previous = new PreviousResults([1, 2, 3]);
+    const sliced = previous.slice(1);
+    assert.deepEqual(sliced, [2, 3]);
+  });
+
+  it('should push a value', () => {
+    const previous = new PreviousResults([1]);
+    assert.deepEqual(previous.raw, [1]);
+    previous.push(2);
+    assert.deepEqual(previous.raw, [1, 2]);
+  });
 });

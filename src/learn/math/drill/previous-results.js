@@ -17,8 +17,18 @@ class BaseArray {
       : undefined;
   }
 
-  push(item) {
-    this.array.push(item);
+  push(...args) {
+    // eslint-disable-next-line prefer-spread
+    this.array.push.apply(this.array, args);
+  }
+
+  slice(...args) {
+    // eslint-disable-next-line prefer-spread
+    return this.array.slice.apply(this.array, args);
+  }
+
+  get raw() {
+    return this.array;
   }
 }
 
