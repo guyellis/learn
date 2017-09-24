@@ -6,6 +6,7 @@ const FinishedBadge = require('./finished-badge');
 const ScoreBar = require('./score-bar');
 const PreviousResults = require('./previous-results');
 const Types = require('./types');
+const helper = require('./helper');
 
 const {
   RECORD_NEW,
@@ -91,11 +92,7 @@ function finished(props) {
     );
   }
 
-  // TODO: Collect most recent 5 scores for this Level/Operation
-  const scoreBarTimes = [{
-    title: 'now',
-    timePerQuestion,
-  }];
+  const scoreBarTimes = helper.getScoreBarTimes(levelIndex, opIndexes);
 
   return (<div>
     <h1>{'Finished'}</h1>

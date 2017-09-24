@@ -316,6 +316,26 @@ function getBadgeColorIndex(timePerQuestion) {
     (timePerQuestion > boundary ? index : badgeColor), 0);
 }
 
+function getScoreBarTimes(levelIndex, opIndexes) {
+  // TODO: Collect most recent 5 scores for this Level/Operation
+  const key = createKey(levelIndex, opIndexes);
+  const scores = db.getScores() || [];
+  const filteredScores = scores
+    .filter(score => score.key === key)
+    .sort((a, b) => a.date - b.date);
+  if (!filteredScores.length) {
+    return [];
+  }
+
+  return filteredScores
+    .slice(filteredScores.length - 5)
+    .map(score => ({
+      title: moment(score.date).fromNow(),
+      timePerQuestion: score.timePerQuestion,
+    }));
+}
+
+
 function getScoreboard() {
   const scores = db.getScores() || [];
   const totals = [0, 0, 0, 0];
@@ -441,6 +461,7 @@ module.exports = {
   getBadgeColorIndex,
   getCurrentRecord,
   getLowerUpper,
+  getScoreBarTimes,
   getScoreboard,
   newRecord,
   operationNames,
