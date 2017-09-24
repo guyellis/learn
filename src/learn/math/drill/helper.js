@@ -243,23 +243,6 @@ function appendScore(results) {
   const incorrectCount = previousResults.length - correctCount;
   const date = Date.now();
 
-  const record = {
-    completed,
-    correctCount,
-    date,
-    incorrectCount,
-    key: createKey(levelIndex, opIndexes),
-    levelIndex,
-    minutes,
-    opIndexes,
-    previousResults,
-    questionsRemaining,
-    timeLeft,
-    timePerQuestion,
-    timeTaken,
-    totalProblems,
-  };
-
   const resultInfo = {};
   const currentRecord = getCurrentRecord(levelIndex, opIndexes);
 
@@ -305,6 +288,23 @@ beat this score. Good luck!`;
   }
 
   if (!isNaN(timePerQuestion)) {
+    const record = {
+      completed,
+      correctCount,
+      date,
+      incorrectCount,
+      key: createKey(levelIndex, opIndexes),
+      levelIndex,
+      minutes,
+      opIndexes,
+      previousResults,
+      questionsRemaining,
+      timeLeft,
+      timePerQuestion,
+      timeTaken,
+      totalProblems,
+    };
+
     db.appendScore(record);
   }
 

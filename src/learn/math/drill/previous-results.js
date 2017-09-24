@@ -1,40 +1,11 @@
 
-class BaseArray {
-  constructor(initial) {
-    if (initial && !Array.isArray(initial)) {
-      throw new Error(`If an initial value is passed to BaseArray constructor it must be an array but it was ${typeof initial}`);
-    }
-    this.array = initial || [];
+class PreviousResults {
+  static sortBySlowest(previousResults = []) {
+    return previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
   }
 
-  first() {
-    return this.array[0];
-  }
-
-  last() {
-    return this.array.length
-      ? this.array[this.array.length - 1]
-      : undefined;
-  }
-
-  push(...args) {
-    // eslint-disable-next-line prefer-spread
-    this.array.push.apply(this.array, args);
-  }
-
-  slice(...args) {
-    // eslint-disable-next-line prefer-spread
-    return this.array.slice.apply(this.array, args);
-  }
-
-  get raw() {
-    return this.array;
-  }
-}
-
-class PreviousResults extends BaseArray {
-  getStats() {
-    return this.array.reduce((acc, problem) => {
+  static getStats(previousResults = []) {
+    return previousResults.reduce((acc, problem) => {
       const { task, actual, timeTaken } = problem;
       const [,,, answer] = task;
 

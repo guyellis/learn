@@ -5,6 +5,7 @@ const constants = require('../../common/constants');
 const FinishedBadge = require('./finished-badge');
 const ScoreBar = require('./score-bar');
 const PreviousResults = require('./previous-results');
+const Types = require('./types');
 
 const {
   RECORD_NEW,
@@ -63,8 +64,7 @@ function finished(props) {
     totalProblems,
   } = props;
 
-  const pResults = new PreviousResults(previousResults);
-  const crunchedResults = pResults.getStats();
+  const crunchedResults = PreviousResults.getStats(previousResults);
 
   const {
     incorrects,
@@ -78,7 +78,7 @@ function finished(props) {
   const shortestTime = short ? [short] : [];
   const timePerQuestion = parseFloat((totalTime / correctCount).toFixed(1));
 
-  const slowSort = previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
+  const slowSort = PreviousResults.sortBySlowest(previousResults);
 
   if (!longestTime.length) {
     return (
@@ -135,12 +135,7 @@ function finished(props) {
 finished.propTypes = {
   levelIndex: PropTypes.number.isRequired,
   opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  previousResults: PropTypes.arrayOf(PropTypes.shape({
-    task: PropTypes.array.isRequired, // left, right, opIndex, answer
-    actual: PropTypes.number.isRequired,
-    timeTaken: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-  })).isRequired,
+  previousResults: PropTypes.arrayOf(Types.previousResults).isRequired,
   resultInfo: PropTypes.shape({
     text: PropTypes.string.isRequired,
     newRecordInfo: PropTypes.string.isRequired,
