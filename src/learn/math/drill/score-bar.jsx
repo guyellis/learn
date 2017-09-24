@@ -70,42 +70,43 @@ function renderColors(times) {
 }
 
 function renderUserScores(times) {
-// function scoreBar() {
-  let maxVal = Math.max(...badgeBoundaries);
-  const { timePerQuestion } = times[0];
-  maxVal = timePerQuestion > (maxVal * 1.5)
-    ? maxVal * 2
-    : maxVal * 1.5;
-  divStyle.height = `${maxVal * 50}px`;
-  const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
+  return times.map((time) => {
+    let maxVal = Math.max(...badgeBoundaries);
+    const { timePerQuestion } = time;
+    maxVal = timePerQuestion > (maxVal * 1.5)
+      ? maxVal * 2
+      : maxVal * 1.5;
+    divStyle.height = `${maxVal * 50}px`;
+    const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
-  const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5);
-  const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5);
-  const userTime = [
-    one,
-    5,
-    three,
-  ];
+    const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5);
+    const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5);
+    const userTimes = [
+      one,
+      5,
+      three,
+    ];
 
-  const rightArrow = '\u21FE';
-  const downArrow = '\u2193';
-  const arrow = timePerQuestion > timePerQuestionLimit
-    ? downArrow : rightArrow;
+    const rightArrow = '\u21FE';
+    const downArrow = '\u2193';
+    const arrow = timePerQuestion > timePerQuestionLimit
+      ? downArrow : rightArrow;
 
-  const userTimeText = ['', `YOU${arrow}`, ''];
+    const userTimeText = ['', `YOU${arrow}`, ''];
 
-  return (
-    <span style={divYouStyle}>
-      {
-        userTime.map((time, index) => {
-          const style = {
-            height: `${time}%`,
-          };
-          return (<span key={time} style={style}>{userTimeText[index]}</span>);
-        })
-      }
-    </span>
-  );
+    return (
+      <span style={divYouStyle}>
+        {
+          userTimes.map((userTime, index) => {
+            const style = {
+              height: `${userTime}%`,
+            };
+            return (<span key={userTime} style={style}>{userTimeText[index]}</span>);
+          })
+        }
+      </span>
+    );
+  });
 }
 
 function scoreBar({ times }) {
