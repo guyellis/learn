@@ -5,9 +5,11 @@
   "branches":0,
   "exclude": [
     ".vscode/**",
+    "coverage/**",
     "node_modules/**",
     "postcss.config.js",
     "public/**",
+    "src/tester.jsx",
     "test/**",
     "webpack.config.js",
     "webpack.loaders.js",
