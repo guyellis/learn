@@ -1,6 +1,6 @@
 
 describe('Placeholder', () => {
-  it('should do something...', () => {
+  test('should do something...', () => {
 
   });
 });

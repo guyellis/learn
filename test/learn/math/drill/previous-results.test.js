@@ -2,7 +2,7 @@ const assert = require('assert');
 const PreviousResults = require('../../../../src/learn/math/drill/previous-results');
 
 describe('previous-results', () => {
-  it('should sort by slowest', () => {
+  test('should sort by slowest', () => {
     const data = [{
       timeTaken: 1,
     }, {
@@ -17,7 +17,7 @@ describe('previous-results', () => {
     assert.deepEqual(actual, expected);
   });
 
-  it('should getStats on an empty array', () => {
+  test('should getStats on an empty array', () => {
     const stats = PreviousResults.getStats([]);
     assert.deepEqual(stats, {
       correctCount: 0,

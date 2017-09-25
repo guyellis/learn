@@ -24,7 +24,7 @@
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
     "babel-core": "6.26.0",
-    "babel-istanbul": "0.12.2",
+    "babel-jest": "21.0.2",
     "babel-loader": "7.1.2",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
@@ -42,8 +42,7 @@
     "eslint-plugin-jsx-a11y": "^5.0.0",
     "eslint-plugin-react": "7.3.0",
     "file-loader": "0.11.2",
-    "mocha": "3.5.3",
-    "nyc": "11.2.1",
+    "jest": "21.1.0",
     "postcss-loader": "2.0.6",
     "pre-commit": "1.2.2",
     "react-hot-loader": "3.0.0-beta.6",
@@ -72,11 +71,11 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "coverage:view": "google-chrome coverage/lcov-report/index.html",
-    "coverage": "nyc mocha",
+    "coverage": "jest --coverage",
     "deploy": "npm run build && npm run upload",
     "lint": "eslint --ext js --ext jsx .",
     "start": "webpack-dev-server --progress --profile --colors",
-    "test": "npm run lint && nyc mocha",
+    "test": "npm run lint && jest --coverage",
     "upload": "aws s3 cp public s3://learn.guyellisrocks.com/ --recursive"
   },
   "version": "0.0.2"
