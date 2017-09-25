@@ -1,35 +1,45 @@
 const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
 const React = require('react');
+const moment = require('moment');
+const helper = require('./helper');
 
 const {
-  COLOR_TEXT: colorText,
-  COLOR_HTML: htmlColors,
   BADGE_BOUNDARIES: badgeBoundaries,
+  COLOR_HTML: htmlColors,
+  COLOR_TEXT: colorText,
 } = constants;
 
-const divStyle = {
-  width: '150px',
-  // height: '300px',
+const sbStyle = {
+
+};
+
+const sbHeadStyle = {
+  width: '100%',
+  border: '1px solid black',
+  display: 'flex',
+  textAlign: 'center',
+};
+
+const sbHeadItemStyle = {
+  border: '1px solid black',
+  flexGrow: '1',
+};
+
+const sbBodyStyle = {
+  width: '100%',
+  border: '1px solid black',
   display: 'flex',
 };
 
-const divColorStyle = {
-  width: '50%',
+const sbBodyItemStyle = {
+  border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
-  height: '100%',
   fontSize: 'large',
-};
-
-const divYouStyle = {
-  width: '50%',
-  display: 'flex',
-  flexDirection: 'column',
   height: '100%',
-  fontSize: 'large',
-  textAlign: 'right',
-  // marginTop: '5px',
+  flexGrow: '1',
+  textAlign: 'center',
 };
 
 function renderColors(times) {
@@ -38,7 +48,7 @@ function renderColors(times) {
   maxVal = timePerQuestion > (maxVal * 1.5)
     ? maxVal * 2
     : maxVal * 1.5;
-  divStyle.height = `${maxVal * 50}px`;
+  sbBodyStyle.height = `${maxVal * 50}px`;
 
   const extra = badgeBoundaries.concat(maxVal);
   const widths = extra.reduce((acc, boundary, index) => {
@@ -48,14 +58,12 @@ function renderColors(times) {
     return acc;
   }, []);
 
-  return (<span style={divColorStyle}>
+  return (<span style={sbBodyItemStyle}>
     {
       colorText.map((color, index) => {
         const style = {
           backgroundColor: htmlColors[index],
           height: `${widths[index]}%`,
-          width: '100%',
-          textAlign: 'center',
         };
         return (<div
           key={color}
@@ -72,18 +80,18 @@ function renderColors(times) {
 function renderUserScores(times) {
   return times.map((time) => {
     let maxVal = Math.max(...badgeBoundaries);
-    const { timePerQuestion } = time;
+    const { timePerQuestion, date } = time;
     maxVal = timePerQuestion > (maxVal * 1.5)
       ? maxVal * 2
       : maxVal * 1.5;
-    divStyle.height = `${maxVal * 50}px`;
+    sbBodyStyle.height = `${maxVal * 50}px`;
     const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
     const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5);
     const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5);
     const userTimes = [
       one,
-      5,
+      10,
       three,
     ];
 
@@ -94,19 +102,36 @@ function renderUserScores(times) {
 
     const userTimeText = ['', `YOU${arrow}`, ''];
 
+    const userColor = helper.getBadgeHtmlColor(timePerQuestion);
+
     return (
-      <span style={divYouStyle}>
+      <span key={date} style={sbBodyItemStyle}>
         {
           userTimes.map((userTime, index) => {
+            const key = `userTimes-${index}`;
             const style = {
               height: `${userTime}%`,
             };
-            return (<span key={userTime} style={style}>{userTimeText[index]}</span>);
+            if (index === 1) {
+              style.backgroundColor = userColor;
+            }
+            return (<span key={key} style={style}>{userTimeText[index]}</span>);
           })
         }
       </span>
     );
   });
+}
+
+function renderTitles(times) {
+  const titles = times.map(time => moment(time.date).fromNow()).concat('Badges');
+
+  return (
+    <div style={sbHeadStyle}>{
+      titles.map(title => <span style={sbHeadItemStyle}>{title}</span>)
+    }
+    </div>
+  );
 }
 
 function scoreBar({ times }) {
@@ -116,19 +141,24 @@ function scoreBar({ times }) {
   maxVal = timePerQuestion > (maxVal * 1.5)
     ? maxVal * 2
     : maxVal * 1.5;
-  divStyle.height = `${maxVal * 50}px`;
+  sbBodyStyle.height = `${maxVal * 50}px`;
 
   return (
-    <div style={divStyle}>
-      {renderUserScores(times)}
-      {renderColors(times)}
+    <div style={sbStyle}>
+      <div style={sbHeadStyle}>
+        {renderTitles(times)}
+      </div>
+      <div style={sbBodyStyle}>
+        {renderUserScores(times)}
+        {renderColors(times)}
+      </div>
     </div>
   );
 }
 
 scoreBar.propTypes = {
   times: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
     timePerQuestion: PropTypes.number.isRequired,
   }).isRequired).isRequired,
 };
