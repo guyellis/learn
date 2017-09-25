@@ -9,6 +9,7 @@ const {
   RECORD_MISS,
   RECORD_NOT_EXIST,
   BADGE_BOUNDARIES: badgeBoundaries,
+  COLOR_HTML,
 } = constants;
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -316,10 +317,14 @@ function getBadgeColorIndex(timePerQuestion) {
     (timePerQuestion > boundary ? index : badgeColor), 0);
 }
 
-function getScoreBarTimes(levelIndex, opIndexes) {
-  // TODO: Collect most recent 5 scores for this Level/Operation
+function getBadgeHtmlColor(timePerQuestion) {
+  const index = getBadgeColorIndex(timePerQuestion);
+  return COLOR_HTML[index];
+}
+
+function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
   const key = createKey(levelIndex, opIndexes);
-  const scores = db.getScores() || [];
+  const scores = scoreParams || db.getScores() || [];
   const filteredScores = scores
     .filter(score => score.key === key)
     .sort((a, b) => a.date - b.date);
@@ -329,9 +334,9 @@ function getScoreBarTimes(levelIndex, opIndexes) {
 
   return filteredScores
     .slice(filteredScores.length - 5)
-    .map(score => ({
-      title: moment(score.date).fromNow(),
-      timePerQuestion: score.timePerQuestion,
+    .map(({ date, timePerQuestion }) => ({
+      date,
+      timePerQuestion,
     }));
 }
 
@@ -459,6 +464,7 @@ module.exports = {
   appendScore,
   calculateAnswer,
   getBadgeColorIndex,
+  getBadgeHtmlColor,
   getCurrentRecord,
   getLowerUpper,
   getScoreBarTimes,
