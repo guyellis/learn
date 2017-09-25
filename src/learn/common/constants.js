@@ -7,4 +7,7 @@ module.exports = {
   COLOR_TEXT: ['Gold', 'Silver', 'Bronze', 'Blue'],
   COLOR_HTML: ['#ffd700', '#c0c0c0', '#8C7853', 'lightblue'],
   BADGE_BOUNDARIES: [0, 2, 3, 4], // Seconds per question boundaries for badges
+  ALPHABET: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
+  OPERATIONS: ['+', '-', 'x', '\u00F7'],
+  OPERATION_NAMES: ['Addition', 'Subtraction', 'Multiplication', 'Division'],
 };

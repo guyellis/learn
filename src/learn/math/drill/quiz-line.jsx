@@ -4,10 +4,10 @@ const Keyboard = require('./keyboard');
 const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
-const helper = require('./helper');
+const constants = require('../../common/constants');
 const RunningResults = require('./running-results');
 
-const { operations } = helper;
+const { OPERATIONS: operations } = constants;
 
 const numberStyle = {
   fontSize: 'xx-large',

@@ -4,13 +4,16 @@ const helper = require('./helper');
 const PropTypes = require('prop-types');
 const React = require('react');
 
-const { alphabet, operationNames, operations } = helper;
-
 const finishedBadgeStyle = {
 
 };
 
-const { COLOR_TEXT: colorText } = constants;
+const {
+  COLOR_TEXT: colorText,
+  ALPHABET: alphabet,
+  OPERATION_NAMES: operationNames,
+  OPERATIONS: operations,
+} = constants;
 
 function noBadge(message) {
   return (

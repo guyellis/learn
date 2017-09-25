@@ -4,7 +4,11 @@ const constants = require('../../common/constants');
 const helper = require('./helper');
 const React = require('react');
 
-const { COLOR_TEXT: colorText } = constants;
+const {
+  COLOR_TEXT: colorText,
+  ALPHABET: alphabet,
+  OPERATION_NAMES: operationNames,
+} = constants;
 
 const {
   Table,
@@ -14,11 +18,6 @@ const {
   TableRow,
   TableRowColumn,
 } = require('material-ui/Table');
-
-const {
-  alphabet,
-  operationNames,
-} = helper;
 
 function badge(badges) {
   if (!badges) {

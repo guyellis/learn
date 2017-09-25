@@ -1,9 +1,9 @@
 
 const React = require('react');
 const PropTypes = require('prop-types');
-const helper = require('./helper');
+const constants = require('../../common/constants');
 
-const { operations } = helper;
+const { OPERATIONS: operations } = constants;
 const spanStyle = { paddingLeft: 20 };
 const inABox = Object.assign({
   borderWidth: 1,

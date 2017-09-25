@@ -1,6 +1,6 @@
 const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
-const helper = require('./helper');
+const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
 const RaisedButton = require('material-ui/RaisedButton').default;
 const React = require('react');
@@ -8,9 +8,9 @@ const TextField = require('material-ui/TextField').default;
 const Toggle = require('material-ui/Toggle').default;
 
 const {
-  alphabet,
-  operations,
-} = helper;
+  ALPHABET: alphabet,
+  OPERATIONS: operations,
+} = constants;
 
 const buttonStyle = {
   margin: '5px',

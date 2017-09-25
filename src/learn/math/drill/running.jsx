@@ -1,13 +1,13 @@
-const helper = require('./helper');
+const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
 const QuizLine = require('./quiz-line');
 const React = require('react');
 const RunningResults = require('./running-results');
 
 const {
-  alphabet,
-  operations,
-} = helper;
+  ALPHABET: alphabet,
+  OPERATIONS: operations,
+} = constants;
 
 function running(props) {
   const {
