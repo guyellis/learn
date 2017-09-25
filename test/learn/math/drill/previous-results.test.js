@@ -1,4 +1,3 @@
-const assert = require('assert');
 const PreviousResults = require('../../../../src/learn/math/drill/previous-results');
 
 describe('previous-results', () => {
@@ -14,15 +13,16 @@ describe('previous-results', () => {
       timeTaken: 1,
     }];
     const actual = PreviousResults.sortBySlowest(data);
-    assert.deepEqual(actual, expected);
+    expect(actual).toEqual(expected);
   });
 
   test('should getStats on an empty array', () => {
-    const stats = PreviousResults.getStats([]);
-    assert.deepEqual(stats, {
+    const actual = PreviousResults.getStats([]);
+    const expected = {
       correctCount: 0,
       incorrects: [],
       totalTime: 0,
-    });
+    };
+    expect(actual).toEqual(expected);
   });
 });

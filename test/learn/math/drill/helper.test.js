@@ -1,16 +1,15 @@
 const helper = require('../../../../src/learn/math/drill/helper');
-const assert = require('assert');
 
 describe('Helper', () => {
   test('should get a pair of numbers from level #1 plus', () => {
     const pair = helper.getLowerUpper(0, [0]);
-    assert(pair[0] === 1 || pair[1] === 1);
+    expect(pair[0] === 1 || pair[1] === 1).toBe(true);
   });
 
   test('should get a random pair of numbers', () => {
     const pair = helper.getLowerUpper(4, [0]);
-    assert(pair[0] < 8);
-    assert(pair[1] < 8);
+    expect(pair[0]).toBeLessThan(8);
+    expect(pair[1]).toBeLessThan(8);
   });
 
 
@@ -21,7 +20,7 @@ describe('Helper', () => {
 
     const expected = [];
 
-    assert.deepEqual(actual, expected);
+    expect(actual).toEqual(expected);
   });
 
   test('should getScoreBarTimes() for single item', () => {
@@ -39,7 +38,7 @@ describe('Helper', () => {
       timePerQuestion: 1.3,
     }];
 
-    assert.deepEqual(actual, expected);
+    expect(actual).toEqual(expected);
   });
 
   test('should sort getScoreBarTimes() for two items', () => {
@@ -65,7 +64,7 @@ describe('Helper', () => {
       timePerQuestion: 2.2,
     }];
 
-    assert.deepEqual(actual, expected);
+    expect(actual).toEqual(expected);
   });
 
   test(
@@ -122,6 +121,6 @@ describe('Helper', () => {
         timePerQuestion: 6.6,
       }];
 
-      assert.deepEqual(actual, expected);
+      expect(actual).toEqual(expected);
     });
 });
