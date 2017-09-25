@@ -124,11 +124,14 @@ function renderUserScores(times) {
 }
 
 function renderTitles(times) {
-  const titles = times.map(time => moment(time.date).fromNow()).concat('Badges');
+  const titles = times.map(({ date }) => ({
+    title: moment(date).fromNow(),
+    date,
+  })).concat({ title: 'Badges', date: 0 });
 
   return (
     <div style={sbHeadStyle}>{
-      titles.map(title => <span style={sbHeadItemStyle}>{title}</span>)
+      titles.map(({ title, date }) => <span key={date} style={sbHeadItemStyle}>{title}</span>)
     }
     </div>
   );
