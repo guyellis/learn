@@ -105,6 +105,7 @@ function finished(props) {
     />
     <ScoreBar
       times={scoreBarTimes}
+      showScoreBar={correctCount > 9}
     />
     <div>
       {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}

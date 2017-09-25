@@ -6,6 +6,9 @@ const Menu = require('./learn/menu');
 const React = require('react');
 const Scoreboard = require('./learn/math/drill/scoreboard');
 
+// const Tester = require('./tester');
+// <Route path="/" exact component={Tester} />
+
 function app() {
   return (
     <div>

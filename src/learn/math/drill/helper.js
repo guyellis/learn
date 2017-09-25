@@ -323,10 +323,10 @@ function getBadgeHtmlColor(timePerQuestion) {
 }
 
 function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
-  const key = createKey(levelIndex, opIndexes);
+  const thisKey = createKey(levelIndex, opIndexes);
   const scores = scoreParams || db.getScores() || [];
   const filteredScores = scores
-    .filter(score => score.key === key)
+    .filter(({ key, correctCount }) => key === thisKey && correctCount > 9)
     .sort((a, b) => a.date - b.date);
   if (!filteredScores.length) {
     return [];

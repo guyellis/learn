@@ -22,7 +22,6 @@ const sbHeadStyle = {
 };
 
 const sbHeadItemStyle = {
-  border: '1px solid black',
   flexGrow: '1',
 };
 
@@ -137,7 +136,10 @@ function renderTitles(times) {
   );
 }
 
-function scoreBar({ times }) {
+function scoreBar({ times, showScoreBar }) {
+  if (!showScoreBar) {
+    return null;
+  }
   // TODO: Dedup maxVal code below...
   let maxVal = Math.max(...badgeBoundaries);
   const { timePerQuestion } = times[0];
@@ -164,6 +166,7 @@ scoreBar.propTypes = {
     date: PropTypes.number.isRequired,
     timePerQuestion: PropTypes.number.isRequired,
   }).isRequired).isRequired,
+  showScoreBar: PropTypes.bool.isRequired,
 };
 
 module.exports = scoreBar;
