@@ -12,7 +12,6 @@ describe('Helper', () => {
     expect(pair[1]).toBeLessThan(8);
   });
 
-
   test('should getScoreBarTimes() for zero items', () => {
     const scores = [];
 
