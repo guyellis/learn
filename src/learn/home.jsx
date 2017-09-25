@@ -36,7 +36,7 @@ function home() {
         </Link>
       </div>
       <div style={style}>
-        <Link to="/math/scoreboard">
+        <Link to="/math/score">
           <RaisedButton
             label="Scoreboard"
             labelPosition="before"
