@@ -20,4 +20,5 @@ module.exports = {
       statements: 1,
     },
   },
+  setupTestFrameworkScriptFile: './test/_setup.js',
 };

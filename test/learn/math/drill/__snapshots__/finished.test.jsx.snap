@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Finished should be rendered a new record 1`] = `
+<div>
+  <h1>
+    Finished
+  </h1>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#8bc78b",
+        "borderRadius": "5px",
+        "color": "black",
+        "marginBottom": "10px",
+        "padding": "20px",
+      }
+    }
+  >
+    Result Info Text
+  </div>
+  <div
+    style={Object {}}
+  >
+    You need 10 or more correct answers to earn a badge. On this 
+test you got 0 answer(s) correct.
+  </div>
+  <div>
+    You had 100 seconds left out of the 600 seconds allowed.
+  </div>
+  <div>
+    You correctly answered 0 of the 20 problems.
+  </div>
+  <h4>
+    The problem that took you the longest to answer
+  </h4>
+  <div>
+    <div
+      style={
+        Object {
+          "color": "red",
+          "lineHeight": "35px",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        +
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        =
+      </span>
+      <span
+        style={
+          Object {
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "marginLeft": 20,
+            "padding": 3,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        ✗
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        2.2 seconds
+      </span>
+    </div>
+  </div>
+  <h4>
+    The problem you answered the fastest
+  </h4>
+  <div>
+    <div
+      style={
+        Object {
+          "color": "red",
+          "lineHeight": "35px",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        +
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        =
+      </span>
+      <span
+        style={
+          Object {
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "marginLeft": 20,
+            "padding": 3,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        ✗
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        2.2 seconds
+      </span>
+    </div>
+  </div>
+  <div>
+    <h4>
+      The ones that you got wrong
+    </h4>
+    <div>
+      <div
+        style={
+          Object {
+            "color": "red",
+            "lineHeight": "35px",
+          }
+        }
+      >
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          5
+        </span>
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          +
+        </span>
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          5
+        </span>
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          style={
+            Object {
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "marginLeft": 20,
+              "padding": 3,
+            }
+          }
+        >
+          5
+        </span>
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          ✗
+        </span>
+        <span
+          style={
+            Object {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          2.2 seconds
+        </span>
+      </div>
+    </div>
+  </div>
+  <h4>
+    How you did (sorted by slowest)
+  </h4>
+  <div>
+    <div
+      style={
+        Object {
+          "color": "red",
+          "lineHeight": "35px",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        +
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        =
+      </span>
+      <span
+        style={
+          Object {
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "marginLeft": 20,
+            "padding": 3,
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        ✗
+      </span>
+      <span
+        style={
+          Object {
+            "paddingLeft": 20,
+          }
+        }
+      >
+        2.2 seconds
+      </span>
+    </div>
+  </div>
+</div>
+`;
