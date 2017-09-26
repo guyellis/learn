@@ -1,0 +1,569 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreBar should not show if showScoreBar is false 1`] = `null`;
+
+exports[`ScoreBar should not show if times is empty 1`] = `null`;
+
+exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
+<div
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        4 minutes ago
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        Badges
+      </span>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "height": "300px",
+        "width": "100%",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "height": "20%",
+          }
+        }
+      >
+        
+      </span>
+      <span
+        style={
+          Object {
+            "backgroundColor": "#ffd700",
+            "height": "10%",
+          }
+        }
+      >
+        YOU⇾
+      </span>
+      <span
+        style={
+          Object {
+            "height": "70%",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "#ffd700",
+            "height": "33%",
+          }
+        }
+      >
+        Gold
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#c0c0c0",
+            "height": "17%",
+          }
+        }
+      >
+        Silver
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#8C7853",
+            "height": "17%",
+          }
+        }
+      >
+        Bronze
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "33%",
+          }
+        }
+      >
+        Blue
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
+<div
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        4 minutes ago
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        Badges
+      </span>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "height": "400px",
+        "width": "100%",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "height": "95%",
+          }
+        }
+      >
+        
+      </span>
+      <span
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "10%",
+          }
+        }
+      >
+        YOU↓
+      </span>
+      <span
+        style={
+          Object {
+            "height": "0%",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "#ffd700",
+            "height": "25%",
+          }
+        }
+      >
+        Gold
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#c0c0c0",
+            "height": "13%",
+          }
+        }
+      >
+        Silver
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#8C7853",
+            "height": "13%",
+          }
+        }
+      >
+        Bronze
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "50%",
+          }
+        }
+      >
+        Blue
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
+<div
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        4 minutes ago
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        2 minutes ago
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        a few seconds ago
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": "1",
+          }
+        }
+      >
+        Badges
+      </span>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "height": "400px",
+        "width": "100%",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "height": "95%",
+          }
+        }
+      >
+        
+      </span>
+      <span
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "10%",
+          }
+        }
+      >
+        YOU↓
+      </span>
+      <span
+        style={
+          Object {
+            "height": "0%",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "height": "95%",
+          }
+        }
+      >
+        
+      </span>
+      <span
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "10%",
+          }
+        }
+      >
+        YOU↓
+      </span>
+      <span
+        style={
+          Object {
+            "height": "0%",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "height": "81.66666666666667%",
+          }
+        }
+      >
+        
+      </span>
+      <span
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "10%",
+          }
+        }
+      >
+        YOU⇾
+      </span>
+      <span
+        style={
+          Object {
+            "height": "8.33333333333333%",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <span
+      style={
+        Object {
+          "border": "1px solid black",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": "1",
+          "fontSize": "large",
+          "height": "100%",
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "#ffd700",
+            "height": "25%",
+          }
+        }
+      >
+        Gold
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#c0c0c0",
+            "height": "13%",
+          }
+        }
+      >
+        Silver
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "#8C7853",
+            "height": "13%",
+          }
+        }
+      >
+        Bronze
+      </div>
+      <div
+        style={
+          Object {
+            "backgroundColor": "lightblue",
+            "height": "50%",
+          }
+        }
+      >
+        Blue
+      </div>
+    </span>
+  </div>
+</div>
+`;

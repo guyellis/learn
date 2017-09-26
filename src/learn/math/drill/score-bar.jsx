@@ -137,7 +137,7 @@ function renderTitles(times) {
 }
 
 function scoreBar({ times, showScoreBar }) {
-  if (!showScoreBar) {
+  if (!showScoreBar || !times.length) {
     return null;
   }
   // TODO: Dedup maxVal code below...
