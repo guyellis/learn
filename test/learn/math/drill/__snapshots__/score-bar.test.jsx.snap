@@ -13,7 +13,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       Object {
         "border": "1px solid black",
         "display": "flex",
-        "textAlign": "center",
+        "textAlign": "left",
         "width": "100%",
       }
     }
@@ -23,7 +23,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
         Object {
           "border": "1px solid black",
           "display": "flex",
-          "textAlign": "center",
+          "textAlign": "left",
           "width": "100%",
         }
       }
@@ -74,7 +74,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       <span
         style={
           Object {
-            "height": "20%",
+            "height": "20.0%",
           }
         }
       >
@@ -93,7 +93,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       <span
         style={
           Object {
-            "height": "70%",
+            "height": "70.0%",
           }
         }
       >
@@ -167,7 +167,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       Object {
         "border": "1px solid black",
         "display": "flex",
-        "textAlign": "center",
+        "textAlign": "left",
         "width": "100%",
       }
     }
@@ -177,7 +177,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
         Object {
           "border": "1px solid black",
           "display": "flex",
-          "textAlign": "center",
+          "textAlign": "left",
           "width": "100%",
         }
       }
@@ -228,7 +228,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       <span
         style={
           Object {
-            "height": "95%",
+            "height": "95.0%",
           }
         }
       >
@@ -247,7 +247,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       <span
         style={
           Object {
-            "height": "0%",
+            "height": "0.0%",
           }
         }
       >
@@ -321,7 +321,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       Object {
         "border": "1px solid black",
         "display": "flex",
-        "textAlign": "center",
+        "textAlign": "left",
         "width": "100%",
       }
     }
@@ -331,7 +331,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
         Object {
           "border": "1px solid black",
           "display": "flex",
-          "textAlign": "center",
+          "textAlign": "left",
           "width": "100%",
         }
       }
@@ -400,7 +400,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "95%",
+            "height": "95.0%",
           }
         }
       >
@@ -419,7 +419,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "0%",
+            "height": "0.0%",
           }
         }
       >
@@ -442,7 +442,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "95%",
+            "height": "95.0%",
           }
         }
       >
@@ -461,7 +461,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "0%",
+            "height": "0.0%",
           }
         }
       >
@@ -476,7 +476,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "300px",
+          "height": "400px",
           "textAlign": "center",
         }
       }
@@ -484,7 +484,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "81.66666666666667%",
+            "height": "60.0%",
           }
         }
       >
@@ -503,7 +503,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       <span
         style={
           Object {
-            "height": "8.33333333333333%",
+            "height": "30.0%",
           }
         }
       >

@@ -18,7 +18,7 @@ const sbHeadStyleBase = {
   width: '100%',
   border: '1px solid black',
   display: 'flex',
-  textAlign: 'center',
+  textAlign: 'left',
 };
 
 const sbHeadItemStyleBase = {
@@ -41,12 +41,7 @@ const sbBodyItemStyleBase = {
   textAlign: 'center',
 };
 
-function renderColors(times) {
-  let maxVal = Math.max(...badgeBoundaries);
-  const { timePerQuestion } = times[0];
-  maxVal = timePerQuestion > (maxVal * 1.5)
-    ? maxVal * 2
-    : maxVal * 1.5;
+function renderColors(times, maxVal) {
   const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
 
   const extra = badgeBoundaries.concat(maxVal);
@@ -76,18 +71,14 @@ function renderColors(times) {
   </span>);
 }
 
-function renderUserScores(times) {
+function renderUserScores(times, maxVal) {
   return times.map((time) => {
-    let maxVal = Math.max(...badgeBoundaries);
     const { timePerQuestion, date } = time;
-    maxVal = timePerQuestion > (maxVal * 1.5)
-      ? maxVal * 2
-      : maxVal * 1.5;
     const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
     const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
-    const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5);
-    const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5);
+    const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5).toFixed(1);
+    const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5).toFixed(1);
     const userTimes = [
       one,
       10,
@@ -140,12 +131,13 @@ function scoreBar({ times, showScoreBar }) {
   if (!showScoreBar || !times.length) {
     return null;
   }
-  // TODO: Dedup maxVal code below...
-  let maxVal = Math.max(...badgeBoundaries);
-  const { timePerQuestion } = times[0];
-  maxVal = timePerQuestion > (maxVal * 1.5)
-    ? maxVal * 2
-    : maxVal * 1.5;
+
+  const boundaryMax = Math.max(...badgeBoundaries);
+  const maxTimePerQuestion = Math.max(...times.map(time => time.timePerQuestion));
+  const maxVal = maxTimePerQuestion > (boundaryMax * 1.5)
+    ? boundaryMax * 2
+    : boundaryMax * 1.5;
+
   const sbBodyStyle = Object.assign({}, sbBodyStyleBase, { height: `${maxVal * 50}px` });
 
   return (
@@ -154,8 +146,8 @@ function scoreBar({ times, showScoreBar }) {
         {renderTitles(times)}
       </div>
       <div style={sbBodyStyle}>
-        {renderUserScores(times)}
-        {renderColors(times)}
+        {renderUserScores(times, maxVal)}
+        {renderColors(times, maxVal)}
       </div>
     </div>
   );
