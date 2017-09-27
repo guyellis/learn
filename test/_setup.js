@@ -7,3 +7,7 @@ global.localStorage = {
   },
   getItem: key => mockLocalStorage[key],
 };
+
+global.requestAnimationFrame = (done) => {
+  setTimeout(done, 0);
+};
