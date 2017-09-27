@@ -66,7 +66,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "300px",
           "textAlign": "center",
         }
       }
@@ -108,7 +108,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "300px",
           "textAlign": "center",
         }
       }
@@ -220,7 +220,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "400px",
           "textAlign": "center",
         }
       }
@@ -262,7 +262,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "400px",
           "textAlign": "center",
         }
       }
@@ -392,7 +392,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "400px",
           "textAlign": "center",
         }
       }
@@ -434,7 +434,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "400px",
           "textAlign": "center",
         }
       }
@@ -476,7 +476,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "300px",
           "textAlign": "center",
         }
       }
@@ -518,7 +518,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
           "flexDirection": "column",
           "flexGrow": "1",
           "fontSize": "large",
-          "height": "100%",
+          "height": "400px",
           "textAlign": "center",
         }
       }

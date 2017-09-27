@@ -10,28 +10,28 @@ const {
   COLOR_TEXT: colorText,
 } = constants;
 
-const sbStyle = {
+const sbStyleBase = {
 
 };
 
-const sbHeadStyle = {
+const sbHeadStyleBase = {
   width: '100%',
   border: '1px solid black',
   display: 'flex',
   textAlign: 'center',
 };
 
-const sbHeadItemStyle = {
+const sbHeadItemStyleBase = {
   flexGrow: '1',
 };
 
-const sbBodyStyle = {
+const sbBodyStyleBase = {
   width: '100%',
   border: '1px solid black',
   display: 'flex',
 };
 
-const sbBodyItemStyle = {
+const sbBodyItemStyleBase = {
   border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
@@ -47,7 +47,7 @@ function renderColors(times) {
   maxVal = timePerQuestion > (maxVal * 1.5)
     ? maxVal * 2
     : maxVal * 1.5;
-  sbBodyStyle.height = `${maxVal * 50}px`;
+  const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
 
   const extra = badgeBoundaries.concat(maxVal);
   const widths = extra.reduce((acc, boundary, index) => {
@@ -83,7 +83,7 @@ function renderUserScores(times) {
     maxVal = timePerQuestion > (maxVal * 1.5)
       ? maxVal * 2
       : maxVal * 1.5;
-    sbBodyStyle.height = `${maxVal * 50}px`;
+    const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
     const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
     const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5);
@@ -129,8 +129,8 @@ function renderTitles(times) {
   })).concat({ title: 'Badges', date: 0 });
 
   return (
-    <div style={sbHeadStyle}>{
-      titles.map(({ title, date }) => <span key={date} style={sbHeadItemStyle}>{title}</span>)
+    <div style={sbHeadStyleBase}>{
+      titles.map(({ title, date }) => <span key={date} style={sbHeadItemStyleBase}>{title}</span>)
     }
     </div>
   );
@@ -146,11 +146,11 @@ function scoreBar({ times, showScoreBar }) {
   maxVal = timePerQuestion > (maxVal * 1.5)
     ? maxVal * 2
     : maxVal * 1.5;
-  sbBodyStyle.height = `${maxVal * 50}px`;
+  const sbBodyStyle = Object.assign({}, sbBodyStyleBase, { height: `${maxVal * 50}px` });
 
   return (
-    <div style={sbStyle}>
-      <div style={sbHeadStyle}>
+    <div style={sbStyleBase}>
+      <div style={sbHeadStyleBase}>
         {renderTitles(times)}
       </div>
       <div style={sbBodyStyle}>
