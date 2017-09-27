@@ -58,7 +58,7 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   // Pick a random value from the array
   const levelElement = weightedLevels[Math.floor(Math.random() * weightedLevels.length)];
   // Get the array of pairs for that level
-  const level = levels[levelElement];
+  const level = levels[Math.min(levelElement, levels.length - 1)];
   // Pick a random pair from the array
   const pair = level[Math.floor(Math.random() * level.length)];
 
