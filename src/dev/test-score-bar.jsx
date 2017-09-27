@@ -1,7 +1,7 @@
 // Used for experimenting with components that are WIP
 
 const React = require('react');
-const ScoreBar = require('./learn/math/drill/score-bar');
+const ScoreBar = require('../learn/math/drill/score-bar');
 
 // const helper = require('./learn/math/drill/helper');
 // const scoreParams = require('../test/fixtures/local-storage');

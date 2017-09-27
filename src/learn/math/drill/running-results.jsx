@@ -2,8 +2,10 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 const constants = require('../../common/constants');
+const Badge = require('./badge');
+const helper = require('./helper');
 
-const { OPERATIONS: operations } = constants;
+const { OPERATIONS } = constants;
 const spanStyle = { paddingLeft: 20 };
 const inABox = Object.assign({
   borderWidth: 1,
@@ -21,15 +23,18 @@ function runningResults(props) {
   const { previousResults, showIndex } = props;
   const previousResultRows = previousResults.map(({ task, actual, timeTaken, id }) => {
     const [left, right, opIndex, answer] = task;
+    const operation = OPERATIONS[opIndex];
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
+    const colorIndex = helper.getBadgeColorIndex(timeTaken);
     return (<div key={id} style={style}>
       {
         showIndex &&
         <span style={spanStyle}>{`${id + 1})`}</span>
       }
+      <Badge color={colorIndex} content={operation} />
       <span style={spanStyle}>{left}</span>
-      <span style={spanStyle}>{operations[opIndex]}</span>
+      <span style={spanStyle}>{operation}</span>
       <span style={spanStyle}>{right}</span>
       <span style={spanStyle}>{'='}</span>
       <span style={inABox}>{actual}</span>

@@ -125,19 +125,13 @@ easier level or an ${'easier'} operator.`;
 `Your time is equal to your best score of ${timePerQuestion} seconds per question. Great job!`;
       resultInfo.newRecordInfo = RECORD_EQUAL;
     } else if (timePerQuestion < bestTimePerQuestion) {
-      const diff = (bestTimePerQuestion - timePerQuestion).toFixed(1);
       resultInfo.text =
-`NEW RECORD! Awesome work! You beat your best score by ${diff} seconds per question. \
-Your previous best score was ${bestTimePerQuestion} per second and your new best score \
-is ${timePerQuestion}. You are going places!`;
+`NEW RECORD! Awesome work! Your new best score is ${timePerQuestion} seconds per question.`;
       resultInfo.newRecordInfo = RECORD_NEW;
     } else {
-      const diff = (timePerQuestion - bestTimePerQuestion).toFixed(1);
       resultInfo.text =
 `You answered the questions at a rate of ${timePerQuestion} seconds \
-per question. Your best score is ${bestTimePerQuestion} per second which is ${diff} \
-seconds per question faster than this. Try again to see if you can beat your best score. \
-Good luck!`;
+per question. (Your best score is ${bestTimePerQuestion} seconds per question.)`;
       resultInfo.newRecordInfo = RECORD_MISS;
     }
   } else {

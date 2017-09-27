@@ -60,6 +60,7 @@ function finished(props) {
     opIndexes,
     previousResults,
     resultInfo,
+    scoreBarTimes = helper.getScoreBarTimes(props.levelIndex, props.opIndexes),
     timeAllowed,
     timeLeft,
     totalProblems,
@@ -91,8 +92,6 @@ function finished(props) {
       </div>
     );
   }
-
-  const scoreBarTimes = helper.getScoreBarTimes(levelIndex, opIndexes);
 
   return (<div>
     <h1>{'Finished'}</h1>
@@ -138,9 +137,17 @@ finished.propTypes = {
     text: PropTypes.string.isRequired,
     newRecordInfo: PropTypes.string.isRequired,
   }).isRequired,
+  scoreBarTimes: PropTypes.arrayOf(PropTypes.shape({
+    date: PropTypes.number.isRequired,
+    timePerQuestion: PropTypes.number.isRequired,
+  })),
   timeAllowed: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
   totalProblems: PropTypes.number.isRequired,
+};
+
+finished.defaultProps = {
+  scoreBarTimes: undefined,
 };
 
 module.exports = finished;
