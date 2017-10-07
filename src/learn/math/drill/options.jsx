@@ -56,7 +56,7 @@ function options(props) {
   return (
     <div>
       <div style={sectionStyle}>
-        <h2>{'Level'}</h2>
+        <h2>Level</h2>
         <div>
           {
             alphabet.map((letter, index) => (
@@ -74,7 +74,7 @@ function options(props) {
         </div>
       </div>
       <div style={sectionStyle}>
-        <h2>{'Operation'}</h2>
+        <h2>Operation</h2>
         <div>
           {
             operations.map((operation, index) => (
@@ -92,7 +92,7 @@ function options(props) {
         </div>
       </div>
       <div style={sectionStyle}>
-        <h3>{'Time'}</h3>
+        <h3>Time</h3>
         <TextField
           floatingLabelText="Time"
           hintText="1"
@@ -104,7 +104,7 @@ function options(props) {
         />
       </div>
       <div style={sectionStyle}>
-        <h3>{'Total Questions (you only get badges for 10 or more correct questions)'}</h3>
+        <h3>Total Questions (you only get badges for 10 or more correct questions)</h3>
         <TextField
           floatingLabelText="Total Questions"
           hintText="20"
@@ -116,7 +116,7 @@ function options(props) {
         />
       </div>
       <div style={sectionStyle}>
-        <h3>{'Keyboard'}</h3>
+        <h3>Keyboard</h3>
         <Toggle
           label="Use onscreen keyboard"
           labelPosition="right"
@@ -127,7 +127,7 @@ function options(props) {
       </div>
       {onscreenKeyboard &&
         <div style={sectionStyle}>
-          <h3>{'Large Keyboard'}</h3>
+          <h3>Large Keyboard</h3>
           <Toggle
             label="Large Keyboard"
             labelPosition="right"
@@ -138,7 +138,7 @@ function options(props) {
         </div>
       }
       <div style={sectionStyle}>
-        <h3>{'Your Name (Optional)'}</h3>
+        <h3>Your Name (Optional)</h3>
         <TextField
           floatingLabelText="Your Name"
           hintText="Jemima Puddle-Duck"

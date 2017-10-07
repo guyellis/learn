@@ -12,7 +12,7 @@ test('Badge totals should be rendered', () => {
   const component = renderer.create(
     <MuiThemeProvider muiTheme={muiTheme}>
       <BadgeTotals totals={[1, 2, 3]} />
-    </MuiThemeProvider>,
+    </MuiThemeProvider>
   );
   const badgeTotals = component.toJSON();
   expect(badgeTotals).toMatchSnapshot();

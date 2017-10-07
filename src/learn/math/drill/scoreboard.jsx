@@ -55,7 +55,7 @@ function scoreboard() {
   */
   return (
     <div>
-      <h3>{'Scoreboard'}</h3>
+      <h3>Scoreboard</h3>
       <BadgeTotals totals={totals} />
       <Table>
         <TableHeader
@@ -63,7 +63,7 @@ function scoreboard() {
           adjustForCheckbox={false}
         >
           <TableRow>
-            <TableHeaderColumn>{'Level'}</TableHeaderColumn>
+            <TableHeaderColumn>Level</TableHeaderColumn>
             {
               ops.map((op, index) => (op
                 ? <TableHeaderColumn

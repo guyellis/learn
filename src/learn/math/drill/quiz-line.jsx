@@ -37,7 +37,8 @@ const answerStyle = Object.assign(
     fontSize: 'xx-large',
     backgroundColor: 'green',
     color: 'white',
-  });
+  },
+);
 
 const lastResultCorrectStyle = {
   borderRadius: '5px',
@@ -136,14 +137,16 @@ class QuizLine extends React.Component {
   renderLastResult() {
     const { lastResult } = this.props;
     if (!lastResult) {
-      const divStyle = Object.assign({},
+      const divStyle = Object.assign(
+        {},
         lastResultCorrectStyle, {
           paddingBottom: '5px',
           paddingLeft: '10px',
           paddingRight: '10px',
           paddingTop: '5px',
           display: 'block',
-        });
+        },
+      );
 
       return (
         <div style={divStyle}>
@@ -176,7 +179,7 @@ class QuizLine extends React.Component {
           <span style={numberStyle}>{left}</span>
           <span style={numberStyle}>{operator}</span>
           <span style={numberStyle}>{right}</span>
-          <span style={numberStyle}>{'='}</span>
+          <span style={numberStyle}>=</span>
           {
             onscreenKeyboard
               ? <span style={answerStyle}>

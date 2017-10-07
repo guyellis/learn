@@ -74,6 +74,7 @@
     "coverage": "jest --coverage",
     "deploy": "npm run build && npm run asset-copy && npm run upload",
     "lint": "eslint --ext js --ext jsx .",
+    "lintfix": "eslint --ext js --ext jsx . --fix",
     "start": "webpack-dev-server --progress --profile --colors",
     "test": "npm run lint && jest --coverage",
     "asset-copy": "cp -R assets/* public/",

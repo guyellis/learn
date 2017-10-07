@@ -65,8 +65,7 @@ function renderColors(times, maxVal) {
         >
           {color}
         </div>);
-      },
-      )
+      })
     }
   </span>);
 }

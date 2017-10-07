@@ -121,5 +121,6 @@ describe('Helper', () => {
       }];
 
       expect(actual).toEqual(expected);
-    });
+    },
+  );
 });

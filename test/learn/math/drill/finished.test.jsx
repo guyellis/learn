@@ -27,19 +27,17 @@ describe('Finished', () => {
       newRecordInfo: RECORD_NEW,
     };
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Finished
-          levelIndex={0}
-          opIndexes={[0]}
-          previousResults={previousResults}
-          resultInfo={resultInfo}
-          timeAllowed={600}
-          timeLeft={100}
-          totalProblems={20}
-        />
-      </MuiThemeProvider>,
-    );
+    const component = renderer.create(<MuiThemeProvider muiTheme={muiTheme}>
+      <Finished
+        levelIndex={0}
+        opIndexes={[0]}
+        previousResults={previousResults}
+        resultInfo={resultInfo}
+        timeAllowed={600}
+        timeLeft={100}
+        totalProblems={20}
+      />
+                                      </MuiThemeProvider>);
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();

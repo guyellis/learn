@@ -118,9 +118,11 @@ class MathDrill extends React.Component {
     // with state will provide the final results. We can't rely on
     // a call to this.setState() in a previous method because it batches
     // its calls and may not have updated state.
-    const state = Object.assign({},
+    const state = Object.assign(
+      {},
       this.state,
-      otherState);
+      otherState,
+    );
     const resultInfo = helper.appendScore(state);
     this.setState(Object.assign({
       currentAction: 'finished',
@@ -144,7 +146,9 @@ class MathDrill extends React.Component {
 
       const { previousTime = this.state.startTime } = this.state;
       const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
-      previousResults.push({ task, actual, timeTaken, id: previousResults.length });
+      previousResults.push({
+        task, actual, timeTaken, id: previousResults.length,
+      });
       const otherState = {
         correct,
         correctCount,

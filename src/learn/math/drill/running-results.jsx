@@ -21,7 +21,9 @@ const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
 
 function runningResults(props) {
   const { previousResults, showIndex } = props;
-  const previousResultRows = previousResults.map(({ task, actual, timeTaken, id }) => {
+  const previousResultRows = previousResults.map(({
+    task, actual, timeTaken, id,
+  }) => {
     const [left, right, opIndex, answer] = task;
     const operation = OPERATIONS[opIndex];
     const correct = answer === actual;
@@ -36,7 +38,7 @@ function runningResults(props) {
       <span style={spanStyle}>{left}</span>
       <span style={spanStyle}>{operation}</span>
       <span style={spanStyle}>{right}</span>
-      <span style={spanStyle}>{'='}</span>
+      <span style={spanStyle}>=</span>
       <span style={inABox}>{actual}</span>
       <span style={spanStyle}>{correct ? check : xmark}</span>
       <span style={spanStyle}>{`${timeTaken} seconds`}</span>

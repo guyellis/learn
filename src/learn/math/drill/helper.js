@@ -32,7 +32,7 @@ function calculateAnswer([left, right], opIndex) {
 }
 
 /**
- * 
+ *
  * @param {number} levelIndex - 0 through 25 - each letter of the alphabet
  * @param {number[]} opIndexes - An array of 0 through 3 - operators +, -, *, /
  */
@@ -254,13 +254,13 @@ function getScoreboard() {
      Levels array
        Nested operator array
          Nested collection of badges indexes + counts
-         [          
-           [        // Level A 
+         [
+           [        // Level A
              [      // Operator +
                3,   // 3 Gold Badges
                0,   // 0 Silver Badges
                7,   // 7 Bronze Badges
-               0,   // 0 Blue Badges 
+               0,   // 0 Blue Badges
              ]
            ]
          ]
