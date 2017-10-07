@@ -17,6 +17,14 @@
       "sourceMapPathOverrides": {
         "webpack:///*": "${webRoot}/*"
       }
+    },
+    {
+      "name": "Unit Test",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/.bin/jest",
+      "args": ["-i"],
+      "cwd": "${workspaceRoot}"
     }
   ]
 }
