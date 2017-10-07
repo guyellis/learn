@@ -100,7 +100,6 @@ test you got 0 answer(s) correct.
               "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
               "verticalAlign": "bottom",
               "width": 40,
-              "zIndex": 1,
             }
           }
           tabIndex={0}
@@ -266,7 +265,6 @@ test you got 0 answer(s) correct.
               "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
               "verticalAlign": "bottom",
               "width": 40,
-              "zIndex": 1,
             }
           }
           tabIndex={0}
@@ -433,7 +431,6 @@ test you got 0 answer(s) correct.
                 "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                 "verticalAlign": "bottom",
                 "width": 40,
-                "zIndex": 1,
               }
             }
             tabIndex={0}
@@ -600,7 +597,6 @@ test you got 0 answer(s) correct.
               "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
               "verticalAlign": "bottom",
               "width": 40,
-              "zIndex": 1,
             }
           }
           tabIndex={0}
