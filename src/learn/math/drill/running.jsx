@@ -85,7 +85,7 @@ running.propTypes = {
 };
 
 running.defaultProps = {
-  currentRecord: null,
+  // currentRecord: null,
 };
 
 module.exports = running;

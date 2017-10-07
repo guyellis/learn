@@ -7,5 +7,11 @@
   },
   "extends": [
     "airbnb"
-  ]
+  ],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [0],
+    "no-restricted-globals": [0],
+    "react/no-unused-state": [0],
+    "function-paren-newline": [0]
+  }
 }

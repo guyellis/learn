@@ -182,9 +182,10 @@ class QuizLine extends React.Component {
           <span style={numberStyle}>=</span>
           {
             onscreenKeyboard
-              ? <span style={answerStyle}>
-                {answer || '?'}
-              </span>
+              ?
+                <span style={answerStyle}>
+                  {answer || '?'}
+                </span>
               : <TextField
                 autoFocus
                 hintText=""

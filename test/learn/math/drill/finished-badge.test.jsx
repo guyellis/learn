@@ -10,40 +10,43 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('Finished Badge', () => {
   test('should be rendered on happy path', () => {
-    const component = renderer.create(<MuiThemeProvider muiTheme={muiTheme}>
-      <FinishedBadge
-        levelIndex={0}
-        opIndexes={[0]}
-        timePerQuestion={2.2}
-        totalCorrectAnswers={10}
-      />
-                                      </MuiThemeProvider>);
+    const component = renderer.create(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <FinishedBadge
+          levelIndex={0}
+          opIndexes={[0]}
+          timePerQuestion={2.2}
+          totalCorrectAnswers={10}
+        />
+      </MuiThemeProvider>);
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
   });
 
   test('should not be rendered if multiple opIndexes', () => {
-    const component = renderer.create(<MuiThemeProvider muiTheme={muiTheme}>
-      <FinishedBadge
-        levelIndex={0}
-        opIndexes={[0, 1]}
-        timePerQuestion={2.2}
-        totalCorrectAnswers={10}
-      />
-    </MuiThemeProvider>);
+    const component = renderer.create(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <FinishedBadge
+          levelIndex={0}
+          opIndexes={[0, 1]}
+          timePerQuestion={2.2}
+          totalCorrectAnswers={10}
+        />
+      </MuiThemeProvider>);
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
   });
 
   test('should not be rendered if correct answers under 10', () => {
-    const component = renderer.create(<MuiThemeProvider muiTheme={muiTheme}>
-      <FinishedBadge
-        levelIndex={0}
-        opIndexes={[0]}
-        timePerQuestion={2.2}
-        totalCorrectAnswers={9}
-      />
-                                      </MuiThemeProvider>);
+    const component = renderer.create(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <FinishedBadge
+          levelIndex={0}
+          opIndexes={[0]}
+          timePerQuestion={2.2}
+          totalCorrectAnswers={9}
+        />
+      </MuiThemeProvider>);
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
   });

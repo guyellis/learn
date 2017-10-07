@@ -23,8 +23,9 @@ function badge(badges) {
   if (!badges) {
     return null;
   }
-  return (<span>
-    {
+  return (
+    <span>
+      {
       badges.map((amount, color) => {
         if (!amount) {
           return null;
@@ -39,7 +40,7 @@ function badge(badges) {
           />);
       })
     }
-  </span>);
+    </span>);
 }
 
 function scoreboard() {
@@ -66,11 +67,12 @@ function scoreboard() {
             <TableHeaderColumn>Level</TableHeaderColumn>
             {
               ops.map((op, index) => (op
-                ? <TableHeaderColumn
-                  key={operationNames[index]}
-                >
-                  {operationNames[index]}
-                </TableHeaderColumn>
+                ?
+                  <TableHeaderColumn
+                    key={operationNames[index]}
+                  >
+                    {operationNames[index]}
+                  </TableHeaderColumn>
                 : null
               ))
             }
@@ -79,15 +81,16 @@ function scoreboard() {
         <TableBody displayRowCheckbox={false}>
           {
             levels.map((level, index) => (level
-              ? <TableRow key={alphabet[index]}>
-                <TableRowColumn key={alphabet[index]}>{alphabet[index]}</TableRowColumn>
-                {
+              ?
+                <TableRow key={alphabet[index]}>
+                  <TableRowColumn key={alphabet[index]}>{alphabet[index]}</TableRowColumn>
+                  {
                   level.map((badges, badgeIndex) => (
                     <TableRowColumn key={`${colorText[badgeIndex]}`}>
                       {badge(badges)}
                     </TableRowColumn>))
                 }
-              </TableRow>
+                </TableRow>
               : null
             ))
           }

@@ -93,40 +93,42 @@ function finished(props) {
     );
   }
 
-  return (<div>
-    <h1>Finished</h1>
-    {processResultInfo(resultInfo)}
-    <FinishedBadge
-      levelIndex={levelIndex}
-      opIndexes={opIndexes}
-      timePerQuestion={timePerQuestion}
-      totalCorrectAnswers={correctCount}
-    />
-    <ScoreBar
-      times={scoreBarTimes}
-      showScoreBar={correctCount > 9}
-    />
+  return (
     <div>
-      {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
-    </div>
-    <div>
-      {`You correctly answered ${correctCount} of the ${totalProblems} problems.`}
-    </div>
-    <h4>The problem that took you the longest to answer</h4>
-    <RunningResults previousResults={longestTime} />
-    <h4>The problem you answered the fastest</h4>
-    <RunningResults previousResults={shortestTime} />
-    {!!incorrects.length &&
+      <h1>Finished</h1>
+      {processResultInfo(resultInfo)}
+      <FinishedBadge
+        levelIndex={levelIndex}
+        opIndexes={opIndexes}
+        timePerQuestion={timePerQuestion}
+        totalCorrectAnswers={correctCount}
+      />
+      <ScoreBar
+        times={scoreBarTimes}
+        showScoreBar={correctCount > 9}
+      />
       <div>
-        <h4>The ones that you got wrong</h4>
-        <RunningResults previousResults={incorrects} />
+        {`You had ${timeLeft} seconds left out of the ${timeAllowed} seconds allowed.`}
       </div>
-    }
-    <h4>How you did (sorted by slowest)</h4>
-    <RunningResults
-      previousResults={slowSort}
-    />
-  </div>);
+      <div>
+        {`You correctly answered ${correctCount} of the ${totalProblems} problems.`}
+      </div>
+      <h4>The problem that took you the longest to answer</h4>
+      <RunningResults previousResults={longestTime} />
+      <h4>The problem you answered the fastest</h4>
+      <RunningResults previousResults={shortestTime} />
+      {!!incorrects.length &&
+        <div>
+          <h4>The ones that you got wrong</h4>
+          <RunningResults previousResults={incorrects} />
+        </div>
+      }
+      <h4>How you did (sorted by slowest)</h4>
+      <RunningResults
+        previousResults={slowSort}
+      />
+    </div>
+  );
 }
 
 finished.propTypes = {

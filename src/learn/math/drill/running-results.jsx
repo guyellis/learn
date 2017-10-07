@@ -29,20 +29,21 @@ function runningResults(props) {
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
     const colorIndex = helper.getBadgeColorIndex(timeTaken);
-    return (<div key={id} style={style}>
-      {
-        showIndex &&
-        <span style={spanStyle}>{`${id + 1})`}</span>
-      }
-      <Badge color={colorIndex} content={operation} />
-      <span style={spanStyle}>{left}</span>
-      <span style={spanStyle}>{operation}</span>
-      <span style={spanStyle}>{right}</span>
-      <span style={spanStyle}>=</span>
-      <span style={inABox}>{actual}</span>
-      <span style={spanStyle}>{correct ? check : xmark}</span>
-      <span style={spanStyle}>{`${timeTaken} seconds`}</span>
-    </div>);
+    return (
+      <div key={id} style={style}>
+        {
+          showIndex &&
+          <span style={spanStyle}>{`${id + 1})`}</span>
+        }
+        <Badge color={colorIndex} content={operation} />
+        <span style={spanStyle}>{left}</span>
+        <span style={spanStyle}>{operation}</span>
+        <span style={spanStyle}>{right}</span>
+        <span style={spanStyle}>=</span>
+        <span style={inABox}>{actual}</span>
+        <span style={spanStyle}>{correct ? check : xmark}</span>
+        <span style={spanStyle}>{`${timeTaken} seconds`}</span>
+      </div>);
   });
   return (
     <div>

@@ -52,22 +52,24 @@ function renderColors(times, maxVal) {
     return acc;
   }, []);
 
-  return (<span style={sbBodyItemStyle}>
-    {
-      colorText.map((color, index) => {
-        const style = {
-          backgroundColor: htmlColors[index],
-          height: `${widths[index]}%`,
-        };
-        return (<div
-          key={color}
-          style={style}
-        >
-          {color}
-        </div>);
-      })
-    }
-  </span>);
+  return (
+    <span style={sbBodyItemStyle}>
+      {
+        colorText.map((color, index) => {
+          const style = {
+            backgroundColor: htmlColors[index],
+            height: `${widths[index]}%`,
+          };
+          return (
+            <div
+              key={color}
+              style={style}
+            >
+              {color}
+            </div>);
+        })
+      }
+    </span>);
 }
 
 function renderUserScores(times, maxVal) {

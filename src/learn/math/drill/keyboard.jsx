@@ -80,24 +80,26 @@ class Keyboard extends React.Component {
     return (
       <div>
         {
-          layout.map(lay => (<div key={lay[0]}>
-            {
-              lay.slice(1).map((item) => {
-                const [content, title, click, key] = item;
-                return (
-                  <FloatingActionButton
-                    iconStyle={buttonIconStyle}
-                    key={key}
-                    onClick={this.click[click]}
-                    style={buttonStyle}
-                    title={title}
-                  >
-                    {content}
-                  </FloatingActionButton>
-                );
-              })
-            }
-          </div>))
+          layout.map(lay => (
+            <div key={lay[0]}>
+              {
+                lay.slice(1).map((item) => {
+                  const [content, title, click, key] = item;
+                  return (
+                    <FloatingActionButton
+                      iconStyle={buttonIconStyle}
+                      key={key}
+                      onClick={this.click[click]}
+                      style={buttonStyle}
+                      title={title}
+                    >
+                      {content}
+                    </FloatingActionButton>
+                  );
+                })
+              }
+            </div>
+          ))
         }
       </div>
     );
