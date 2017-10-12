@@ -8,7 +8,7 @@
     "extract-text-webpack-plugin": "3.0.1",
     "html-webpack-plugin": "2.30.1",
     "material-ui": "0.19.4",
-    "moment": "2.19.0",
+    "moment": "2.19.1",
     "node-sass": "4.5.3",
     "prop-types": "15.6.0",
     "react": "16.0.0",
@@ -16,7 +16,7 @@
     "react-markdown": "2.5.0",
     "react-router-dom": "4.2.2",
     "sass-loader": "6.0.6",
-    "webpack": "3.7.0",
+    "webpack": "3.7.1",
     "webpack-cleanup-plugin": "0.5.1",
     "webpack-dashboard": "1.0.0-5"
   },
