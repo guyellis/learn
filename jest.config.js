@@ -7,6 +7,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/postcss.config.js',
     '!**/public/**',
+    '!**/src/index.jsx',
     '!**/src/tester.jsx',
     '!**/test/**',
     '!**/webpack**',

@@ -1,20 +1,20 @@
-const features = [
+const defaultFeatures = [
   'Map',
   'Set',
   'requestAnimationFrame',
 ];
 
-function browserSupportsAllFeatures() {
+function browserSupportsAllFeatures(features) {
   return features.every(f => window[f]);
 }
 
-function missingFeatures() {
+function missingFeatures(features) {
   return features.filter(f => !window[f]);
 }
 
-function loadScript(done) {
+function loadScript(features, done) {
   // eslint-disable-next-line prefer-template
-  const cdn = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=' + missingFeatures().join();
+  const cdn = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=' + missingFeatures(features).join();
   const js = document.createElement('script');
   js.src = cdn;
   js.onload = function onLoad() {
@@ -27,10 +27,10 @@ function loadScript(done) {
   document.head.appendChild(js);
 }
 
-module.exports = (done) => {
-  if (browserSupportsAllFeatures()) {
+module.exports = (featureList = defaultFeatures, done) => {
+  if (browserSupportsAllFeatures(featureList)) {
     done();
   } else {
-    loadScript(done);
+    loadScript(featureList, done);
   }
 };

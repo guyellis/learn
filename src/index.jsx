@@ -8,7 +8,7 @@ const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').d
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
-poly((err) => {
+poly(undefined, (err) => {
   if (err) {
     // eslint-disable-next-line no-console
     console.error(err);
