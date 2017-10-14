@@ -5,13 +5,23 @@ const constants = require('../../../../src/learn/common/constants');
 const {
   // RECORD_NEW,
   // RECORD_EQUAL,
-  // RECORD_MISS,
+  RECORD_MISS,
   RECORD_NOT_EXIST,
   // BADGE_BOUNDARIES: badgeBoundaries,
   // COLOR_HTML,
 } = constants;
 
 describe('Helper', () => {
+  beforeEach(() => {
+    db.getScores = jest.fn();
+    db.appendScore = jest.fn();
+  });
+
+  afterEach(() => {
+    db.getScores.mockClear();
+    db.appendScore.mockClear();
+  });
+
   test('should get a pair of numbers from level #1 plus', () => {
     const pair = helper.getLowerUpper(0, [0]);
     expect(pair[0] === 1 || pair[1] === 1).toBe(true);
@@ -153,7 +163,6 @@ describe('Helper', () => {
   });
 
   test('should get current record if data exists', () => {
-    db.getScores = jest.fn();
     db.getScores.mockReturnValueOnce([{
       key: '001',
       timePerQuestion: 2,
@@ -171,24 +180,17 @@ describe('Helper', () => {
       key: '001',
       timePerQuestion: 1,
     });
-
-    db.getScores.mockClear();
   });
 
   test('should get undefined for current record if no data exists', () => {
-    db.getScores = jest.fn();
     db.getScores.mockReturnValueOnce(undefined);
     const { getCurrentRecord } = helper;
 
     const actual = getCurrentRecord(0, [0, 1]);
     expect(actual).toBeUndefined();
-
-    db.getScores.mockClear();
   });
 
   test('should append score with no existing record', () => {
-    db.getScores = jest.fn();
-    db.appendScore = jest.fn();
     db.getScores.mockReturnValueOnce(undefined);
     const { appendScore } = helper;
     const results = {
@@ -210,10 +212,33 @@ describe('Helper', () => {
 beat this score. Good luck!',
       newRecordInfo: RECORD_NOT_EXIST,
     });
-    expect(db.getScores).toBeCalled();
-    expect(db.appendScore).toBeCalled();
+    expect(db.getScores).toHaveBeenCalled();
+    expect(db.appendScore).toHaveBeenCalled();
+  });
 
-    db.getScores.mockClear();
-    db.appendScore.mockClear();
+  test('should not append score if no correct answers', () => {
+    db.getScores.mockReturnValueOnce(undefined);
+    const { appendScore } = helper;
+    const results = {
+      correctCount: 0,
+      levelIndex: 0,
+      minutes: 10, // in minutes
+      opIndexes: [0],
+      previousResults: [], // TODO: A test where this is undefined
+      questionsRemaining: 0,
+      timeLeft: 540, // in seconds
+      totalProblems: 10,
+    };
+
+    const actual = appendScore(results);
+    expect(actual).toEqual({
+      // eslint-disable-next-line no-multi-str
+      text: 'You didn\'t answer any questions correctly so we are not going to use this score \
+as part of your high scores. If you are struggling with these problems then try an \
+easier level or an easier operator.',
+      newRecordInfo: RECORD_MISS,
+    });
+    expect(db.getScores).toHaveBeenCalled();
+    expect(db.appendScore).not.toHaveBeenCalled();
   });
 });
