@@ -350,5 +350,27 @@ per question. (Your best score is 5 seconds per question.)',
 
       expect(actual).toEqual(expected);
     });
+
+    test('should get values for one score', () => {
+      db.getScores.mockReturnValueOnce([{
+        levelIndex: 0,
+        correctCount: 10,
+        opIndexes: [0],
+        timePerQuestion: 6,
+      }]);
+      const { getScoreboard } = helper;
+      const expected = {
+        levels: fillArray(26, null),
+        ops: fillArray(4, false),
+        totals: fillArray(4, 0),
+      };
+      expected.levels[0] = [[0, 0, 0, 1]]; // Blue badge for Level A
+      expected.ops[0] = true; // Operation 0 - addition
+      expected.totals[3] = 1; // One blue (index 3) badge in total
+
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
   });
 });
