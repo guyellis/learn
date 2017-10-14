@@ -1,5 +1,5 @@
 const {
-  BrowserRouter, Route, Redirect,
+  Route, Redirect,
 } = require('react-router-dom');
 const Drill = require('./learn/math/drill');
 const Help = require('./learn/help');
@@ -13,16 +13,14 @@ const Scoreboard = require('./learn/math/drill/scoreboard');
 
 function app() {
   return (
-    <BrowserRouter>
-      <div>
-        <Route path="/" component={Menu} />
-        <Route path="/" exact component={Home} />
-        <Route path="/math/drill" exact component={Drill} />
-        <Route path="/math/score" exact component={Scoreboard} />
-        <Route path="/help" exact component={Help} />
-        <Redirect to="/" />
-      </div>
-    </BrowserRouter>
+    <div>
+      <Route path="/" component={Menu} />
+      <Route path="/" exact component={Home} />
+      <Route path="/math/drill" exact component={Drill} />
+      <Route path="/math/score" exact component={Scoreboard} />
+      <Route path="/help" exact component={Help} />
+      <Redirect to="/" />
+    </div>
   );
 }
 

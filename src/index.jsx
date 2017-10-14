@@ -5,6 +5,7 @@ const poly = require('./poly');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const { BrowserRouter } = require('react-router-dom');
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
@@ -17,7 +18,9 @@ poly(undefined, (err) => {
   ReactDOM.render(
     (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </MuiThemeProvider>
     ), document.querySelector('#app'),
   );
