@@ -30,7 +30,7 @@ class DB {
         options.largeKeyboard = false;
         DB.saveOptions(options);
       }
-      if (options.opIndex) {
+      if (typeof options.opIndex === 'number') {
         options.opIndexes = [options.opIndex];
         delete options.opIndex;
         DB.saveOptions(options);

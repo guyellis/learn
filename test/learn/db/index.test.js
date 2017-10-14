@@ -76,4 +76,47 @@ describe('DB', () => {
       MATH_DRILL_OPTIONS, JSON.stringify(defaultOptions));
     expect(actual).toEqual(defaultOptions);
   });
+
+  test('should get and convert options', () => {
+    const savedOptions = {
+      levelIndex: 0, // A
+      minutes: '1',
+      onscreenKeyboard: true,
+      opIndex: 0, // +
+      totalProblems: '20',
+    };
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(savedOptions));
+
+    const actual = db.getOptions();
+
+    expect(localStorage.setItem).toHaveBeenCalledTimes(3);
+
+    savedOptions.userName = '';
+    savedOptions.largeKeyboard = false;
+    savedOptions.opIndexes = [0];
+    delete savedOptions.opIndex;
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(
+      MATH_DRILL_OPTIONS, JSON.stringify(savedOptions));
+
+    expect(actual).toEqual(savedOptions);
+  });
+
+  test('should get options that do not need converting', () => {
+    const savedOptions = {
+      largeKeyboard: true,
+      levelIndex: 0, // A
+      minutes: '1',
+      onscreenKeyboard: true,
+      opIndexes: [0], // A
+      totalProblems: '20',
+      userName: 'my name',
+    };
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(savedOptions));
+
+    const actual = db.getOptions();
+
+    expect(localStorage.setItem).toHaveBeenCalledTimes(0);
+
+    expect(actual).toEqual(savedOptions);
+  });
 });
