@@ -1,5 +1,5 @@
 const React = require('react');
-const App = require('../src/app');
+const Home = require('../../src/learn/home');
 const renderer = require('react-test-renderer');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
@@ -10,12 +10,12 @@ const {
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
-describe('App', () => {
-  test('should render an App component', () => {
+describe('Home', () => {
+  test('should render a Home component', () => {
     const component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>
         <MemoryRouter>
-          <App />
+          <Home />
         </MemoryRouter>
       </MuiThemeProvider>);
 
