@@ -31,9 +31,9 @@ describe('DB', () => {
   });
 
   test('should get a falsy item', () => {
-    localStorage.getItem.mockReturnValueOnce(undefined);
+    localStorage.getItem.mockReturnValueOnce(null);
     const actual = db.getItem('key');
-    expect(actual).toBeUndefined();
+    expect(actual).toBeNull();
   });
 
   test('should save options', () => {
@@ -58,5 +58,22 @@ describe('DB', () => {
     localStorage.getItem.mockReturnValueOnce(null);
     db.appendScore(3);
     expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify([3]));
+  });
+
+  test('should get default options when none have previously been saved', () => {
+    localStorage.getItem.mockReturnValueOnce(null);
+    const actual = db.getOptions();
+    const defaultOptions = {
+      largeKeyboard: false,
+      levelIndex: 0, // A
+      minutes: '1',
+      onscreenKeyboard: true,
+      opIndexes: [0], // +
+      totalProblems: '20',
+      userName: '',
+    };
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      MATH_DRILL_OPTIONS, JSON.stringify(defaultOptions));
+    expect(actual).toEqual(defaultOptions);
   });
 });
