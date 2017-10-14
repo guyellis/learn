@@ -123,4 +123,21 @@ describe('Helper', () => {
       expect(actual).toEqual(expected);
     },
   );
+
+  test('should calculate all Answer operators', () => {
+    const { calculateAnswer } = helper;
+    const inputs = [
+      [[6, 3], 0, 9], // 6 + 3 = 9
+      [[6, 3], 1, 3], // 6 - 3 = 3
+      [[6, 3], 2, 18], // 6 x 3 = 18
+      [[6, 3], 3, 2], // 6 / 3 = 2
+      [[6, 3], 4, 0], // Unknown operator returns 0
+    ];
+
+    inputs.forEach((input) => {
+      const [pair, operator, expected] = input;
+      const actual = calculateAnswer(pair, operator);
+      expect(actual).toBe(expected);
+    });
+  });
 });
