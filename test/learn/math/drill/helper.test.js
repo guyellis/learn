@@ -1,6 +1,9 @@
 const db = require('../../../../src/learn/db');
 const helper = require('../../../../src/learn/math/drill/helper');
 const constants = require('../../../../src/learn/common/constants');
+const util = require('../../../../src/learn/common/util');
+
+const { fillArray } = util;
 
 const {
   RECORD_NEW,
@@ -332,5 +335,20 @@ per question. (Your best score is 5 seconds per question.)',
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
+  });
+
+  describe('getScoreboard', () => {
+    test('should get null, false and 0 for no scores', () => {
+      db.getScores.mockReturnValueOnce(undefined);
+      const { getScoreboard } = helper;
+      const expected = {
+        levels: fillArray(26, null),
+        ops: fillArray(4, false),
+        totals: fillArray(4, 0),
+      };
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
   });
 });
