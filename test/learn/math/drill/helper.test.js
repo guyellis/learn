@@ -295,4 +295,32 @@ easier level or an easier operator.',
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
   });
+
+  test('should report a new record', () => {
+    db.getScores.mockReturnValueOnce([{
+      timePerQuestion: 5,
+      key: '00',
+    }]);
+    const { appendScore } = helper;
+    const results = {
+      correctCount: 10,
+      levelIndex: 0,
+      minutes: 10, // in minutes
+      opIndexes: [0],
+      previousResults: [], // TODO: A test where this is undefined
+      questionsRemaining: 0,
+      timeLeft: 540, // in seconds
+      totalProblems: 10,
+    };
+
+    const actual = appendScore(results);
+    expect(actual).toEqual({
+      // eslint-disable-next-line no-multi-str
+      text: 'You answered the questions at a rate of 6 seconds \
+per question. (Your best score is 5 seconds per question.)',
+      newRecordInfo: RECORD_MISS,
+    });
+    expect(db.getScores).toHaveBeenCalled();
+    expect(db.appendScore).toHaveBeenCalled();
+  });
 });
