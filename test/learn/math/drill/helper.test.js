@@ -33,6 +33,16 @@ describe('Helper', () => {
     expect(pair[1]).toBeLessThan(8);
   });
 
+  test('should default to [] when scores undefined in getScoreBarTimes()', () => {
+    db.getScores.mockReturnValueOnce(undefined);
+
+    const actual = helper.getScoreBarTimes(0, [0]);
+
+    const expected = [];
+
+    expect(actual).toEqual(expected);
+  });
+
   test('should getScoreBarTimes() for zero items', () => {
     const scores = [];
 
