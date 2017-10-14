@@ -391,4 +391,39 @@ per question. (Your best score is 5 seconds per question.)',
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('newRecord()', () => {
+    test('should return false and NaN if no data', () => {
+      const { newRecord } = helper;
+      const input = {
+        currentRecord: {},
+        previousResults: [],
+        startTime: 0,
+      };
+      const expected = {
+        isNewRecord: false,
+        currentTimePerQuestion: NaN,
+        existingRecordTimePerQuestion: NaN,
+      };
+      const actual = newRecord(input);
+
+      expect(actual).toEqual(expected);
+    });
+
+    test('should return false and NaN if current record missing', () => {
+      const { newRecord } = helper;
+      const input = {
+        previousResults: [],
+        startTime: 0,
+      };
+      const expected = {
+        isNewRecord: false,
+        currentTimePerQuestion: NaN,
+        existingRecordTimePerQuestion: NaN,
+      };
+      const actual = newRecord(input);
+
+      expect(actual).toEqual(expected);
+    });
+  });
 });
