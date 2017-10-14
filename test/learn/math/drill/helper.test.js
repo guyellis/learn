@@ -372,5 +372,23 @@ per question. (Your best score is 5 seconds per question.)',
 
       expect(actual).toEqual(expected);
     });
+
+    test('should get null, false and 0 for correct answers under 10', () => {
+      db.getScores.mockReturnValueOnce([{
+        levelIndex: 0,
+        correctCount: 9,
+        opIndexes: [0],
+        timePerQuestion: 6,
+      }]);
+      const { getScoreboard } = helper;
+      const expected = {
+        levels: fillArray(26, null),
+        ops: fillArray(4, false),
+        totals: fillArray(4, 0),
+      };
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
   });
 });
