@@ -1,6 +1,9 @@
+const constants = require('../common/constants');
 
-const MATH_DRILL_OPTIONS = 'mathDrillOptions';
-const MATH_DRILL_SCORES = 'mathDrillScores';
+const {
+  MATH_DRILL_OPTIONS,
+  MATH_DRILL_SCORES,
+} = constants;
 
 class DB {
   static setItem(key, value) {

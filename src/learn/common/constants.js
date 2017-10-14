@@ -10,4 +10,6 @@ module.exports = {
   ALPHABET: Object.freeze('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')),
   OPERATIONS: Object.freeze(['+', '-', 'x', '\u00F7']),
   OPERATION_NAMES: Object.freeze(['Addition', 'Subtraction', 'Multiplication', 'Division']),
+  MATH_DRILL_OPTIONS: 'mathDrillOptions',
+  MATH_DRILL_SCORES: 'mathDrillScores',
 };
