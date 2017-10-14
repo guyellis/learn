@@ -2,6 +2,7 @@ const db = require('../../../../src/learn/db');
 const helper = require('../../../../src/learn/math/drill/helper');
 const constants = require('../../../../src/learn/common/constants');
 const util = require('../../../../src/learn/common/util');
+const moment = require('moment');
 
 const { fillArray } = util;
 
@@ -424,6 +425,35 @@ per question. (Your best score is 5 seconds per question.)',
       const actual = newRecord(input);
 
       expect(actual).toEqual(expected);
+    });
+
+    test('should return valid results with valid input', () => {
+      // 2017-01-01 01:01:01
+      const start = new Date(2017, 0, 1, 1, 1, 1);
+      // 2017-01-01 01:01:40
+      const end = new Date(2017, 0, 1, 1, 1, 40);
+      const startTime = moment(start);
+      Date.now = jest.fn(() => end.valueOf());
+      const { newRecord } = helper;
+      const input = {
+        currentRecord: {
+          timePerQuestion: 6,
+        },
+        previousResults: [{
+          task: [0, 0, 0, 55],
+          actual: 55,
+        }],
+        startTime,
+      };
+      const expected = {
+        isNewRecord: false,
+        currentTimePerQuestion: 39,
+        existingRecordTimePerQuestion: 6,
+      };
+      const actual = newRecord(input);
+
+      expect(actual).toEqual(expected);
+      Date.now.mockClear();
     });
   });
 });
