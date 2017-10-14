@@ -3,8 +3,8 @@ const helper = require('../../../../src/learn/math/drill/helper');
 const constants = require('../../../../src/learn/common/constants');
 
 const {
-  // RECORD_NEW,
-  // RECORD_EQUAL,
+  RECORD_NEW,
+  RECORD_EQUAL,
   RECORD_MISS,
   RECORD_NOT_EXIST,
   // BADGE_BOUNDARIES: badgeBoundaries,
@@ -240,5 +240,59 @@ easier level or an easier operator.',
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).not.toHaveBeenCalled();
+  });
+
+  test('should report an equal record', () => {
+    db.getScores.mockReturnValueOnce([{
+      timePerQuestion: 6,
+      key: '00',
+    }]);
+    const { appendScore } = helper;
+    const results = {
+      correctCount: 10,
+      levelIndex: 0,
+      minutes: 10, // in minutes
+      opIndexes: [0],
+      previousResults: [], // TODO: A test where this is undefined
+      questionsRemaining: 0,
+      timeLeft: 540, // in seconds
+      totalProblems: 10,
+    };
+
+    const actual = appendScore(results);
+    expect(actual).toEqual({
+      // eslint-disable-next-line no-multi-str
+      text: 'Your time is equal to your best score of 6 seconds per question. Great job!',
+      newRecordInfo: RECORD_EQUAL,
+    });
+    expect(db.getScores).toHaveBeenCalled();
+    expect(db.appendScore).toHaveBeenCalled();
+  });
+
+  test('should report a new record', () => {
+    db.getScores.mockReturnValueOnce([{
+      timePerQuestion: 7,
+      key: '00',
+    }]);
+    const { appendScore } = helper;
+    const results = {
+      correctCount: 10,
+      levelIndex: 0,
+      minutes: 10, // in minutes
+      opIndexes: [0],
+      previousResults: [], // TODO: A test where this is undefined
+      questionsRemaining: 0,
+      timeLeft: 540, // in seconds
+      totalProblems: 10,
+    };
+
+    const actual = appendScore(results);
+    expect(actual).toEqual({
+      // eslint-disable-next-line no-multi-str
+      text: 'NEW RECORD! Awesome work! Your new best score is 6 seconds per question.',
+      newRecordInfo: RECORD_NEW,
+    });
+    expect(db.getScores).toHaveBeenCalled();
+    expect(db.appendScore).toHaveBeenCalled();
   });
 });
