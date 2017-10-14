@@ -53,4 +53,10 @@ describe('DB', () => {
     db.appendScore(3);
     expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify([1, 2, 3]));
   });
+
+  test('should append scores when score collection is empty', () => {
+    localStorage.getItem.mockReturnValueOnce(null);
+    db.appendScore(3);
+    expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify([3]));
+  });
 });
