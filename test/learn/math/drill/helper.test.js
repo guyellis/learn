@@ -1,4 +1,15 @@
+const db = require('../../../../src/learn/db');
 const helper = require('../../../../src/learn/math/drill/helper');
+const constants = require('../../../../src/learn/common/constants');
+
+const {
+  // RECORD_NEW,
+  // RECORD_EQUAL,
+  // RECORD_MISS,
+  RECORD_NOT_EXIST,
+  // BADGE_BOUNDARIES: badgeBoundaries,
+  // COLOR_HTML,
+} = constants;
 
 describe('Helper', () => {
   test('should get a pair of numbers from level #1 plus', () => {
@@ -139,5 +150,70 @@ describe('Helper', () => {
       const actual = calculateAnswer(pair, operator);
       expect(actual).toBe(expected);
     });
+  });
+
+  test('should get current record if data exists', () => {
+    db.getScores = jest.fn();
+    db.getScores.mockReturnValueOnce([{
+      key: '001',
+      timePerQuestion: 2,
+    }, {
+      key: '002',
+      timePerQuestion: 0.5,
+    }, {
+      key: '001',
+      timePerQuestion: 1,
+    }]);
+    const { getCurrentRecord } = helper;
+
+    const actual = getCurrentRecord(0, [0, 1]);
+    expect(actual).toEqual({
+      key: '001',
+      timePerQuestion: 1,
+    });
+
+    db.getScores.mockClear();
+  });
+
+  test('should get undefined for current record if no data exists', () => {
+    db.getScores = jest.fn();
+    db.getScores.mockReturnValueOnce(undefined);
+    const { getCurrentRecord } = helper;
+
+    const actual = getCurrentRecord(0, [0, 1]);
+    expect(actual).toBeUndefined();
+
+    db.getScores.mockClear();
+  });
+
+  test('should append score with no existing record', () => {
+    db.getScores = jest.fn();
+    db.appendScore = jest.fn();
+    db.getScores.mockReturnValueOnce(undefined);
+    const { appendScore } = helper;
+    const results = {
+      correctCount: 10,
+      levelIndex: 0,
+      minutes: 10, // in minutes
+      opIndexes: [0],
+      previousResults: [], // TODO: A test where this is undefined
+      questionsRemaining: 0,
+      timeLeft: 540, // in seconds
+      totalProblems: 10,
+    };
+
+    const actual = appendScore(results);
+    expect(actual).toEqual({
+      // eslint-disable-next-line no-multi-str
+      text: 'This is the first time you\'ve done this problem. You took \
+6 seconds per question. Do this test again to see if you can \
+beat this score. Good luck!',
+      newRecordInfo: RECORD_NOT_EXIST,
+    });
+    expect(db.getScores).toBeCalled();
+    expect(db.appendScore).toBeCalled();
+
+    db.getScores.mockClear();
+    db.appendScore.mockClear();
   });
 });
