@@ -189,6 +189,7 @@ class QuizLine extends React.Component {
               : <TextField
                 autoFocus
                 hintText=""
+                id="answer-number"
                 inputStyle={inputStyle}
                 name="answer"
                 onChange={this.onChange}
