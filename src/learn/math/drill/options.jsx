@@ -96,6 +96,7 @@ function options(props) {
         <TextField
           floatingLabelText="Time"
           hintText="1"
+          id="time-minutes"
           name="minutes"
           onChange={props.onChange}
           style={{ width: 100, marginLeft: 20 }}
@@ -108,6 +109,7 @@ function options(props) {
         <TextField
           floatingLabelText="Total Questions"
           hintText="20"
+          id="total-problems"
           name="totalProblems"
           onChange={props.onChange}
           style={{ width: 150, marginLeft: 40 }}
@@ -142,6 +144,7 @@ function options(props) {
         <TextField
           floatingLabelText="Your Name"
           hintText="Jemima Puddle-Duck"
+          id="user-name"
           name="userName"
           onChange={props.onChange}
           style={{ width: 250, marginLeft: 40 }}
