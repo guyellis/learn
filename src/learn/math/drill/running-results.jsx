@@ -18,6 +18,7 @@ const xmark = '\u2717';
 const lineStyle = { lineHeight: '35px' };
 const correctStyle = Object.assign({ color: 'green' }, lineStyle);
 const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
+const spanStyleIncorrect = Object.assign({ color: 'red' }, spanStyle);
 
 function runningResults(props) {
   const { previousResults, showIndex } = props;
@@ -26,6 +27,7 @@ function runningResults(props) {
   }) => {
     const [left, right, opIndex, answer] = task;
     const [actual] = actuals; // most recent answer is first in array
+    const incorrects = actuals.slice(1).reverse();
     const operation = OPERATIONS[opIndex];
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
@@ -44,6 +46,10 @@ function runningResults(props) {
         <span style={inABox}>{actual}</span>
         <span style={spanStyle}>{correct ? check : xmark}</span>
         <span style={spanStyle}>{`${timeTaken} seconds`}</span>
+        {
+          !!incorrects.length &&
+          <span style={spanStyleIncorrect}>{`Incorrect answer(s): ${incorrects.join()}`}</span>
+        }
       </div>);
   });
   return (

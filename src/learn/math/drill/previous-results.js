@@ -42,7 +42,8 @@ class PreviousResults {
 
       if (answer === actual) {
         correctCount += 1;
-      } else {
+      }
+      if (actuals.length > 1 || answer !== actual) {
         incorrects.push(problem);
       }
 
