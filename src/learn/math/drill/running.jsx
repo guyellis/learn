@@ -76,7 +76,7 @@ running.propTypes = {
   opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   previousResults: PropTypes.arrayOf(PropTypes.shape({
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
-    actual: PropTypes.number.isRequired,
+    actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
     timeTaken: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,

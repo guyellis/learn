@@ -17,7 +17,7 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 describe('Finished', () => {
   test('should be rendered a new record', () => {
     const previousResults = [{
-      actual: 5,
+      actuals: [5],
       id: 1,
       task: [5, 5, 0, 10],
       timeTaken: 2.2,

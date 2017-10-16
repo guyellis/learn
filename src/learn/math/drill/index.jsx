@@ -130,6 +130,16 @@ class MathDrill extends React.Component {
     }, otherState, { resultInfo }));
   }
 
+  // eslint-disable-next-line react/sort-comp
+  static currentMatchesLast(task, previousResults) {
+    if (!previousResults.length) {
+      return false;
+    }
+    const lastResult = previousResults[previousResults.length - 1];
+    const { task: lastTask } = lastResult;
+    return task.length === 4 && task.every((t, i) => t === lastTask[i]);
+  }
+
   checkAnswer(answer) {
     const actual = parseInt(answer, 10);
     let { totalProblems } = this.state;
@@ -138,21 +148,36 @@ class MathDrill extends React.Component {
       const { currentTask: task, previousResults = [] } = this.state;
       let { correctCount = 0, totalCount } = this.state;
       totalCount += 1;
+      let { previousTime = this.state.startTime } = this.state;
+      const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
+
       const [,,, expected] = task;
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
+        previousTime = moment();
+      }
+      // If first time wrong then push onto previousResults
+      // otherwise replace last element in previousResults
+      // If correct and was previously wrong then replace otherwise push.
+      // If problem exists at end of array then replace otherwise push.
+      // A task is an array of:  left, right, opIndex, expectedAnswer
+      // and problems are not repeated so a first time can be checked using this.
+      if (MathDrill.currentMatchesLast(task, previousResults)) {
+        const current = previousResults[previousResults.length - 1];
+        current.actuals.unshift(actual);
+        current.timeTaken = timeTaken;
+      } else {
+        const actuals = [actual];
+        previousResults.push({
+          task, actuals, timeTaken, id: previousResults.length,
+        });
       }
 
-      const { previousTime = this.state.startTime } = this.state;
-      const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
-      previousResults.push({
-        task, actual, timeTaken, id: previousResults.length,
-      });
       const otherState = {
         correct,
         correctCount,
-        previousTime: moment(),
+        previousTime,
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
         previousResults,
         totalCount,

@@ -6,7 +6,8 @@ class PreviousResults {
 
   static getStats(previousResults = []) {
     return previousResults.reduce((acc, problem) => {
-      const { task, actual, timeTaken } = problem;
+      const { task, actuals, timeTaken } = problem;
+      const [actual] = actuals;
       const [,,, answer] = task;
 
       const {

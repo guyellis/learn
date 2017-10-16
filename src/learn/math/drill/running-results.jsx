@@ -22,9 +22,10 @@ const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
 function runningResults(props) {
   const { previousResults, showIndex } = props;
   const previousResultRows = previousResults.map(({
-    task, actual, timeTaken, id,
+    task, actuals, timeTaken, id,
   }) => {
     const [left, right, opIndex, answer] = task;
+    const [actual] = actuals; // most recent answer is first in array
     const operation = OPERATIONS[opIndex];
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
@@ -54,7 +55,7 @@ function runningResults(props) {
 
 runningResults.propTypes = {
   previousResults: PropTypes.arrayOf(PropTypes.shape({
-    actual: PropTypes.number.isRequired,
+    actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
     id: PropTypes.number.isRequired,
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     timeTaken: PropTypes.number.isRequired,

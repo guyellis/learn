@@ -441,7 +441,7 @@ per question. (Your best score is 5 seconds per question.)',
         },
         previousResults: [{
           task: [0, 0, 0, 55],
-          actual: 55,
+          actuals: [55],
         }],
         startTime,
       };

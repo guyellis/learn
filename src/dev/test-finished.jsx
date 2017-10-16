@@ -15,7 +15,7 @@ const a = [...Array(10).keys()];
 
 function tester() {
   const previousResults = a.map(id => ({
-    actual: 5,
+    actuals: [5],
     id,
     task: [5, 5, 0, 5],
     timeTaken: 1 + parseFloat((1.1 * id).toFixed(1), 10),

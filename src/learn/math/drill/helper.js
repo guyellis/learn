@@ -285,8 +285,9 @@ function getScoreboard() {
 function currentTimePerQuestion({ previousResults, startTime }) {
   const timeElapsed = moment().diff(startTime) / 1000;
   const correctQuestions = previousResults.reduce((acc, result) => {
-    // result: {"task":[1,3,0,4],"actual":4,"timeTaken":2.5,"id":0}
-    const { task, actual } = result;
+    // result: {"task":[1,3,0,4],"actuals":[4],"timeTaken":2.5,"id":0}
+    const { task, actuals } = result;
+    const [actual] = actuals;
     const [,,, answer] = task;
     return acc + Number(actual === answer);
   }, 0);

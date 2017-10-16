@@ -4,5 +4,8 @@
     "**/node_modules": true,
     "**/bower_components": true,
     "**/public": true
-  }
+  },
+  "cSpell.words": [
+    "actuals"
+  ]
 }

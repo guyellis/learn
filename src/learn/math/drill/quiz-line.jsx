@@ -154,7 +154,8 @@ class QuizLine extends React.Component {
         </div>
       );
     }
-    const { actual, task } = lastResult;
+    const { actuals, task } = lastResult;
+    const [actual] = actuals;
     const [,,, answer] = task;
 
     const borderStyle = answer === actual
@@ -227,7 +228,7 @@ class QuizLine extends React.Component {
 QuizLine.propTypes = {
   checkAnswer: PropTypes.func.isRequired,
   lastResult: PropTypes.shape({
-    actual: PropTypes.number.isRequired,
+    actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
     id: PropTypes.number.isRequired,
     task: PropTypes.array.isRequired, // left, right, opIndex, answer
     timeTaken: PropTypes.number.isRequired,
