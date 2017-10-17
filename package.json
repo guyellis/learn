@@ -16,7 +16,7 @@
     "react-markdown": "2.5.0",
     "react-router-dom": "4.2.2",
     "sass-loader": "6.0.6",
-    "webpack": "3.8.0",
+    "webpack": "3.8.1",
     "webpack-cleanup-plugin": "0.5.1",
     "webpack-dashboard": "1.0.0"
   },
