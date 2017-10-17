@@ -128,4 +128,41 @@ describe('DB', () => {
 
     expect(actual).toEqual(savedOptions);
   });
+
+  test('should update scores and set version to 2', () => {
+    const scoresVersion1 = [{
+      previousResults: [{
+        actual: 1,
+      }, {
+        actuals: [2],
+      }],
+    }, {
+      dummy: 1, // to test "else" in target code
+    }];
+    const scoresVersion2 = {
+      version: 2,
+      scores: [{
+        previousResults: [{
+          actuals: [1],
+        }, {
+          actuals: [2],
+        }],
+      }, {
+        dummy: 1,
+      }],
+    };
+
+    localStorage.getItem.mockReturnValueOnce(
+      JSON.stringify(scoresVersion1));
+    localStorage.getItem.mockReturnValueOnce(
+      JSON.stringify(scoresVersion2));
+
+    const actual = db.getScores();
+
+    expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      MATH_DRILL_SCORES, JSON.stringify(scoresVersion2));
+
+    expect(actual).toEqual(scoresVersion2.scores);
+  });
 });
