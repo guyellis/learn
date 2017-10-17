@@ -4,6 +4,8 @@ const constants = require('../../../../src/learn/common/constants');
 const util = require('../../../../src/learn/common/util');
 const moment = require('moment');
 
+const { getScoreboard } = helper;
+
 const { fillArray } = util;
 
 const {
@@ -341,7 +343,6 @@ per question. (Your best score is 5 seconds per question.)',
   describe('getScoreboard', () => {
     test('should get null, false and 0 for no scores', () => {
       db.getScores.mockReturnValueOnce(undefined);
-      const { getScoreboard } = helper;
       const expected = {
         levels: fillArray(26, null),
         ops: fillArray(4, false),
@@ -359,7 +360,7 @@ per question. (Your best score is 5 seconds per question.)',
         opIndexes: [0],
         timePerQuestion: 6,
       }]);
-      const { getScoreboard } = helper;
+
       const expected = {
         levels: fillArray(26, null),
         ops: fillArray(4, false),
@@ -374,6 +375,37 @@ per question. (Your best score is 5 seconds per question.)',
       expect(actual).toEqual(expected);
     });
 
+    test('should get values for multiple operations', () => {
+      db.getScores.mockReturnValueOnce([{
+        levelIndex: 0,
+        correctCount: 10,
+        opIndexes: [0],
+        timePerQuestion: 6,
+      }, {
+        levelIndex: 0,
+        correctCount: 10,
+        opIndexes: [1],
+        timePerQuestion: 6,
+      }]);
+
+      const expected = {
+        levels: fillArray(26, null),
+        ops: fillArray(4, false),
+        totals: fillArray(4, 0),
+      };
+      expected.levels[0] = [
+        [0, 0, 0, 1], // Blue badge for Level A Addition
+        [0, 0, 0, 1], // Blue badge for Level A Subtraction
+      ];
+      expected.ops[0] = true; // Operation 0 - addition
+      expected.ops[1] = true; // Operation 1 - subtraction
+      expected.totals[3] = 2; // Two blue (index 3) badges in total
+
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
+
     test('should get null, false and 0 for correct answers under 10', () => {
       db.getScores.mockReturnValueOnce([{
         levelIndex: 0,
@@ -381,7 +413,7 @@ per question. (Your best score is 5 seconds per question.)',
         opIndexes: [0],
         timePerQuestion: 6,
       }]);
-      const { getScoreboard } = helper;
+
       const expected = {
         levels: fillArray(26, null),
         ops: fillArray(4, false),
