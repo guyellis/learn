@@ -18,7 +18,7 @@ const buttonIconStyle = {
 };
 
 function badge({ color, content }) {
-  const title = `${content} ${colorText[color]}`;
+  const title = `${content === 'M' ? 'Mixed' : content} ${colorText[color]}`;
   return (
     <FloatingActionButton
       iconStyle={buttonIconStyle}

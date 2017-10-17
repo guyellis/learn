@@ -23,7 +23,7 @@ describe('Finished Badge', () => {
     expect(finishedBadge).toMatchSnapshot();
   });
 
-  test('should not be rendered if multiple opIndexes', () => {
+  test('should be rendered if multiple opIndexes', () => {
     const component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>
         <FinishedBadge
