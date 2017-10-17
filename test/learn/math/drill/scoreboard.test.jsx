@@ -8,7 +8,7 @@ const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').d
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
-describe.only('ScoreBoard', () => {
+describe('ScoreBoard', () => {
   beforeEach(() => {
     db.getScores = jest.fn();
   });

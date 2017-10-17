@@ -57,11 +57,37 @@ class DB {
   static appendScore(score) {
     const scores = DB.getScores() || [];
     scores.push(score);
-    DB.saveScores(scores);
+    DB.saveScores({
+      version: 2,
+      scores,
+    });
   }
 
   static getScores() {
-    return DB.getItem(MATH_DRILL_SCORES);
+    const scores = DB.getItem(MATH_DRILL_SCORES);
+
+    if (Array.isArray(scores)) {
+      // Need to change it to an object and the previousResults array needs to have the
+      // actual property changed to an actuals array.
+      scores.forEach((score) => {
+        if (score.previousResults) {
+          score.previousResults.forEach((previousResult) => {
+            if (previousResult.actual) {
+            // eslint-disable-next-line no-param-reassign
+              previousResult.actuals = [previousResult.actual];
+              // eslint-disable-next-line no-param-reassign
+              delete previousResult.actual;
+            }
+          });
+        }
+      });
+      DB.saveScores({
+        version: 2,
+        scores,
+      });
+      return DB.getScores();
+    }
+    return scores && scores.scores;
   }
 }
 

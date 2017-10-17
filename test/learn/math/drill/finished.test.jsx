@@ -1,3 +1,4 @@
+const db = require('../../../../src/learn/db');
 const constants = require('../../../../src/learn/common/constants');
 const React = require('react');
 const Finished = require('../../../../src/learn/math/drill/finished');
@@ -15,6 +16,14 @@ const {
 const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('Finished', () => {
+  beforeEach(() => {
+    db.getScores = jest.fn();
+  });
+
+  afterEach(() => {
+    db.getScores.mockClear();
+  });
+
   test('should render when there is a single incorrect result', () => {
     const previousResults = [{
       actuals: [5],
@@ -94,6 +103,16 @@ describe('Finished', () => {
       text: 'Result Info Text',
       newRecordInfo: RECORD_NEW,
     };
+    db.getScores.mockReturnValueOnce([{
+      key: '001',
+      timePerQuestion: 2,
+    }, {
+      key: '002',
+      timePerQuestion: 0.5,
+    }, {
+      key: '001',
+      timePerQuestion: 1,
+    }]);
 
     const component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>

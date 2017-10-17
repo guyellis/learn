@@ -49,15 +49,24 @@ describe('DB', () => {
   });
 
   test('should append scores', () => {
-    localStorage.getItem.mockReturnValueOnce(JSON.stringify([1, 2]));
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify({
+      version: 2,
+      scores: [1, 2],
+    }));
     db.appendScore(3);
-    expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify([1, 2, 3]));
+    expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify({
+      version: 2,
+      scores: [1, 2, 3],
+    }));
   });
 
   test('should append scores when score collection is empty', () => {
     localStorage.getItem.mockReturnValueOnce(null);
     db.appendScore(3);
-    expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify([3]));
+    expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify({
+      version: 2,
+      scores: [3],
+    }));
   });
 
   test('should get default options when none have previously been saved', () => {
