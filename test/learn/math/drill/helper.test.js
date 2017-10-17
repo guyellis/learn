@@ -344,8 +344,8 @@ per question. (Your best score is 5 seconds per question.)',
     test('should get null, false and 0 for no scores', () => {
       db.getScores.mockReturnValueOnce(undefined);
       const expected = {
-        levels: fillArray(26, null),
-        ops: fillArray(4, false),
+        levels: [],
+        ops: new Set(),
         totals: fillArray(4, 0),
       };
       const actual = getScoreboard();
@@ -362,13 +362,29 @@ per question. (Your best score is 5 seconds per question.)',
       }]);
 
       const expected = {
-        levels: fillArray(26, null),
-        ops: fillArray(4, false),
-        totals: fillArray(4, 0),
+        levels: [{ 0: [0, 0, 0, 1] }], // Blue badge for Level A
+        ops: new Set(['0']), // Operation 0 - addition
+        totals: [0, 0, 0, 1], // One blue (index 3) badge in total
       };
-      expected.levels[0] = [[0, 0, 0, 1]]; // Blue badge for Level A
-      expected.ops[0] = true; // Operation 0 - addition
-      expected.totals[3] = 1; // One blue (index 3) badge in total
+
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
+
+    test('should get values for mixed operators', () => {
+      db.getScores.mockReturnValueOnce([{
+        levelIndex: 0,
+        correctCount: 10,
+        opIndexes: [0, 1],
+        timePerQuestion: 6,
+      }]);
+
+      const expected = {
+        levels: [{ '01': [0, 0, 0, 1] }], // Blue badge for Level A
+        ops: new Set(['01']), // Operations 0 & 1 - addition/subtraction
+        totals: [0, 0, 0, 1], // One blue (index 3) badge in total
+      };
 
       const actual = getScoreboard();
 
@@ -389,17 +405,10 @@ per question. (Your best score is 5 seconds per question.)',
       }]);
 
       const expected = {
-        levels: fillArray(26, null),
-        ops: fillArray(4, false),
-        totals: fillArray(4, 0),
+        levels: [{ 0: [0, 0, 0, 1], 1: [0, 0, 0, 1] }], // Blue badge for Level A
+        ops: new Set(['0', '1']), // Operations 0 & 1 - addition & subtraction
+        totals: [0, 0, 0, 2], // One blue (index 3) badge in total
       };
-      expected.levels[0] = [
-        [0, 0, 0, 1], // Blue badge for Level A Addition
-        [0, 0, 0, 1], // Blue badge for Level A Subtraction
-      ];
-      expected.ops[0] = true; // Operation 0 - addition
-      expected.ops[1] = true; // Operation 1 - subtraction
-      expected.totals[3] = 2; // Two blue (index 3) badges in total
 
       const actual = getScoreboard();
 
@@ -415,10 +424,11 @@ per question. (Your best score is 5 seconds per question.)',
       }]);
 
       const expected = {
-        levels: fillArray(26, null),
-        ops: fillArray(4, false),
+        levels: [],
+        ops: new Set(),
         totals: fillArray(4, 0),
       };
+
       const actual = getScoreboard();
 
       expect(actual).toEqual(expected);

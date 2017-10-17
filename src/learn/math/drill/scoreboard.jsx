@@ -5,7 +5,6 @@ const helper = require('./helper');
 const React = require('react');
 
 const {
-  COLOR_TEXT: colorText,
   ALPHABET: alphabet,
   OPERATION_NAMES: operationNames,
 } = constants;
@@ -44,16 +43,21 @@ function badge(badges) {
 }
 
 function scoreboard() {
-  const { ops, totals, levels } = helper.getScoreboard();
+  const { ops: operations, totals, levels } = helper.getScoreboard();
+  const ops = [...operations];
+  const opNames = ops.map((op) => {
+    const operators = op.split('');
+    const names = operators.map(operator => operationNames[parseInt(operator, 10)]);
+    return names.join(' / ');
+  });
   /*
-  ops shape looks like this:
-  [{         // Operator: +
-    0: {     // Level: A
-      0: 3,  // Gold Badge - 3 times
-      2: 1,  // Bronze Badge - once
-    }
-  }]
+  {
+    ops, // A Set of strings representing operators
+    totals, // A 4 element array of badge totals
+    levels, // An sparse array of up to 26 elements of objects with keys matching values in ops Set
+  }
   */
+
   return (
     <div>
       <h3>Scoreboard</h3>
@@ -66,14 +70,12 @@ function scoreboard() {
           <TableRow>
             <TableHeaderColumn>Level</TableHeaderColumn>
             {
-              ops.map((op, index) => (op
-                ?
-                  <TableHeaderColumn
-                    key={operationNames[index]}
-                  >
-                    {operationNames[index]}
-                  </TableHeaderColumn>
-                : null
+              opNames.map(opName => (
+                <TableHeaderColumn
+                  key={opName}
+                >
+                  {opName}
+                </TableHeaderColumn>
               ))
             }
           </TableRow>
@@ -85,10 +87,11 @@ function scoreboard() {
                 <TableRow key={alphabet[index]}>
                   <TableRowColumn key={alphabet[index]}>{alphabet[index]}</TableRowColumn>
                   {
-                  level.map((badges, badgeIndex) => (
-                    <TableRowColumn key={`${colorText[badgeIndex]}`}>
-                      {badge(badges)}
-                    </TableRowColumn>))
+                  ops.map(op => (
+                    <TableRowColumn key={op}>
+                      {badge(level[op])}
+                    </TableRowColumn>
+                  ))
                 }
                 </TableRow>
               : null

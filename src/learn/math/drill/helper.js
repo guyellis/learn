@@ -196,19 +196,20 @@ function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
 
 function getScoreboard() {
   const scores = db.getScores() || [];
+  // totals are for badges irrespective of operators so there will always be
+  // 4 of these for Gold, Silver, Bronze and Blue
   const totals = [0, 0, 0, 0];
-  const opCounters = [0, 0, 0, 0];
-  // A 2 dimensional array of 26 Levels each with an array of 4 nulls
-  /*
-    [
-      [null, null, null, null],
-      [null, null, null, null],
-      [null, null, null, null],
-      ...
-    ]
-  */
-  const baseLevels = [...Array(26).keys()].map(() => [...Array(4).keys()].map(() => null));
-  scores.forEach((score) => {
+
+  // levelOperators has keys (props) that map to both the level and operator(s) that were used
+  // and aggregate the scores based on this.
+  // Example keys:
+  // '00' - Level A Addition
+  // '313' - Level D Mixed Subtraction/Division
+  // The values are arrays of 4 elements that match to badge colors and the number of
+  // badges at that level/operator(s)
+  // Example value:
+  // [0, 5, 2, 1] - 0 Gold, 5 Silver, 2 Bronze, 1 Blue
+  const levelOperators = scores.reduce((acc, score) => {
     const {
       levelIndex,
       correctCount,
@@ -216,69 +217,61 @@ function getScoreboard() {
       timePerQuestion,
     } = score;
 
-    // Filter down the scores to just those that have:
-    // 1. at least 10 correct answer
-    // 2. Only include single-select operators. (i.e. no multi-select mix-n-match)
-    if (correctCount > 9 && opIndexes.length === 1) {
-      const opIndex = opIndexes[0];
-      const badges = baseLevels[levelIndex][opIndex] || [0, 0, 0, 0];
-      opCounters[opIndex] += 1;
+    // Filter down the scores to just those that have
+    // at least 10 correct answers
+    if (correctCount > 9) {
+      const key = createKey(levelIndex, opIndexes);
+      if (!acc[key]) {
+        acc[key] = [0, 0, 0, 0];
+      }
+      const levelOp = acc[key];
 
       const badgeColorIndex = getBadgeColorIndex(timePerQuestion);
       totals[badgeColorIndex] += 1;
-      badges[badgeColorIndex] += 1;
-
-      baseLevels[levelIndex][opIndex] = badges;
+      levelOp[badgeColorIndex] += 1;
     }
-  }, [null, null, null, null]);
 
-  const ops = opCounters.map(Boolean);
+    return acc;
+  }, {});
 
-  const levels = baseLevels.map((level) => {
-    if (level.some(Boolean)) {
-      return ops.reduce((acc, op, index) => {
-        if (op) {
-          acc.push(level[index]);
-        }
-        return acc;
-      }, []);
+  // ops is a collection of strings that are keys into the operators
+  // used in the test. The operators are +, -, *, / and each of those
+  // maps to an index value from 0 through 3.
+  // For example: '0' is + and '13' is mixed - and /
+  // Each new operator key is appended to this Set.
+  const ops = new Set();
+
+  // levelOperators is now an object with both the level and the operators
+  // in the keys. In order to make this easy for the component to show this
+  // in a table form we are now going to change it into a two dimensional
+  // array. The rows will map to levels and then each row will have a collection
+  // of arrays that show the number of badges for that operator(s).
+  // We will need another array to map the operator(s) into the columns.
+  const levels = Object.keys(levelOperators).reduce((acc, levelOperator) => {
+    const levelIndex = parseInt(levelOperator[0], 10);
+    const operatorIndexes = levelOperator.slice(1);
+    ops.add(operatorIndexes);
+    if (!acc[levelIndex]) {
+      acc[levelIndex] = {};
     }
-    // If a level is an array of nulls then replace that array of (4) nulls with a null.
-    return null;
-  });
+    acc[levelIndex][operatorIndexes] = levelOperators[levelOperator];
+    return acc;
+  }, []);
 
-  /*
-  1. For titles - 4 element array - which operators are stored.
-  2. For totals - 4 element array - 1 element for each Badge Color
-  3. For scores:
-     Levels array
-       Nested operator array
-         Nested collection of badges indexes + counts
-         [
-           [        // Level A
-             [      // Operator +
-               3,   // 3 Gold Badges
-               0,   // 0 Silver Badges
-               7,   // 7 Bronze Badges
-               0,   // 0 Blue Badges
-             ]
-           ]
-         ]
-  */
+  // levels now looks something like this:
+  // [
+  //   { '0': [0,5,3,1], '01': [0,0,0,2]},
+  //   undefined,
+  //   { '0': [0,5,3,1], '02': [0,0,1,2]},
+  // ]
+  // and ops is a set with:
+  // '0', '01', '02'
 
-  // const levels = [[
-  //   [3, 0, 7, 0], [3, 0, 7, 0],
-  // ], [
-  //   null, [3, 0, 7, 0],
-  // ],
-  // null, [
-  //   [7, 7, 7, 7], null,
-  // ]];
 
   return {
-    ops,
-    totals,
-    levels,
+    ops, // A Set of strings representing operators
+    totals, // A 4 element array of badge totals
+    levels, // An sparse array of up to 26 elements of objects with keys matching values in ops Set
   };
 }
 

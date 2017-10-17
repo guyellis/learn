@@ -502,7 +502,7 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
             className={undefined}
             style={
               Object {
-                "borderBottom": "1px solid #e0e0e0",
+                "borderBottom": false,
                 "color": "rgba(0, 0, 0, 0.87)",
                 "height": 48,
                 "muiPrepared": true,
