@@ -69,7 +69,7 @@ function getLowerUpper(levelIndexParam, opIndexes) {
 // to search for previous scores that used that combination to see if this
 // is a new record.
 function createKey(levelIndex, opIndexes) {
-  return levelIndex.toString() + opIndexes.join('');
+  return `${levelIndex.toString()}-${opIndexes.join('')}`;
 }
 
 function getCurrentRecord(levelIndex, opIndexes) {
@@ -248,8 +248,8 @@ function getScoreboard() {
   // of arrays that show the number of badges for that operator(s).
   // We will need another array to map the operator(s) into the columns.
   const levels = Object.keys(levelOperators).reduce((acc, levelOperator) => {
-    const levelIndex = parseInt(levelOperator[0], 10);
-    const operatorIndexes = levelOperator.slice(1);
+    const [levelIndexSplit, operatorIndexes] = levelOperator.split('-');
+    const levelIndex = parseInt(levelIndexSplit, 10);
     ops.add(operatorIndexes);
     if (!acc[levelIndex]) {
       acc[levelIndex] = {};

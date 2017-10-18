@@ -50,12 +50,12 @@ describe('DB', () => {
 
   test('should append scores', () => {
     localStorage.getItem.mockReturnValueOnce(JSON.stringify({
-      version: 2,
+      version: 3,
       scores: [1, 2],
     }));
     db.appendScore(3);
     expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify({
-      version: 2,
+      version: 3,
       scores: [1, 2, 3],
     }));
   });
@@ -64,7 +64,7 @@ describe('DB', () => {
     localStorage.getItem.mockReturnValueOnce(null);
     db.appendScore(3);
     expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify({
-      version: 2,
+      version: 3,
       scores: [3],
     }));
   });
@@ -129,25 +129,57 @@ describe('DB', () => {
     expect(actual).toEqual(savedOptions);
   });
 
-  test('should update scores and set version to 2', () => {
+  test('should update scores and set version to current', () => {
     const scoresVersion1 = [{
+      levelIndex: 0,
+      opIndexes: [0],
+      key: '00',
       previousResults: [{
         actual: 1,
       }, {
         actuals: [2],
       }],
     }, {
+      levelIndex: 0,
+      opIndexes: [0],
+      key: '00',
       dummy: 1, // to test "else" in target code
     }];
+
     const scoresVersion2 = {
       version: 2,
       scores: [{
+        levelIndex: 0,
+        opIndexes: [0],
+        key: '00',
         previousResults: [{
           actuals: [1],
         }, {
           actuals: [2],
         }],
       }, {
+        levelIndex: 0,
+        opIndexes: [0],
+        key: '00',
+        dummy: 1,
+      }],
+    };
+
+    const scoresVersion3 = {
+      version: 3,
+      scores: [{
+        levelIndex: 0,
+        opIndexes: [0],
+        key: '0-0',
+        previousResults: [{
+          actuals: [1],
+        }, {
+          actuals: [2],
+        }],
+      }, {
+        levelIndex: 0,
+        opIndexes: [0],
+        key: '0-0',
         dummy: 1,
       }],
     };
@@ -156,13 +188,17 @@ describe('DB', () => {
       JSON.stringify(scoresVersion1));
     localStorage.getItem.mockReturnValueOnce(
       JSON.stringify(scoresVersion2));
+    localStorage.getItem.mockReturnValueOnce(
+      JSON.stringify(scoresVersion3));
 
     const actual = db.getScores();
 
-    expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(localStorage.setItem).toHaveBeenCalledTimes(2);
     expect(localStorage.setItem).toHaveBeenCalledWith(
       MATH_DRILL_SCORES, JSON.stringify(scoresVersion2));
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(
+      MATH_DRILL_SCORES, JSON.stringify(scoresVersion3));
 
-    expect(actual).toEqual(scoresVersion2.scores);
+    expect(actual).toEqual(scoresVersion3.scores);
   });
 });

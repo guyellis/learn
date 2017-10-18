@@ -104,13 +104,13 @@ describe('Finished', () => {
       newRecordInfo: RECORD_NEW,
     };
     db.getScores.mockReturnValueOnce([{
-      key: '001',
+      key: '0-01',
       timePerQuestion: 2,
     }, {
-      key: '002',
+      key: '0-02',
       timePerQuestion: 0.5,
     }, {
-      key: '001',
+      key: '0-01',
       timePerQuestion: 1,
     }]);
 

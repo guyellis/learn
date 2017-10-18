@@ -61,7 +61,7 @@ describe('Helper', () => {
 
   test('should getScoreBarTimes() for single item', () => {
     const scores = [{
-      key: '00',
+      key: '0-0',
       correctCount: 10,
       date: 1,
       timePerQuestion: 1.3,
@@ -79,12 +79,12 @@ describe('Helper', () => {
 
   test('should sort getScoreBarTimes() for two items', () => {
     const scores = [{
-      key: '00',
+      key: '0-0',
       correctCount: 22,
       date: 2,
       timePerQuestion: 2.2,
     }, {
-      key: '00',
+      key: '0-0',
       correctCount: 11,
       date: 1,
       timePerQuestion: 1.1,
@@ -107,32 +107,32 @@ describe('Helper', () => {
     'should not return more than 5 items getScoreBarTimes() for six items',
     () => {
       const scores = [{
-        key: '00',
+        key: '0-0',
         correctCount: 66,
         date: 6,
         timePerQuestion: 6.6,
       }, {
-        key: '00',
+        key: '0-0',
         correctCount: 55,
         date: 5,
         timePerQuestion: 5.5,
       }, {
-        key: '00',
+        key: '0-0',
         correctCount: 44,
         date: 4,
         timePerQuestion: 4.4,
       }, {
-        key: '00',
+        key: '0-0',
         correctCount: 33,
         date: 3,
         timePerQuestion: 3.3,
       }, {
-        key: '00',
+        key: '0-0',
         correctCount: 22,
         date: 2,
         timePerQuestion: 2.2,
       }, {
-        key: '00',
+        key: '0-0',
         correctCount: 11,
         date: 1,
         timePerQuestion: 1.1,
@@ -180,20 +180,20 @@ describe('Helper', () => {
 
   test('should get current record if data exists', () => {
     db.getScores.mockReturnValueOnce([{
-      key: '001',
+      key: '0-01',
       timePerQuestion: 2,
     }, {
-      key: '002',
+      key: '0-02',
       timePerQuestion: 0.5,
     }, {
-      key: '001',
+      key: '0-01',
       timePerQuestion: 1,
     }]);
     const { getCurrentRecord } = helper;
 
     const actual = getCurrentRecord(0, [0, 1]);
     expect(actual).toEqual({
-      key: '001',
+      key: '0-01',
       timePerQuestion: 1,
     });
   });
@@ -261,7 +261,7 @@ easier level or an easier operator.',
   test('should report an equal record', () => {
     db.getScores.mockReturnValueOnce([{
       timePerQuestion: 6,
-      key: '00',
+      key: '0-0',
     }]);
     const { appendScore } = helper;
     const results = {
@@ -288,7 +288,7 @@ easier level or an easier operator.',
   test('should report a new record', () => {
     db.getScores.mockReturnValueOnce([{
       timePerQuestion: 7,
-      key: '00',
+      key: '0-0',
     }]);
     const { appendScore } = helper;
     const results = {
@@ -315,7 +315,7 @@ easier level or an easier operator.',
   test('should report a new record', () => {
     db.getScores.mockReturnValueOnce([{
       timePerQuestion: 5,
-      key: '00',
+      key: '0-0',
     }]);
     const { appendScore } = helper;
     const results = {
