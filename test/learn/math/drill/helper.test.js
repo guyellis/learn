@@ -77,6 +77,28 @@ describe('Helper', () => {
     expect(actual).toEqual(expected);
   });
 
+  test('should get the expected number of results', () => {
+    const scores = [];
+    const expected = [];
+    for (let i = 0; i < 5; i += 1) {
+      scores.push({
+        key: '0-0',
+        correctCount: 10,
+        date: 1,
+        timePerQuestion: 2,
+      });
+
+      const actual = helper.getScoreBarTimes(0, [0], scores);
+
+      expected.push({
+        date: 1,
+        timePerQuestion: 2,
+      });
+
+      expect(actual).toEqual(expected);
+    }
+  });
+
   test('should sort getScoreBarTimes() for two items', () => {
     const scores = [{
       key: '0-0',

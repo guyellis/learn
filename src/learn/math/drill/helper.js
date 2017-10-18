@@ -186,7 +186,7 @@ function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
   }
 
   return filteredScores
-    .slice(filteredScores.length - 5)
+    .slice(-5)
     .map(({ date, timePerQuestion }) => ({
       date,
       timePerQuestion,
