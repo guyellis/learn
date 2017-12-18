@@ -13,16 +13,15 @@ function missingFeatures(features) {
 }
 
 function loadScript(features, done) {
-  // eslint-disable-next-line prefer-template
-  const cdn = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=' + missingFeatures(features).join();
+  const cdn =
+    `https://cdn.polyfill.io/v2/polyfill.min.js?features=${missingFeatures(features).join()}`;
   const js = document.createElement('script');
   js.src = cdn;
   js.onload = function onLoad() {
     done();
   };
   js.onerror = function onError() {
-    // eslint-disable-next-line prefer-template
-    done(new Error('Failed to load script ' + cdn));
+    done(new Error(`Failed to load script ${cdn}`));
   };
   document.head.appendChild(js);
 }

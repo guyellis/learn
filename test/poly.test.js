@@ -9,8 +9,11 @@ describe('PolyFill', () => {
   });
 
   test('should check for dummy property', (done) => {
+    const { appendChild } = document.head;
+    document.head.appendChild = js => js.onload();
     poly(['dummy'], (error) => {
       expect(error).toBeFalsy();
+      document.head.appendChild = appendChild;
       done();
     });
   });
