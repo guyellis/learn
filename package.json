@@ -18,7 +18,7 @@
     "sass-loader": "6.0.6",
     "webpack": "3.10.0",
     "webpack-cleanup-plugin": "0.5.1",
-    "webpack-dashboard": "1.1.0"
+    "webpack-dashboard": "1.1.1"
   },
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
