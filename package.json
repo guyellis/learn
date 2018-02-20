@@ -40,7 +40,7 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "7.7.0",
-    "file-loader": "1.1.7",
+    "file-loader": "1.1.8",
     "jest": "22.1.4",
     "postcss-loader": "2.1.0",
     "pre-commit": "1.2.2",
