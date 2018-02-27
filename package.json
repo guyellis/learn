@@ -10,7 +10,7 @@
     "material-ui": "0.20.0",
     "moment": "2.20.1",
     "node-sass": "4.7.2",
-    "prop-types": "15.6.0",
+    "prop-types": "15.6.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-markdown": "3.2.2",
