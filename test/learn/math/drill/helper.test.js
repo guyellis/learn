@@ -334,7 +334,7 @@ easier level or an easier operator.',
     expect(db.appendScore).toHaveBeenCalled();
   });
 
-  test('should report a new record', () => {
+  test('should report a slower result', () => {
     db.getScores.mockReturnValueOnce([{
       timePerQuestion: 5,
       key: '0-0',

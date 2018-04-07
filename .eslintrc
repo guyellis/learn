@@ -3,15 +3,24 @@
     "browser": true,
     "es6": true,
     "jest": true,
+    "jest/globals": true,
     "node": true
   },
   "extends": [
     "airbnb"
   ],
+  "plugins": [
+    "jest"
+  ],
   "rules": {
+    "function-paren-newline": [0],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
     "jsx-a11y/anchor-is-valid": [0],
     "no-restricted-globals": [0],
-    "react/no-unused-state": [0],
-    "function-paren-newline": [0]
+    "react/no-unused-state": [0]
   }
 }
