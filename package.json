@@ -11,7 +11,7 @@
     "moment": "2.22.1",
     "node-sass": "4.8.3",
     "prop-types": "15.6.1",
-    "react": "16.3.1",
+    "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-markdown": "3.3.0",
     "react-router-dom": "4.2.2",
@@ -46,7 +46,7 @@
     "postcss-loader": "2.1.4",
     "pre-commit": "1.2.2",
     "react-hot-loader": "4.0.1",
-    "react-test-renderer": "16.3.1",
+    "react-test-renderer": "16.3.2",
     "style-loader": "0.20.3",
     "url-loader": "1.0.1",
     "webpack-dev-server": "3.1.3"
