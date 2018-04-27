@@ -3,6 +3,7 @@ env:
 language: node_js
 node_js:
   - "7.0.0"
+  - "10"
 addons:
   apt:
     sources:
