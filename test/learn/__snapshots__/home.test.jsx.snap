@@ -17,7 +17,6 @@ exports[`Home should render a Home component 1`] = `
       target="_blank"
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -127,7 +126,6 @@ exports[`Home should render a Home component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -244,7 +242,6 @@ exports[`Home should render a Home component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -361,7 +358,6 @@ exports[`Home should render a Home component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",

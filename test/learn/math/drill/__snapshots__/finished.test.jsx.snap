@@ -43,7 +43,6 @@ test you got 2 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -208,7 +207,6 @@ test you got 2 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -374,7 +372,6 @@ test you got 2 answer(s) correct.
         }
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -534,7 +531,6 @@ test you got 2 answer(s) correct.
         }
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -710,7 +706,6 @@ test you got 2 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -870,7 +865,6 @@ test you got 2 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1030,7 +1024,6 @@ test you got 2 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1238,7 +1231,6 @@ test you got 1 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1403,7 +1395,6 @@ test you got 1 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1568,7 +1559,6 @@ test you got 1 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1766,7 +1756,6 @@ test you got 0 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1931,7 +1920,6 @@ test you got 0 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -2097,7 +2085,6 @@ test you got 0 answer(s) correct.
         }
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -2263,7 +2250,6 @@ test you got 0 answer(s) correct.
       }
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",

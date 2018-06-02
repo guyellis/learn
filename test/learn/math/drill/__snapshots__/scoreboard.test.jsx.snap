@@ -8,7 +8,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
   <div>
     <div>
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -98,7 +97,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
     </div>
     <div>
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -188,7 +186,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
     </div>
     <div>
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -278,7 +275,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
     </div>
     <div>
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -384,7 +380,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
       }
     >
       <table
-        className={undefined}
         style={
           Object {
             "backgroundColor": "#ffffff",
@@ -397,7 +392,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
         }
       >
         <thead
-          className={undefined}
           style={
             Object {
               "borderBottom": "1px solid #e0e0e0",
@@ -406,7 +400,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
           }
         >
           <tr
-            className={undefined}
             style={
               Object {
                 "borderBottom": "1px solid #e0e0e0",
@@ -417,7 +410,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
             }
           >
             <th
-              className={undefined}
               onClick={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -441,7 +433,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
               Level
             </th>
             <th
-              className={undefined}
               onClick={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -479,7 +470,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
       }
     >
       <table
-        className={undefined}
         style={
           Object {
             "backgroundColor": "#ffffff",
@@ -499,7 +489,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
           }
         >
           <tr
-            className={undefined}
             style={
               Object {
                 "borderBottom": false,
@@ -510,7 +499,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
             }
           >
             <td
-              className={undefined}
               onClick={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -532,7 +520,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
               A
             </td>
             <td
-              className={undefined}
               onClick={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -553,7 +540,6 @@ exports[`ScoreBoard should render showScoreBoard 1`] = `
             >
               <span>
                 <div
-                  className={undefined}
                   style={
                     Object {
                       "WebkitTapHighlightColor": "rgba(0,0,0,0)",

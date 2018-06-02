@@ -2,7 +2,6 @@
 
 exports[`Menu should render a Menu component 1`] = `
 <div
-  className={undefined}
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -17,7 +16,6 @@ exports[`Menu should render a Menu component 1`] = `
   }
 >
   <div
-    className={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -35,7 +33,6 @@ exports[`Menu should render a Menu component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -140,7 +137,6 @@ exports[`Menu should render a Menu component 1`] = `
       </div>
     </a>
     <span
-      className={undefined}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -159,7 +155,6 @@ exports[`Menu should render a Menu component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -264,7 +259,6 @@ exports[`Menu should render a Menu component 1`] = `
       </div>
     </a>
     <span
-      className={undefined}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -283,7 +277,6 @@ exports[`Menu should render a Menu component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -389,7 +382,6 @@ exports[`Menu should render a Menu component 1`] = `
     </a>
   </div>
   <div
-    className={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -403,7 +395,6 @@ exports[`Menu should render a Menu component 1`] = `
     }
   >
     <span
-      className={undefined}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -422,7 +413,6 @@ exports[`Menu should render a Menu component 1`] = `
       onClick={[Function]}
     >
       <div
-        className={undefined}
         style={
           Object {
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",

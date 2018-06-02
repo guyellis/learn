@@ -6,7 +6,6 @@ exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
 >
   <span>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -103,7 +102,6 @@ exports[`Finished Badge should be rendered on happy path 1`] = `
 >
   <span>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",

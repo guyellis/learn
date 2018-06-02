@@ -3,7 +3,6 @@
 exports[`App should render an App component 1`] = `
 <div>
   <div
-    className={undefined}
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -18,7 +17,6 @@ exports[`App should render an App component 1`] = `
     }
   >
     <div
-      className={undefined}
       style={
         Object {
           "alignItems": "center",
@@ -36,7 +34,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -141,7 +138,6 @@ exports[`App should render an App component 1`] = `
         </div>
       </a>
       <span
-        className={undefined}
         style={
           Object {
             "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -160,7 +156,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -265,7 +260,6 @@ exports[`App should render an App component 1`] = `
         </div>
       </a>
       <span
-        className={undefined}
         style={
           Object {
             "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -284,7 +278,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -390,7 +383,6 @@ exports[`App should render an App component 1`] = `
       </a>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "alignItems": "center",
@@ -404,7 +396,6 @@ exports[`App should render an App component 1`] = `
       }
     >
       <span
-        className={undefined}
         style={
           Object {
             "backgroundColor": "rgba(0, 0, 0, 0.175)",
@@ -423,7 +414,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -545,7 +535,6 @@ exports[`App should render an App component 1`] = `
         target="_blank"
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -655,7 +644,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -772,7 +760,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -889,7 +876,6 @@ exports[`App should render an App component 1`] = `
         onClick={[Function]}
       >
         <div
-          className={undefined}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0,0,0,0)",

@@ -4,7 +4,6 @@ exports[`Badge totals should be rendered 1`] = `
 <div>
   <div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -89,7 +88,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -174,7 +172,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -259,7 +256,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -367,7 +363,6 @@ exports[`Badge totals should be rendered 1`] = `
   </div>
   <div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -452,7 +447,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -537,7 +531,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -622,7 +615,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -709,7 +701,6 @@ exports[`Badge totals should be rendered 1`] = `
   </div>
   <div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -794,7 +785,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -879,7 +869,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -964,7 +953,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1051,7 +1039,6 @@ exports[`Badge totals should be rendered 1`] = `
   </div>
   <div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1136,7 +1123,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1221,7 +1207,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1306,7 +1291,6 @@ exports[`Badge totals should be rendered 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
