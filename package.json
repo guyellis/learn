@@ -13,7 +13,7 @@
     "prop-types": "15.6.1",
     "react": "16.4.1",
     "react-dom": "16.4.1",
-    "react-markdown": "3.3.2",
+    "react-markdown": "3.3.3",
     "react-router-dom": "4.3.0",
     "sass-loader": "7.0.3",
     "webpack": "3.11.0",
