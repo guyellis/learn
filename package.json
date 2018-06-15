@@ -45,7 +45,7 @@
     "jest": "23.1.0",
     "postcss-loader": "2.1.5",
     "pre-commit": "1.2.2",
-    "react-hot-loader": "4.3.2",
+    "react-hot-loader": "4.3.3",
     "react-test-renderer": "16.4.1",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",
