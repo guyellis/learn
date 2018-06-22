@@ -1,11 +1,11 @@
-const db = require('../../../../src/learn/db');
-const constants = require('../../../../src/learn/common/constants');
 const React = require('react');
-const Finished = require('../../../../src/learn/math/drill/finished');
 const renderer = require('react-test-renderer');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const Finished = require('../../../../src/learn/math/drill/finished');
+const constants = require('../../../../src/learn/common/constants');
+const db = require('../../../../src/learn/db');
 
 const {
   RECORD_NEW,

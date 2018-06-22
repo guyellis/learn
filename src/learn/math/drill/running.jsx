@@ -1,7 +1,7 @@
-const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
-const QuizLine = require('./quiz-line');
 const React = require('react');
+const constants = require('../../common/constants');
+const QuizLine = require('./quiz-line');
 const RunningResults = require('./running-results');
 
 const {
@@ -11,6 +11,7 @@ const {
 
 function running(props) {
   const {
+    checkAnswer,
     currentTask,
     largeKeyboard,
     levelIndex,
@@ -38,16 +39,24 @@ function running(props) {
   return (
     <div>
       <div>
-        <span style={spanStyle}>{`Level: ${alphabet[levelIndex]}`}</span>
-        <span style={spanStyle}>{`Operation(s): ${opIndexes.map(i => operations[i]).join()}`}</span>
+        <span style={spanStyle}>
+          {`Level: ${alphabet[levelIndex]}`}
+        </span>
+        <span style={spanStyle}>
+          {`Operation(s): ${opIndexes.map(i => operations[i]).join()}`}
+        </span>
       </div>
       <div>
-        <span style={spanStyle}>{`Time Left: ${timeLeft} seconds`}</span>
-        <span style={spanStyle}>{`Questions Remaining: ${questionsRemaining}`}</span>
+        <span style={spanStyle}>
+          {`Time Left: ${timeLeft} seconds`}
+        </span>
+        <span style={spanStyle}>
+          {`Questions Remaining: ${questionsRemaining}`}
+        </span>
       </div>
       <div>
         <QuizLine
-          checkAnswer={props.checkAnswer}
+          checkAnswer={checkAnswer}
           lastResult={lastResult}
           newRecord={newRecord}
           onscreenKeyboard={onscreenKeyboard}

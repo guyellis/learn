@@ -1,7 +1,7 @@
 // A collection of helper functions
+const moment = require('moment');
 const db = require('../../db');
 const constants = require('../../common/constants');
-const moment = require('moment');
 const { levelOps } = require('./helper-problems');
 
 const {
@@ -52,8 +52,9 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   // level = 0, [0]
   // level = 1: [0, 1, 1]
   // level = 2: [0, 1, 1, 2, 2, 2]
-  const weightedLevels = [...Array(levelIndex + 1).keys()].reduce((acc, level) =>
-    acc.concat([...Array(level + 1).keys()].map(() => level)), []);
+  const weightedLevels = [...Array(levelIndex + 1).keys()]
+    .reduce((acc, level) => acc.concat([...Array(level + 1).keys()]
+      .map(() => level)), []);
 
   // Pick a random value from the array
   const levelElement = weightedLevels[Math.floor(Math.random() * weightedLevels.length)];
@@ -76,8 +77,8 @@ function getCurrentRecord(levelIndex, opIndexes) {
   const existingScores = db.getScores() || [];
   const key = createKey(levelIndex, opIndexes);
 
-  const matchingProblems = existingScores.filter(score => score.key === key).sort((a, b) =>
-    a.timePerQuestion - b.timePerQuestion);
+  const matchingProblems = existingScores.filter(score => score.key === key)
+    .sort((a, b) => a.timePerQuestion - b.timePerQuestion);
   return matchingProblems[0];
 }
 
@@ -113,24 +114,20 @@ function appendScore(results) {
   // 4. Worse than previous high score
   // 5. Zero questions answered
   if (isNaN(timePerQuestion)) {
-    resultInfo.text =
-`You didn't answer any questions correctly so we are not going to use this score \
+    resultInfo.text = `You didn't answer any questions correctly so we are not going to use this score \
 as part of your high scores. If you are struggling with these problems then try an \
 easier level or an ${'easier'} operator.`;
     resultInfo.newRecordInfo = RECORD_MISS;
   } else if (currentRecord) {
     const { timePerQuestion: bestTimePerQuestion } = currentRecord;
     if (timePerQuestion === bestTimePerQuestion) {
-      resultInfo.text =
-`Your time is equal to your best score of ${timePerQuestion} seconds per question. Great job!`;
+      resultInfo.text = `Your time is equal to your best score of ${timePerQuestion} seconds per question. Great job!`;
       resultInfo.newRecordInfo = RECORD_EQUAL;
     } else if (timePerQuestion < bestTimePerQuestion) {
-      resultInfo.text =
-`NEW RECORD! Awesome work! Your new best score is ${timePerQuestion} seconds per question.`;
+      resultInfo.text = `NEW RECORD! Awesome work! Your new best score is ${timePerQuestion} seconds per question.`;
       resultInfo.newRecordInfo = RECORD_NEW;
     } else {
-      resultInfo.text =
-`You answered the questions at a rate of ${timePerQuestion} seconds \
+      resultInfo.text = `You answered the questions at a rate of ${timePerQuestion} seconds \
 per question. (Your best score is ${bestTimePerQuestion} seconds per question.)`;
       resultInfo.newRecordInfo = RECORD_MISS;
     }
@@ -166,8 +163,8 @@ beat this score. Good luck!`;
 }
 
 function getBadgeColorIndex(timePerQuestion) {
-  return badgeBoundaries.reduce((badgeColor, boundary, index) =>
-    (timePerQuestion > boundary ? index : badgeColor), 0);
+  return badgeBoundaries
+    .reduce((badgeColor, boundary, index) => (timePerQuestion > boundary ? index : badgeColor), 0);
 }
 
 function getBadgeHtmlColor(timePerQuestion) {
@@ -317,4 +314,3 @@ module.exports = {
   getScoreboard,
   newRecord,
 };
-

@@ -1,11 +1,11 @@
 const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
-const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
 const RaisedButton = require('material-ui/RaisedButton').default;
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
 const Toggle = require('material-ui/Toggle').default;
+const constants = require('../../common/constants');
 
 const {
   ALPHABET: alphabet,
@@ -30,7 +30,9 @@ function options(props) {
     largeKeyboard,
     levelIndex,
     minutes,
+    onChange,
     onscreenKeyboard,
+    onStart,
     opIndexes,
     setParentState,
     totalProblems,
@@ -56,7 +58,9 @@ function options(props) {
   return (
     <div>
       <div style={sectionStyle}>
-        <h2>Level</h2>
+        <h2>
+Level
+        </h2>
         <div>
           {
             alphabet.map((letter, index) => (
@@ -74,7 +78,9 @@ function options(props) {
         </div>
       </div>
       <div style={sectionStyle}>
-        <h2>Operation</h2>
+        <h2>
+Operation
+        </h2>
         <div>
           {
             operations.map((operation, index) => (
@@ -92,61 +98,73 @@ function options(props) {
         </div>
       </div>
       <div style={sectionStyle}>
-        <h3>Time</h3>
+        <h3>
+Time
+        </h3>
         <TextField
           floatingLabelText="Time"
           hintText="1"
           id="time-minutes"
           name="minutes"
-          onChange={props.onChange}
+          onChange={onChange}
           style={{ width: 100, marginLeft: 20 }}
           type="number"
           value={minutes}
         />
       </div>
       <div style={sectionStyle}>
-        <h3>Total Questions (you only get badges for 10 or more correct questions)</h3>
+        <h3>
+Total Questions (you only get badges for 10 or more correct questions)
+        </h3>
         <TextField
           floatingLabelText="Total Questions"
           hintText="20"
           id="total-problems"
           name="totalProblems"
-          onChange={props.onChange}
+          onChange={onChange}
           style={{ width: 150, marginLeft: 40 }}
           type="number"
           value={totalProblems}
         />
       </div>
       <div style={sectionStyle}>
-        <h3>Keyboard</h3>
+        <h3>
+Keyboard
+        </h3>
         <Toggle
           label="Use onscreen keyboard"
           labelPosition="right"
           name="onscreenKeyboard"
-          onToggle={props.onChange}
+          onToggle={onChange}
           toggled={onscreenKeyboard}
         />
       </div>
-      {onscreenKeyboard &&
+      {onscreenKeyboard
+        && (
         <div style={sectionStyle}>
-          <h3>Large Keyboard</h3>
+          <h3>
+Large Keyboard
+          </h3>
           <Toggle
             label="Large Keyboard"
             labelPosition="right"
             name="largeKeyboard"
-            onToggle={props.onChange}
+            onToggle={onChange}
             toggled={largeKeyboard}
           />
         </div>
+        )
       }
       <div style={sectionStyle}>
-        <h3>Your Name (Optional)</h3>
+        <h3>
+Your Name (Optional)
+        </h3>
         <TextField
           floatingLabelText="Your Name"
           hintText="Jemima Puddle-Duck"
           id="user-name"
           name="userName"
-          onChange={props.onChange}
+          onChange={onChange}
           style={{ width: 250, marginLeft: 40 }}
           type="text"
           value={userName}
@@ -157,7 +175,7 @@ function options(props) {
           label="Start"
           labelPosition="before"
           primary
-          onClick={props.onStart}
+          onClick={onStart}
           icon={<AVPlayArrow />}
         />
       </div>

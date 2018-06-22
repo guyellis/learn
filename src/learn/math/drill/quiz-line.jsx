@@ -1,9 +1,9 @@
 const DoneIcon = require('material-ui/svg-icons/action/done').default;
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
-const Keyboard = require('./keyboard');
 const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('material-ui/TextField').default;
+const Keyboard = require('./keyboard');
 const constants = require('../../common/constants');
 const RunningResults = require('./running-results');
 
@@ -74,7 +74,9 @@ class QuizLine extends React.Component {
   }
 
   checkAnswer() {
-    this.props.checkAnswer(this.state.answer);
+    const { checkAnswer } = this.props;
+    const { answer } = this.state;
+    checkAnswer(answer);
     this.setState({
       answer: '',
     });
@@ -114,16 +116,17 @@ class QuizLine extends React.Component {
 
   renderNewRecord() {
     const {
-      isNewRecord,
-      currentTimePerQuestion,
-      existingRecordTimePerQuestion,
-    } = this.props.newRecord;
+      newRecord: {
+        isNewRecord,
+        currentTimePerQuestion,
+        existingRecordTimePerQuestion,
+      },
+    } = this.props;
 
     const current = isNaN(currentTimePerQuestion) ? '[none]' : currentTimePerQuestion;
     const existing = existingRecordTimePerQuestion || '[none]';
 
-    const recordText =
-`Current Speed ${current} and Record ${existing}${isNewRecord ? ' NEW RECORD!' : ''}`;
+    const recordText = `Current Speed ${current} and Record ${existing}${isNewRecord ? ' NEW RECORD!' : ''}`;
 
     return (
       <div>
@@ -171,37 +174,49 @@ class QuizLine extends React.Component {
 
   render() {
     const { answer } = this.state;
-    const { onscreenKeyboard, problem } = this.props;
+    const { onscreenKeyboard, problem, largeKeyboard } = this.props;
     const [left, right, opIndex] = problem;
     const operator = operations[opIndex];
     return (
       <div>
         <div style={quizLineStyle}>
-          <span style={numberStyle}>{left}</span>
-          <span style={numberStyle}>{operator}</span>
-          <span style={numberStyle}>{right}</span>
-          <span style={numberStyle}>=</span>
+          <span style={numberStyle}>
+            {left}
+          </span>
+          <span style={numberStyle}>
+            {operator}
+          </span>
+          <span style={numberStyle}>
+            {right}
+          </span>
+          <span style={numberStyle}>
+=
+          </span>
           {
             onscreenKeyboard
-              ?
+              ? (
                 <span style={answerStyle}>
                   {answer || '?'}
                 </span>
-              : <TextField
-                autoFocus
-                hintText=""
-                id="answer-number"
-                inputStyle={inputStyle}
-                name="answer"
-                onChange={this.onChange}
-                onKeyPress={this.handleKeyPress}
-                style={textStyle}
-                type="number"
-                value={answer}
-              />
+              )
+              : (
+                <TextField
+                  autoFocus
+                  hintText=""
+                  id="answer-number"
+                  inputStyle={inputStyle}
+                  name="answer"
+                  onChange={this.onChange}
+                  onKeyPress={this.handleKeyPress}
+                  style={textStyle}
+                  type="number"
+                  value={answer}
+                />
+              )
           }
           {
-            !onscreenKeyboard &&
+            !onscreenKeyboard
+            && (
             <FloatingActionButton
               onClick={this.checkAnswer}
               style={checkStyle}
@@ -209,6 +224,7 @@ class QuizLine extends React.Component {
             >
               <DoneIcon />
             </FloatingActionButton>
+            )
           }
         </div>
         {this.renderLastResult()}
@@ -217,7 +233,7 @@ class QuizLine extends React.Component {
           <Keyboard
             keyPress={this.keyPress}
             onscreenKeyboard={onscreenKeyboard}
-            largeKeyboard={this.props.largeKeyboard}
+            largeKeyboard={largeKeyboard}
           />
         </div>
       </div>

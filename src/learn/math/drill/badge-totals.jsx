@@ -1,7 +1,7 @@
 const PropTypes = require('prop-types');
+const React = require('react');
 const Badge = require('./badge');
 const constants = require('../../common/constants');
-const React = require('react');
 
 const { COLOR_TEXT: colorText } = constants;
 
@@ -20,13 +20,14 @@ function badgeTotals(props) {
       {
         totals.map((total, colorIndex) => {
           const key = colorText[colorIndex];
-          const primaryText =
-            `${key} Badge(s) - ${badgeBoundaries[colorIndex]}`;
+          const primaryText = `${key} Badge(s) - ${badgeBoundaries[colorIndex]}`;
 
           return (
             <div key={key}>
               <Badge color={colorIndex} content={total.toString()} />
-              <span>{primaryText}</span>
+              <span>
+                {primaryText}
+              </span>
             </div>
           );
         })

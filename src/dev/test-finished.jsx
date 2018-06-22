@@ -1,7 +1,7 @@
 // Used for experimenting with components that are WIP
 
-const constants = require('../learn/common/constants');
 const React = require('react');
+const constants = require('../learn/common/constants');
 const Finished = require('../learn/math/drill/finished');
 
 const {

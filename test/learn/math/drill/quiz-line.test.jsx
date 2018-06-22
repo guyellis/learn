@@ -1,10 +1,10 @@
 
 const React = require('react');
-const QuizLine = require('../../../../src/learn/math/drill/quiz-line');
 const renderer = require('react-test-renderer');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const QuizLine = require('../../../../src/learn/math/drill/quiz-line');
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

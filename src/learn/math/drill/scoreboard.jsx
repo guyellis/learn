@@ -1,14 +1,4 @@
-const Badge = require('./badge');
-const BadgeTotals = require('./badge-totals');
-const constants = require('../../common/constants');
-const helper = require('./helper');
 const React = require('react');
-
-const {
-  ALPHABET: alphabet,
-  OPERATION_NAMES: operationNames,
-} = constants;
-
 const {
   Table,
   TableBody,
@@ -17,6 +7,17 @@ const {
   TableRow,
   TableRowColumn,
 } = require('material-ui/Table');
+
+const Badge = require('./badge');
+const BadgeTotals = require('./badge-totals');
+const constants = require('../../common/constants');
+const helper = require('./helper');
+
+const {
+  ALPHABET: alphabet,
+  OPERATION_NAMES: operationNames,
+} = constants;
+
 
 function badge(badges) {
   if (!badges) {
@@ -60,7 +61,9 @@ function scoreboard() {
 
   return (
     <div>
-      <h3>Scoreboard</h3>
+      <h3>
+Scoreboard
+      </h3>
       <BadgeTotals totals={totals} />
       <Table>
         <TableHeader
@@ -68,7 +71,9 @@ function scoreboard() {
           adjustForCheckbox={false}
         >
           <TableRow>
-            <TableHeaderColumn>Level</TableHeaderColumn>
+            <TableHeaderColumn>
+Level
+            </TableHeaderColumn>
             {
               opNames.map(opName => (
                 <TableHeaderColumn
@@ -83,9 +88,11 @@ function scoreboard() {
         <TableBody displayRowCheckbox={false}>
           {
             levels.map((level, index) => (level
-              ?
+              ? (
                 <TableRow key={alphabet[index]}>
-                  <TableRowColumn key={alphabet[index]}>{alphabet[index]}</TableRowColumn>
+                  <TableRowColumn key={alphabet[index]}>
+                    {alphabet[index]}
+                  </TableRowColumn>
                   {
                   ops.map(op => (
                     <TableRowColumn key={op}>
@@ -94,6 +101,7 @@ function scoreboard() {
                   ))
                 }
                 </TableRow>
+              )
               : null
             ))
           }

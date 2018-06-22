@@ -49,18 +49,27 @@ function processResultInfo(resultInfo) {
       style = notExistRecordStyle;
       break;
     default:
-      return (<div>{`Unknown newRecordInfo ${newRecordInfo} in switch case`}</div>);
+      return (
+        <div>
+          {`Unknown newRecordInfo ${newRecordInfo} in switch case`}
+        </div>
+      );
   }
-  return (<div style={style}>{text}</div>);
+  return (
+    <div style={style}>
+      {text}
+    </div>
+  );
 }
 
 function finished(props) {
+  const { levelIndex: propsLevelIndex, opIndexes: propsOpIndexes } = props;
   const {
     levelIndex,
     opIndexes,
     previousResults,
     resultInfo,
-    scoreBarTimes = helper.getScoreBarTimes(props.levelIndex, props.opIndexes),
+    scoreBarTimes = helper.getScoreBarTimes(propsLevelIndex, propsOpIndexes),
     timeAllowed,
     timeLeft,
     totalProblems,
@@ -85,7 +94,9 @@ function finished(props) {
   if (!longestTime.length) {
     return (
       <div>
-        <h1>Finished</h1>
+        <h1>
+Finished
+        </h1>
         <div>
           {'Looks like you didn\'t get a chance to do anything that round!'}
         </div>
@@ -95,7 +106,9 @@ function finished(props) {
 
   return (
     <div>
-      <h1>Finished</h1>
+      <h1>
+Finished
+      </h1>
       {processResultInfo(resultInfo)}
       <FinishedBadge
         levelIndex={levelIndex}
@@ -113,17 +126,27 @@ function finished(props) {
       <div>
         {`You correctly answered ${correctCount} of the ${totalProblems} problems.`}
       </div>
-      <h4>The problem that took you the longest to answer</h4>
+      <h4>
+The problem that took you the longest to answer
+      </h4>
       <RunningResults previousResults={longestTime} />
-      <h4>The problem you answered the fastest</h4>
+      <h4>
+The problem you answered the fastest
+      </h4>
       <RunningResults previousResults={shortestTime} />
-      {!!incorrects.length &&
+      {!!incorrects.length
+        && (
         <div>
-          <h4>The ones that you got wrong</h4>
+          <h4>
+The ones that you got wrong
+          </h4>
           <RunningResults previousResults={incorrects} />
         </div>
+        )
       }
-      <h4>How you did (sorted by slowest)</h4>
+      <h4>
+How you did (sorted by slowest)
+      </h4>
       <RunningResults
         previousResults={slowSort}
       />
