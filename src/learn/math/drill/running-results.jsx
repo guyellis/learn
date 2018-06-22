@@ -35,20 +35,42 @@ function runningResults(props) {
     return (
       <div key={id} style={style}>
         {
-          showIndex &&
-          <span style={spanStyle}>{`${id + 1})`}</span>
+          showIndex
+          && (
+          <span style={spanStyle}>
+            {`${id + 1})`}
+          </span>
+          )
         }
         <Badge color={colorIndex} content={operation} />
-        <span style={spanStyle}>{left}</span>
-        <span style={spanStyle}>{operation}</span>
-        <span style={spanStyle}>{right}</span>
-        <span style={spanStyle}>=</span>
-        <span style={inABox}>{actual}</span>
-        <span style={spanStyle}>{correct ? check : xmark}</span>
-        <span style={spanStyle}>{`${timeTaken} seconds`}</span>
+        <span style={spanStyle}>
+          {left}
+        </span>
+        <span style={spanStyle}>
+          {operation}
+        </span>
+        <span style={spanStyle}>
+          {right}
+        </span>
+        <span style={spanStyle}>
+=
+        </span>
+        <span style={inABox}>
+          {actual}
+        </span>
+        <span style={spanStyle}>
+          {correct ? check : xmark}
+        </span>
+        <span style={spanStyle}>
+          {`${timeTaken} seconds`}
+        </span>
         {
-          !!incorrects.length &&
-          <span style={spanStyleIncorrect}>{`Incorrect answer(s): ${incorrects.join()}`}</span>
+          !!incorrects.length
+          && (
+          <span style={spanStyleIncorrect}>
+            {`Incorrect answer(s): ${incorrects.join()}`}
+          </span>
+          )
         }
       </div>);
   });

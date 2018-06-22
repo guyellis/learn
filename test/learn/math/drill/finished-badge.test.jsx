@@ -1,10 +1,10 @@
 
 const React = require('react');
-const FinishedBadge = require('../../../../src/learn/math/drill/finished-badge');
 const renderer = require('react-test-renderer');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const FinishedBadge = require('../../../../src/learn/math/drill/finished-badge');
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

@@ -1,8 +1,8 @@
+const PropTypes = require('prop-types');
+const React = require('react');
 const Badge = require('./badge');
 const constants = require('../../common/constants');
 const helper = require('./helper');
-const PropTypes = require('prop-types');
-const React = require('react');
 
 const finishedBadgeStyle = {
 

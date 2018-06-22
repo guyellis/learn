@@ -1,11 +1,11 @@
 const {
   Route, Redirect, Switch,
 } = require('react-router-dom');
+const React = require('react');
 const Drill = require('./learn/math/drill');
 const Help = require('./learn/help');
 const Home = require('./learn/home');
 const Menu = require('./learn/menu');
-const React = require('react');
 const Scoreboard = require('./learn/math/drill/scoreboard');
 
 // const Tester = require('./tester');

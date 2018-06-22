@@ -1,7 +1,7 @@
-const constants = require('../../common/constants');
 const FloatingActionButton = require('material-ui/FloatingActionButton').default;
 const PropTypes = require('prop-types');
 const React = require('react');
+const constants = require('../../common/constants');
 
 const {
   COLOR_TEXT: colorText,

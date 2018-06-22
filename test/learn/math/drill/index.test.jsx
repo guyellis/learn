@@ -1,9 +1,9 @@
 const React = require('react');
-const Drill = require('../../../../src/learn/math/drill');
 const renderer = require('react-test-renderer');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const Drill = require('../../../../src/learn/math/drill');
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

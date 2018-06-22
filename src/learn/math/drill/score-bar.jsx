@@ -1,7 +1,7 @@
-const constants = require('../../common/constants');
 const PropTypes = require('prop-types');
 const React = require('react');
 const moment = require('moment');
+const constants = require('../../common/constants');
 const helper = require('./helper');
 
 const {
@@ -106,7 +106,11 @@ function renderUserScores(times, maxVal) {
             if (index === 1) {
               style.backgroundColor = userColor;
             }
-            return (<span key={key} style={style}>{userTimeText[index]}</span>);
+            return (
+              <span key={key} style={style}>
+                {userTimeText[index]}
+              </span>
+            );
           })
         }
       </span>
@@ -121,8 +125,13 @@ function renderTitles(times) {
   })).concat({ title: 'Badges', date: 0 });
 
   return (
-    <div style={sbHeadStyleBase}>{
-      titles.map(({ title, date }) => <span key={date} style={sbHeadItemStyleBase}>{title}</span>)
+    <div style={sbHeadStyleBase}>
+      {
+      titles.map(({ title, date }) => (
+        <span key={date} style={sbHeadItemStyleBase}>
+          {title}
+        </span>
+      ))
     }
     </div>
   );

@@ -13,8 +13,7 @@ function missingFeatures(features) {
 }
 
 function loadScript(features, done) {
-  const cdn =
-    `https://cdn.polyfill.io/v2/polyfill.min.js?features=${missingFeatures(features).join()}`;
+  const cdn = `https://cdn.polyfill.io/v2/polyfill.min.js?features=${missingFeatures(features).join()}`;
   const js = document.createElement('script');
   js.src = cdn;
   js.onload = function onLoad() {

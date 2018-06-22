@@ -1,10 +1,10 @@
 const React = require('react');
-const ScoreBoard = require('../../../../src/learn/math/drill/scoreboard');
 const renderer = require('react-test-renderer');
-const db = require('../../../../src/learn/db');
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
+const db = require('../../../../src/learn/db');
+const ScoreBoard = require('../../../../src/learn/math/drill/scoreboard');
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

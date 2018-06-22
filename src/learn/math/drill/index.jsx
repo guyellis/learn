@@ -1,9 +1,9 @@
+const moment = require('moment');
+const React = require('react');
 const db = require('../../db');
 const Finished = require('./finished');
 const helper = require('./helper');
-const moment = require('moment');
 const Options = require('./options');
-const React = require('react');
 const Running = require('./running');
 
 class MathDrill extends React.Component {
@@ -113,7 +113,8 @@ class MathDrill extends React.Component {
   }
 
   endQuiz(otherState = {}) {
-    clearInterval(this.state.timerId);
+    const { timerId } = this.state;
+    clearInterval(timerId);
     // Need to do this to get latest results. Merging in otherState
     // with state will provide the final results. We can't rely on
     // a call to this.setState() in a previous method because it batches
@@ -143,12 +144,13 @@ class MathDrill extends React.Component {
   checkAnswer(answer) {
     const actual = parseInt(answer, 10);
     let { totalProblems } = this.state;
+    const { startTime } = this.state;
     totalProblems = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
       let { correctCount = 0, totalCount } = this.state;
       totalCount += 1;
-      let { previousTime = this.state.startTime } = this.state;
+      let { previousTime = startTime } = this.state;
       const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
 
       const [,,, expected] = task;
