@@ -4,7 +4,7 @@
     "url": "https://github.com/guyellis/learn/issues"
   },
   "dependencies": {
-    "autoprefixer": "8.6.3",
+    "autoprefixer": "8.6.4",
     "extract-text-webpack-plugin": "3.0.2",
     "html-webpack-plugin": "2.30.1",
     "material-ui": "0.20.1",
