@@ -9,7 +9,7 @@
     "html-webpack-plugin": "2.30.1",
     "material-ui": "0.20.1",
     "moment": "2.22.2",
-    "node-sass": "4.9.1",
+    "node-sass": "4.9.2",
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
