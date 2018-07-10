@@ -43,7 +43,7 @@
     "eslint-plugin-react": "7.10.0",
     "file-loader": "1.1.11",
     "jest": "23.1.0",
-    "postcss-loader": "2.1.5",
+    "postcss-loader": "2.1.6",
     "pre-commit": "1.2.2",
     "react-hot-loader": "4.3.3",
     "react-test-renderer": "16.4.1",
