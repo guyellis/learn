@@ -75,15 +75,15 @@ describe('DB', () => {
     const defaultOptions = {
       largeKeyboard: false,
       levelIndex: 0, // A
-      minutes: '1',
-      onscreenKeyboard: true,
+      minutes: '10',
+      onscreenKeyboard: false,
       opIndexes: [0], // +
       totalProblems: '20',
       userName: '',
     };
     expect(localStorage.setItem).toHaveBeenCalledWith(
       MATH_DRILL_OPTIONS, JSON.stringify(defaultOptions));
-    expect(actual).toEqual(defaultOptions);
+    expect(actual).toMatchObject(defaultOptions);
   });
 
   test('should get and convert options', () => {

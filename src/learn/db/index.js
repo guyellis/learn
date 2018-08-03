@@ -1,6 +1,7 @@
 const constants = require('../common/constants');
 
 const {
+  DEFAULT_OPTIONS,
   MATH_DRILL_OPTIONS,
   MATH_DRILL_SCORES,
 } = constants;
@@ -36,15 +37,7 @@ class DB {
         DB.saveOptions(options);
       }
     } else {
-      options = {
-        largeKeyboard: false,
-        levelIndex: 0, // A
-        minutes: '1',
-        onscreenKeyboard: true,
-        opIndexes: [0], // +
-        totalProblems: '20',
-        userName: '',
-      };
+      options = DEFAULT_OPTIONS;
       DB.saveOptions(options);
     }
     return options;
