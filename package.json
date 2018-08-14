@@ -49,7 +49,7 @@
     "react-hot-loader": "4.3.4",
     "react-test-renderer": "16.4.2",
     "style-loader": "0.22.1",
-    "url-loader": "1.0.1",
+    "url-loader": "1.1.0",
     "webpack-dev-server": "2.x"
   },
   "engines": {
