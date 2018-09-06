@@ -11,7 +11,7 @@
     "moment": "2.22.2",
     "node-sass": "4.9.3",
     "prop-types": "15.6.2",
-    "react": "16.4.2",
+    "react": "16.5.0",
     "react-dom": "16.4.2",
     "react-markdown": "3.6.0",
     "react-router-dom": "4.3.1",
