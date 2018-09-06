@@ -50,7 +50,7 @@
     "react-test-renderer": "16.4.2",
     "style-loader": "0.23.0",
     "url-loader": "1.1.1",
-    "webpack-dev-server": "2.x"
+    "webpack-dev-server": "^3.1.8"
   },
   "engines": {
     "node": ">=10",
