@@ -73,7 +73,8 @@ Level
                 title={letter}
               >
                 {letter}
-              </FloatingActionButton>))
+              </FloatingActionButton>
+            ))
           }
         </div>
       </div>
@@ -93,7 +94,8 @@ Operation
                 title={operation}
               >
                 {operation}
-              </FloatingActionButton>))
+              </FloatingActionButton>
+            ))
           }
         </div>
       </div>
@@ -180,7 +182,8 @@ Your Name (Optional)
         />
       </div>
       <div style={sectionStyle} />
-    </div>);
+    </div>
+  );
 }
 
 

@@ -28,7 +28,8 @@ function badge({ color, content }) {
       mini
     >
       {`${content}`}
-    </FloatingActionButton>);
+    </FloatingActionButton>
+  );
 }
 
 badge.propTypes = {

@@ -68,7 +68,8 @@ function running(props) {
           showIndex
         />
       </div>
-    </div>);
+    </div>
+  );
 }
 
 running.propTypes = {

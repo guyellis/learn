@@ -72,7 +72,8 @@ function runningResults(props) {
           </span>
           )
         }
-      </div>);
+      </div>
+    );
   });
   return (
     <div>
