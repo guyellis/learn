@@ -66,10 +66,12 @@ function renderColors(times, maxVal) {
               style={style}
             >
               {color}
-            </div>);
+            </div>
+          );
         })
       }
-    </span>);
+    </span>
+  );
 }
 
 function renderUserScores(times, maxVal) {

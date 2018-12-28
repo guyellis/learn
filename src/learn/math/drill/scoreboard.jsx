@@ -37,10 +37,12 @@ function badge(badges) {
             key={key}
             color={color}
             content={amount.toString()}
-          />);
+          />
+        );
       })
     }
-    </span>);
+    </span>
+  );
 }
 
 function scoreboard() {
