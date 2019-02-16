@@ -20,7 +20,7 @@
     "sass-loader": "7.1.0",
     "webpack": "4.29.4",
     "webpack-cleanup-plugin": "0.5.1",
-    "webpack-dashboard": "2.0.0"
+    "webpack-dashboard": "3.0.0"
   },
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
