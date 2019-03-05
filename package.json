@@ -25,6 +25,7 @@
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
     "babel-core": "6.26.3",
+    "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
     "babel-loader": "7.x",
     "babel-plugin-transform-class-properties": "6.24.1",
