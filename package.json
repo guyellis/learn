@@ -37,7 +37,7 @@
     "babel-register": "6.26.0",
     "babel-runtime": "6.26.0",
     "css-loader": "2.1.1",
-    "eslint": "5.15.1",
+    "eslint": "5.15.2",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
