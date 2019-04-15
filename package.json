@@ -15,7 +15,7 @@
     "prop-types": "15.7.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-markdown": "4.0.7",
+    "react-markdown": "4.0.8",
     "react-router-dom": "4.4.0",
     "sass-loader": "7.1.0",
     "webpack": "3.x",
