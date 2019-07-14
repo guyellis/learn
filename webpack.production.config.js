@@ -2,12 +2,21 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const loaders = require('./webpack.loaders');
 
-loaders.push({
+const { rules } = loaders.module;
+
+rules.push({
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded' }),
+  use:
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        fallback: 'style-loader',
+        use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded',
+      },
+    },
   exclude: ['node_modules'],
 });
 
@@ -25,7 +34,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders,
+    rules,
   },
   plugins: [
     new WebpackCleanupPlugin(),
@@ -43,7 +52,7 @@ module.exports = {
       },
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
       allChunks: true,
     }),
