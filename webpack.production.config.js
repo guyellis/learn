@@ -17,7 +17,7 @@ rules.push({
         use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded',
       },
     },
-  exclude: ['node_modules'],
+  exclude: [/node_modules/],
 });
 
 module.exports = {

@@ -18,7 +18,7 @@ rules.push({
     { loader: 'sass-loader' },
     { loader: MiniCssExtractPlugin.loader },
   ],
-  exclude: ['node_modules'],
+  exclude: [/node_modules/],
 });
 
 module.exports = {
