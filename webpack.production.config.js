@@ -9,15 +9,23 @@ const { rules } = loaders.module;
 
 rules.push({
   test: /\.scss$/,
-  use:
+  use: [
+    { loader: MiniCssExtractPlugin.loader },
     {
-      loader: MiniCssExtractPlugin.loader,
+      loader: 'css-loader',
       options: {
-        fallback: 'style-loader',
-        use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded',
+        sourceMap: true,
+        localIdentName: '[local]___[hash:base64:5]',
       },
     },
-  exclude: [/node_modules/],
+    {
+      loader: 'sass-loader',
+      options: {
+        outputStyle: 'expanded',
+      },
+    },
+  ],
+  exclude: /node_modules/,
 });
 
 module.exports = {
@@ -36,19 +44,14 @@ module.exports = {
   module: {
     rules,
   },
+  optimization: {
+    minimize: true,
+  },
   plugins: [
     new WebpackCleanupPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
-      },
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        drop_console: true,
-        drop_debugger: true,
       },
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),

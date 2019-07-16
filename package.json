@@ -83,7 +83,7 @@
     "lint": "eslint --ext js --ext jsx .",
     "lintfix": "eslint --ext js --ext jsx . --fix",
     "start": "webpack-dev-server --progress --profile --colors",
-    "test": "npm run lint && jest --coverage",
+    "test": "npm run build && npm run lint && jest --coverage",
     "asset-copy": "cp -R assets/* public/",
     "upload": "aws s3 cp public s3://learn.guyellisrocks.com/ --recursive"
   },

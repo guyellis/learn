@@ -14,11 +14,10 @@ rules.push({
   test: /\.scss$/,
   use: [
     { loader: 'style-loader' },
-    { loader: 'css-loader?importLoaders=1' },
+    { loader: 'css-loader', options: { importLoaders: 1 } },
     { loader: 'sass-loader' },
-    { loader: MiniCssExtractPlugin.loader },
   ],
-  exclude: [/node_modules/],
+  exclude: /node_modules/,
 });
 
 module.exports = {
