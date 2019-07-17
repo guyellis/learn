@@ -2,13 +2,30 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const loaders = require('./webpack.loaders');
 
-loaders.push({
+const { rules } = loaders.module;
+
+rules.push({
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded' }),
-  exclude: ['node_modules'],
+  use: [
+    { loader: MiniCssExtractPlugin.loader },
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: true,
+        localIdentName: '[local]___[hash:base64:5]',
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        outputStyle: 'expanded',
+      },
+    },
+  ],
+  exclude: /node_modules/,
 });
 
 module.exports = {
@@ -25,7 +42,10 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders,
+    rules,
+  },
+  optimization: {
+    minimize: true,
   },
   plugins: [
     new WebpackCleanupPlugin(),
@@ -34,16 +54,8 @@ module.exports = {
         NODE_ENV: '"production"',
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        drop_console: true,
-        drop_debugger: true,
-      },
-    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
       allChunks: true,
     }),

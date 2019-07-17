@@ -1,19 +1,23 @@
-
-
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const loaders = require('./webpack.loaders');
+
+const { rules } = loaders.module;
 
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.PORT || '8888';
 
-loaders.push({
+rules.push({
   test: /\.scss$/,
-  loaders: ['style-loader', 'css-loader?importLoaders=1', 'sass-loader'],
-  exclude: ['node_modules'],
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader', options: { importLoaders: 1 } },
+    { loader: 'sass-loader' },
+  ],
+  exclude: /node_modules/,
 });
 
 module.exports = {
@@ -31,12 +35,12 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders,
+    rules,
   },
   devServer: {
     contentBase: './public',
-    // do not print bundle build stats
-    noInfo: true,
+    // only output when errors or new compilation happen
+    stats: 'minimal',
     // enable HMR
     hot: true,
     // embed the webpack-dev-server runtime into the bundle
@@ -50,7 +54,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
       allChunks: true,
     }),

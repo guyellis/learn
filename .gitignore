@@ -41,3 +41,6 @@ public
 
 .vscode/chrome/
 .nyc_output/
+
+# webstorm
+.idea
