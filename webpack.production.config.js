@@ -15,7 +15,6 @@ rules.push({
       loader: 'css-loader',
       options: {
         sourceMap: true,
-        localIdentName: '[local]___[hash:base64:5]',
       },
     },
     {
