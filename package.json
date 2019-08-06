@@ -52,7 +52,7 @@
     "pre-commit": "1.2.2",
     "react-hot-loader": "4.12.10",
     "react-test-renderer": "16.8.6",
-    "style-loader": "0.23.1",
+    "style-loader": "1.0.0",
     "url-loader": "2.1.0",
     "webpack-dev-server": "^3.1.4"
   },
