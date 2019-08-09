@@ -28,7 +28,6 @@
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "10.0.1",
-    "babel-jest": "23.6.0",
     "css-loader": "3.2.0",
     "eslint": "6.1.0",
     "eslint-config-airbnb": "17.1.1",
@@ -45,6 +44,7 @@
     "react-test-renderer": "16.8.6",
     "source-map-loader": "^0.2.4",
     "style-loader": "1.0.0",
+    "ts-jest": "24.0.2",
     "typescript": "^3.5.3",
     "url-loader": "2.1.0",
     "webpack-dev-server": "^3.1.4"
@@ -71,12 +71,12 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "coverage:view": "google-chrome coverage/lcov-report/index.html",
-    "coverage": "jest --coverage",
+    "coverage": "tsc && jest --coverage",
     "deploy": "npm run build && npm run asset-copy && npm run upload",
     "lint": "eslint --ext js --ext jsx .",
     "lintfix": "eslint --ext js --ext jsx . --fix",
     "start": "webpack-dev-server --progress --profile --colors",
-    "test": "npm run lint && jest --coverage && npm run build",
+    "test": "npm run lint && tsc && jest --coverage && npm run build",
     "asset-copy": "cp -R assets/* public/",
     "upload": "aws s3 cp public s3://learn.guyellisrocks.com/ --recursive"
   },

@@ -23,4 +23,7 @@ module.exports = {
     },
   },
   setupTestFrameworkScriptFile: './test/_setup.js',
+  transform: {
+    '.+\\.(j|t)sx?$': 'ts-jest',
+  },
 };
