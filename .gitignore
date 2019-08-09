@@ -44,3 +44,6 @@ public
 
 # webstorm
 .idea
+
+# tsc output
+dist/

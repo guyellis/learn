@@ -22,7 +22,7 @@ module.exports = {
       statements: 70,
     },
   },
-  setupTestFrameworkScriptFile: './test/_setup.js',
+  setupFilesAfterEnv: ['./test/_setup.js'],
   transform: {
     '.+\\.(j|t)sx?$': 'ts-jest',
   },

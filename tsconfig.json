@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "/dist",
+    "outDir": "dist",
     "allowJs": true,
     "checkJs": false,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es2017",
     "jsx": "react",
     "moduleResolution": "node",
     "lib": ["es2015", "dom"]
