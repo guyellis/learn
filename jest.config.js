@@ -22,7 +22,7 @@ module.exports = {
       statements: 70,
     },
   },
-  setupFilesAfterEnv: ['./test/_setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/test/_setup.js'],
   transform: {
     '.+\\.(j|t)sx?$': 'ts-jest',
   },
