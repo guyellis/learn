@@ -11,13 +11,13 @@ describe('DB', () => {
   // });
   beforeEach(() => {
     jest.mockRestore();
-    jest.spyOn(window.localStorage.__proto__, 'setItem');
-    jest.spyOn(window.localStorage.__proto__, 'getItem');
+    jest.spyOn(window.localStorage.prototype, 'setItem');
+    jest.spyOn(window.localStorage.prototype, 'getItem');
   });
   test('should set an item', () => {
     const value = { prop: 'one' };
 
-    jest.spyOn(window.localStorage.__proto__, 'setItem');
+    jest.spyOn(window.localStorage.prototype, 'setItem');
 
     db.setItem('key', value);
     expect(localStorage.setItem).toHaveBeenCalledWith('key', JSON.stringify(value));
@@ -26,7 +26,7 @@ describe('DB', () => {
   test('should get an item', () => {
     const value = { prop: 'one' };
 
-    jest.spyOn(window.localStorage.__proto__, 'getItem')
+    jest.spyOn(window.localStorage.prototype, 'getItem')
       .mockReturnValueOnce(JSON.stringify(value));
 
     const actual = db.getItem('key');

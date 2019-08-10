@@ -1,6 +1,4 @@
 
-const mockLocalStorage = require('./fixtures/local-storage');
-
 global.requestAnimationFrame = (done) => {
   setTimeout(done, 0);
 };
