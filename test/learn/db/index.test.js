@@ -9,15 +9,23 @@ const {
 describe('DB', () => {
   // beforeAll(() => {
   // });
+  let getItemMock;
+  let setItemMock;
   beforeEach(() => {
-    jest.mockRestore();
-    jest.spyOn(window.localStorage.prototype, 'setItem');
-    jest.spyOn(window.localStorage.prototype, 'getItem');
+    // eslint-disable-next-line no-proto
+    setItemMock = jest.spyOn(window.localStorage.__proto__, 'setItem');
+    // eslint-disable-next-line no-proto
+    getItemMock = jest.spyOn(window.localStorage.__proto__, 'getItem');
+  });
+  afterEach(() => {
+    getItemMock.mockRestore();
+    setItemMock.mockRestore();
   });
   test('should set an item', () => {
     const value = { prop: 'one' };
 
-    jest.spyOn(window.localStorage.prototype, 'setItem');
+    // eslint-disable-next-line no-proto
+    jest.spyOn(window.localStorage.__proto__, 'setItem');
 
     db.setItem('key', value);
     expect(localStorage.setItem).toHaveBeenCalledWith('key', JSON.stringify(value));
@@ -26,8 +34,7 @@ describe('DB', () => {
   test('should get an item', () => {
     const value = { prop: 'one' };
 
-    jest.spyOn(window.localStorage.prototype, 'getItem')
-      .mockReturnValueOnce(JSON.stringify(value));
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(value));
 
     const actual = db.getItem('key');
     expect(actual).toEqual(value);

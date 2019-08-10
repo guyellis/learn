@@ -21,7 +21,8 @@ describe('Drill', () => {
       userName: 'my name',
     };
 
-    jest.spyOn(window.localStorage.prototype, 'getItem')
+    // eslint-disable-next-line no-proto
+    jest.spyOn(window.localStorage.__proto__, 'getItem')
       .mockReturnValue(JSON.stringify(savedOptions));
 
     const component = renderer.create(
