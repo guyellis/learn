@@ -1,5 +1,6 @@
 module.exports = {
   verbose: true,
+  testPathIgnorePatterns: ['<rootDir>/dist/test/_setup.js'],
   collectCoverageFrom: [
     '!**/.vscode/**',
     '!**/coverage/**',
@@ -11,7 +12,6 @@ module.exports = {
     '!**/src/index.jsx',
     '!**/src/tester.jsx',
     '!**/test/**',
-    '!**/dist/**',
     '!**/webpack**',
     '**/*.{js,jsx}',
   ],
