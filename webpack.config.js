@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const loaders = require('./webpack.loaders');
 
@@ -58,7 +57,6 @@ module.exports = {
       filename: 'style.css',
       allChunks: true,
     }),
-    new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: './src/template.html',
       files: {
