@@ -7,6 +7,8 @@ const React = require('react');
 class ToolbarMenu extends React.Component {
   constructor(props) {
     super(props);
+    // TODO: Fix and remove this ESLint disable
+    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       value: 3,
     };

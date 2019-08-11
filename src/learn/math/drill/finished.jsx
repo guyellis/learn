@@ -25,14 +25,13 @@ const baseRecordStyle = {
 
 const newRecordStyle = baseRecordStyle;
 
-const missRecordStyle = Object.assign({}, baseRecordStyle, {
-  backgroundColor: '#ecc9e0',
-});
+const missRecordStyle = { ...baseRecordStyle, backgroundColor: '#ecc9e0' };
 
-const notExistRecordStyle = Object.assign({}, baseRecordStyle, {
+const notExistRecordStyle = {
+  ...baseRecordStyle,
   color: 'white',
   backgroundColor: '#8583dc',
-});
+};
 
 function processResultInfo(resultInfo) {
   const { newRecordInfo, text } = resultInfo;
@@ -142,8 +141,7 @@ The ones that you got wrong
           </h4>
           <RunningResults previousResults={incorrects} />
         </div>
-        )
-      }
+        )}
       <h4>
 How you did (sorted by slowest)
       </h4>

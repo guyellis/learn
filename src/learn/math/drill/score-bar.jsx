@@ -42,7 +42,7 @@ const sbBodyItemStyleBase = {
 };
 
 function renderColors(times, maxVal) {
-  const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
+  const sbBodyItemStyle = { ...sbBodyItemStyleBase, height: `${maxVal * 50}px` };
 
   const extra = badgeBoundaries.concat(maxVal);
   const widths = extra.reduce((acc, boundary, index) => {
@@ -77,7 +77,7 @@ function renderColors(times, maxVal) {
 function renderUserScores(times, maxVal) {
   return times.map((time) => {
     const { timePerQuestion, date } = time;
-    const sbBodyItemStyle = Object.assign({}, sbBodyItemStyleBase, { height: `${maxVal * 50}px` });
+    const sbBodyItemStyle = { ...sbBodyItemStyleBase, height: `${maxVal * 50}px` };
     const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
     const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5).toFixed(1);
@@ -145,12 +145,12 @@ function scoreBar({ times, showScoreBar }) {
   }
 
   const boundaryMax = Math.max(...badgeBoundaries);
-  const maxTimePerQuestion = Math.max(...times.map(time => time.timePerQuestion));
+  const maxTimePerQuestion = Math.max(...times.map((time) => time.timePerQuestion));
   const maxVal = maxTimePerQuestion > (boundaryMax * 1.5)
     ? boundaryMax * 2
     : boundaryMax * 1.5;
 
-  const sbBodyStyle = Object.assign({}, sbBodyStyleBase, { height: `${maxVal * 50}px` });
+  const sbBodyStyle = { ...sbBodyStyleBase, height: `${maxVal * 50}px` };
 
   return (
     <div style={sbStyleBase}>

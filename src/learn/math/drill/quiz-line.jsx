@@ -29,16 +29,14 @@ const inputStyle = {
   textAlign: 'center',
 };
 
-const answerStyle = Object.assign(
-  {},
-  {
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    fontSize: 'xx-large',
-    backgroundColor: 'green',
-    color: 'white',
-  },
-);
+const answerStyle = {
+
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  fontSize: 'xx-large',
+  backgroundColor: 'green',
+  color: 'white',
+};
 
 const lastResultCorrectStyle = {
   borderRadius: '5px',
@@ -47,9 +45,7 @@ const lastResultCorrectStyle = {
   paddingRight: '20px',
 };
 
-const lastResultIncorrectStyle = Object.assign({}, lastResultCorrectStyle, {
-  border: 'medium solid red',
-});
+const lastResultIncorrectStyle = { ...lastResultCorrectStyle, border: 'medium solid red' };
 
 const quizLineStyle = {
   marginTop: '10px',
@@ -63,6 +59,8 @@ class QuizLine extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.keyPress = this.keyPress.bind(this);
+    // TODO: Fix and remove this ESLint disable
+    // eslint-disable-next-line react/state-in-constructor
     this.state = { answer: '' };
   }
 
@@ -140,16 +138,15 @@ class QuizLine extends React.Component {
   renderLastResult() {
     const { lastResult } = this.props;
     if (!lastResult) {
-      const divStyle = Object.assign(
-        {},
-        lastResultCorrectStyle, {
-          paddingBottom: '5px',
-          paddingLeft: '10px',
-          paddingRight: '10px',
-          paddingTop: '5px',
-          display: 'block',
-        },
-      );
+      const divStyle = {
+
+        ...lastResultCorrectStyle,
+        paddingBottom: '5px',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        paddingTop: '5px',
+        display: 'block',
+      };
 
       return (
         <div style={divStyle}>

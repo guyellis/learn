@@ -80,7 +80,7 @@ class Keyboard extends React.Component {
     return (
       <div>
         {
-          layout.map(lay => (
+          layout.map((lay) => (
             <div key={lay[0]}>
               {
                 lay.slice(1).map((item) => {

@@ -23,7 +23,7 @@ function share() {
   // eslint-disable-next-line no-console
     .then(() => console.log('Successful share'))
   // eslint-disable-next-line no-console
-    .catch(error => console.log('Error sharing', error));
+    .catch((error) => console.log('Error sharing', error));
 }
 
 function shareComponent() {

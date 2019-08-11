@@ -43,7 +43,7 @@ test you got ${totalCorrectAnswers} answer(s) correct.`;
 
   const operationName = opIndexes.length === 1
     ? operationNames[opIndexes[0]]
-    : `Mixed ${opIndexes.map(opIndex => operationNames[opIndex]).join(' / ')}`;
+    : `Mixed ${opIndexes.map((opIndex) => operationNames[opIndex]).join(' / ')}`;
 
   const operation = opIndexes.length === 1
     ? operations[opIndexes[0]]

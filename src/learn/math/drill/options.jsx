@@ -155,8 +155,7 @@ Large Keyboard
             toggled={largeKeyboard}
           />
         </div>
-        )
-      }
+        )}
       <div style={sectionStyle}>
         <h3>
 Your Name (Optional)
