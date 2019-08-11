@@ -7,25 +7,35 @@ const {
 } = constants;
 
 describe('DB', () => {
+  // beforeAll(() => {
+  // });
+  let getItemMock;
+  let setItemMock;
   beforeEach(() => {
-    localStorage.setItem = jest.fn();
-    localStorage.getItem = jest.fn();
+    // eslint-disable-next-line no-proto
+    setItemMock = jest.spyOn(window.localStorage.__proto__, 'setItem');
+    // eslint-disable-next-line no-proto
+    getItemMock = jest.spyOn(window.localStorage.__proto__, 'getItem');
   });
-
   afterEach(() => {
-    localStorage.setItem.mockClear();
-    localStorage.getItem.mockClear();
+    getItemMock.mockRestore();
+    setItemMock.mockRestore();
   });
-
   test('should set an item', () => {
     const value = { prop: 'one' };
+
+    // eslint-disable-next-line no-proto
+    jest.spyOn(window.localStorage.__proto__, 'setItem');
+
     db.setItem('key', value);
     expect(localStorage.setItem).toHaveBeenCalledWith('key', JSON.stringify(value));
   });
 
   test('should get an item', () => {
     const value = { prop: 'one' };
+
     localStorage.getItem.mockReturnValueOnce(JSON.stringify(value));
+
     const actual = db.getItem('key');
     expect(actual).toEqual(value);
   });

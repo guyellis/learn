@@ -2,9 +2,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         exclude: [/(node_modules|bower_components|public\/)/],
-        use: { loader: 'babel-loader' },
+        use: { loader: 'awesome-typescript-loader?module=es6' },
+      },
+      {
+        test: /\.js$/,
+        use: { loader: 'source-map-loader' },
       },
       {
         test: /\.css$/,

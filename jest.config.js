@@ -1,8 +1,10 @@
 module.exports = {
   verbose: true,
+  testPathIgnorePatterns: ['/dist/'],
   collectCoverageFrom: [
     '!**/.vscode/**',
     '!**/coverage/**',
+    '!**/dist/**',
     '!**/jest.config.js',
     '!**/node_modules/**',
     '!**/postcss.config.js',
@@ -22,5 +24,8 @@ module.exports = {
       statements: 70,
     },
   },
-  setupTestFrameworkScriptFile: './test/_setup.js',
+  setupFilesAfterEnv: ['<rootDir>/test/_setup.js'],
+  transform: {
+    '.+\\.(j|t)sx?$': 'ts-jest',
+  },
 };

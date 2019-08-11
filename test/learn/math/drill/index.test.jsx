@@ -10,16 +10,6 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 jest.mock('material-ui/internal/EnhancedSwitch');
 
 describe('Drill', () => {
-  beforeEach(() => {
-    localStorage.setItem = jest.fn();
-    localStorage.getItem = jest.fn();
-  });
-
-  afterEach(() => {
-    localStorage.setItem.mockClear();
-    localStorage.getItem.mockClear();
-  });
-
   test('should render the Drill component', () => {
     const savedOptions = {
       largeKeyboard: true,
@@ -30,7 +20,10 @@ describe('Drill', () => {
       totalProblems: '20',
       userName: 'my name',
     };
-    localStorage.getItem.mockReturnValue(JSON.stringify(savedOptions));
+
+    // eslint-disable-next-line no-proto
+    jest.spyOn(window.localStorage.__proto__, 'getItem')
+      .mockReturnValue(JSON.stringify(savedOptions));
 
     const component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>
