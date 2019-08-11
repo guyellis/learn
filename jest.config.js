@@ -1,9 +1,10 @@
 module.exports = {
   verbose: true,
-  testPathIgnorePatterns: ['<rootDir>/dist/test/_setup.js'],
+  testPathIgnorePatterns: ['/dist/'],
   collectCoverageFrom: [
     '!**/.vscode/**',
     '!**/coverage/**',
+    '!**/dist/**',
     '!**/jest.config.js',
     '!**/node_modules/**',
     '!**/postcss.config.js',
