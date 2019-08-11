@@ -11,6 +11,7 @@ module.exports = {
     '!**/src/index.jsx',
     '!**/src/tester.jsx',
     '!**/test/**',
+    '!**/dist/**',
     '!**/webpack**',
     '**/*.{js,jsx}',
   ],
