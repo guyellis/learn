@@ -161,8 +161,7 @@ Large Keyboard
             />
           </FormGroup>
         </div>
-        )
-      }
+        )}
       <div style={sectionStyle}>
         <h3>
 Your Name (Optional)

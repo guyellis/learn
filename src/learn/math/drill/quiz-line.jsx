@@ -52,6 +52,8 @@ class QuizLine extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.keyPress = this.keyPress.bind(this);
+    // TODO: Fix and remove this ESLint disable
+    // eslint-disable-next-line react/state-in-constructor
     this.state = { answer: '' };
   }
 

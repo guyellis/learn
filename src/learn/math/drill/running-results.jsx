@@ -7,18 +7,18 @@ const helper = require('./helper');
 
 const { OPERATIONS } = constants;
 const spanStyle = { paddingLeft: 20 };
-const inABox = Object.assign({
+const inABox = {
   borderWidth: 1,
   borderStyle: 'solid',
   marginLeft: 20,
   padding: 3,
-});
+};
 const check = '\u2714';
 const xmark = '\u2717';
 const lineStyle = { lineHeight: '35px' };
-const correctStyle = Object.assign({ color: 'green' }, lineStyle);
-const incorrectStyle = Object.assign({ color: 'red' }, lineStyle);
-const spanStyleIncorrect = Object.assign({ color: 'red' }, spanStyle);
+const correctStyle = { color: 'green', ...lineStyle };
+const incorrectStyle = { color: 'red', ...lineStyle };
+const spanStyleIncorrect = { color: 'red', ...spanStyle };
 
 function runningResults(props) {
   const { previousResults, showIndex } = props;

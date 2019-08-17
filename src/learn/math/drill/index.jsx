@@ -27,6 +27,8 @@ class MathDrill extends React.Component {
 
     const options = db.getOptions();
 
+    // TODO: Fix and remove this ESLint disable
+    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       largeKeyboard: options.largeKeyboard,
       currentTask: [],
@@ -119,16 +121,18 @@ class MathDrill extends React.Component {
     // with state will provide the final results. We can't rely on
     // a call to this.setState() in a previous method because it batches
     // its calls and may not have updated state.
-    const state = Object.assign(
-      {},
-      this.state,
-      otherState,
-    );
+    const state = {
+
+      ...this.state,
+      ...otherState,
+    };
     const resultInfo = helper.appendScore(state);
-    this.setState(Object.assign({
+    this.setState({
       currentAction: 'finished',
       timerId: null,
-    }, otherState, { resultInfo }));
+      ...otherState,
+      resultInfo,
+    });
   }
 
   // eslint-disable-next-line react/sort-comp
