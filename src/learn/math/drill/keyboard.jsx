@@ -83,11 +83,11 @@ class Keyboard extends React.Component {
             <div key={lay[0]}>
               {
                 lay.slice(1).map((item) => {
-                  const [content, click, key] = item;
+                  const [content, key] = item;
                   return (
                     <Fab
                       key={key}
-                      onClick={this.click[click]}
+                      onClick={() => this.onClick(key)}
                       style={buttonStyle}
                     >
                       {content}
