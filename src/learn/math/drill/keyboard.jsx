@@ -2,6 +2,7 @@ const Fab = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
 const { Backspace, KeyboardReturn } = require('@material-ui/icons');
+const Tooltip = require('@material-ui/core/Tooltip').default;
 
 const buttonStyle = {
   margin: '5px',
@@ -83,15 +84,17 @@ class Keyboard extends React.Component {
             <div key={lay[0]}>
               {
                 lay.slice(1).map((item) => {
-                  const [content, key] = item;
+                  const [content, title, click, key] = item;
                   return (
-                    <Fab
-                      key={key}
-                      onClick={() => this.onClick(key)}
-                      style={buttonStyle}
-                    >
-                      {content}
-                    </Fab>
+                    <Tooltip title={title}>
+                      <Fab
+                        key={key}
+                        onClick={() => this.onClick(click)}
+                        style={buttonStyle}
+                      >
+                        {content}
+                      </Fab>
+                    </Tooltip>
                   );
                 })
               }
