@@ -9,10 +9,6 @@ const buttonStyle = {
   fontSize: '2em',
 };
 
-const buttonIconStyle = {
-  color: 'white',
-};
-
 // eslint-disable-next-line react/prefer-stateless-function
 class Keyboard extends React.Component {
   constructor(props) {
@@ -24,13 +20,13 @@ class Keyboard extends React.Component {
     }, {});
 
     if (props.largeKeyboard) {
-      buttonIconStyle.height = '80px';
-      buttonIconStyle.width = '80px';
+      buttonStyle.height = '80px';
+      buttonStyle.width = '80px';
     }
   }
 
   onClick(value) {
-    if (value === 'test') {
+    if (value === 'nothing') {
       return;
     }
     const { keyPress } = this.props;
@@ -59,20 +55,20 @@ class Keyboard extends React.Component {
         ['4', 'Four', 4, '5'],
         ['5', 'Five', 5, '6'],
         ['6', 'Six', 6, '7'],
-        [' ', 'nothing1', 'Nothing1', '8'],
+        [' ', ' ', 'Nothing1', '8'],
       ],
       [
         '3', // key
         ['7', 'Seven', 7, '9'],
         ['8', 'Eight', 8, '10'],
         ['9', 'Nine', 9, '11'],
-        [' ', 'nothing2', 'Nothing2', '12'],
+        [' ', ' ', 'Nothing2', '12'],
       ],
       [
         '4', // key
-        [' ', 'nothing3', 'Nothing3', '13'],
+        [' ', ' ', 'Nothing3', '13'],
         ['0', 'Zero', 0, '14'],
-        [' ', 'nothing4', 'Nothing4', '15'],
+        [' ', ' ', 'Nothing4', '15'],
         [<KeyboardReturn />, 'Enter', 'enter', '16'],
       ],
     ];

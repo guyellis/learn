@@ -7,6 +7,7 @@ const Switch = require('@material-ui/core/Switch').default;
 const FormGroup = require('@material-ui/core/FormGroup').default;
 const FormControlLabel = require('@material-ui/core/FormControlLabel').default;
 const { Send } = require('@material-ui/icons');
+const Tooltip = require('@material-ui/core/Tooltip').default;
 const constants = require('../../common/constants');
 
 const {
@@ -62,14 +63,16 @@ Level
         <div>
           {
             alphabet.map((letter, index) => (
-              <Fab
-                key={letter}
-                onClick={() => setParentState({ levelIndex: index })}
-                secondary={index === levelIndex}
-                style={buttonStyle}
-              >
-                {letter}
-              </Fab>
+              <Tooltip title={letter}>
+                <Fab
+                  key={letter}
+                  onClick={() => setParentState({ levelIndex: index })}
+                  color={index === levelIndex ? 'secondary' : 'primary'}
+                  style={buttonStyle}
+                >
+                  {letter}
+                </Fab>
+              </Tooltip>
             ))
           }
         </div>
@@ -81,14 +84,16 @@ Operation
         <div>
           {
             operations.map((operation, index) => (
-              <Fab
-                key={operation}
-                onClick={() => toggleOpIndex(index)}
-                secondary={opIndexes.includes(index)}
-                style={buttonStyle}
-              >
-                {operation}
-              </Fab>
+              <Tooltip title={operation}>
+                <Fab
+                  key={operation}
+                  onClick={() => toggleOpIndex(index)}
+                  color={opIndexes.includes(index) ? 'secondary' : 'primary'}
+                  style={buttonStyle}
+                >
+                  {operation}
+                </Fab>
+              </Tooltip>
             ))
           }
         </div>

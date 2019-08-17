@@ -14,7 +14,8 @@ exports[`Drill should render the Drill component 1`] = `
     </h2>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-secondary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -24,11 +25,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={true}
         style={
           Object {
             "fontSize": "2em",
@@ -36,6 +37,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="A"
         type="button"
       >
         <span
@@ -43,9 +45,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           A
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -55,11 +61,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -67,6 +73,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="B"
         type="button"
       >
         <span
@@ -74,9 +81,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           B
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -86,11 +97,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -98,6 +109,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="C"
         type="button"
       >
         <span
@@ -105,9 +117,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           C
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -117,11 +133,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -129,6 +145,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="D"
         type="button"
       >
         <span
@@ -136,9 +153,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           D
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -148,11 +169,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -160,6 +181,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="E"
         type="button"
       >
         <span
@@ -167,9 +189,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           E
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -179,11 +205,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -191,6 +217,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="F"
         type="button"
       >
         <span
@@ -198,9 +225,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           F
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -210,11 +241,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -222,6 +253,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="G"
         type="button"
       >
         <span
@@ -229,9 +261,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           G
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -241,11 +277,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -253,6 +289,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="H"
         type="button"
       >
         <span
@@ -260,9 +297,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           H
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -272,11 +313,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -284,6 +325,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="I"
         type="button"
       >
         <span
@@ -291,9 +333,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           I
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -303,11 +349,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -315,6 +361,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="J"
         type="button"
       >
         <span
@@ -322,9 +369,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           J
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -334,11 +385,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -346,6 +397,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="K"
         type="button"
       >
         <span
@@ -353,9 +405,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           K
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -365,11 +421,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -377,6 +433,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="L"
         type="button"
       >
         <span
@@ -384,9 +441,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           L
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -396,11 +457,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -408,6 +469,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="M"
         type="button"
       >
         <span
@@ -415,9 +477,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           M
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -427,11 +493,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -439,6 +505,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="N"
         type="button"
       >
         <span
@@ -446,9 +513,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           N
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -458,11 +529,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -470,6 +541,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="O"
         type="button"
       >
         <span
@@ -477,9 +549,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           O
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -489,11 +565,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -501,6 +577,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="P"
         type="button"
       >
         <span
@@ -508,9 +585,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           P
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -520,11 +601,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -532,6 +613,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="Q"
         type="button"
       >
         <span
@@ -539,9 +621,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           Q
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -551,11 +637,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -563,6 +649,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="R"
         type="button"
       >
         <span
@@ -570,9 +657,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           R
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -582,11 +673,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -594,6 +685,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="S"
         type="button"
       >
         <span
@@ -601,9 +693,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           S
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -613,11 +709,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -625,6 +721,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="T"
         type="button"
       >
         <span
@@ -632,9 +729,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           T
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -644,11 +745,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -656,6 +757,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="U"
         type="button"
       >
         <span
@@ -663,9 +765,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           U
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -675,11 +781,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -687,6 +793,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="V"
         type="button"
       >
         <span
@@ -694,9 +801,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           V
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -706,11 +817,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -718,6 +829,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="W"
         type="button"
       >
         <span
@@ -725,9 +837,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           W
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -737,11 +853,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -749,6 +865,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="X"
         type="button"
       >
         <span
@@ -756,9 +873,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           X
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -768,11 +889,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -780,6 +901,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="Y"
         type="button"
       >
         <span
@@ -787,9 +909,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           Y
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -799,11 +925,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -811,6 +937,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="Z"
         type="button"
       >
         <span
@@ -818,6 +945,9 @@ exports[`Drill should render the Drill component 1`] = `
         >
           Z
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
     </div>
   </div>
@@ -833,7 +963,8 @@ exports[`Drill should render the Drill component 1`] = `
     </h2>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-secondary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -843,11 +974,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={true}
         style={
           Object {
             "fontSize": "2em",
@@ -855,6 +986,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="+"
         type="button"
       >
         <span
@@ -862,9 +994,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -874,11 +1010,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -886,6 +1022,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="-"
         type="button"
       >
         <span
@@ -893,9 +1030,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           -
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -905,11 +1046,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -917,6 +1058,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="x"
         type="button"
       >
         <span
@@ -924,9 +1066,13 @@ exports[`Drill should render the Drill component 1`] = `
         >
           x
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <button
-        className="MuiButtonBase-root MuiFab-root"
+        aria-describedby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -936,11 +1082,11 @@ exports[`Drill should render the Drill component 1`] = `
         onKeyUp={[Function]}
         onMouseDown={[Function]}
         onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        secondary={false}
         style={
           Object {
             "fontSize": "2em",
@@ -948,6 +1094,7 @@ exports[`Drill should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
+        title="÷"
         type="button"
       >
         <span
@@ -955,6 +1102,9 @@ exports[`Drill should render the Drill component 1`] = `
         >
           ÷
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
     </div>
   </div>
@@ -1085,7 +1235,7 @@ exports[`Drill should render the Drill component 1`] = `
         >
           <span
             aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-96 MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-checked-97 Mui-checked"
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-104 MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-checked-105 Mui-checked"
             onBlur={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -1107,12 +1257,15 @@ exports[`Drill should render the Drill component 1`] = `
               />
               <input
                 checked={true}
-                className="PrivateSwitchBase-input-99 MuiSwitch-input"
+                className="PrivateSwitchBase-input-107 MuiSwitch-input"
                 name="onscreenKeyboard"
                 onChange={[Function]}
                 type="checkbox"
               />
             </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
           </span>
           <span
             className="MuiSwitch-track"
@@ -1147,7 +1300,7 @@ exports[`Drill should render the Drill component 1`] = `
         >
           <span
             aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-96 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-97 Mui-checked"
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-104 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-105 Mui-checked"
             onBlur={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -1169,12 +1322,15 @@ exports[`Drill should render the Drill component 1`] = `
               />
               <input
                 checked={true}
-                className="PrivateSwitchBase-input-99 MuiSwitch-input"
+                className="PrivateSwitchBase-input-107 MuiSwitch-input"
                 name="largeKeyboard"
                 onChange={[Function]}
                 type="checkbox"
               />
             </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
           </span>
           <span
             className="MuiSwitch-track"
@@ -1282,6 +1438,9 @@ exports[`Drill should render the Drill component 1`] = `
           />
         </svg>
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </div>
   <div
