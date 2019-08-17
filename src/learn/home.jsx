@@ -1,9 +1,9 @@
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
-const SocialShare = require('material-ui/svg-icons/social/share').default;
-const ActionBugReport = require('material-ui/svg-icons/action/bug-report').default;
+const Fab = require('@material-ui/core/Fab').default;
 const { Link } = require('react-router-dom');
-const RaisedButton = require('material-ui/RaisedButton').default;
+const Button = require('@material-ui/core/Button').default;
 const React = require('react');
+const { Share, BugReport } = require('@material-ui/icons');
+const Tooltip = require('@material-ui/core/Tooltip').default;
 
 const style = {
   marginTop: '20px',
@@ -35,12 +35,15 @@ function shareComponent() {
   };
   return (
     <span style={shareStyle}>
-      <FloatingActionButton
-        title="Share"
-        onClick={share}
-      >
-        <SocialShare />
-      </FloatingActionButton>
+      <Tooltip title="Share">
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={share}
+        >
+          <Share />
+        </Fab>
+      </Tooltip>
     </span>
   );
 }
@@ -55,39 +58,30 @@ function home() {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <FloatingActionButton
-            title="Bugs and Issues"
-          >
-            <ActionBugReport />
-          </FloatingActionButton>
+          <Tooltip title="Bugs and Issues">
+            <Fab
+              color="primary"
+              aria-label="add"
+            >
+              <BugReport />
+            </Fab>
+          </Tooltip>
         </a>
         {shareComponent()}
       </div>
       <div>
         <Link to="/math/drill">
-          <RaisedButton
-            label="Math Drill"
-            labelPosition="before"
-            primary
-          />
+          <Button variant="contained" color="primary">Math Drill</Button>
         </Link>
       </div>
       <div style={style}>
         <Link to="/math/score">
-          <RaisedButton
-            label="Scoreboard"
-            labelPosition="before"
-            primary
-          />
+          <Button variant="contained" color="primary">Scoreboard</Button>
         </Link>
       </div>
       <div style={style}>
         <Link to="/help">
-          <RaisedButton
-            label="Help"
-            labelPosition="before"
-            primary
-          />
+          <Button variant="contained" color="primary">Help</Button>
         </Link>
       </div>
     </div>

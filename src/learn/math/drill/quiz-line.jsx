@@ -1,8 +1,8 @@
-const DoneIcon = require('material-ui/svg-icons/action/done').default;
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const Fab = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
-const TextField = require('material-ui/TextField').default;
+const TextField = require('@material-ui/core/TextField').default;
+const { Done } = require('@material-ui/icons');
 const Keyboard = require('./keyboard');
 const constants = require('../../common/constants');
 const RunningResults = require('./running-results');
@@ -18,27 +18,18 @@ const checkStyle = {
   margin: '10px',
 };
 
-const textStyle = {
-  border: 'medium solid black',
-  height: '80px',
-  width: '80px',
-  fontSize: 'xx-large',
-};
-
 const inputStyle = {
   textAlign: 'center',
 };
 
-const answerStyle = Object.assign(
-  {},
-  {
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    fontSize: 'xx-large',
-    backgroundColor: 'green',
-    color: 'white',
-  },
-);
+const answerStyle = {
+
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  fontSize: 'xx-large',
+  backgroundColor: 'green',
+  color: 'white',
+};
 
 const lastResultCorrectStyle = {
   borderRadius: '5px',
@@ -47,9 +38,7 @@ const lastResultCorrectStyle = {
   paddingRight: '20px',
 };
 
-const lastResultIncorrectStyle = Object.assign({}, lastResultCorrectStyle, {
-  border: 'medium solid red',
-});
+const lastResultIncorrectStyle = { ...lastResultCorrectStyle, border: 'medium solid red' };
 
 const quizLineStyle = {
   marginTop: '10px',
@@ -140,16 +129,15 @@ class QuizLine extends React.Component {
   renderLastResult() {
     const { lastResult } = this.props;
     if (!lastResult) {
-      const divStyle = Object.assign(
-        {},
-        lastResultCorrectStyle, {
-          paddingBottom: '5px',
-          paddingLeft: '10px',
-          paddingRight: '10px',
-          paddingTop: '5px',
-          display: 'block',
-        },
-      );
+      const divStyle = {
+
+        ...lastResultCorrectStyle,
+        paddingBottom: '5px',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        paddingTop: '5px',
+        display: 'block',
+      };
 
       return (
         <div style={divStyle}>
@@ -202,13 +190,11 @@ class QuizLine extends React.Component {
               : (
                 <TextField
                   autoFocus
-                  hintText=""
                   id="answer-number"
-                  inputStyle={inputStyle}
+                  style={inputStyle}
                   name="answer"
                   onChange={this.onChange}
                   onKeyPress={this.handleKeyPress}
-                  style={textStyle}
                   type="number"
                   value={answer}
                 />
@@ -217,13 +203,10 @@ class QuizLine extends React.Component {
           {
             !onscreenKeyboard
             && (
-            <FloatingActionButton
-              onClick={this.checkAnswer}
-              style={checkStyle}
-              title="Check Answer"
-            >
-              <DoneIcon />
-            </FloatingActionButton>
+            <Fab onClick={this.checkAnswer} style={checkStyle}>
+              <Done />
+Check Answer
+            </Fab>
             )
           }
         </div>

@@ -1,8 +1,7 @@
-const ContentBackspace = require('material-ui/svg-icons/content/backspace').default;
-const KeyboardReturn = require('material-ui/svg-icons/hardware/keyboard-return').default;
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const Fab = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
+const { Backspace, KeyboardReturn } = require('@material-ui/icons');
 
 const buttonStyle = {
   margin: '5px',
@@ -52,7 +51,7 @@ class Keyboard extends React.Component {
         ['1', 'One', 1, '1'],
         ['2', 'Two', 2, '2'],
         ['3', 'Three', 3, '3'],
-        [<ContentBackspace />, 'Backspace', 'back', '4'],
+        [<Backspace />, 'Backspace', 'back', '4'],
       ],
       [
         '2', // key
@@ -84,17 +83,15 @@ class Keyboard extends React.Component {
             <div key={lay[0]}>
               {
                 lay.slice(1).map((item) => {
-                  const [content, title, click, key] = item;
+                  const [content, click, key] = item;
                   return (
-                    <FloatingActionButton
-                      iconStyle={buttonIconStyle}
+                    <Fab
                       key={key}
                       onClick={this.click[click]}
                       style={buttonStyle}
-                      title={title}
                     >
                       {content}
-                    </FloatingActionButton>
+                    </Fab>
                   );
                 })
               }

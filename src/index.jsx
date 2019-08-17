@@ -1,13 +1,12 @@
+const { MuiThemeProvider, createMuiTheme } = require('@material-ui/core/styles');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
-const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
 const { BrowserRouter } = require('react-router-dom');
 const poly = require('./poly');
 const App = require('./app.jsx');
 
-const muiTheme = getMuiTheme(lightBaseTheme);
+const theme = createMuiTheme(lightBaseTheme);
 
 poly(undefined, (err) => {
   if (err) {
@@ -17,7 +16,7 @@ poly(undefined, (err) => {
 
   ReactDOM.render(
     (
-      <MuiThemeProvider muiTheme={muiTheme}>
+      <MuiThemeProvider theme={theme}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
