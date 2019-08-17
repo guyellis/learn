@@ -29,7 +29,7 @@ class Keyboard extends React.Component {
   }
 
   onClick(value) {
-    if (value === 'nothing') {
+    if (value === 'test') {
       return;
     }
     const { keyPress } = this.props;
@@ -58,20 +58,20 @@ class Keyboard extends React.Component {
         ['4', 'Four', 4, '5'],
         ['5', 'Five', 5, '6'],
         ['6', 'Six', 6, '7'],
-        [' ', 'Nothing', 'nothing', '8'],
+        [' ', 'nothing1', 'Nothing1', '8'],
       ],
       [
         '3', // key
         ['7', 'Seven', 7, '9'],
         ['8', 'Eight', 8, '10'],
         ['9', 'Nine', 9, '11'],
-        [' ', 'Nothing', 'nothing', '12'],
+        [' ', 'nothing2', 'Nothing2', '12'],
       ],
       [
         '4', // key
-        [' ', 'Nothing', 'nothing', '13'],
+        [' ', 'nothing3', 'Nothing3', '13'],
         ['0', 'Zero', 0, '14'],
-        [' ', 'Nothing', 'nothing', '15'],
+        [' ', 'nothing4', 'Nothing4', '15'],
         [<KeyboardReturn />, 'Enter', 'enter', '16'],
       ],
     ];
