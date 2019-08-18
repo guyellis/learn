@@ -14,14 +14,15 @@ const Scoreboard = require('./learn/math/drill/scoreboard');
 function app() {
   return (
     <div>
-      <Route path="/" component={Menu} />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/math/drill" exact component={Drill} />
-        <Route path="/math/score" exact component={Scoreboard} />
-        <Route path="/help" exact component={Help} />
-        <Redirect to="/" />
-      </Switch>
+      <Menu>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/math/drill" exact component={Drill} />
+          <Route path="/math/score" exact component={Scoreboard} />
+          <Route path="/help" exact component={Help} />
+          <Redirect to="/" />
+        </Switch>
+      </Menu>
     </div>
   );
 }
