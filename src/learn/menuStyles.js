@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     padding: 20,
   },
   link: {
-  	textDecoration: 'none',
+    textDecoration: 'none',
     color: 'rgba(0, 0, 0, 0.87)',
   },
   appLabel: {

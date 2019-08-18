@@ -8,6 +8,7 @@ const FormGroup = require('@material-ui/core/FormGroup').default;
 const FormControlLabel = require('@material-ui/core/FormControlLabel').default;
 const { Send } = require('@material-ui/icons');
 const Tooltip = require('@material-ui/core/Tooltip').default;
+const Typography = require('@material-ui/core/Typography').default;
 const constants = require('../../common/constants');
 
 const {
@@ -56,10 +57,13 @@ function options(props) {
 
   return (
     <div>
+      <Typography variant="h2" gutterBottom>
+Drill
+      </Typography>
       <div style={sectionStyle}>
-        <h2>
+        <Typography variant="h4" gutterBottom>
 Level
-        </h2>
+        </Typography>
         <div>
           {
             alphabet.map((letter, index) => (
@@ -78,9 +82,9 @@ Level
         </div>
       </div>
       <div style={sectionStyle}>
-        <h2>
+        <Typography variant="h4" gutterBottom>
 Operation
-        </h2>
+        </Typography>
         <div>
           {
             operations.map((operation, index) => (

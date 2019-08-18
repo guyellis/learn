@@ -5,6 +5,7 @@ const TableBody = require('@material-ui/core/TableBody').default;
 const TableCell = require('@material-ui/core/TableCell').default;
 const Table = require('@material-ui/core/Table').default;
 const Paper = require('@material-ui/core/Paper').default;
+const Typography = require('@material-ui/core/Typography').default;
 
 const Badge = require('./badge');
 const BadgeTotals = require('./badge-totals');
@@ -61,9 +62,9 @@ function scoreboard() {
 
   return (
     <div>
-      <h3>
-       Scoreboard
-      </h3>
+      <Typography variant="h2" gutterBottom>
+Scoreboard
+      </Typography>
       <BadgeTotals totals={totals} />
       <Paper style={{ width: '100%' }}>
         <Table>

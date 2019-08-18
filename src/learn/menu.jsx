@@ -13,7 +13,7 @@ const ChevronLeftIcon = require('@material-ui/icons/ChevronLeft').default;
 const ChevronRightIcon = require('@material-ui/icons/ChevronRight').default;
 const Home = require('@material-ui/icons/Home').default;
 const Share = require('@material-ui/icons/Share').default;
-const VideoGameAsset = require('@material-ui/icons/VideoGameAsset').default;
+const VideogameAsset = require('@material-ui/icons/VideogameAsset').default;
 const Help = require('@material-ui/icons/Help').default;
 const Score = require('@material-ui/icons/Score').default;
 const Divider = require('@material-ui/core/Divider').default;
@@ -25,6 +25,7 @@ const React = require('react');
 const { useState } = require('react');
 const { useTheme } = require('@material-ui/core/styles');
 const Grid = require('@material-ui/core/Grid').default;
+const PropTypes = require('prop-types');
 const useStyles = require('./menuStyles');
 const github = require('../assets/github-logo.svg');
 
@@ -136,7 +137,7 @@ LEARN
           <Link className={classes.link} to="/math/drill">
             <Tooltip title="Drill">
               <ListItem button>
-                <ListItemIcon><VideoGameAsset /></ListItemIcon>
+                <ListItemIcon><VideogameAsset /></ListItemIcon>
                 <ListItemText primary="Drill" />
               </ListItem>
             </Tooltip>
@@ -167,6 +168,14 @@ LEARN
       </main>
     </div>
   );
+};
+
+ToolbarMenu.defaultProps = {
+  children: null,
+};
+
+ToolbarMenu.propTypes = {
+  children: PropTypes.func,
 };
 
 module.exports = ToolbarMenu;

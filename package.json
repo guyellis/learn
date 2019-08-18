@@ -76,7 +76,7 @@
     "deploy": "npm run build && npm run asset-copy && npm run upload",
     "lint": "eslint --ext js --ext jsx .",
     "lintfix": "eslint --ext js --ext jsx . --fix",
-    "start": "webpack-dev-server --progress --profile --colors",
+    "start": "webpack-dev-server --client-log-level error --profile --colors",
     "test": "npm run lint && tsc && jest --coverage && npm run build",
     "asset-copy": "cp -R assets/* public/",
     "upload": "aws s3 cp public s3://learn.guyellisrocks.com/ --recursive"
