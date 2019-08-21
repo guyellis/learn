@@ -1,12 +1,10 @@
 const React = require('react');
-const {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} = require('material-ui/Table');
+const TableHead = require('@material-ui/core/TableHead').default;
+const TableRow = require('@material-ui/core/TableRow').default;
+const TableBody = require('@material-ui/core/TableBody').default;
+const TableCell = require('@material-ui/core/TableCell').default;
+const Table = require('@material-ui/core/Table').default;
+const Paper = require('@material-ui/core/Paper').default;
 
 const Badge = require('./badge');
 const BadgeTotals = require('./badge-totals');
@@ -64,51 +62,36 @@ function scoreboard() {
   return (
     <div>
       <h3>
-Scoreboard
+       Scoreboard
       </h3>
       <BadgeTotals totals={totals} />
-      <Table>
-        <TableHeader
-          displaySelectAll={false}
-          adjustForCheckbox={false}
-        >
-          <TableRow>
-            <TableHeaderColumn>
-Level
-            </TableHeaderColumn>
-            {
-              opNames.map((opName) => (
-                <TableHeaderColumn
-                  key={opName}
-                >
+      <Paper style={{ width: '100%' }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Level</TableCell>
+              {opNames.map((opName) => (
+                <TableCell key={opName}>
                   {opName}
-                </TableHeaderColumn>
-              ))
-            }
-          </TableRow>
-        </TableHeader>
-        <TableBody displayRowCheckbox={false}>
-          {
-            levels.map((level, index) => (level
-              ? (
-                <TableRow key={alphabet[index]}>
-                  <TableRowColumn key={alphabet[index]}>
-                    {alphabet[index]}
-                  </TableRowColumn>
-                  {
-                  ops.map((op) => (
-                    <TableRowColumn key={op}>
-                      {badge(level[op])}
-                    </TableRowColumn>
-                  ))
-                }
-                </TableRow>
-              )
-              : null
-            ))
-          }
-        </TableBody>
-      </Table>
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {levels.map((level, index) => (level ? (
+              <TableRow key={alphabet[index]}>
+                <TableCell component="th" scope="row" key={alphabet[index]}>
+                  {alphabet[index]}
+                </TableCell>
+                {ops.map((op) => (
+                  <TableCell key={op}>{badge(level[op])}</TableCell>
+                ))}
+              </TableRow>
+            ) : ('')
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
     </div>
   );
 }

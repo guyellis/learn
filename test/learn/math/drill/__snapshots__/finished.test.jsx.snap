@@ -42,90 +42,35 @@ test you got 2 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -206,90 +151,35 @@ test you got 2 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -371,90 +261,35 @@ test you got 2 answer(s) correct.
           }
         }
       >
-        <div
+        <button
+          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
           style={
             Object {
-              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-              "backgroundColor": "transparent",
-              "borderRadius": "50%",
-              "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-              "boxSizing": "border-box",
-              "color": "rgba(0, 0, 0, 0.87)",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
               "fontSize": "1.5em",
               "margin": "5px",
-              "muiPrepared": true,
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
             }
           }
+          tabIndex={0}
+          type="button"
         >
-          <button
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "backgroundColor": "#c0c0c0",
-                "border": 10,
-                "borderRadius": "50%",
-                "boxSizing": "border-box",
-                "color": "white",
-                "cursor": "pointer",
-                "display": "inline-block",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": "inherit",
-                "fontWeight": "inherit",
-                "height": 40,
-                "margin": 0,
-                "muiPrepared": true,
-                "outline": "none",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "relative",
-                "textAlign": "center",
-                "textDecoration": "none",
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "verticalAlign": "bottom",
-                "width": 40,
-              }
-            }
-            tabIndex={0}
-            title="+ Silver"
-            type="button"
+          <span
+            className="MuiFab-label"
           >
-            <div
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchStart={[Function]}
-            >
-              <div
-                style={
-                  Object {
-                    "muiPrepared": true,
-                    "top": 0,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  }
-                }
-              >
-                +
-              </div>
-            </div>
-          </button>
-        </div>
+            +
+          </span>
+        </button>
         <span
           style={
             Object {
@@ -530,90 +365,35 @@ test you got 2 answer(s) correct.
           }
         }
       >
-        <div
+        <button
+          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
           style={
             Object {
-              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-              "backgroundColor": "transparent",
-              "borderRadius": "50%",
-              "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-              "boxSizing": "border-box",
-              "color": "rgba(0, 0, 0, 0.87)",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
               "fontSize": "1.5em",
               "margin": "5px",
-              "muiPrepared": true,
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
             }
           }
+          tabIndex={0}
+          type="button"
         >
-          <button
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "backgroundColor": "#c0c0c0",
-                "border": 10,
-                "borderRadius": "50%",
-                "boxSizing": "border-box",
-                "color": "white",
-                "cursor": "pointer",
-                "display": "inline-block",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": "inherit",
-                "fontWeight": "inherit",
-                "height": 40,
-                "margin": 0,
-                "muiPrepared": true,
-                "outline": "none",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "relative",
-                "textAlign": "center",
-                "textDecoration": "none",
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "verticalAlign": "bottom",
-                "width": 40,
-              }
-            }
-            tabIndex={0}
-            title="+ Silver"
-            type="button"
+          <span
+            className="MuiFab-label"
           >
-            <div
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchStart={[Function]}
-            >
-              <div
-                style={
-                  Object {
-                    "muiPrepared": true,
-                    "top": 0,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  }
-                }
-              >
-                +
-              </div>
-            </div>
-          </button>
-        </div>
+            +
+          </span>
+        </button>
         <span
           style={
             Object {
@@ -705,90 +485,35 @@ test you got 2 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -864,90 +589,35 @@ test you got 2 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1023,90 +693,35 @@ test you got 2 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1230,90 +845,35 @@ test you got 1 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1394,90 +954,35 @@ test you got 1 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1558,90 +1063,35 @@ test you got 1 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1755,90 +1205,35 @@ test you got 0 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -1919,90 +1314,35 @@ test you got 0 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {
@@ -2084,90 +1424,35 @@ test you got 0 answer(s) correct.
           }
         }
       >
-        <div
+        <button
+          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
           style={
             Object {
-              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-              "backgroundColor": "transparent",
-              "borderRadius": "50%",
-              "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-              "boxSizing": "border-box",
-              "color": "rgba(0, 0, 0, 0.87)",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
               "fontSize": "1.5em",
               "margin": "5px",
-              "muiPrepared": true,
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
             }
           }
+          tabIndex={0}
+          type="button"
         >
-          <button
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "backgroundColor": "#c0c0c0",
-                "border": 10,
-                "borderRadius": "50%",
-                "boxSizing": "border-box",
-                "color": "white",
-                "cursor": "pointer",
-                "display": "inline-block",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": "inherit",
-                "fontWeight": "inherit",
-                "height": 40,
-                "margin": 0,
-                "muiPrepared": true,
-                "outline": "none",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "relative",
-                "textAlign": "center",
-                "textDecoration": "none",
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "verticalAlign": "bottom",
-                "width": 40,
-              }
-            }
-            tabIndex={0}
-            title="+ Silver"
-            type="button"
+          <span
+            className="MuiFab-label"
           >
-            <div
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchStart={[Function]}
-            >
-              <div
-                style={
-                  Object {
-                    "muiPrepared": true,
-                    "top": 0,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  }
-                }
-              >
-                +
-              </div>
-            </div>
-          </button>
-        </div>
+            +
+          </span>
+        </button>
         <span
           style={
             Object {
@@ -2249,90 +1534,35 @@ test you got 0 answer(s) correct.
         }
       }
     >
-      <div
+      <button
+        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
             "fontSize": "1.5em",
             "margin": "5px",
-            "muiPrepared": true,
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#c0c0c0",
-              "border": 10,
-              "borderRadius": "50%",
-              "boxSizing": "border-box",
-              "color": "white",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 40,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": "bottom",
-              "width": 40,
-            }
-          }
-          tabIndex={0}
-          title="+ Silver"
-          type="button"
+        <span
+          className="MuiFab-label"
         >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              +
-            </div>
-          </div>
-        </button>
-      </div>
+          +
+        </span>
+      </button>
       <span
         style={
           Object {

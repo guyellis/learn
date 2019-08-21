@@ -1,31 +1,18 @@
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
-const constants = require('../../common/constants');
-
-const {
-  COLOR_TEXT: colorText,
-  COLOR_HTML: htmlColors,
-} = constants;
 
 const buttonStyle = {
   margin: '5px',
   fontSize: '1.5em',
 };
 
-const buttonIconStyle = {
-  color: 'white',
-};
-
-function badge({ color, content }) {
-  const title = `${content === 'M' ? 'Mixed' : content} ${colorText[color]}`;
+function badge({ content }) {
   return (
     <FloatingActionButton
-      iconStyle={buttonIconStyle}
-      backgroundColor={htmlColors[color]}
+      color="primary"
       style={buttonStyle}
-      title={title}
-      mini
+      size="medium"
     >
       {`${content}`}
     </FloatingActionButton>
@@ -33,7 +20,6 @@ function badge({ color, content }) {
 }
 
 badge.propTypes = {
-  color: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
 };
 

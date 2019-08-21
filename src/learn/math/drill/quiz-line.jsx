@@ -1,8 +1,8 @@
-const DoneIcon = require('material-ui/svg-icons/action/done').default;
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
-const TextField = require('material-ui/TextField').default;
+const TextField = require('@material-ui/core/TextField').default;
+const { Done } = require('@material-ui/icons');
 const Keyboard = require('./keyboard');
 const constants = require('../../common/constants');
 const RunningResults = require('./running-results');
@@ -16,13 +16,6 @@ const numberStyle = {
 
 const checkStyle = {
   margin: '10px',
-};
-
-const textStyle = {
-  border: 'medium solid black',
-  height: '80px',
-  width: '80px',
-  fontSize: 'xx-large',
 };
 
 const inputStyle = {
@@ -199,13 +192,11 @@ class QuizLine extends React.Component {
               : (
                 <TextField
                   autoFocus
-                  hintText=""
                   id="answer-number"
-                  inputStyle={inputStyle}
+                  style={inputStyle}
                   name="answer"
                   onChange={this.onChange}
                   onKeyPress={this.handleKeyPress}
-                  style={textStyle}
                   type="number"
                   value={answer}
                 />
@@ -214,12 +205,9 @@ class QuizLine extends React.Component {
           {
             !onscreenKeyboard
             && (
-            <FloatingActionButton
-              onClick={this.checkAnswer}
-              style={checkStyle}
-              title="Check Answer"
-            >
-              <DoneIcon />
+            <FloatingActionButton onClick={this.checkAnswer} style={checkStyle}>
+              <Done />
+Check Answer
             </FloatingActionButton>
             )
           }

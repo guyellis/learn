@@ -51,200 +51,74 @@ exports[`Badge totals should be rendered 1`] = `
       =
     </span>
     <div
+      className="MuiFormControl-root MuiTextField-root"
+      onKeyPress={[Function]}
       style={
         Object {
-          "backgroundColor": "transparent",
-          "border": "medium solid black",
-          "cursor": "auto",
-          "display": "inline-block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": "xx-large",
-          "height": "80px",
-          "lineHeight": "24px",
-          "muiPrepared": true,
-          "position": "relative",
-          "transition": "height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "width": "80px",
+          "textAlign": "center",
         }
       }
     >
-      <input
-        autoFocus={true}
-        disabled={false}
-        id="answer-number"
-        name="answer"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyPress={[Function]}
-        style={
-          Object {
-            "WebkitOpacity": 1,
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "appearance": "textfield",
-            "backgroundColor": "rgba(0,0,0,0)",
-            "border": "none",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "cursor": "inherit",
-            "font": "inherit",
-            "height": "100%",
-            "muiPrepared": true,
-            "outline": "none",
-            "padding": 0,
-            "position": "relative",
-            "textAlign": "center",
-            "width": "100%",
-          }
-        }
-        type="number"
-        value=""
-      />
-      <div>
-        <hr
-          aria-hidden="true"
-          style={
-            Object {
-              "borderBottomStyle": "solid",
-              "borderBottomWidth": 1,
-              "borderColor": "#e0e0e0",
-              "borderLeft": "none",
-              "borderRight": "none",
-              "borderTop": "none",
-              "bottom": 8,
-              "boxSizing": "content-box",
-              "margin": 0,
-              "muiPrepared": true,
-              "position": "absolute",
-              "width": "100%",
-            }
-          }
-        />
-        <hr
-          aria-hidden="true"
-          style={
-            Object {
-              "borderBottomStyle": "solid",
-              "borderBottomWidth": 2,
-              "borderColor": "#00bcd4",
-              "borderLeft": "none",
-              "borderRight": "none",
-              "borderTop": "none",
-              "bottom": 8,
-              "boxSizing": "content-box",
-              "margin": 0,
-              "muiPrepared": true,
-              "position": "absolute",
-              "transform": "scaleX(0)",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "width": "100%",
-            }
-          }
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={true}
+          className="MuiInputBase-input MuiInput-input"
+          disabled={false}
+          id="answer-number"
+          name="answer"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          type="number"
+          value=""
         />
       </div>
     </div>
-    <div
+    <button
+      className="MuiButtonBase-root MuiFab-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
       style={
         Object {
-          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-          "backgroundColor": "transparent",
-          "borderRadius": "50%",
-          "boxShadow": "0 3px 10px rgba(0, 0, 0, 0.16),
-         0 3px 10px rgba(0, 0, 0, 0.23)",
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "display": "inline-block",
-          "fontFamily": "Roboto, sans-serif",
           "margin": "10px",
-          "muiPrepared": true,
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         }
       }
+      tabIndex={0}
+      type="button"
     >
-      <button
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-            "backgroundColor": "#00bcd4",
-            "border": 10,
-            "borderRadius": "50%",
-            "boxSizing": "border-box",
-            "cursor": "pointer",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
-            "fontSize": "inherit",
-            "fontWeight": "inherit",
-            "height": 56,
-            "margin": 0,
-            "muiPrepared": true,
-            "outline": "none",
-            "overflow": "hidden",
-            "padding": 0,
-            "position": "relative",
-            "textAlign": "center",
-            "textDecoration": "none",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-            "verticalAlign": "bottom",
-            "width": 56,
-          }
-        }
-        tabIndex={0}
-        title="Check Answer"
-        type="button"
+      <span
+        className="MuiFab-label"
       >
-        <div
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
         >
-          <div
-            style={
-              Object {
-                "muiPrepared": true,
-                "top": 0,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              }
-            }
-          >
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "height": 56,
-                  "lineHeight": "56px",
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-              />
-            </svg>
-          </div>
-        </div>
-      </button>
-    </div>
+          <path
+            d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+          />
+        </svg>
+        Check Answer
+      </span>
+    </button>
   </div>
   <div
     style={

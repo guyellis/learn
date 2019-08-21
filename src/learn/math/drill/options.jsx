@@ -1,10 +1,13 @@
-const AVPlayArrow = require('material-ui/svg-icons/av/play-arrow').default;
-const FloatingActionButton = require('material-ui/FloatingActionButton').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
-const RaisedButton = require('material-ui/RaisedButton').default;
+const Button = require('@material-ui/core/Button').default;
 const React = require('react');
-const TextField = require('material-ui/TextField').default;
-const Toggle = require('material-ui/Toggle').default;
+const TextField = require('@material-ui/core/TextField').default;
+const Switch = require('@material-ui/core/Switch').default;
+const FormGroup = require('@material-ui/core/FormGroup').default;
+const FormControlLabel = require('@material-ui/core/FormControlLabel').default;
+const { Send } = require('@material-ui/icons');
+const Tooltip = require('@material-ui/core/Tooltip').default;
 const constants = require('../../common/constants');
 
 const {
@@ -15,10 +18,6 @@ const {
 const buttonStyle = {
   margin: '5px',
   fontSize: '2em',
-};
-
-const buttonIconStyle = {
-  color: 'white',
 };
 
 const sectionStyle = {
@@ -64,16 +63,16 @@ Level
         <div>
           {
             alphabet.map((letter, index) => (
-              <FloatingActionButton
-                iconStyle={buttonIconStyle}
-                key={letter}
-                onClick={() => setParentState({ levelIndex: index })}
-                secondary={index === levelIndex}
-                style={buttonStyle}
-                title={letter}
-              >
-                {letter}
-              </FloatingActionButton>
+              <Tooltip title={letter}>
+                <FloatingActionButton
+                  key={letter}
+                  onClick={() => setParentState({ levelIndex: index })}
+                  color={index === levelIndex ? 'secondary' : 'primary'}
+                  style={buttonStyle}
+                >
+                  {letter}
+                </FloatingActionButton>
+              </Tooltip>
             ))
           }
         </div>
@@ -85,16 +84,16 @@ Operation
         <div>
           {
             operations.map((operation, index) => (
-              <FloatingActionButton
-                iconStyle={buttonIconStyle}
-                key={operation}
-                onClick={() => toggleOpIndex(index)}
-                secondary={opIndexes.includes(index)}
-                style={buttonStyle}
-                title={operation}
-              >
-                {operation}
-              </FloatingActionButton>
+              <Tooltip title={operation}>
+                <FloatingActionButton
+                  key={operation}
+                  onClick={() => toggleOpIndex(index)}
+                  color={opIndexes.includes(index) ? 'secondary' : 'primary'}
+                  style={buttonStyle}
+                >
+                  {operation}
+                </FloatingActionButton>
+              </Tooltip>
             ))
           }
         </div>
@@ -104,8 +103,8 @@ Operation
 Time
         </h3>
         <TextField
-          floatingLabelText="Time"
-          hintText="1"
+          label="Time"
+          helperText="1"
           id="time-minutes"
           name="minutes"
           onChange={onChange}
@@ -119,8 +118,8 @@ Time
 Total Questions (you only get badges for 10 or more correct questions)
         </h3>
         <TextField
-          floatingLabelText="Total Questions"
-          hintText="20"
+          label="Total Questions"
+          helperText="20"
           id="total-problems"
           name="totalProblems"
           onChange={onChange}
@@ -133,13 +132,19 @@ Total Questions (you only get badges for 10 or more correct questions)
         <h3>
 Keyboard
         </h3>
-        <Toggle
-          label="Use onscreen keyboard"
-          labelPosition="right"
-          name="onscreenKeyboard"
-          onToggle={onChange}
-          toggled={onscreenKeyboard}
-        />
+        <FormGroup row>
+          <FormControlLabel
+            control={(
+              <Switch
+                name="onscreenKeyboard"
+                onChange={onChange}
+                color="primary"
+                checked={onscreenKeyboard}
+              />
+)}
+            label="Use onscreen keyboard"
+          />
+        </FormGroup>
       </div>
       {onscreenKeyboard
         && (
@@ -147,13 +152,19 @@ Keyboard
           <h3>
 Large Keyboard
           </h3>
-          <Toggle
-            label="Large Keyboard"
-            labelPosition="right"
-            name="largeKeyboard"
-            onToggle={onChange}
-            toggled={largeKeyboard}
-          />
+          <FormGroup row>
+            <FormControlLabel
+              control={(
+                <Switch
+                  name="largeKeyboard"
+                  onChange={onChange}
+                  color="secondary"
+                  checked={largeKeyboard}
+                />
+)}
+              label="Large Keyboard"
+            />
+          </FormGroup>
         </div>
         )}
       <div style={sectionStyle}>
@@ -161,8 +172,8 @@ Large Keyboard
 Your Name (Optional)
         </h3>
         <TextField
-          floatingLabelText="Your Name"
-          hintText="Jemima Puddle-Duck"
+          label="Your Name"
+          helperText="Jemima Puddle-Duck"
           id="user-name"
           name="userName"
           onChange={onChange}
@@ -172,13 +183,10 @@ Your Name (Optional)
         />
       </div>
       <div style={sectionStyle}>
-        <RaisedButton
-          label="Start"
-          labelPosition="before"
-          primary
-          onClick={onStart}
-          icon={<AVPlayArrow />}
-        />
+        <Button variant="contained" color="primary" onClick={onStart}>
+Start
+          <Send />
+        </Button>
       </div>
       <div style={sectionStyle} />
     </div>

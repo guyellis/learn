@@ -1,7 +1,7 @@
 const { Link } = require('react-router-dom');
-const { Toolbar, ToolbarGroup, ToolbarSeparator } = require('material-ui/Toolbar');
+const Toolbar = require('@material-ui/core/Toolbar').default;
 // const PropTypes = require('prop-types');
-const RaisedButton = require('material-ui/RaisedButton').default;
+const Button = require('@material-ui/core/Button').default;
 const React = require('react');
 
 class ToolbarMenu extends React.Component {
@@ -18,37 +18,18 @@ class ToolbarMenu extends React.Component {
   render() {
     return (
       <Toolbar>
-        <ToolbarGroup firstChild>
-          <Link to="/">
-            <RaisedButton
-              label="Home"
-              primary
-            />
-          </Link>
-          <ToolbarSeparator />
-          <Link to="/math/drill">
-            <RaisedButton
-              label="Drill"
-              primary
-            />
-          </Link>
-          <ToolbarSeparator />
-          <Link to="/math/score">
-            <RaisedButton
-              label="Score"
-              primary
-            />
-          </Link>
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <ToolbarSeparator />
-          <Link to="/help">
-            <RaisedButton
-              label="Help"
-              primary
-            />
-          </Link>
-        </ToolbarGroup>
+        <Link to="/">
+          <Button variant="contained" color="primary">Home</Button>
+        </Link>
+        <Link to="/math/drill">
+          <Button variant="contained" color="primary">Drill</Button>
+        </Link>
+        <Link to="/math/score">
+          <Button variant="contained" color="primary">Score</Button>
+        </Link>
+        <Link to="/help">
+          <Button variant="contained" color="primary">Help</Button>
+        </Link>
       </Toolbar>
     );
   }
