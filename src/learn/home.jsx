@@ -1,4 +1,4 @@
-const Fab = require('@material-ui/core/Fab').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const { Link } = require('react-router-dom');
 const Button = require('@material-ui/core/Button').default;
 const React = require('react');
@@ -23,7 +23,7 @@ function share() {
   // eslint-disable-next-line no-console
     .then(() => console.log('Successful share'))
   // eslint-disable-next-line no-console
-    .catch(error => console.log('Error sharing', error));
+    .catch((error) => console.log('Error sharing', error));
 }
 
 function shareComponent() {
@@ -36,13 +36,13 @@ function shareComponent() {
   return (
     <span style={shareStyle}>
       <Tooltip title="Share">
-        <Fab
+        <FloatingActionButton
           color="primary"
           aria-label="add"
           onClick={share}
         >
           <Share />
-        </Fab>
+        </FloatingActionButton>
       </Tooltip>
     </span>
   );
@@ -59,12 +59,12 @@ function home() {
           target="_blank"
         >
           <Tooltip title="Bugs and Issues">
-            <Fab
+            <FloatingActionButton
               color="primary"
               aria-label="add"
             >
               <BugReport />
-            </Fab>
+            </FloatingActionButton>
           </Tooltip>
         </a>
         {shareComponent()}

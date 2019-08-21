@@ -1,4 +1,4 @@
-const Fab = require('@material-ui/core/Fab').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const Button = require('@material-ui/core/Button').default;
 const React = require('react');
@@ -64,14 +64,14 @@ Level
           {
             alphabet.map((letter, index) => (
               <Tooltip title={letter}>
-                <Fab
+                <FloatingActionButton
                   key={letter}
                   onClick={() => setParentState({ levelIndex: index })}
                   color={index === levelIndex ? 'secondary' : 'primary'}
                   style={buttonStyle}
                 >
                   {letter}
-                </Fab>
+                </FloatingActionButton>
               </Tooltip>
             ))
           }
@@ -85,14 +85,14 @@ Operation
           {
             operations.map((operation, index) => (
               <Tooltip title={operation}>
-                <Fab
+                <FloatingActionButton
                   key={operation}
                   onClick={() => toggleOpIndex(index)}
                   color={opIndexes.includes(index) ? 'secondary' : 'primary'}
                   style={buttonStyle}
                 >
                   {operation}
-                </Fab>
+                </FloatingActionButton>
               </Tooltip>
             ))
           }

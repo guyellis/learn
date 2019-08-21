@@ -1,13 +1,22 @@
-const Fab = require('@material-ui/core/Fab').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
 const { Backspace, KeyboardReturn } = require('@material-ui/icons');
 const Tooltip = require('@material-ui/core/Tooltip').default;
 
-const buttonStyle = {
+const normalButtonStyle = {
   margin: '5px',
   fontSize: '2em',
 };
+
+const largeButtonStyle = {
+  height: '80px',
+  width: '80px',
+  margin: '5px',
+  fontSize: '2em',
+};
+
+let buttonStyle = {};
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Keyboard extends React.Component {
@@ -20,8 +29,9 @@ class Keyboard extends React.Component {
     }, {});
 
     if (props.largeKeyboard) {
-      buttonStyle.height = '80px';
-      buttonStyle.width = '80px';
+      buttonStyle = { ...largeButtonStyle };
+    } else {
+      buttonStyle = { ...normalButtonStyle };
     }
   }
 
@@ -76,20 +86,20 @@ class Keyboard extends React.Component {
     return (
       <div>
         {
-          layout.map(lay => (
+          layout.map((lay) => (
             <div key={lay[0]}>
               {
                 lay.slice(1).map((item) => {
                   const [content, title, click, key] = item;
                   return (
                     <Tooltip title={title}>
-                      <Fab
+                      <FloatingActionButton
                         key={key}
                         onClick={() => this.onClick(click)}
                         style={buttonStyle}
                       >
                         {content}
-                      </Fab>
+                      </FloatingActionButton>
                     </Tooltip>
                   );
                 })

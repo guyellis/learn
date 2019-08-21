@@ -1,4 +1,4 @@
-const Fab = require('@material-ui/core/Fab').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('@material-ui/core/TextField').default;
@@ -205,10 +205,10 @@ class QuizLine extends React.Component {
           {
             !onscreenKeyboard
             && (
-            <Fab onClick={this.checkAnswer} style={checkStyle}>
+            <FloatingActionButton onClick={this.checkAnswer} style={checkStyle}>
               <Done />
 Check Answer
-            </Fab>
+            </FloatingActionButton>
             )
           }
         </div>

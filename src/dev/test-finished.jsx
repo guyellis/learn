@@ -14,7 +14,7 @@ const {
 const a = [...Array(10).keys()];
 
 function tester() {
-  const previousResults = a.map(id => ({
+  const previousResults = a.map((id) => ({
     actuals: [5],
     id,
     task: [5, 5, 0, 5],

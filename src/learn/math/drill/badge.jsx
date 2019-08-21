@@ -1,4 +1,4 @@
-const Fab = require('@material-ui/core/Fab').default;
+const FloatingActionButton = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
 const React = require('react');
 
@@ -9,13 +9,13 @@ const buttonStyle = {
 
 function badge({ content }) {
   return (
-    <Fab
+    <FloatingActionButton
       color="primary"
       style={buttonStyle}
       size="medium"
     >
       {`${content}`}
-    </Fab>
+    </FloatingActionButton>
   );
 }
 
