@@ -47,3 +47,5 @@ public
 
 # tsc output
 dist/
+
+.DS_Store
