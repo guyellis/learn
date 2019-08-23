@@ -145,7 +145,7 @@ function scoreBar({ times, showScoreBar }) {
   }
 
   const boundaryMax = Math.max(...badgeBoundaries);
-  const maxTimePerQuestion = Math.max(...times.map(time => time.timePerQuestion));
+  const maxTimePerQuestion = Math.max(...times.map((time) => time.timePerQuestion));
   const maxVal = maxTimePerQuestion > (boundaryMax * 1.5)
     ? boundaryMax * 2
     : boundaryMax * 1.5;

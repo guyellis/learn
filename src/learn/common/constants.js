@@ -11,7 +11,7 @@ const DEFAULT_OPTIONS = {
 module.exports = {
   ALPHABET: Object.freeze('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')),
   BADGE_BOUNDARIES: Object.freeze([0, 2, 3, 4]), // Seconds per question boundaries for badges
-  COLOR_HTML: Object.freeze(['#ffd700', '#c0c0c0', '#8C7853', 'lightblue']),
+  COLOR_HTML: Object.freeze(['#fbc02d', '#9e9e9e', '#8d6e63', '#81d4fa']),
   COLOR_TEXT: Object.freeze(['Gold', 'Silver', 'Bronze', 'Blue']),
   DEFAULT_OPTIONS,
   MATH_DRILL_OPTIONS: 'mathDrillOptions',

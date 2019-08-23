@@ -49,7 +49,7 @@ function scoreboard() {
   const ops = [...operations];
   const opNames = ops.map((op) => {
     const operators = op.split('');
-    const names = operators.map(operator => operationNames[parseInt(operator, 10)]);
+    const names = operators.map((operator) => operationNames[parseInt(operator, 10)]);
     return names.join(' / ');
   });
   /*
@@ -71,7 +71,7 @@ Scoreboard
           <TableHead>
             <TableRow>
               <TableCell>Level</TableCell>
-              {opNames.map(opName => (
+              {opNames.map((opName) => (
                 <TableCell key={opName}>
                   {opName}
                 </TableCell>
@@ -84,7 +84,7 @@ Scoreboard
                 <TableCell component="th" scope="row" key={alphabet[index]}>
                   {alphabet[index]}
                 </TableCell>
-                {ops.map(op => (
+                {ops.map((op) => (
                   <TableCell key={op}>{badge(level[op])}</TableCell>
                 ))}
               </TableRow>

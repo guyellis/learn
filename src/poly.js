@@ -5,11 +5,11 @@ const defaultFeatures = [
 ];
 
 function browserSupportsAllFeatures(features) {
-  return features.every(f => window[f]);
+  return features.every((f) => window[f]);
 }
 
 function missingFeatures(features) {
-  return features.filter(f => !window[f]);
+  return features.filter((f) => !window[f]);
 }
 
 function loadScript(features, done) {
