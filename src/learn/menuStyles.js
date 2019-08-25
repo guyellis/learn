@@ -1,19 +1,35 @@
 const { makeStyles } = require('@material-ui/core/styles');
 
+const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    marginLeft: drawerWidth,
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
   list: {
     width: 250,
   },
-  fullList: {
-    width: 'auto',
-  },
   content: {
     flexGrow: 1,
-    padding: 20,
+    padding: theme.spacing(3),
   },
   link: {
     textDecoration: 'none',
@@ -22,12 +38,9 @@ const useStyles = makeStyles(theme => ({
   appLabel: {
     marginLeft: 10,
   },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
   },
 }));
 

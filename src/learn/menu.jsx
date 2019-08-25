@@ -22,20 +22,20 @@ const React = require('react');
 const { useState } = require('react');
 const Grid = require('@material-ui/core/Grid').default;
 const PropTypes = require('prop-types');
+const Hidden = require('@material-ui/core/Hidden').default;
+const { useTheme } = require('@material-ui/core/styles');
 const useStyles = require('./menuStyles');
 const github = require('../assets/github-logo.svg');
 
-const ToolbarMenu = ({ children }) => {
+const ToolbarMenu = (props) => {
+  const { children } = props;
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const toggleDrawer = openMenu => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setOpen(openMenu);
-  };
+  function handleDrawerToggle() {
+    setMobileOpen(!mobileOpen);
+  }
 
   const share = () => {
     navigator.share({
@@ -63,18 +63,68 @@ const ToolbarMenu = ({ children }) => {
     );
   };
 
+  const drawer = (
+    <>
+      <div className={classes.toolbar} />
+      <Divider />
+      <div
+        className={classes.list}
+        role="presentation"
+        onClick={handleDrawerToggle}
+        onKeyDown={handleDrawerToggle}
+      >
+        <List>
+          <Link className={classes.link} to="/">
+            <Tooltip title="Home">
+              <ListItem button>
+                <ListItemIcon><Home /></ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+          <Link className={classes.link} to="/math/drill">
+            <Tooltip title="Drill">
+              <ListItem button>
+                <ListItemIcon><VideogameAsset /></ListItemIcon>
+                <ListItemText primary="Drill" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+          <Link className={classes.link} to="/math/score">
+            <Tooltip title="Score">
+              <ListItem button>
+                <ListItemIcon><Score /></ListItemIcon>
+                <ListItemText primary="Score" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+          <Link className={classes.link} to="/help">
+            <Tooltip title="Help">
+              <ListItem button>
+                <ListItemIcon><Help /></ListItemIcon>
+                <ListItemText primary="Help" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+        </List>
+      </div>
+      <Divider />
+      {shareComponent()}
+    </>
+  );
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
+        className={classes.appBar}
       >
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={toggleDrawer(true)}
             edge="start"
+            onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
             <MenuIcon />
@@ -103,55 +153,30 @@ LEARN
           </Grid>
         </Toolbar>
       </AppBar>
-      <Drawer
-        open={open}
-        onClose={toggleDrawer(false)}
-      >
-        <div
-          className={classes.list}
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
-          <Divider />
-          <List>
-            <Link className={classes.link} to="/">
-              <Tooltip title="Home">
-                <ListItem button>
-                  <ListItemIcon><Home /></ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItem>
-              </Tooltip>
-            </Link>
-            <Link className={classes.link} to="/math/drill">
-              <Tooltip title="Drill">
-                <ListItem button>
-                  <ListItemIcon><VideogameAsset /></ListItemIcon>
-                  <ListItemText primary="Drill" />
-                </ListItem>
-              </Tooltip>
-            </Link>
-            <Link className={classes.link} to="/math/score">
-              <Tooltip title="Score">
-                <ListItem button>
-                  <ListItemIcon><Score /></ListItemIcon>
-                  <ListItemText primary="Score" />
-                </ListItem>
-              </Tooltip>
-            </Link>
-            <Link className={classes.link} to="/help">
-              <Tooltip title="Help">
-                <ListItem button>
-                  <ListItemIcon><Help /></ListItemIcon>
-                  <ListItemText primary="Help" />
-                </ListItem>
-              </Tooltip>
-            </Link>
-          </List>
-        </div>
-        <Divider />
-        {shareComponent()}
-      </Drawer>
+      <nav className={classes.drawer} aria-label="mailbox folders">
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={null}
+            variant="temporary"
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{ paper: classes.drawerPaper }}
+            ModalProps={{ keepMounted: true }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{ paper: classes.drawerPaper }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {children}
