@@ -2,119 +2,95 @@
 
 exports[`Menu should render a Menu component 1`] = `
 <div
-  className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+  className="makeStyles-root-1"
 >
-  <a
-    href="/"
-    onClick={[Function]}
+  <header
+    className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
   >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
-      <span
-        className="MuiButton-label"
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
       >
-        Home
-      </span>
-    </button>
-  </a>
-  <a
-    href="/math/drill"
-    onClick={[Function]}
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        className="makeStyles-appLabel-6"
+      >
+        <h6
+          className="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
+        >
+          LEARN
+        </h6>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end"
+      >
+        <a
+          aria-describedby={null}
+          aria-label="Fork guyellis/learn on GitHub"
+          className=""
+          href="https://github.com/guyellis/learn"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Fork me!"
+        >
+          <img
+            alt="github"
+            height={30}
+            src={Object {}}
+            width={30}
+          />
+        </a>
+      </div>
+    </div>
+  </header>
+  <main
+    className="makeStyles-content-4"
   >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <span
-        className="MuiButton-label"
-      >
-        Drill
-      </span>
-    </button>
-  </a>
-  <a
-    href="/math/score"
-    onClick={[Function]}
-  >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <span
-        className="MuiButton-label"
-      >
-        Score
-      </span>
-    </button>
-  </a>
-  <a
-    href="/help"
-    onClick={[Function]}
-  >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <span
-        className="MuiButton-label"
-      >
-        Help
-      </span>
-    </button>
-  </a>
+    <div
+      className="makeStyles-toolbar-7"
+    />
+  </main>
 </div>
 `;

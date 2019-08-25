@@ -1,7 +1,6 @@
 const { Link } = require('react-router-dom');
 const Toolbar = require('@material-ui/core/Toolbar').default;
 // const PropTypes = require('prop-types');
-const clsx = require('clsx').default;
 const CssBaseline = require('@material-ui/core/CssBaseline').default;
 const Tooltip = require('@material-ui/core/Tooltip').default;
 const AppBar = require('@material-ui/core/AppBar').default;
@@ -9,8 +8,6 @@ const Typography = require('@material-ui/core/Typography').default;
 const IconButton = require('@material-ui/core/IconButton').default;
 const Drawer = require('@material-ui/core/Drawer').default;
 const MenuIcon = require('@material-ui/icons/Menu').default;
-const ChevronLeftIcon = require('@material-ui/icons/ChevronLeft').default;
-const ChevronRightIcon = require('@material-ui/icons/ChevronRight').default;
 const Home = require('@material-ui/icons/Home').default;
 const Share = require('@material-ui/icons/Share').default;
 const VideogameAsset = require('@material-ui/icons/VideogameAsset').default;
@@ -23,7 +20,6 @@ const ListItemIcon = require('@material-ui/core/ListItemIcon').default;
 const ListItemText = require('@material-ui/core/ListItemText').default;
 const React = require('react');
 const { useState } = require('react');
-const { useTheme } = require('@material-ui/core/styles');
 const Grid = require('@material-ui/core/Grid').default;
 const PropTypes = require('prop-types');
 const useStyles = require('./menuStyles');
@@ -31,15 +27,14 @@ const github = require('../assets/github-logo.svg');
 
 const ToolbarMenu = ({ children }) => {
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const toggleDrawer = openMenu => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
 
-  const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(openMenu);
   };
 
   const share = () => {
@@ -73,15 +68,14 @@ const ToolbarMenu = ({ children }) => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, { [classes.appBarShift]: open })}
       >
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={toggleDrawer(true)}
             edge="start"
-            className={clsx(classes.menuButton, { [classes.hide]: open })}
+            className={classes.menuButton}
           >
             <MenuIcon />
           </IconButton>
@@ -110,55 +104,51 @@ LEARN
         </Toolbar>
       </AppBar>
       <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open, [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({ [classes.drawerOpen]: open, [classes.drawerClose]: !open }),
-        }}
         open={open}
+        onClose={toggleDrawer(false)}
       >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+        <div
+          className={classes.list}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <Divider />
+          <List>
+            <Link className={classes.link} to="/">
+              <Tooltip title="Home">
+                <ListItem button>
+                  <ListItemIcon><Home /></ListItemIcon>
+                  <ListItemText primary="Home" />
+                </ListItem>
+              </Tooltip>
+            </Link>
+            <Link className={classes.link} to="/math/drill">
+              <Tooltip title="Drill">
+                <ListItem button>
+                  <ListItemIcon><VideogameAsset /></ListItemIcon>
+                  <ListItemText primary="Drill" />
+                </ListItem>
+              </Tooltip>
+            </Link>
+            <Link className={classes.link} to="/math/score">
+              <Tooltip title="Score">
+                <ListItem button>
+                  <ListItemIcon><Score /></ListItemIcon>
+                  <ListItemText primary="Score" />
+                </ListItem>
+              </Tooltip>
+            </Link>
+            <Link className={classes.link} to="/help">
+              <Tooltip title="Help">
+                <ListItem button>
+                  <ListItemIcon><Help /></ListItemIcon>
+                  <ListItemText primary="Help" />
+                </ListItem>
+              </Tooltip>
+            </Link>
+          </List>
         </div>
-        <Divider />
-        <List>
-          <Link className={classes.link} to="/">
-            <Tooltip title="Home">
-              <ListItem button>
-                <ListItemIcon><Home /></ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItem>
-            </Tooltip>
-          </Link>
-          <Link className={classes.link} to="/math/drill">
-            <Tooltip title="Drill">
-              <ListItem button>
-                <ListItemIcon><VideogameAsset /></ListItemIcon>
-                <ListItemText primary="Drill" />
-              </ListItem>
-            </Tooltip>
-          </Link>
-          <Link className={classes.link} to="/math/score">
-            <Tooltip title="Score">
-              <ListItem button>
-                <ListItemIcon><Score /></ListItemIcon>
-                <ListItemText primary="Score" />
-              </ListItem>
-            </Tooltip>
-          </Link>
-          <Link className={classes.link} to="/help">
-            <Tooltip title="Help">
-              <ListItem button>
-                <ListItemIcon><Help /></ListItemIcon>
-                <ListItemText primary="Help" />
-              </ListItem>
-            </Tooltip>
-          </Link>
-        </List>
         <Divider />
         {shareComponent()}
       </Drawer>
