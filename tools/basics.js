@@ -7,16 +7,16 @@ const fse = require('fs-extra');
 const path = require('path');
 
 const allPairs = () => {
-  const numbers = [...Array(12).keys()].map((a) => a + 1);
+  const numbers = [...Array(12).keys()].map(a => a + 1);
 
   const m = numbers.reduce((acc, num) => {
-    const pairs = numbers.map((a) => ([a, num]));
+    const pairs = numbers.map(a => ([a, num]));
     return acc.concat(pairs);
   }, []);
 
 
   const d = numbers.reduce((acc, num) => {
-    const pairs = numbers.map((a) => ([a * num, num]));
+    const pairs = numbers.map(a => ([a * num, num]));
     return acc.concat(pairs);
   }, []);
 

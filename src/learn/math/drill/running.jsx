@@ -43,7 +43,7 @@ function running(props) {
           {`Level: ${alphabet[levelIndex]}`}
         </span>
         <span style={spanStyle}>
-          {`Operation(s): ${opIndexes.map((i) => operations[i]).join()}`}
+          {`Operation(s): ${opIndexes.map(i => operations[i]).join()}`}
         </span>
       </div>
       <div>

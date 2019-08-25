@@ -19,7 +19,7 @@ const badgeBoundaries = [
 ];
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
@@ -36,7 +36,8 @@ function badgeTotals(props) {
       {
         totals.map((total, colorIndex) => {
           const key = colorText[colorIndex];
-          const primaryText = `${key} Badge(s) - ${badgeBoundaries[colorIndex]}`;
+          const primaryText = `${key} Badge(s)`;
+          const secondaryText = badgeBoundaries[colorIndex];
 
           return (
             <List key={key} className={classes.root}>
@@ -44,7 +45,7 @@ function badgeTotals(props) {
                 <ListItemAvatar>
                   <Badge color={colorIndex} content={total.toString()} />
                 </ListItemAvatar>
-                <ListItemText primary={primaryText} />
+                <ListItemText primary={primaryText} secondary={secondaryText} />
               </ListItem>
               <Divider variant="inset" component="li" />
             </List>

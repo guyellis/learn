@@ -1,6 +1,7 @@
 const Fab = require('@material-ui/core/Fab').default;
 const PropTypes = require('prop-types');
-const Button = require('@material-ui/core/Button').default;
+const Paper = require('@material-ui/core/Paper').default;
+const { makeStyles } = require('@material-ui/core/styles');
 const React = require('react');
 const TextField = require('@material-ui/core/TextField').default;
 const Switch = require('@material-ui/core/Switch').default;
@@ -9,6 +10,7 @@ const FormControlLabel = require('@material-ui/core/FormControlLabel').default;
 const { Send } = require('@material-ui/icons');
 const Tooltip = require('@material-ui/core/Tooltip').default;
 const Typography = require('@material-ui/core/Typography').default;
+const Grid = require('@material-ui/core/Grid').default;
 const constants = require('../../common/constants');
 
 const {
@@ -21,11 +23,28 @@ const buttonStyle = {
   fontSize: '2em',
 };
 
-const sectionStyle = {
-  marginTop: '30px',
-};
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(3, 2),
+    marginTop: 10,
+  },
+  form: { marginTop: 20 },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 300,
+  },
+  fab: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+  optionsSection: { marginTop: 10 },
+}));
 
 function options(props) {
+  const classes = useStyles();
   const {
     largeKeyboard,
     levelIndex,
@@ -60,14 +79,15 @@ function options(props) {
       <Typography variant="h2" gutterBottom>
 Drill
       </Typography>
-      <div style={sectionStyle}>
-        <Typography variant="h4" gutterBottom>
-Level
-        </Typography>
+      <Paper className={classes.root}>
         <div>
-          {
+          <Typography variant="h4" gutterBottom>
+Level
+          </Typography>
+          <div>
+            {
             alphabet.map((letter, index) => (
-              <Tooltip title={letter}>
+              <Tooltip key={letter} title={letter}>
                 <Fab
                   key={letter}
                   onClick={() => setParentState({ levelIndex: index })}
@@ -79,16 +99,16 @@ Level
               </Tooltip>
             ))
           }
+          </div>
         </div>
-      </div>
-      <div style={sectionStyle}>
-        <Typography variant="h4" gutterBottom>
-Operation
-        </Typography>
         <div>
-          {
+          <Typography variant="h4" gutterBottom>
+Operation
+          </Typography>
+          <div>
+            {
             operations.map((operation, index) => (
-              <Tooltip title={operation}>
+              <Tooltip key={operation} title={operation}>
                 <Fab
                   key={operation}
                   onClick={() => toggleOpIndex(index)}
@@ -100,62 +120,71 @@ Operation
               </Tooltip>
             ))
           }
+          </div>
         </div>
-      </div>
-      <div style={sectionStyle}>
-        <h3>
-Time
-        </h3>
-        <TextField
-          label="Time"
-          helperText="1"
-          id="time-minutes"
-          name="minutes"
-          onChange={onChange}
-          style={{ width: 100, marginLeft: 20 }}
-          type="number"
-          value={minutes}
-        />
-      </div>
-      <div style={sectionStyle}>
-        <h3>
-Total Questions (you only get badges for 10 or more correct questions)
-        </h3>
-        <TextField
-          label="Total Questions"
-          helperText="20"
-          id="total-problems"
-          name="totalProblems"
-          onChange={onChange}
-          style={{ width: 150, marginLeft: 40 }}
-          type="number"
-          value={totalProblems}
-        />
-      </div>
-      <div style={sectionStyle}>
-        <h3>
-Keyboard
-        </h3>
-        <FormGroup row>
-          <FormControlLabel
-            control={(
-              <Switch
-                name="onscreenKeyboard"
-                onChange={onChange}
-                color="primary"
-                checked={onscreenKeyboard}
-              />
+      </Paper>
+      <div className={classes.optionsSection}>
+        <Typography variant="h4" gutterBottom>
+Options
+        </Typography>
+        <Grid className={classes.form} container spacing={3}>
+          <Grid item xs>
+            <TextField
+              label="Time"
+              placeholder="1"
+              className={classes.textField}
+              required
+              id="time-minutes"
+              name="minutes"
+              onChange={onChange}
+              type="number"
+              value={minutes}
+            />
+          </Grid>
+          <Grid item xs>
+            <TextField
+              label="Total Questions"
+              helperText="You only get badges for 10 or more correct questions"
+              placeholder="20"
+              required
+              className={classes.textField}
+              id="total-problems"
+              name="totalProblems"
+              onChange={onChange}
+              type="number"
+              value={totalProblems}
+            />
+          </Grid>
+          <Grid item xs>
+            <TextField
+              label="Your Name"
+              helperText="Jemima Puddle-Duck"
+              id="user-name"
+              name="userName"
+              className={classes.textField}
+              onChange={onChange}
+              type="text"
+              value={userName}
+            />
+          </Grid>
+          <Grid item xs>
+            <FormGroup row>
+              <FormControlLabel
+                control={(
+                  <Switch
+                    name="onscreenKeyboard"
+                    onChange={onChange}
+                    color="primary"
+                    checked={onscreenKeyboard}
+                  />
 )}
-            label="Use onscreen keyboard"
-          />
-        </FormGroup>
-      </div>
-      {onscreenKeyboard
+                label="Use onscreen keyboard"
+              />
+            </FormGroup>
+          </Grid>
+          {onscreenKeyboard
         && (
-        <div style={sectionStyle}>
-          <h3>
-Large Keyboard
-          </h3>
+        <Grid item xs>
           <FormGroup row>
             <FormControlLabel
               control={(
@@ -169,30 +198,30 @@ Large Keyboard
               label="Large Keyboard"
             />
           </FormGroup>
-        </div>
+        </Grid>
         )}
-      <div style={sectionStyle}>
-        <h3>
-Your Name (Optional)
-        </h3>
-        <TextField
-          label="Your Name"
-          helperText="Jemima Puddle-Duck"
-          id="user-name"
-          name="userName"
-          onChange={onChange}
-          style={{ width: 250, marginLeft: 40 }}
-          type="text"
-          value={userName}
-        />
-      </div>
-      <div style={sectionStyle}>
-        <Button variant="contained" color="primary" onClick={onStart}>
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="flex-end"
+          alignItems="center"
+        >
+          <Tooltip title="Start">
+            <Fab
+              color="primary"
+              variant="extended"
+              aria-label="start"
+              className={classes.fab}
+              onClick={onStart}
+            >
+              <Send className={classes.extendedIcon} />
 Start
-          <Send />
-        </Button>
+            </Fab>
+          </Tooltip>
+        </Grid>
       </div>
-      <div style={sectionStyle} />
+      <Grid />
     </div>
   );
 }

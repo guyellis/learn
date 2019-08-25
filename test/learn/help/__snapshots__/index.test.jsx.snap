@@ -1,115 +1,217 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Help should render the Help component 1`] = `
-Array [
-  <h3>
-    Help with Math Drill
-  </h3>,
-  <h4>
+<div>
+  <h2
+    className="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"
+  >
+    Help
+  </h2>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Options
-  </h4>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     Configure the options for the test. These options get saved in your browser so if you visit this page again with the same browser then the settings will be as you last left them.
-  </p>,
-  <p>
+    <br />
     The scores and badges are also saved in the browser. There is no server or database for this app. Everything happens on your device and in the browser and that's where all the data lives as well. If you use a different browser you will start from fresh. If you share your browser with somebody they'll have your settings and scores.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Level
-  </h5>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     There are 26 levels from A to Z. If you select a different level the previous one will be deselected. All levels are cumulative meaning that, for example on level E you will also get questions from levels A through D. The questions are randomly weighted towards the higher level you select. That means that if you select level E there will probably be more questions from this level than level D and there will be more from level D than from C etc.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Operation
-  </h5>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     The four operators Addition, Subtraction, Multiplication and Division can be selected in any combination. At least one of them needs to be selected and all four can be selected as well.
-  </p>,
-  <p>
+    <br />
     Because all Operations can be selected and because the Levels are cumulative you can get all four operations with all levels by selecting all the Operators and Level Z.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Time
-  </h5>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     The time is expressed in minutes and will stop the test after this time period has elapsed. Fractions of a minute can be used to refine the time. Time is not really important if you are collecting badges (see below) because average time becomes the deciding factor so setting this to a high value is okay.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Total Questions
-  </h5>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     This is the total number of questions that will be asked. The test will end once this number of questions have been correctly answered. If a question is not correctly answered then the test will remain on that question until it is complete.
-  </p>,
-  <p>
+    <br />
     If you want to collect badges for completed tests you must answer at least ten questions in each test.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Keyboard
-  </h5>,
-  <p>
-    If you're doing this on a touch device like a smart phone or tablet the the onscreen keyboard is the easiest to use. It's a simple keyboard that has all
-the functionality you need.
-  </p>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    If you're doing this on a touch device like a smart phone or tablet the the onscreen keyboard is the easiest to use. It's a simple keyboard that has all the functionality you need.
+    <br />
     If you doing this from a desktop computer or laptop then switching this off is probably going to be easier.
-  </p>,
-  <p>
+    <br />
     Try them both and see which one works best for you.
-  </p>,
-  <h5>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Large Keyboard
-  </h5>,
-  <p>
-    This will only show up if you have selected "onscreen keyboard." Selecting this option will increase the size of the onscreen keyboard. It seems to make it easier for kids to use a larger keyboard sometimes.
-  </p>,
-  <h5>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    This will only show up if you have selected “onscreen keyboard.“ Selecting this option will increase the size of the onscreen keyboard. It seems to make it easier for kids to use a larger keyboard sometimes.
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Your Name
-  </h5>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     This is entirely optional.
-  </p>,
-  <h3>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Running
-  </h3>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     Once you start running the test you will see the Level, Operation(s) Time Left and Questions Remaining at the top of the screen.
-  </p>,
-  <p>
+    <br />
     The current question will be presented right below that with a ? in a green box where the answer will go.
-  </p>,
-  <p>
+    <br />
     Answering a question correctly will advance to the next question until they are all completed or until time runs out.
-  </p>,
-  <p>
+    <br />
     After you have started answering questions two more pieces of information will be presented under the question. The result of the previous question you answered and your current speed versus the record (if there is one).
-  </p>,
-  <h3>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Finished
-  </h3>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     Once you have completed answering all your questions you'll see the results on the Finished page.
-  </p>,
-  <p>
+    <br />
     If you have earned a new badge you will see that here as well.
-  </p>,
-  <p>
+    <br />
     There is also a summary of the question you answered quickest, slowest and all your results if you want to review them.
-  </p>,
-  <h1>
+  </p>
+  <div
+    className="makeStyles-divider-1"
+  >
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
     Scoreboard
-  </h1>,
-  <p>
+  </h5>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
     The scoreboard is fairly obvious.
-  </p>,
-  <p>
+    <br />
     There is a summary at the top showing all the badges you have earned.
-  </p>,
-  <p>
+    <br />
     Below that is a table showing badges by level and operation.
-  </p>,
-  <p>
+    <br />
     For now badges are only awarded for single-operation tests.
-  </p>,
-]
+  </p>
+</div>
 `;

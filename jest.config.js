@@ -10,6 +10,7 @@ module.exports = {
     '!**/postcss.config.js',
     '!**/public/**',
     '!**/src/dev/**',
+    '!**/src/assets/**',
     '!**/src/index.jsx',
     '!**/src/tester.jsx',
     '!**/test/**',
@@ -27,5 +28,6 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/test/_setup.js'],
   transform: {
     '.+\\.(j|t)sx?$': 'ts-jest',
+    '^.+\\.svg$': '<rootDir>/test/svgTransform.js',
   },
 };

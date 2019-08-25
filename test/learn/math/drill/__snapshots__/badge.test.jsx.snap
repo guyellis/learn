@@ -1,33 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Badge should be rendered 1`] = `
-<button
-  className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
-  disabled={false}
+<div
+  aria-describedby={null}
+  className="MuiAvatar-root MuiAvatar-colorDefault"
   onBlur={[Function]}
-  onDragLeave={[Function]}
   onFocus={[Function]}
-  onKeyDown={[Function]}
-  onKeyUp={[Function]}
-  onMouseDown={[Function]}
   onMouseLeave={[Function]}
-  onMouseUp={[Function]}
+  onMouseOver={[Function]}
   onTouchEnd={[Function]}
-  onTouchMove={[Function]}
   onTouchStart={[Function]}
   style={
     Object {
-      "fontSize": "1.5em",
-      "margin": "5px",
+      "backgroundColor": "#fbc02d",
     }
   }
-  tabIndex={0}
-  type="button"
+  title="+ Gold"
 >
-  <span
-    className="MuiFab-label"
-  >
-    +
-  </span>
-</button>
+  +
+</div>
 `;

@@ -41,7 +41,7 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   const opIndex = opIndexes[Math.floor(Math.random() * opIndexes.length)];
 
   // Pick a collection of levels based on the opIndex
-  const levels = levelOps[opIndex].filter((level) => !!level.length);
+  const levels = levelOps[opIndex].filter(level => !!level.length);
   // Some of the last few levels are intentionally empty because it's just a repeat of
   // the final level that has values.
   const levelIndex = Math.min(levels.length, levelIndexParam);
@@ -77,7 +77,7 @@ function getCurrentRecord(levelIndex, opIndexes) {
   const existingScores = db.getScores() || [];
   const key = createKey(levelIndex, opIndexes);
 
-  const matchingProblems = existingScores.filter((score) => score.key === key)
+  const matchingProblems = existingScores.filter(score => score.key === key)
     .sort((a, b) => a.timePerQuestion - b.timePerQuestion);
   return matchingProblems[0];
 }

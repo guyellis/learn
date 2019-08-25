@@ -51,11 +51,11 @@ const ToolbarMenu = ({ children }) => {
     // eslint-disable-next-line no-console
       .then(() => console.log('Successful share'))
     // eslint-disable-next-line no-console
-      .catch((error) => console.log('Error sharing', error));
+      .catch(error => console.log('Error sharing', error));
   };
 
   const shareComponent = () => {
-    if (navigator.share) {
+    if (!navigator.share) {
       return null;
     }
     return (
@@ -175,7 +175,8 @@ ToolbarMenu.defaultProps = {
 };
 
 ToolbarMenu.propTypes = {
-  children: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  children: PropTypes.object,
 };
 
 module.exports = ToolbarMenu;
