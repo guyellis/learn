@@ -1,5 +1,7 @@
 const PropTypes = require('prop-types');
 const React = require('react');
+const Grid = require('@material-ui/core/Grid').default;
+const Box = require('@material-ui/core/Box').default;
 const constants = require('../../common/constants');
 const QuizLine = require('./quiz-line');
 const RunningResults = require('./running-results');
@@ -29,31 +31,95 @@ function running(props) {
     return null;
   }
 
-  const spanStyle = {
-    paddingLeft: 20,
-  };
-
   const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
   const lastResult = lastTen[0];
 
   return (
     <div>
-      <div>
-        <span style={spanStyle}>
-          {`Level: ${alphabet[levelIndex]}`}
-        </span>
-        <span style={spanStyle}>
-          {`Operation(s): ${opIndexes.map(i => operations[i]).join()}`}
-        </span>
-      </div>
-      <div>
-        <span style={spanStyle}>
-          {`Time Left: ${timeLeft} seconds`}
-        </span>
-        <span style={spanStyle}>
-          {`Questions Remaining: ${questionsRemaining}`}
-        </span>
-      </div>
+      <Grid
+        container
+        direction="row"
+      >
+        <Grid item xs>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <div>
+              <Box fontSize={23} fontWeight="fontWeightLight" m={1}>
+Level:
+              </Box>
+            </div>
+            <div>
+              <Box fontSize={28} fontWeight="fontWeightBold" m={1}>
+                {alphabet[levelIndex]}
+              </Box>
+            </div>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <div>
+              <Box fontSize={23} fontWeight="fontWeightLight" m={1}>
+Operation(s):
+              </Box>
+            </div>
+            <div>
+              <Box fontSize={28} fontWeight="fontWeightBold" m={1}>
+                {opIndexes.map(i => operations[i]).join()}
+              </Box>
+            </div>
+          </Grid>
+        </Grid>
+
+        <Grid item xs>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <div>
+              <Box fontSize={23} fontWeight="fontWeightLight" m={1}>
+Time Left:
+              </Box>
+            </div>
+            <div>
+              <Box fontSize={28} fontWeight="fontWeightBold" m={1}>
+                {`${timeLeft}`}
+              </Box>
+            </div>
+            <div>
+              <Box fontSize={16} fontWeight="fontWeightLight" m={1}>
+seconds
+              </Box>
+            </div>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <div>
+              <Box fontSize={23} fontWeight="fontWeightLight" m={1}>
+Questions Remaining:
+              </Box>
+            </div>
+            <div>
+              <Box fontSize={28} fontWeight="fontWeightBold" m={1}>
+                {questionsRemaining}
+              </Box>
+            </div>
+          </Grid>
+        </Grid>
+
+      </Grid>
       <div>
         <QuizLine
           checkAnswer={checkAnswer}
