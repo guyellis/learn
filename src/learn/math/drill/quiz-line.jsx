@@ -3,6 +3,9 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const TextField = require('@material-ui/core/TextField').default;
 const { Done } = require('@material-ui/icons');
+const Tooltip = require('@material-ui/core/Tooltip').default;
+const Grid = require('@material-ui/core/Grid').default;
+const Typography = require('@material-ui/core/Typography').default;
 const Keyboard = require('./keyboard');
 const constants = require('../../common/constants');
 const RunningResults = require('./running-results');
@@ -20,6 +23,10 @@ const checkStyle = {
 
 const inputStyle = {
   textAlign: 'center',
+};
+
+const extendedIcon = {
+  marginRight: '10',
 };
 
 const answerStyle = {
@@ -40,10 +47,6 @@ const lastResultCorrectStyle = {
 
 const lastResultIncorrectStyle = { ...lastResultCorrectStyle, border: 'medium solid red' };
 
-const quizLineStyle = {
-  marginTop: '10px',
-  marginBottom: '10px',
-};
 
 class QuizLine extends React.Component {
   constructor() {
@@ -131,20 +134,12 @@ class QuizLine extends React.Component {
   renderLastResult() {
     const { lastResult } = this.props;
     if (!lastResult) {
-      const divStyle = {
-
-        ...lastResultCorrectStyle,
-        paddingBottom: '5px',
-        paddingLeft: '10px',
-        paddingRight: '10px',
-        paddingTop: '5px',
-        display: 'block',
-      };
-
       return (
-        <div style={divStyle}>
-          {'Ready for your first answer...'}
-        </div>
+        <Grid container justify="flex-start" alignItems="center">
+          <Typography variant="h5">
+          Ready for your first answer!
+          </Typography>
+        </Grid>
       );
     }
     const { actuals, task } = lastResult;
@@ -169,7 +164,7 @@ class QuizLine extends React.Component {
     const operator = operations[opIndex];
     return (
       <div>
-        <div style={quizLineStyle}>
+        <Grid container justify="flex-start" alignItems="center">
           <span style={numberStyle}>
             {left}
           </span>
@@ -205,13 +200,15 @@ class QuizLine extends React.Component {
           {
             !onscreenKeyboard
             && (
-            <Fab onClick={this.checkAnswer} style={checkStyle}>
-              <Done />
-Check Answer
-            </Fab>
+              <Tooltip title="Check Answer">
+                <Fab variant="extended" onClick={this.checkAnswer} style={checkStyle}>
+                  <Done style={extendedIcon} />
+Check
+                </Fab>
+              </Tooltip>
             )
           }
-        </div>
+        </Grid>
         {this.renderLastResult()}
         {this.renderNewRecord()}
         <div>

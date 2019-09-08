@@ -3,12 +3,7 @@
 exports[`Badge totals should be rendered 1`] = `
 <div>
   <div
-    style={
-      Object {
-        "marginBottom": "10px",
-        "marginTop": "10px",
-      }
-    }
+    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
   >
     <span
       style={
@@ -80,7 +75,8 @@ exports[`Badge totals should be rendered 1`] = `
       </div>
     </div>
     <button
-      className="MuiButtonBase-root MuiFab-root"
+      aria-describedby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-extended"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -90,6 +86,7 @@ exports[`Badge totals should be rendered 1`] = `
       onKeyUp={[Function]}
       onMouseDown={[Function]}
       onMouseLeave={[Function]}
+      onMouseOver={[Function]}
       onMouseUp={[Function]}
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
@@ -100,6 +97,7 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
+      title="Check Answer"
       type="button"
     >
       <span
@@ -110,30 +108,32 @@ exports[`Badge totals should be rendered 1`] = `
           className="MuiSvgIcon-root"
           focusable="false"
           role="presentation"
+          style={
+            Object {
+              "marginRight": "10",
+            }
+          }
           viewBox="0 0 24 24"
         >
           <path
             d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
           />
         </svg>
-        Check Answer
+        Check
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </div>
   <div
-    style={
-      Object {
-        "border": "medium solid green",
-        "borderRadius": "5px",
-        "display": "block",
-        "paddingBottom": "5px",
-        "paddingLeft": "10px",
-        "paddingRight": "10px",
-        "paddingTop": "5px",
-      }
-    }
+    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
   >
-    Ready for your first answer...
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+    >
+      Ready for your first answer!
+    </h5>
   </div>
   <div>
     <div
