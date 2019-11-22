@@ -44,7 +44,7 @@
     "react-test-renderer": "16.8.6",
     "source-map-loader": "0.2.4",
     "style-loader": "1.0.0",
-    "ts-jest": "24.1.0",
+    "ts-jest": "24.2.0",
     "typescript": "3.5.3",
     "url-loader": "2.3.0",
     "webpack-dev-server": "3.9.0"
