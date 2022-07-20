@@ -12,7 +12,7 @@
     "lodash": "4.17.21",
     "material-ui": "0.20.2",
     "mini-css-extract-plugin": "0.8.0",
-    "moment": "2.29.2",
+    "moment": "2.29.4",
     "node-sass": "4.13.1",
     "prop-types": "15.7.2",
     "react": "16.9.0",
