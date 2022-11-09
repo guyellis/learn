@@ -37,7 +37,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.14.3",
     "file-loader": "5.0.2",
-    "jest": "24.9.0",
+    "jest": "29.3.1",
     "postcss-loader": "3.0.0",
     "pre-commit": "1.2.2",
     "react-hot-loader": "4.12.18",
