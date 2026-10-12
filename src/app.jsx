@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import {
-  Route, Switch,
+  Route, Routes,
 } from 'react-router-dom';
 import Menu from './learn/menu.jsx';
 
@@ -13,15 +13,15 @@ const NotFound = lazy(() => import('./learn/not-found.jsx'));
 function app() {
   return (
     <div>
-      <Route path="/" component={Menu} />
+      <Menu />
       <Suspense fallback={<div>Loading...</div>}>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/math/drill" exact component={Drill} />
-          <Route path="/math/score" exact component={Scoreboard} />
-          <Route path="/help" exact component={Help} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/math/drill" element={<Drill />} />
+          <Route path="/math/score" element={<Scoreboard />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Suspense>
     </div>
   );

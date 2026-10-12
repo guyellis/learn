@@ -16,7 +16,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-markdown": "8.0.7",
-    "react-router-dom": "5.1.2"
+    "react-router-dom": "7.18.4"
   },
   "description": "Experimental learning exercises for my kids",
   "devDependencies": {
