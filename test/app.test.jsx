@@ -59,8 +59,9 @@ describe('App', () => {
     expect(component.toJSON()).toBeDefined();
   });
 
-  test('should redirect unknown route to home', async () => {
+  test('should render the NotFound component for unknown route', async () => {
     const component = await renderApp('/unknown');
+    expect(component.root.findByProps({ alt: '404 Page Not Found' })).toBeDefined();
     const app = component.toJSON();
     expect(app).toMatchSnapshot();
   });

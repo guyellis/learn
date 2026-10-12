@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import {
-  Route, Redirect, Switch,
+  Route, Switch,
 } from 'react-router-dom';
 import Menu from './learn/menu.jsx';
 
@@ -8,6 +8,7 @@ const Drill = lazy(() => import('./learn/math/drill/index.jsx'));
 const Help = lazy(() => import('./learn/help/index.jsx'));
 const Home = lazy(() => import('./learn/home.jsx'));
 const Scoreboard = lazy(() => import('./learn/math/drill/scoreboard.jsx'));
+const NotFound = lazy(() => import('./learn/not-found.jsx'));
 
 function app() {
   return (
@@ -19,7 +20,7 @@ function app() {
           <Route path="/math/drill" exact component={Drill} />
           <Route path="/math/score" exact component={Scoreboard} />
           <Route path="/help" exact component={Help} />
-          <Redirect to="/" />
+          <Route component={NotFound} />
         </Switch>
       </Suspense>
     </div>
