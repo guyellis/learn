@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { Temporal } from '@js-temporal/polyfill';
 import React from 'react';
 import db from '../../db/index.js';
 import Finished from './finished.jsx';
@@ -60,7 +60,8 @@ class MathDrill extends React.Component {
     const {
       endTime,
     } = this.state;
-    const timeLeft = Math.round(endTime.diff(moment()) / 1000);
+    const endInstant = helper.toInstant(endTime);
+    const timeLeft = Math.round(endInstant.since(Temporal.Now.instant()).total({ unit: 'second' }));
     if (timeLeft <= 0) {
       this.endQuiz({ timeLeft });
     } else {
@@ -79,8 +80,8 @@ class MathDrill extends React.Component {
       totalProblems,
     } = this.state;
     const seconds = parseFloat(minutes, 10) * 60;
-    const startTime = moment();
-    const endTime = moment().add(seconds, 'seconds');
+    const startTime = Temporal.Now.instant();
+    const endTime = startTime.add(Temporal.Duration.from({ seconds }));
     const timerId = setInterval(this.onInterval, 1000);
     const currentRecord = helper.getCurrentRecord(levelIndex, opIndexes);
     this.setState({
@@ -162,13 +163,16 @@ class MathDrill extends React.Component {
       let { correctCount = 0, totalCount } = this.state;
       totalCount += 1;
       let { previousTime = startTime } = this.state;
-      const timeTaken = parseFloat((moment().diff(previousTime) / 1000).toFixed(1));
+      const prevInstant = helper.toInstant(previousTime);
+      const timeTaken = parseFloat(
+        Temporal.Now.instant().since(prevInstant).total({ unit: 'second' }).toFixed(1),
+      );
 
       const [,,, expected] = task;
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
-        previousTime = moment();
+        previousTime = Temporal.Now.instant();
       }
       // If first time wrong then push onto previousResults
       // otherwise replace last element in previousResults

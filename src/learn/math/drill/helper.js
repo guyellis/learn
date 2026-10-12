@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { Temporal } from '@js-temporal/polyfill';
 import db from '../../db/index.js';
 import constants from '../../common/constants.js';
 import { levelOps } from './helper-problems.js';
@@ -271,8 +271,25 @@ function getScoreboard() {
   };
 }
 
+function toInstant(value) {
+  if (!value) {
+    return Temporal.Instant.fromEpochMilliseconds(0);
+  }
+  if (value instanceof Temporal.Instant) {
+    return value;
+  }
+  if (typeof value === 'number') {
+    return Temporal.Instant.fromEpochMilliseconds(value);
+  }
+  if (value instanceof Date) {
+    return Temporal.Instant.fromEpochMilliseconds(value.getTime());
+  }
+  return Temporal.Instant.from(value);
+}
+
 function currentTimePerQuestion({ previousResults, startTime }) {
-  const timeElapsed = moment().diff(startTime) / 1000;
+  const startInstant = toInstant(startTime);
+  const timeElapsed = Temporal.Now.instant().since(startInstant).total({ unit: 'second' });
   const correctQuestions = previousResults.reduce((acc, result) => {
     // result: {"task":[1,3,0,4],"actuals":[4],"timeTaken":2.5,"id":0}
     const { task, actuals } = result;
@@ -312,6 +329,7 @@ export {
   getScoreBarTimes,
   getScoreboard,
   newRecord,
+  toInstant,
 };
 
 const helper = {
@@ -324,6 +342,7 @@ const helper = {
   getScoreBarTimes,
   getScoreboard,
   newRecord,
+  toInstant,
 };
 
 export default helper;

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ScoreBar from '../../../../src/learn/math/drill/score-bar.jsx';
+import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.jsx';
 
 function mockDates(times) {
   Date.now = vi.fn();
@@ -100,5 +100,58 @@ describe('ScoreBar', () => {
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
+  });
+
+  describe('formatFromNow', () => {
+    const base = 1506395542848;
+
+    test('should format seconds as a few seconds ago', () => {
+      Date.now = vi.fn(() => base + 1000 * 10);
+      expect(formatFromNow(base)).toBe('a few seconds ago');
+    });
+
+    test('should format 1 minute as a minute ago', () => {
+      Date.now = vi.fn(() => base + 1000 * 60);
+      expect(formatFromNow(base)).toBe('a minute ago');
+    });
+
+    test('should format multiple minutes', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 15);
+      expect(formatFromNow(base)).toBe('15 minutes ago');
+    });
+
+    test('should format 1 hour as an hour ago', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60);
+      expect(formatFromNow(base)).toBe('an hour ago');
+    });
+
+    test('should format multiple hours', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 5);
+      expect(formatFromNow(base)).toBe('5 hours ago');
+    });
+
+    test('should format 1 day as a day ago', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24);
+      expect(formatFromNow(base)).toBe('a day ago');
+    });
+
+    test('should format multiple days', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24 * 7);
+      expect(formatFromNow(base)).toBe('7 days ago');
+    });
+
+    test('should format months', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24 * 35);
+      expect(formatFromNow(base)).toBe('a month ago');
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24 * 65);
+      expect(formatFromNow(base)).toBe('2 months ago');
+    });
+
+    test('should format years', () => {
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24 * 370);
+      expect(formatFromNow(base)).toBe('a year ago');
+      Date.now = vi.fn(() => base + 1000 * 60 * 60 * 24 * 750);
+      expect(formatFromNow(base)).toBe('2 years ago');
+    });
   });
 });
