@@ -21,6 +21,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "1.5em",
@@ -37,6 +38,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <span>
@@ -58,6 +64,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "1.5em",
@@ -74,6 +81,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <span>
@@ -95,6 +107,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "1.5em",
@@ -111,6 +124,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <span>
@@ -132,6 +150,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "1.5em",
@@ -148,6 +167,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <span>
@@ -157,6 +181,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
   </div>
   <div
     className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+    ref={null}
     style={
       {
         "width": "100%",
@@ -165,16 +190,20 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
   >
     <table
       className="MuiTable-root"
+      ref={null}
     >
       <thead
         className="MuiTableHead-root"
+        ref={null}
       >
         <tr
           className="MuiTableRow-root MuiTableRow-head"
+          ref={null}
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head"
+            ref={null}
             scope="col"
           >
             Level
@@ -182,6 +211,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head"
+            ref={null}
             scope="col"
           >
             Addition
@@ -190,13 +220,16 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
       </thead>
       <tbody
         className="MuiTableBody-root"
+        ref={null}
       >
         <tr
           className="MuiTableRow-root"
+          ref={null}
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body"
+            ref={null}
             scope="row"
           >
             A
@@ -204,6 +237,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body"
+            ref={null}
           >
             <span>
               <button
@@ -220,6 +254,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
                 onTouchEnd={[Function]}
                 onTouchMove={[Function]}
                 onTouchStart={[Function]}
+                ref={[Function]}
                 style={
                   {
                     "fontSize": "1.5em",
@@ -236,6 +271,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
                 </span>
                 <span
                   className="MuiTouchRipple-root"
+                  ref={
+                    {
+                      "current": null,
+                    }
+                  }
                 />
               </button>
             </span>
@@ -267,6 +307,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -277,6 +318,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>

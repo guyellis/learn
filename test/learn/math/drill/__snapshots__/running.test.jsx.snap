@@ -140,6 +140,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
         <div
           className="MuiFormControl-root MuiTextField-root"
           onKeyPress={[Function]}
+          ref={null}
           style={
             {
               "textAlign": "center",
@@ -149,6 +150,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           <div
             className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
             onClick={[Function]}
+            ref={null}
           >
             <input
               aria-invalid={false}
@@ -160,6 +162,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              ref={[Function]}
               required={false}
               type="number"
               value=""
@@ -181,6 +184,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          ref={[Function]}
           style={
             {
               "margin": "10px",
@@ -196,6 +200,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               aria-hidden="true"
               className="MuiSvgIcon-root"
               focusable="false"
+              ref={null}
               role="presentation"
               viewBox="0 0 24 24"
             >
@@ -207,6 +212,11 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           </span>
           <span
             className="MuiTouchRipple-root"
+            ref={
+              {
+                "current": null,
+              }
+            }
           />
         </button>
       </div>
@@ -243,6 +253,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               onTouchEnd={[Function]}
               onTouchMove={[Function]}
               onTouchStart={[Function]}
+              ref={[Function]}
               style={
                 {
                   "fontSize": "1.5em",
@@ -259,6 +270,11 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               </span>
               <span
                 className="MuiTouchRipple-root"
+                ref={
+                  {
+                    "current": null,
+                  }
+                }
               />
             </button>
             <span
@@ -378,6 +394,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          ref={[Function]}
           style={
             {
               "fontSize": "1.5em",
@@ -394,6 +411,11 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           </span>
           <span
             className="MuiTouchRipple-root"
+            ref={
+              {
+                "current": null,
+              }
+            }
           />
         </button>
         <span
@@ -608,6 +630,7 @@ exports[`Running > should render the Running component with highlighted params 1
         <div
           className="MuiFormControl-root MuiTextField-root"
           onKeyPress={[Function]}
+          ref={null}
           style={
             {
               "textAlign": "center",
@@ -617,6 +640,7 @@ exports[`Running > should render the Running component with highlighted params 1
           <div
             className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
             onClick={[Function]}
+            ref={null}
           >
             <input
               aria-invalid={false}
@@ -628,6 +652,7 @@ exports[`Running > should render the Running component with highlighted params 1
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              ref={[Function]}
               required={false}
               type="number"
               value=""
@@ -649,6 +674,7 @@ exports[`Running > should render the Running component with highlighted params 1
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          ref={[Function]}
           style={
             {
               "margin": "10px",
@@ -664,6 +690,7 @@ exports[`Running > should render the Running component with highlighted params 1
               aria-hidden="true"
               className="MuiSvgIcon-root"
               focusable="false"
+              ref={null}
               role="presentation"
               viewBox="0 0 24 24"
             >
@@ -675,6 +702,11 @@ exports[`Running > should render the Running component with highlighted params 1
           </span>
           <span
             className="MuiTouchRipple-root"
+            ref={
+              {
+                "current": null,
+              }
+            }
           />
         </button>
       </div>
@@ -711,6 +743,7 @@ exports[`Running > should render the Running component with highlighted params 1
               onTouchEnd={[Function]}
               onTouchMove={[Function]}
               onTouchStart={[Function]}
+              ref={[Function]}
               style={
                 {
                   "fontSize": "1.5em",
@@ -727,6 +760,11 @@ exports[`Running > should render the Running component with highlighted params 1
               </span>
               <span
                 className="MuiTouchRipple-root"
+                ref={
+                  {
+                    "current": null,
+                  }
+                }
               />
             </button>
             <span
@@ -846,6 +884,7 @@ exports[`Running > should render the Running component with highlighted params 1
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          ref={[Function]}
           style={
             {
               "fontSize": "1.5em",
@@ -862,6 +901,11 @@ exports[`Running > should render the Running component with highlighted params 1
           </span>
           <span
             className="MuiTouchRipple-root"
+            ref={
+              {
+                "current": null,
+              }
+            }
           />
         </button>
         <span

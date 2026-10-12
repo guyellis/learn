@@ -19,6 +19,7 @@ exports[`Finished Badge > should be rendered if multiple opIndexes 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "1.5em",
@@ -35,6 +36,11 @@ exports[`Finished Badge > should be rendered if multiple opIndexes 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </span>
@@ -63,6 +69,7 @@ exports[`Finished Badge > should be rendered on happy path 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "1.5em",
@@ -79,6 +86,11 @@ exports[`Finished Badge > should be rendered on happy path 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </span>

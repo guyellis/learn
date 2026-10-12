@@ -2,10 +2,20 @@ import './index.scss';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { BrowserRouter } from 'react-router-dom';
 import poly from './poly.js';
 import App from './app.jsx';
+
+if (!ReactDOM.findDOMNode) {
+  ReactDOM.findDOMNode = (node) => {
+    if (node == null) return null;
+    if (typeof Element !== 'undefined' && node instanceof Element) return node;
+    if (node.nodeType) return node;
+    return node._reactInternals?.stateNode || null;
+  };
+}
 
 const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 const theme = createMuiTheme({
@@ -77,13 +87,12 @@ poly(undefined, (err) => {
     console.error(err);
   }
 
-  ReactDOM.render(
-    (
-      <MuiThemeProvider theme={theme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </MuiThemeProvider>
-    ), document.querySelector('#app'),
+  const root = createRoot(document.querySelector('#app'));
+  root.render(
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </MuiThemeProvider>,
   );
 });

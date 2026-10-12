@@ -3,6 +3,7 @@
 exports[`Menu > should render a Menu component 1`] = `
 <div
   className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+  ref={null}
 >
   <a
     href="/"
@@ -22,6 +23,7 @@ exports[`Menu > should render a Menu component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -32,6 +34,11 @@ exports[`Menu > should render a Menu component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </a>
@@ -53,6 +60,7 @@ exports[`Menu > should render a Menu component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -63,6 +71,11 @@ exports[`Menu > should render a Menu component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </a>
@@ -84,6 +97,7 @@ exports[`Menu > should render a Menu component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -94,6 +108,11 @@ exports[`Menu > should render a Menu component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </a>
@@ -115,6 +134,7 @@ exports[`Menu > should render a Menu component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -125,6 +145,11 @@ exports[`Menu > should render a Menu component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </a>

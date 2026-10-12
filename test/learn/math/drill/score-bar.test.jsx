@@ -2,16 +2,17 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.jsx';
 
+const nowFn = Date.now;
+
 function mockDates(times) {
-  Date.now = vi.fn();
-  times.forEach((time) => {
-    const mockDate = time.date + time.dateMockDelta;
-    Date.now.mockImplementationOnce(() => mockDate);
+  let idx = 0;
+  Date.now = vi.fn(() => {
+    const time = times[Math.min(idx++, times.length - 1)];
+    return time ? time.date + time.dateMockDelta : nowFn();
   });
 }
 
 describe('ScoreBar', () => {
-  const nowFn = Date.now;
   afterAll(() => {
     Date.now = nowFn;
   });

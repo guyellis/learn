@@ -33,6 +33,7 @@ exports[`Home > should render a Home component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         tabIndex={0}
         title="Bugs and Issues"
         type="button"
@@ -44,6 +45,7 @@ exports[`Home > should render a Home component 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
+            ref={null}
             role="presentation"
             viewBox="0 0 24 24"
           >
@@ -54,6 +56,11 @@ exports[`Home > should render a Home component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </a>
@@ -77,6 +84,7 @@ exports[`Home > should render a Home component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         tabIndex={0}
         type="button"
       >
@@ -87,6 +95,11 @@ exports[`Home > should render a Home component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </a>
@@ -116,6 +129,7 @@ exports[`Home > should render a Home component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         tabIndex={0}
         type="button"
       >
@@ -126,6 +140,11 @@ exports[`Home > should render a Home component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </a>
@@ -155,6 +174,7 @@ exports[`Home > should render a Home component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         tabIndex={0}
         type="button"
       >
@@ -165,6 +185,11 @@ exports[`Home > should render a Home component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </a>
