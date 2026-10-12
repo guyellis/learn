@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { Temporal } from '@js-temporal/polyfill';
 import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
@@ -120,9 +120,44 @@ function renderUserScores(times, maxVal) {
   });
 }
 
+function formatFromNow(date) {
+  const instant = typeof date === 'number'
+    ? Temporal.Instant.fromEpochMilliseconds(date)
+    : Temporal.Instant.from(date);
+  const now = Temporal.Now.instant();
+  const timeZone = Temporal.Now.timeZoneId();
+  const zNow = now.toZonedDateTimeISO(timeZone);
+  const zThen = instant.toZonedDateTimeISO(timeZone);
+
+  const duration = zNow.since(zThen, { largestUnit: 'year' });
+  const totalSeconds = now.since(instant).total({ unit: 'second' });
+
+  if (totalSeconds < 45) {
+    return 'a few seconds ago';
+  }
+  const totalMinutes = Math.round(now.since(instant).total({ unit: 'minute' }));
+  if (totalMinutes < 45) {
+    return totalMinutes <= 1 ? 'a minute ago' : `${totalMinutes} minutes ago`;
+  }
+  const totalHours = Math.round(now.since(instant).total({ unit: 'hour' }));
+  if (totalHours < 22) {
+    return totalHours <= 1 ? 'an hour ago' : `${totalHours} hours ago`;
+  }
+  const totalDays = Math.round(now.since(instant).total({ unit: 'day' }));
+  if (totalDays < 26) {
+    return totalDays <= 1 ? 'a day ago' : `${totalDays} days ago`;
+  }
+  const totalMonths = Math.round(duration.years * 12 + duration.months + duration.days / 30);
+  if (totalMonths < 11) {
+    return totalMonths <= 1 ? 'a month ago' : `${totalMonths} months ago`;
+  }
+  const totalYears = Math.round(duration.years + duration.months / 12);
+  return totalYears <= 1 ? 'a year ago' : `${totalYears} years ago`;
+}
+
 function renderTitles(times) {
   const titles = times.map(({ date }) => ({
-    title: moment(date).fromNow(),
+    title: formatFromNow(date),
     date,
   })).concat({ title: 'Badges', date: 0 });
 
@@ -173,4 +208,5 @@ scoreBar.propTypes = {
   showScoreBar: PropTypes.bool.isRequired,
 };
 
+export { formatFromNow };
 export default scoreBar;

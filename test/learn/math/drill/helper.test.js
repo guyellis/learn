@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { Temporal } from '@js-temporal/polyfill';
 import db from '../../../../src/learn/db/index.js';
 import helper from '../../../../src/learn/math/drill/helper.js';
 import constants from '../../../../src/learn/common/constants.js';
@@ -496,7 +496,7 @@ per question. (Your best score is 5 seconds per question.)',
       const start = new Date(2017, 0, 1, 1, 1, 1);
       // 2017-01-01 01:01:40
       const end = new Date(2017, 0, 1, 1, 1, 40);
-      const startTime = moment(start);
+      const startTime = Temporal.Instant.fromEpochMilliseconds(start.getTime());
       Date.now = vi.fn(() => end.valueOf());
       const { newRecord } = helper;
       const input = {
@@ -518,6 +518,39 @@ per question. (Your best score is 5 seconds per question.)',
 
       expect(actual).toEqual(expected);
       Date.now.mockClear();
+    });
+  });
+
+  describe('toInstant()', () => {
+    test('should convert null, undefined, or empty values to epoch 0 instant', () => {
+      expect(helper.toInstant(null).epochMilliseconds).toBe(0);
+      expect(helper.toInstant(undefined).epochMilliseconds).toBe(0);
+      expect(helper.toInstant(0).epochMilliseconds).toBe(0);
+    });
+
+    test('should convert number (epoch ms) to Temporal.Instant', () => {
+      const instant = helper.toInstant(1500000000000);
+      expect(instant).toBeInstanceOf(Temporal.Instant);
+      expect(instant.epochMilliseconds).toBe(1500000000000);
+    });
+
+    test('should convert Date instance to Temporal.Instant', () => {
+      const date = new Date(1500000000000);
+      const instant = helper.toInstant(date);
+      expect(instant).toBeInstanceOf(Temporal.Instant);
+      expect(instant.epochMilliseconds).toBe(1500000000000);
+    });
+
+    test('should return same Temporal.Instant if already an Instant', () => {
+      const original = Temporal.Now.instant();
+      const instant = helper.toInstant(original);
+      expect(instant).toBe(original);
+    });
+
+    test('should convert ISO 8601 string to Temporal.Instant', () => {
+      const instant = helper.toInstant('2026-10-12T15:00:00Z');
+      expect(instant).toBeInstanceOf(Temporal.Instant);
+      expect(instant.toString()).toBe('2026-10-12T15:00:00Z');
     });
   });
 });

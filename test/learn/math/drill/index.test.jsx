@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import moment from 'moment';
+import { Temporal } from '@js-temporal/polyfill';
 import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
 import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -106,7 +106,7 @@ describe('Drill', () => {
 
     const instance = component.root.findByType(Drill).instance;
     instance.setState({
-      endTime: moment().add(30, 'seconds'),
+      endTime: Temporal.Now.instant().add(Temporal.Duration.from({ seconds: 30 })),
     });
 
     act(() => {
@@ -132,7 +132,7 @@ describe('Drill', () => {
     });
     const endQuizSpy = vi.spyOn(instance, 'endQuiz');
     instance.setState({
-      endTime: moment().subtract(1, 'seconds'),
+      endTime: Temporal.Now.instant().subtract(Temporal.Duration.from({ seconds: 1 })),
     });
 
     act(() => {
