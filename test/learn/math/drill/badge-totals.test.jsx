@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
 import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -12,10 +12,13 @@ const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 const muiTheme = getMuiTheme(lightBaseTheme);
 
 test('Badge totals should be rendered', () => {
-  const component = renderer.create(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <BadgeTotals totals={[1, 2, 3]} />
-    </MuiThemeProvider>);
+  let component;
+  act(() => {
+    component = renderer.create(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <BadgeTotals totals={[1, 2, 3]} />
+      </MuiThemeProvider>);
+  });
   const badgeTotals = component.toJSON();
   expect(badgeTotals).toMatchSnapshot();
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
 import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -29,11 +29,14 @@ describe('ScoreBoard', () => {
       timePerQuestion: 6,
     }]);
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <ScoreBoard />
-      </MuiThemeProvider>,
-    );
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <ScoreBoard />
+        </MuiThemeProvider>,
+      );
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();

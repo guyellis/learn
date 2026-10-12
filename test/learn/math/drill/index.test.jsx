@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
 import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -29,10 +29,13 @@ describe('Drill', () => {
     jest.spyOn(window.localStorage.__proto__, 'getItem')
       .mockReturnValue(JSON.stringify(savedOptions));
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Drill />
-      </MuiThemeProvider>);
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Drill />
+        </MuiThemeProvider>);
+    });
 
     const app = component.toJSON();
     expect(app).toMatchSnapshot();

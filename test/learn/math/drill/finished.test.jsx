@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
 import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
 import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -40,18 +40,21 @@ describe('Finished', () => {
       newRecordInfo: RECORD_NEW,
     };
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Finished
-          levelIndex={0}
-          opIndexes={[0]}
-          previousResults={previousResults}
-          resultInfo={resultInfo}
-          timeAllowed={600}
-          timeLeft={100}
-          totalProblems={20}
-        />
-      </MuiThemeProvider>);
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={20}
+          />
+        </MuiThemeProvider>);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -69,18 +72,21 @@ describe('Finished', () => {
       newRecordInfo: RECORD_NEW,
     };
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Finished
-          levelIndex={0}
-          opIndexes={[0]}
-          previousResults={previousResults}
-          resultInfo={resultInfo}
-          timeAllowed={600}
-          timeLeft={100}
-          totalProblems={20}
-        />
-      </MuiThemeProvider>);
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={20}
+          />
+        </MuiThemeProvider>);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -118,18 +124,21 @@ describe('Finished', () => {
       timePerQuestion: 1,
     }]);
 
-    const component = renderer.create(
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Finished
-          levelIndex={0}
-          opIndexes={[0]}
-          previousResults={previousResults}
-          resultInfo={resultInfo}
-          timeAllowed={600}
-          timeLeft={100}
-          totalProblems={20}
-        />
-      </MuiThemeProvider>);
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={20}
+          />
+        </MuiThemeProvider>);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
