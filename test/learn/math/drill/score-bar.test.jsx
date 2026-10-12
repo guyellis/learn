@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.jsx';
 
 const nowFn = Date.now;
@@ -20,10 +20,13 @@ describe('ScoreBar', () => {
   test('should not show if showScoreBar is false', () => {
     const times = [];
 
-    const component = renderer.create(<ScoreBar
-      showScoreBar={false}
-      times={times}
-    />);
+    let component;
+    act(() => {
+      component = renderer.create(<ScoreBar
+        showScoreBar={false}
+        times={times}
+      />);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -32,10 +35,13 @@ describe('ScoreBar', () => {
   test('should not show if times is empty', () => {
     const times = [];
 
-    const component = renderer.create(<ScoreBar
-      showScoreBar
-      times={times}
-    />);
+    let component;
+    act(() => {
+      component = renderer.create(<ScoreBar
+        showScoreBar
+        times={times}
+      />);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -50,10 +56,13 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    const component = renderer.create(<ScoreBar
-      showScoreBar
-      times={times}
-    />);
+    let component;
+    act(() => {
+      component = renderer.create(<ScoreBar
+        showScoreBar
+        times={times}
+      />);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -68,10 +77,13 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    const component = renderer.create(<ScoreBar
-      showScoreBar
-      times={times}
-    />);
+    let component;
+    act(() => {
+      component = renderer.create(<ScoreBar
+        showScoreBar
+        times={times}
+      />);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -94,10 +106,13 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    const component = renderer.create(<ScoreBar
-      showScoreBar
-      times={times}
-    />);
+    let component;
+    act(() => {
+      component = renderer.create(<ScoreBar
+        showScoreBar
+        times={times}
+      />);
+    });
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();

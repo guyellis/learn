@@ -105,10 +105,11 @@ describe('Drill', () => {
     });
 
     const instance = component.root.findByType(Drill).instance;
-    instance.setState({
-      endTime: Temporal.Now.instant().add(Temporal.Duration.from({ seconds: 30 })),
+    act(() => {
+      instance.setState({
+        endTime: Temporal.Now.instant().add(Temporal.Duration.from({ seconds: 30 })),
+      });
     });
-
     act(() => {
       instance.onInterval();
     });
@@ -131,10 +132,11 @@ describe('Drill', () => {
       instance.onStart();
     });
     const endQuizSpy = vi.spyOn(instance, 'endQuiz');
-    instance.setState({
-      endTime: Temporal.Now.instant().subtract(Temporal.Duration.from({ seconds: 1 })),
+    act(() => {
+      instance.setState({
+        endTime: Temporal.Now.instant().subtract(Temporal.Duration.from({ seconds: 1 })),
+      });
     });
-
     act(() => {
       instance.onInterval();
     });
@@ -197,14 +199,14 @@ describe('Drill', () => {
     });
 
     // Set a known task: 2 + 3 = 5 (task format: [left, right, opIndex, expected])
-    instance.setState({
-      currentTask: [2, 3, 0, 5],
-      totalProblems: '2',
-      correctCount: 0,
-      previousResults: [],
+    act(() => {
+      instance.setState({
+        currentTask: [2, 3, 0, 5],
+        totalProblems: '2',
+        correctCount: 0,
+        previousResults: [],
+      });
     });
-
-    // Wrong answer
     act(() => {
       instance.checkAnswer('4');
     });
@@ -224,8 +226,10 @@ describe('Drill', () => {
     expect(instance.state.correctCount).toBe(1);
 
     // Provide next problem and answer correctly to trigger endQuiz
-    instance.setState({
-      currentTask: [1, 1, 0, 2],
+    act(() => {
+      instance.setState({
+        currentTask: [1, 1, 0, 2],
+      });
     });
     act(() => {
       instance.checkAnswer('2');
@@ -265,10 +269,12 @@ describe('Drill', () => {
     });
 
     const instance = component.root.findByType(Drill).instance;
-    instance.setState({
-      currentTask: [1, 2, 0, 3],
-      levelIndex: 0,
-      opIndexes: [0],
+    act(() => {
+      instance.setState({
+        currentTask: [1, 2, 0, 3],
+        levelIndex: 0,
+        opIndexes: [0],
+      });
     });
 
     vi.spyOn(helper, 'getLowerUpper')

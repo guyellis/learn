@@ -14,8 +14,15 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('App', () => {
   const renderApp = async (path = '/') => {
+    // Preload lazy route module so dynamic import resolves immediately
+    if (path === '/') await import('../src/learn/home.jsx');
+    else if (path === '/math/drill') await import('../src/learn/math/drill/index.jsx');
+    else if (path === '/math/score') await import('../src/learn/math/drill/scoreboard.jsx');
+    else if (path === '/help') await import('../src/learn/help/index.jsx');
+    else await import('../src/learn/not-found.jsx');
+
     let component;
-    act(() => {
+    await act(async () => {
       component = renderer.create(
         <MuiThemeProvider muiTheme={muiTheme}>
           <MemoryRouter initialEntries={[path]}>
@@ -28,12 +35,13 @@ describe('App', () => {
     const startTime = Date.now();
     const timeout = 5000;
     while (Date.now() - startTime < timeout) {
-      await new Promise((resolve) => setTimeout(resolve, 20));
-      act(() => {});
       const tree = JSON.stringify(component.toJSON());
       if (tree && !tree.includes('Loading...')) {
         break;
       }
+      await act(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 20));
+      });
     }
     return component;
   };

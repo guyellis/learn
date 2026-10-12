@@ -1,15 +1,6 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
-
-const origSetState = React.Component.prototype.setState;
-React.Component.prototype.setState = function setState(updater, callback) {
-  renderer.act(() => {
-    origSetState.call(this, updater, callback);
-  });
-};
 
 if (!ReactDOM.findDOMNode) {
   ReactDOM.findDOMNode = (node) => {
@@ -19,23 +10,6 @@ if (!ReactDOM.findDOMNode) {
     return node._reactInternals?.stateNode || null;
   };
 }
-
-const origCreate = renderer.create;
-renderer.create = function create(element, options) {
-  let res;
-  renderer.act(() => {
-    res = origCreate.call(renderer, element, options);
-  });
-  if (res && res.update) {
-    const origUpdate = res.update;
-    res.update = function update(newElement) {
-      renderer.act(() => {
-        origUpdate.call(res, newElement);
-      });
-    };
-  }
-  return res;
-};
 
 global.requestAnimationFrame = (done) => {
   setTimeout(done, 0);
