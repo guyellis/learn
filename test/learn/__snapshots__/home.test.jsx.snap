@@ -4,7 +4,7 @@ exports[`Home should render a Home component 1`] = `
 <div>
   <div
     style={
-      Object {
+      {
         "marginTop": "20px",
         "textAlign": "right",
       }
@@ -93,7 +93,7 @@ exports[`Home should render a Home component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "20px",
       }
     }
@@ -132,7 +132,7 @@ exports[`Home should render a Home component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "20px",
       }
     }

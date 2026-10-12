@@ -1,10 +1,10 @@
-const moment = require('moment');
-const React = require('react');
-const db = require('../../db');
-const Finished = require('./finished');
-const helper = require('./helper');
-const Options = require('./options');
-const Running = require('./running');
+import moment from 'moment';
+import React from 'react';
+import db from '../../db/index.js';
+import Finished from './finished.jsx';
+import helper from './helper.js';
+import Options from './options.jsx';
+import Running from './running.jsx';
 
 class MathDrill extends React.Component {
   static save(keyValuePair) {
@@ -300,4 +300,4 @@ class MathDrill extends React.Component {
   }
 }
 
-module.exports = MathDrill;
+export default MathDrill;

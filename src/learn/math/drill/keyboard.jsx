@@ -1,8 +1,8 @@
-const FloatingActionButton = require('@material-ui/core/Fab').default;
-const PropTypes = require('prop-types');
-const React = require('react');
-const { Backspace, KeyboardReturn } = require('@material-ui/icons');
-const Tooltip = require('@material-ui/core/Tooltip').default;
+import FloatingActionButton from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import { Backspace, KeyboardReturn } from '@material-ui/icons';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const normalButtonStyle = {
   margin: '5px',
@@ -92,9 +92,8 @@ class Keyboard extends React.Component {
                 lay.slice(1).map((item) => {
                   const [content, title, click, key] = item;
                   return (
-                    <Tooltip title={title}>
+                    <Tooltip key={key} title={title}>
                       <FloatingActionButton
-                        key={key}
                         onClick={() => this.onClick(click)}
                         style={buttonStyle}
                       >
@@ -118,4 +117,4 @@ Keyboard.propTypes = {
   largeKeyboard: PropTypes.bool.isRequired,
 };
 
-module.exports = Keyboard;
+export default Keyboard;

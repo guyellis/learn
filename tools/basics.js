@@ -2,9 +2,13 @@
 // Multiplication: From 1x1 to 12x12
 // Division: From 1/1 to 144/12
 
-const _ = require('lodash');
-const fse = require('fs-extra');
-const path = require('path');
+import _ from 'lodash';
+import fse from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const allPairs = () => {
   const numbers = [...Array(12).keys()].map((a) => a + 1);

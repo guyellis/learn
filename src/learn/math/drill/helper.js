@@ -1,8 +1,7 @@
-// A collection of helper functions
-const moment = require('moment');
-const db = require('../../db');
-const constants = require('../../common/constants');
-const { levelOps } = require('./helper-problems');
+import moment from 'moment';
+import db from '../../db/index.js';
+import constants from '../../common/constants.js';
+import { levelOps } from './helper-problems.js';
 
 const {
   RECORD_NEW,
@@ -303,7 +302,7 @@ function newRecord({ currentRecord, previousResults, startTime }) {
   };
 }
 
-module.exports = {
+export {
   appendScore,
   calculateAnswer,
   getBadgeColorIndex,
@@ -314,3 +313,17 @@ module.exports = {
   getScoreboard,
   newRecord,
 };
+
+const helper = {
+  appendScore,
+  calculateAnswer,
+  getBadgeColorIndex,
+  getBadgeHtmlColor,
+  getCurrentRecord,
+  getLowerUpper,
+  getScoreBarTimes,
+  getScoreboard,
+  newRecord,
+};
+
+export default helper;

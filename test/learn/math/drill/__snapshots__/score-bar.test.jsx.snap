@@ -6,11 +6,11 @@ exports[`ScoreBar should not show if times is empty 1`] = `null`;
 
 exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "textAlign": "left",
@@ -20,7 +20,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "textAlign": "left",
@@ -30,7 +30,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -39,7 +39,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -50,7 +50,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "height": "300px",
@@ -60,7 +60,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
   >
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -73,7 +73,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "height": "20.0%",
           }
         }
@@ -82,7 +82,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "backgroundColor": "#ffd700",
             "height": "10%",
           }
@@ -92,7 +92,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "height": "70.0%",
           }
         }
@@ -102,7 +102,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -115,7 +115,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
     >
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#ffd700",
             "height": "33%",
           }
@@ -125,7 +125,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#c0c0c0",
             "height": "17%",
           }
@@ -135,7 +135,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#8C7853",
             "height": "17%",
           }
@@ -145,7 +145,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "33%",
           }
@@ -160,11 +160,11 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
 
 exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "textAlign": "left",
@@ -174,7 +174,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "textAlign": "left",
@@ -184,7 +184,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -193,7 +193,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -204,7 +204,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "height": "400px",
@@ -214,7 +214,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
   >
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -227,7 +227,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "height": "95.0%",
           }
         }
@@ -236,7 +236,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "10%",
           }
@@ -246,7 +246,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "height": "0.0%",
           }
         }
@@ -256,7 +256,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -269,7 +269,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
     >
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#ffd700",
             "height": "25%",
           }
@@ -279,7 +279,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#c0c0c0",
             "height": "13%",
           }
@@ -289,7 +289,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#8C7853",
             "height": "13%",
           }
@@ -299,7 +299,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "50%",
           }
@@ -314,11 +314,11 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
 
 exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "textAlign": "left",
@@ -328,7 +328,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
   >
     <div
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "textAlign": "left",
@@ -338,7 +338,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -347,7 +347,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -356,7 +356,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -365,7 +365,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "flexGrow": "1",
           }
         }
@@ -376,7 +376,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "border": "1px solid black",
         "display": "flex",
         "height": "400px",
@@ -386,7 +386,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
   >
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -399,7 +399,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "height": "95.0%",
           }
         }
@@ -408,7 +408,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "10%",
           }
@@ -418,7 +418,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "height": "0.0%",
           }
         }
@@ -428,7 +428,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -441,7 +441,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "height": "95.0%",
           }
         }
@@ -450,7 +450,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "10%",
           }
@@ -460,7 +460,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "height": "0.0%",
           }
         }
@@ -470,7 +470,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -483,7 +483,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     >
       <span
         style={
-          Object {
+          {
             "height": "60.0%",
           }
         }
@@ -492,7 +492,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "10%",
           }
@@ -502,7 +502,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </span>
       <span
         style={
-          Object {
+          {
             "height": "30.0%",
           }
         }
@@ -512,7 +512,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "border": "1px solid black",
           "display": "flex",
           "flexDirection": "column",
@@ -525,7 +525,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
     >
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#ffd700",
             "height": "25%",
           }
@@ -535,7 +535,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#c0c0c0",
             "height": "13%",
           }
@@ -545,7 +545,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "#8C7853",
             "height": "13%",
           }
@@ -555,7 +555,7 @@ exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
       </div>
       <div
         style={
-          Object {
+          {
             "backgroundColor": "lightblue",
             "height": "50%",
           }

@@ -1,4 +1,4 @@
-const PropTypes = require('prop-types');
+import PropTypes from 'prop-types';
 
 const Types = {};
 
@@ -9,4 +9,4 @@ Types.previousResults = PropTypes.shape({
   timeTaken: PropTypes.number.isRequired,
 });
 
-module.exports = Types;
+export default Types;

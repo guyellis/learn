@@ -1,28 +1,34 @@
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
+import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
+import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
+import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import QuizLine from '../../../../src/learn/math/drill/quiz-line.jsx';
 
-const React = require('react');
-const renderer = require('react-test-renderer');
-const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
-const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
-const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
-const QuizLine = require('../../../../src/learn/math/drill/quiz-line');
+const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
+const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
+const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
 test('Badge totals should be rendered', () => {
-  const component = renderer.create(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <QuizLine
-        checkAnswer={jest.fn()}
-        newRecord={{
-          isNewRecord: false,
-          currentTimePerQuestion: 1.1,
-          existingRecordTimePerQuestion: 1,
-        }}
-        onscreenKeyboard={false}
-        largeKeyboard={false}
-        problem={[1, 1, 0, 2]}
-      />
-    </MuiThemeProvider>);
+  let component;
+  act(() => {
+    component = renderer.create(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <QuizLine
+          checkAnswer={jest.fn()}
+          newRecord={{
+            isNewRecord: false,
+            currentTimePerQuestion: 1.1,
+            existingRecordTimePerQuestion: 1,
+          }}
+          onscreenKeyboard={false}
+          largeKeyboard={false}
+          problem={[1, 1, 0, 2]}
+        />
+      </MuiThemeProvider>);
+  });
   const badgeTotals = component.toJSON();
   expect(badgeTotals).toMatchSnapshot();
 });

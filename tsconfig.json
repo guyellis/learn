@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "checkJs": false,
-    "module": "commonjs",
-    "target": "es2017",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "isolatedModules": true,
     "jsx": "react",
-    "moduleResolution": "node",
-    "lib": ["es2015", "dom"]
-  }
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": false,
+    "target": "ES2022"
+  },
+  "exclude": ["node_modules", "public", "coverage"],
+  "include": [
+    "./*.ts",
+    "./*.mjs",
+    "./*.js",
+    "src/**/*",
+    "test/**/*"
+  ]
 }

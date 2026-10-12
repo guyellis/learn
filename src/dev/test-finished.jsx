@@ -1,8 +1,8 @@
 // Used for experimenting with components that are WIP
 
-const React = require('react');
-const constants = require('../learn/common/constants');
-const Finished = require('../learn/math/drill/finished');
+import React from 'react';
+import constants from '../learn/common/constants.js';
+import Finished from '../learn/math/drill/finished.jsx';
 
 const {
   RECORD_NEW,
@@ -55,4 +55,4 @@ function tester() {
   );
 }
 
-module.exports = tester;
+export default tester;

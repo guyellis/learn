@@ -1,5 +1,7 @@
-const React = require('react');
-const ReactMarkdown = require('react-markdown');
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+
+const Markdown = ReactMarkdown.default || ReactMarkdown;
 
 const input = `
 ### Help with Math Drill
@@ -111,8 +113,8 @@ For now badges are only awarded for single-operation tests.
 
 function help() {
   return (
-    <ReactMarkdown source={input} />
+    <Markdown>{input}</Markdown>
   );
 }
 
-module.exports = help;
+export default help;

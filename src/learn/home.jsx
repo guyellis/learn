@@ -1,9 +1,9 @@
-const FloatingActionButton = require('@material-ui/core/Fab').default;
-const { Link } = require('react-router-dom');
-const Button = require('@material-ui/core/Button').default;
-const React = require('react');
-const { Share, BugReport } = require('@material-ui/icons');
-const Tooltip = require('@material-ui/core/Tooltip').default;
+import Button from '@material-ui/core/Button';
+import FloatingActionButton from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import { BugReport, Share } from '@material-ui/icons';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const style = {
   marginTop: '20px',
@@ -88,4 +88,4 @@ function home() {
   );
 }
 
-module.exports = home;
+export default home;

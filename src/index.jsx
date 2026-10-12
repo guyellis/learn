@@ -1,11 +1,13 @@
-const { MuiThemeProvider, createMuiTheme } = require('@material-ui/core/styles');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
-const { BrowserRouter } = require('react-router-dom');
-const poly = require('./poly');
-const App = require('./app.jsx');
+import './index.scss';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { BrowserRouter } from 'react-router-dom';
+import poly from './poly.js';
+import App from './app.jsx';
 
+const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 const theme = createMuiTheme(lightBaseTheme);
 
 poly(undefined, (err) => {

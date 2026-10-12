@@ -1,7 +1,7 @@
-const PropTypes = require('prop-types');
-const React = require('react');
-const Badge = require('./badge');
-const constants = require('../../common/constants');
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import Badge from './badge.jsx';
 
 const { COLOR_TEXT: colorText } = constants;
 
@@ -40,4 +40,4 @@ badgeTotals.propTypes = {
   totals: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 };
 
-module.exports = badgeTotals;
+export default badgeTotals;

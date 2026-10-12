@@ -1,20 +1,15 @@
-module.exports = {
+export default {
   verbose: true,
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/dist/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-markdown|vfile|vfile-message|unist-.*|unified|bail|is-plain-obj|trough|remark-.*|mdast-util-.*|micromark.*|decode-named-character-reference|character-entities|property-information|hast-util-whitespace|space-separated-tokens|comma-separated-tokens|trim-lines|ccount|escape-string-regexp|markdown-table)/)',
+  ],
   collectCoverageFrom: [
-    '!**/.vscode/**',
-    '!**/coverage/**',
-    '!**/dist/**',
-    '!**/jest.config.js',
-    '!**/node_modules/**',
-    '!**/postcss.config.js',
-    '!**/public/**',
-    '!**/src/dev/**',
-    '!**/src/index.jsx',
-    '!**/src/tester.jsx',
-    '!**/test/**',
-    '!**/webpack**',
-    '**/*.{js,jsx}',
+    'src/**/*.{js,jsx}',
+    '!src/dev/**',
+    '!src/index.jsx',
+    '!src/tester.jsx',
   ],
   coverageThreshold: {
     global: {

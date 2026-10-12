@@ -25,7 +25,7 @@ function loadScript(features, done) {
   document.head.appendChild(js);
 }
 
-module.exports = (featureList = defaultFeatures, done) => {
+export default (featureList = defaultFeatures, done) => {
   if (browserSupportsAllFeatures(featureList)) {
     done();
   } else {

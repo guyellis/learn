@@ -4,7 +4,7 @@ exports[`Drill should render the Drill component 1`] = `
 <div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -31,7 +31,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -67,7 +67,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -103,7 +103,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -139,7 +139,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -175,7 +175,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -211,7 +211,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -247,7 +247,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -283,7 +283,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -319,7 +319,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -355,7 +355,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -391,7 +391,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -427,7 +427,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -463,7 +463,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -499,7 +499,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -535,7 +535,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -571,7 +571,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -607,7 +607,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -643,7 +643,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -679,7 +679,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -715,7 +715,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -751,7 +751,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -787,7 +787,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -823,7 +823,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -859,7 +859,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -895,7 +895,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -931,7 +931,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -953,7 +953,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -980,7 +980,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -1016,7 +1016,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -1052,7 +1052,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -1088,7 +1088,7 @@ exports[`Drill should render the Drill component 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "2em",
             "margin": "5px",
           }
@@ -1110,7 +1110,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1121,7 +1121,7 @@ exports[`Drill should render the Drill component 1`] = `
     <div
       className="MuiFormControl-root MuiTextField-root"
       style={
-        Object {
+        {
           "marginLeft": 20,
           "width": 100,
         }
@@ -1163,7 +1163,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1174,7 +1174,7 @@ exports[`Drill should render the Drill component 1`] = `
     <div
       className="MuiFormControl-root MuiTextField-root"
       style={
-        Object {
+        {
           "marginLeft": 40,
           "width": 150,
         }
@@ -1216,7 +1216,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1235,7 +1235,7 @@ exports[`Drill should render the Drill component 1`] = `
         >
           <span
             aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-104 MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-checked-105 Mui-checked"
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-checked-2 Mui-checked"
             onBlur={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -1257,7 +1257,7 @@ exports[`Drill should render the Drill component 1`] = `
               />
               <input
                 checked={true}
-                className="PrivateSwitchBase-input-107 MuiSwitch-input"
+                className="PrivateSwitchBase-input-4 MuiSwitch-input"
                 name="onscreenKeyboard"
                 onChange={[Function]}
                 type="checkbox"
@@ -1281,7 +1281,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1300,7 +1300,7 @@ exports[`Drill should render the Drill component 1`] = `
         >
           <span
             aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-104 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-105 Mui-checked"
+            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-2 Mui-checked"
             onBlur={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -1322,7 +1322,7 @@ exports[`Drill should render the Drill component 1`] = `
               />
               <input
                 checked={true}
-                className="PrivateSwitchBase-input-107 MuiSwitch-input"
+                className="PrivateSwitchBase-input-4 MuiSwitch-input"
                 name="largeKeyboard"
                 onChange={[Function]}
                 type="checkbox"
@@ -1346,7 +1346,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1357,7 +1357,7 @@ exports[`Drill should render the Drill component 1`] = `
     <div
       className="MuiFormControl-root MuiTextField-root"
       style={
-        Object {
+        {
           "marginLeft": 40,
           "width": 250,
         }
@@ -1399,7 +1399,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }
@@ -1445,7 +1445,7 @@ exports[`Drill should render the Drill component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "marginTop": "30px",
       }
     }

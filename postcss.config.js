@@ -1,3 +1,5 @@
+import autoprefixer from 'autoprefixer';
+
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -8,10 +10,9 @@ const AUTOPREFIXER_BROWSERS = [
   'Opera >= 12',
   'Safari >= 7.1',
 ];
-const autoprefixer = require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS });
 
-module.exports = {
+export default {
   plugins: [
-    autoprefixer,
+    autoprefixer({ overrideBrowserslist: AUTOPREFIXER_BROWSERS }),
   ],
 };

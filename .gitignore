@@ -47,5 +47,7 @@ public
 
 # tsc output
 dist/
+*.tsbuildinfo
 
 .DS_Store
+

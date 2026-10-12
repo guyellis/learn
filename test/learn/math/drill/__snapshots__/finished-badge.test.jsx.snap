@@ -2,7 +2,7 @@
 
 exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   <span>
     <button
@@ -20,7 +20,7 @@ exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "1.5em",
           "margin": "5px",
         }
@@ -33,6 +33,9 @@ exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
       >
         M
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </span>
   <span>
@@ -43,7 +46,7 @@ exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
 
 exports[`Finished Badge should be rendered on happy path 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   <span>
     <button
@@ -61,7 +64,7 @@ exports[`Finished Badge should be rendered on happy path 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "1.5em",
           "margin": "5px",
         }
@@ -74,6 +77,9 @@ exports[`Finished Badge should be rendered on happy path 1`] = `
       >
         +
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </span>
   <span>
@@ -84,7 +90,7 @@ exports[`Finished Badge should be rendered on happy path 1`] = `
 
 exports[`Finished Badge should not be rendered if correct answers under 10 1`] = `
 <div
-  style={Object {}}
+  style={{}}
 >
   You need 10 or more correct answers to earn a badge. On this 
 test you got 9 answer(s) correct.

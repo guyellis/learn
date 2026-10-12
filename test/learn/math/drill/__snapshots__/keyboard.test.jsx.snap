@@ -21,7 +21,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -59,7 +59,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -97,7 +97,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -135,7 +135,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -185,7 +185,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -223,7 +223,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -261,7 +261,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -299,7 +299,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -339,7 +339,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -377,7 +377,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -415,7 +415,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -453,7 +453,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -493,7 +493,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -531,7 +531,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -569,7 +569,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",
@@ -607,7 +607,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "2em",
           "height": "80px",
           "margin": "5px",

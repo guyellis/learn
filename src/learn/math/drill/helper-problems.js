@@ -158,6 +158,5 @@ const levelOps = [
 
 ];
 
-module.exports = {
-  levelOps,
-};
+export { levelOps };
+export default { levelOps };

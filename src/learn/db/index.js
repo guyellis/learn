@@ -1,10 +1,8 @@
-const constants = require('../common/constants');
-
-const {
+import {
   DEFAULT_OPTIONS,
   MATH_DRILL_OPTIONS,
   MATH_DRILL_SCORES,
-} = constants;
+} from '../common/constants.js';
 
 class DB {
   static setItem(key, value) {
@@ -56,7 +54,6 @@ class DB {
     });
   }
 
-
   /**
    * Converts the scores in localStorage from Version 1 to 2
    * @static
@@ -85,7 +82,6 @@ class DB {
       scores,
     };
   }
-
 
   /**
    * Converts the scores in localStorage from Version 2 to 3
@@ -131,4 +127,4 @@ class DB {
   }
 }
 
-module.exports = DB;
+export default DB;

@@ -1,10 +1,10 @@
 // Used for experimenting with components that are WIP
 
-const React = require('react');
-const ScoreBar = require('../learn/math/drill/score-bar');
+import React from 'react';
+import ScoreBar from '../learn/math/drill/score-bar.jsx';
 
-// const helper = require('./learn/math/drill/helper');
-// const scoreParams = require('../test/fixtures/local-storage');
+// import helper from './learn/math/drill/helper';
+// import scoreParams from '../test/fixtures/local-storage';
 
 // const scores = JSON.parse(scoreParams.mathDrillScores);
 // const times = helper.getScoreBarTimes(0, [0], scores);
@@ -38,4 +38,4 @@ function tester() {
   );
 }
 
-module.exports = tester;
+export default tester;

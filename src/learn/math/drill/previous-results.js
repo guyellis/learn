@@ -58,4 +58,4 @@ class PreviousResults {
   }
 }
 
-module.exports = PreviousResults;
+export default PreviousResults;

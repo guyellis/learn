@@ -1,6 +1,6 @@
-const FloatingActionButton = require('@material-ui/core/Fab').default;
-const PropTypes = require('prop-types');
-const React = require('react');
+import FloatingActionButton from '@material-ui/core/Fab';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const buttonStyle = {
   margin: '5px',
@@ -23,4 +23,4 @@ badge.propTypes = {
   content: PropTypes.string.isRequired,
 };
 
-module.exports = badge;
+export default badge;

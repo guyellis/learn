@@ -1,8 +1,8 @@
-const moment = require('moment');
-const db = require('../../../../src/learn/db');
-const helper = require('../../../../src/learn/math/drill/helper');
-const constants = require('../../../../src/learn/common/constants');
-const util = require('../../../../src/learn/common/util');
+import moment from 'moment';
+import db from '../../../../src/learn/db/index.js';
+import helper from '../../../../src/learn/math/drill/helper.js';
+import constants from '../../../../src/learn/common/constants.js';
+import util from '../../../../src/learn/common/util.js';
 
 const { getScoreboard } = helper;
 

@@ -7,7 +7,7 @@ exports[`Finished should render when there is a mix of correct and incorrect res
   </h1>
   <div
     style={
-      Object {
+      {
         "backgroundColor": "#8bc78b",
         "borderRadius": "5px",
         "color": "black",
@@ -19,7 +19,7 @@ exports[`Finished should render when there is a mix of correct and incorrect res
     Result Info Text
   </div>
   <div
-    style={Object {}}
+    style={{}}
   >
     You need 10 or more correct answers to earn a badge. On this 
 test you got 2 answer(s) correct.
@@ -36,7 +36,7 @@ test you got 2 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -57,7 +57,7 @@ test you got 2 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -70,10 +70,13 @@ test you got 2 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -82,7 +85,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -91,7 +94,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -100,7 +103,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -109,7 +112,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -121,7 +124,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -130,7 +133,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -145,7 +148,7 @@ test you got 2 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -166,7 +169,7 @@ test you got 2 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -179,10 +182,13 @@ test you got 2 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -191,7 +197,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -200,7 +206,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -209,7 +215,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -218,7 +224,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -230,7 +236,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -239,7 +245,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -255,7 +261,7 @@ test you got 2 answer(s) correct.
     <div>
       <div
         style={
-          Object {
+          {
             "color": "red",
             "lineHeight": "35px",
           }
@@ -276,7 +282,7 @@ test you got 2 answer(s) correct.
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           style={
-            Object {
+            {
               "fontSize": "1.5em",
               "margin": "5px",
             }
@@ -289,10 +295,13 @@ test you got 2 answer(s) correct.
           >
             +
           </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </button>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -301,7 +310,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -310,7 +319,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -319,7 +328,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -328,7 +337,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "borderStyle": "solid",
               "borderWidth": 1,
               "marginLeft": 20,
@@ -340,7 +349,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -349,7 +358,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -359,7 +368,7 @@ test you got 2 answer(s) correct.
       </div>
       <div
         style={
-          Object {
+          {
             "color": "green",
             "lineHeight": "35px",
           }
@@ -380,7 +389,7 @@ test you got 2 answer(s) correct.
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           style={
-            Object {
+            {
               "fontSize": "1.5em",
               "margin": "5px",
             }
@@ -393,10 +402,13 @@ test you got 2 answer(s) correct.
           >
             +
           </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </button>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -405,7 +417,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -414,7 +426,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -423,7 +435,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -432,7 +444,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "borderStyle": "solid",
               "borderWidth": 1,
               "marginLeft": 20,
@@ -444,7 +456,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -453,7 +465,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -462,7 +474,7 @@ test you got 2 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "color": "red",
               "paddingLeft": 20,
             }
@@ -479,7 +491,7 @@ test you got 2 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -500,7 +512,7 @@ test you got 2 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -513,10 +525,13 @@ test you got 2 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -525,7 +540,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -534,7 +549,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -543,7 +558,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -552,7 +567,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -564,7 +579,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -573,7 +588,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -583,7 +598,7 @@ test you got 2 answer(s) correct.
     </div>
     <div
       style={
-        Object {
+        {
           "color": "green",
           "lineHeight": "35px",
         }
@@ -604,7 +619,7 @@ test you got 2 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -617,10 +632,13 @@ test you got 2 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -629,7 +647,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -638,7 +656,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -647,7 +665,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -656,7 +674,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -668,7 +686,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -677,7 +695,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -687,7 +705,7 @@ test you got 2 answer(s) correct.
     </div>
     <div
       style={
-        Object {
+        {
           "color": "green",
           "lineHeight": "35px",
         }
@@ -708,7 +726,7 @@ test you got 2 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -721,10 +739,13 @@ test you got 2 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -733,7 +754,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -742,7 +763,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -751,7 +772,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -760,7 +781,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -772,7 +793,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -781,7 +802,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -790,7 +811,7 @@ test you got 2 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "color": "red",
             "paddingLeft": 20,
           }
@@ -810,7 +831,7 @@ exports[`Finished should render when there is a single correct result 1`] = `
   </h1>
   <div
     style={
-      Object {
+      {
         "backgroundColor": "#8bc78b",
         "borderRadius": "5px",
         "color": "black",
@@ -822,7 +843,7 @@ exports[`Finished should render when there is a single correct result 1`] = `
     Result Info Text
   </div>
   <div
-    style={Object {}}
+    style={{}}
   >
     You need 10 or more correct answers to earn a badge. On this 
 test you got 1 answer(s) correct.
@@ -839,7 +860,7 @@ test you got 1 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "green",
           "lineHeight": "35px",
         }
@@ -860,7 +881,7 @@ test you got 1 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -873,10 +894,13 @@ test you got 1 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -885,7 +909,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -894,7 +918,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -903,7 +927,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -912,7 +936,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -924,7 +948,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -933,7 +957,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -948,7 +972,7 @@ test you got 1 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "green",
           "lineHeight": "35px",
         }
@@ -969,7 +993,7 @@ test you got 1 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -982,10 +1006,13 @@ test you got 1 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -994,7 +1021,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1003,7 +1030,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1012,7 +1039,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1021,7 +1048,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -1033,7 +1060,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1042,7 +1069,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1057,7 +1084,7 @@ test you got 1 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "green",
           "lineHeight": "35px",
         }
@@ -1078,7 +1105,7 @@ test you got 1 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -1091,10 +1118,13 @@ test you got 1 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1103,7 +1133,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1112,7 +1142,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1121,7 +1151,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1130,7 +1160,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -1142,7 +1172,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1151,7 +1181,7 @@ test you got 1 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1170,7 +1200,7 @@ exports[`Finished should render when there is a single incorrect result 1`] = `
   </h1>
   <div
     style={
-      Object {
+      {
         "backgroundColor": "#8bc78b",
         "borderRadius": "5px",
         "color": "black",
@@ -1182,7 +1212,7 @@ exports[`Finished should render when there is a single incorrect result 1`] = `
     Result Info Text
   </div>
   <div
-    style={Object {}}
+    style={{}}
   >
     You need 10 or more correct answers to earn a badge. On this 
 test you got 0 answer(s) correct.
@@ -1199,7 +1229,7 @@ test you got 0 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -1220,7 +1250,7 @@ test you got 0 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -1233,10 +1263,13 @@ test you got 0 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1245,7 +1278,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1254,7 +1287,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1263,7 +1296,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1272,7 +1305,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -1284,7 +1317,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1293,7 +1326,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1308,7 +1341,7 @@ test you got 0 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -1329,7 +1362,7 @@ test you got 0 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -1342,10 +1375,13 @@ test you got 0 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1354,7 +1390,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1363,7 +1399,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1372,7 +1408,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1381,7 +1417,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -1393,7 +1429,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1402,7 +1438,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1418,7 +1454,7 @@ test you got 0 answer(s) correct.
     <div>
       <div
         style={
-          Object {
+          {
             "color": "red",
             "lineHeight": "35px",
           }
@@ -1439,7 +1475,7 @@ test you got 0 answer(s) correct.
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           style={
-            Object {
+            {
               "fontSize": "1.5em",
               "margin": "5px",
             }
@@ -1452,10 +1488,13 @@ test you got 0 answer(s) correct.
           >
             +
           </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
         </button>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1464,7 +1503,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1473,7 +1512,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1482,7 +1521,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1491,7 +1530,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "borderStyle": "solid",
               "borderWidth": 1,
               "marginLeft": 20,
@@ -1503,7 +1542,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1512,7 +1551,7 @@ test you got 0 answer(s) correct.
         </span>
         <span
           style={
-            Object {
+            {
               "paddingLeft": 20,
             }
           }
@@ -1528,7 +1567,7 @@ test you got 0 answer(s) correct.
   <div>
     <div
       style={
-        Object {
+        {
           "color": "red",
           "lineHeight": "35px",
         }
@@ -1549,7 +1588,7 @@ test you got 0 answer(s) correct.
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         style={
-          Object {
+          {
             "fontSize": "1.5em",
             "margin": "5px",
           }
@@ -1562,10 +1601,13 @@ test you got 0 answer(s) correct.
         >
           +
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1574,7 +1616,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1583,7 +1625,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1592,7 +1634,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1601,7 +1643,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "borderStyle": "solid",
             "borderWidth": 1,
             "marginLeft": 20,
@@ -1613,7 +1655,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
@@ -1622,7 +1664,7 @@ test you got 0 answer(s) correct.
       </span>
       <span
         style={
-          Object {
+          {
             "paddingLeft": 20,
           }
         }
