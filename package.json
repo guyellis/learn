@@ -61,12 +61,9 @@
     "preview": "vite preview",
     "coverage:view": "google-chrome coverage/lcov-report/index.html",
     "coverage": "tsc && jest --coverage",
-    "deploy": "npm run build && npm run asset-copy && npm run upload",
     "lint": "eslint . --max-warnings 0",
     "lintfix": "npm run lint -- --fix",
     "test": "npm run lint && tsc && jest --coverage && npm run build",
-    "asset-copy": "cp -R assets/* public/",
-    "upload": "aws s3 cp public s3://learn.guyellisrocks.com/ --recursive",
     "prepare": "husky"
   },
   "version": "0.0.2",

@@ -18,7 +18,7 @@ function share() {
   navigator.share({
     title: 'Math Drill',
     text: 'Math Exercises for Kids',
-    url: 'https://learn.guyellisrocks.com',
+    url: 'https://learn.headvert.com',
   })
   // eslint-disable-next-line no-console
     .then(() => console.log('Successful share'))
