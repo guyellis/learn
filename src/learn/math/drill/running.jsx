@@ -33,6 +33,12 @@ function running(props) {
     paddingLeft: 20,
   };
 
+  const highlightStyle = {
+    backgroundColor: 'lightblue',
+    borderRadius: '3px',
+    padding: '2px 5px',
+  };
+
   const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
   const lastResult = lastTen[0];
 
@@ -40,18 +46,23 @@ function running(props) {
     <div>
       <div>
         <span style={spanStyle}>
-          {`Level: ${alphabet[levelIndex]}`}
+          {'Level: '}
+          <span style={highlightStyle}>{alphabet[levelIndex]}</span>
         </span>
         <span style={spanStyle}>
-          {`Operation(s): ${opIndexes.map((i) => operations[i]).join()}`}
+          {'Operation(s): '}
+          <span style={highlightStyle}>{opIndexes.map((i) => operations[i]).join()}</span>
         </span>
       </div>
       <div>
         <span style={spanStyle}>
-          {`Time Left: ${timeLeft} seconds`}
+          {'Time Left: '}
+          <span style={highlightStyle}>{timeLeft}</span>
+          {' seconds'}
         </span>
         <span style={spanStyle}>
-          {`Questions Remaining: ${questionsRemaining}`}
+          {'Questions Remaining: '}
+          <span style={highlightStyle}>{questionsRemaining}</span>
         </span>
       </div>
       <div>
