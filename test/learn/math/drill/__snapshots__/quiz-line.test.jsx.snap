@@ -4,7 +4,7 @@ exports[`Badge totals should be rendered 1`] = `
 <div>
   <div
     style={
-      Object {
+      {
         "marginBottom": "10px",
         "marginTop": "10px",
       }
@@ -12,7 +12,7 @@ exports[`Badge totals should be rendered 1`] = `
   >
     <span
       style={
-        Object {
+        {
           "fontSize": "xx-large",
           "margin": "10px",
         }
@@ -22,7 +22,7 @@ exports[`Badge totals should be rendered 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "fontSize": "xx-large",
           "margin": "10px",
         }
@@ -32,7 +32,7 @@ exports[`Badge totals should be rendered 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "fontSize": "xx-large",
           "margin": "10px",
         }
@@ -42,7 +42,7 @@ exports[`Badge totals should be rendered 1`] = `
     </span>
     <span
       style={
-        Object {
+        {
           "fontSize": "xx-large",
           "margin": "10px",
         }
@@ -54,7 +54,7 @@ exports[`Badge totals should be rendered 1`] = `
       className="MuiFormControl-root MuiTextField-root"
       onKeyPress={[Function]}
       style={
-        Object {
+        {
           "textAlign": "center",
         }
       }
@@ -95,7 +95,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "margin": "10px",
         }
       }
@@ -118,11 +118,14 @@ exports[`Badge totals should be rendered 1`] = `
         </svg>
         Check Answer
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </div>
   <div
     style={
-      Object {
+      {
         "border": "medium solid green",
         "borderRadius": "5px",
         "display": "block",
@@ -138,7 +141,7 @@ exports[`Badge totals should be rendered 1`] = `
   <div>
     <div
       style={
-        Object {
+        {
           "border": "medium solid green",
           "borderRadius": "5px",
           "display": "inline-block",

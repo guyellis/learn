@@ -1,8 +1,8 @@
-const PropTypes = require('prop-types');
-const React = require('react');
-const moment = require('moment');
-const constants = require('../../common/constants');
-const helper = require('./helper');
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import helper from './helper.js';
 
 const {
   BADGE_BOUNDARIES: badgeBoundaries,
@@ -173,4 +173,4 @@ scoreBar.propTypes = {
   showScoreBar: PropTypes.bool.isRequired,
 };
 
-module.exports = scoreBar;
+export default scoreBar;

@@ -1,14 +1,14 @@
-const FloatingActionButton = require('@material-ui/core/Fab').default;
-const PropTypes = require('prop-types');
-const Button = require('@material-ui/core/Button').default;
-const React = require('react');
-const TextField = require('@material-ui/core/TextField').default;
-const Switch = require('@material-ui/core/Switch').default;
-const FormGroup = require('@material-ui/core/FormGroup').default;
-const FormControlLabel = require('@material-ui/core/FormControlLabel').default;
-const { Send } = require('@material-ui/icons');
-const Tooltip = require('@material-ui/core/Tooltip').default;
-const constants = require('../../common/constants');
+import FloatingActionButton from '@material-ui/core/Fab';
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Switch from '@material-ui/core/Switch';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Send } from '@material-ui/icons';
+import Tooltip from '@material-ui/core/Tooltip';
+import constants from '../../common/constants.js';
 
 const {
   ALPHABET: alphabet,
@@ -63,9 +63,8 @@ Level
         <div>
           {
             alphabet.map((letter, index) => (
-              <Tooltip title={letter}>
+              <Tooltip key={letter} title={letter}>
                 <FloatingActionButton
-                  key={letter}
                   onClick={() => setParentState({ levelIndex: index })}
                   color={index === levelIndex ? 'secondary' : 'primary'}
                   style={buttonStyle}
@@ -84,9 +83,8 @@ Operation
         <div>
           {
             operations.map((operation, index) => (
-              <Tooltip title={operation}>
+              <Tooltip key={operation} title={operation}>
                 <FloatingActionButton
-                  key={operation}
                   onClick={() => toggleOpIndex(index)}
                   color={opIndexes.includes(index) ? 'secondary' : 'primary'}
                   style={buttonStyle}
@@ -207,4 +205,4 @@ options.propTypes = {
   userName: PropTypes.string.isRequired,
 };
 
-module.exports = options;
+export default options;

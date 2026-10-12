@@ -1,5 +1,5 @@
-const db = require('../../../src/learn/db');
-const constants = require('../../../src/learn/common/constants');
+import db from '../../../src/learn/db/index.js';
+import constants from '../../../src/learn/common/constants.js';
 
 const {
   MATH_DRILL_OPTIONS,

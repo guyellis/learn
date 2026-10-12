@@ -1,6 +1,6 @@
-const React = require('react');
-const renderer = require('react-test-renderer');
-const ScoreBar = require('../../../../src/learn/math/drill/score-bar');
+import React from 'react';
+import renderer from 'react-test-renderer';
+import ScoreBar from '../../../../src/learn/math/drill/score-bar.jsx';
 
 function mockDates(times) {
   Date.now = jest.fn();

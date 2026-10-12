@@ -30,6 +30,9 @@ exports[`Menu should render a Menu component 1`] = `
       >
         Home
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </a>
   <a
@@ -58,6 +61,9 @@ exports[`Menu should render a Menu component 1`] = `
       >
         Drill
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </a>
   <a
@@ -86,6 +92,9 @@ exports[`Menu should render a Menu component 1`] = `
       >
         Score
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </a>
   <a
@@ -114,6 +123,9 @@ exports[`Menu should render a Menu component 1`] = `
       >
         Help
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
   </a>
 </div>

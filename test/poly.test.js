@@ -1,4 +1,4 @@
-const poly = require('../src/poly');
+import poly from '../src/poly.js';
 
 describe('PolyFill', () => {
   test('should check PolyFill list', (done) => {

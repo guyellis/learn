@@ -1,12 +1,14 @@
-const React = require('react');
-const renderer = require('react-test-renderer');
-const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
-const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
-const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
-const {
-  MemoryRouter,
-} = require('react-router-dom');
-const App = require('../src/app');
+import React from 'react';
+import renderer from 'react-test-renderer';
+import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
+import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
+import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { MemoryRouter } from 'react-router-dom';
+import App from '../src/app.jsx';
+
+const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
+const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
+const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

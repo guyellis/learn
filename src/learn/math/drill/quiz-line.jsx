@@ -1,11 +1,11 @@
-const FloatingActionButton = require('@material-ui/core/Fab').default;
-const PropTypes = require('prop-types');
-const React = require('react');
-const TextField = require('@material-ui/core/TextField').default;
-const { Done } = require('@material-ui/icons');
-const Keyboard = require('./keyboard');
-const constants = require('../../common/constants');
-const RunningResults = require('./running-results');
+import FloatingActionButton from '@material-ui/core/Fab';
+import TextField from '@material-ui/core/TextField';
+import { Done } from '@material-ui/icons';
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import Keyboard from './keyboard.jsx';
+import RunningResults from './running-results.jsx';
 
 const { OPERATIONS: operations } = constants;
 
@@ -248,4 +248,4 @@ QuizLine.defaultProps = {
   lastResult: null,
 };
 
-module.exports = QuizLine;
+export default QuizLine;

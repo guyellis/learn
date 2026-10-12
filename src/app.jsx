@@ -1,15 +1,12 @@
-const {
+import React from 'react';
+import {
   Route, Redirect, Switch,
-} = require('react-router-dom');
-const React = require('react');
-const Drill = require('./learn/math/drill');
-const Help = require('./learn/help');
-const Home = require('./learn/home');
-const Menu = require('./learn/menu');
-const Scoreboard = require('./learn/math/drill/scoreboard');
-
-// const Tester = require('./tester');
-// <Route path="/" exact component={Tester} />
+} from 'react-router-dom';
+import Drill from './learn/math/drill/index.jsx';
+import Help from './learn/help/index.jsx';
+import Home from './learn/home.jsx';
+import Menu from './learn/menu.jsx';
+import Scoreboard from './learn/math/drill/scoreboard.jsx';
 
 function app() {
   return (
@@ -26,4 +23,4 @@ function app() {
   );
 }
 
-module.exports = app;
+export default app;

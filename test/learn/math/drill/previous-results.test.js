@@ -1,4 +1,4 @@
-const PreviousResults = require('../../../../src/learn/math/drill/previous-results');
+import PreviousResults from '../../../../src/learn/math/drill/previous-results.js';
 
 describe('previous-results', () => {
   test('should sort by slowest', () => {

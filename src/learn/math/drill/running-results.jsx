@@ -1,9 +1,8 @@
-
-const React = require('react');
-const PropTypes = require('prop-types');
-const constants = require('../../common/constants');
-const Badge = require('./badge');
-const helper = require('./helper');
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import Badge from './badge.jsx';
+import helper from './helper.js';
 
 const { OPERATIONS } = constants;
 const spanStyle = { paddingLeft: 20 };
@@ -96,4 +95,4 @@ runningResults.defaultProps = {
   showIndex: false,
 };
 
-module.exports = runningResults;
+export default runningResults;

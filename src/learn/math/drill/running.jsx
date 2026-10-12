@@ -1,8 +1,8 @@
-const PropTypes = require('prop-types');
-const React = require('react');
-const constants = require('../../common/constants');
-const QuizLine = require('./quiz-line');
-const RunningResults = require('./running-results');
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import QuizLine from './quiz-line.jsx';
+import RunningResults from './running-results.jsx';
 
 const {
   ALPHABET: alphabet,
@@ -98,4 +98,4 @@ running.defaultProps = {
   // currentRecord: null,
 };
 
-module.exports = running;
+export default running;

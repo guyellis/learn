@@ -1,10 +1,14 @@
-const React = require('react');
-const renderer = require('react-test-renderer');
-const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
-const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
-const lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme').default;
-const db = require('../../../../src/learn/db');
-const ScoreBoard = require('../../../../src/learn/math/drill/scoreboard');
+import React from 'react';
+import renderer from 'react-test-renderer';
+import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
+import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
+import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import db from '../../../../src/learn/db/index.js';
+import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.jsx';
+
+const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
+const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
+const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 

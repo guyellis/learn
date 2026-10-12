@@ -133,7 +133,7 @@ exports[`App should render an App component 1`] = `
   <div>
     <div
       style={
-        Object {
+        {
           "marginTop": "20px",
           "textAlign": "right",
         }
@@ -222,7 +222,7 @@ exports[`App should render an App component 1`] = `
     </div>
     <div
       style={
-        Object {
+        {
           "marginTop": "20px",
         }
       }
@@ -261,7 +261,7 @@ exports[`App should render an App component 1`] = `
     </div>
     <div
       style={
-        Object {
+        {
           "marginTop": "20px",
         }
       }

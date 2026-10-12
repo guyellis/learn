@@ -1,8 +1,9 @@
-
-function fillArray(size, value) {
+export function fillArray(size, value) {
   return [...Array(size).keys()].map(() => value);
 }
 
-module.exports = {
+const util = {
   fillArray,
 };
+
+export default util;

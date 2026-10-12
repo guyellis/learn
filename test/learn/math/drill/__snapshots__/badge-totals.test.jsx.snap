@@ -18,7 +18,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "1.5em",
           "margin": "5px",
         }
@@ -31,6 +31,9 @@ exports[`Badge totals should be rendered 1`] = `
       >
         1
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
     <span>
       Gold Badge(s) - 2 seconds or less (per question)
@@ -52,7 +55,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "1.5em",
           "margin": "5px",
         }
@@ -65,6 +68,9 @@ exports[`Badge totals should be rendered 1`] = `
       >
         2
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
     <span>
       Silver Badge(s) - between 2 and 3 seconds (per question)
@@ -86,7 +92,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
-        Object {
+        {
           "fontSize": "1.5em",
           "margin": "5px",
         }
@@ -99,6 +105,9 @@ exports[`Badge totals should be rendered 1`] = `
       >
         3
       </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
     </button>
     <span>
       Bronze Badge(s) - between 3 and 4 seconds (per question)

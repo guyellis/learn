@@ -1,8 +1,8 @@
-const PropTypes = require('prop-types');
-const React = require('react');
-const Badge = require('./badge');
-const constants = require('../../common/constants');
-const helper = require('./helper');
+import PropTypes from 'prop-types';
+import React from 'react';
+import constants from '../../common/constants.js';
+import Badge from './badge.jsx';
+import helper from './helper.js';
 
 const finishedBadgeStyle = {
 
@@ -68,4 +68,4 @@ finishedBadge.propTypes = {
   totalCorrectAnswers: PropTypes.number.isRequired,
 };
 
-module.exports = finishedBadge;
+export default finishedBadge;

@@ -1,12 +1,12 @@
-const PropTypes = require('prop-types');
-const React = require('react');
-const RunningResults = require('./running-results');
-const constants = require('../../common/constants');
-const FinishedBadge = require('./finished-badge');
-const ScoreBar = require('./score-bar');
-const PreviousResults = require('./previous-results');
-const Types = require('./types');
-const helper = require('./helper');
+import PropTypes from 'prop-types';
+import React from 'react';
+import RunningResults from './running-results.jsx';
+import constants from '../../common/constants.js';
+import FinishedBadge from './finished-badge.jsx';
+import ScoreBar from './score-bar.jsx';
+import PreviousResults from './previous-results.js';
+import Types from './types.js';
+import helper from './helper.js';
 
 const {
   RECORD_NEW,
@@ -173,4 +173,4 @@ finished.defaultProps = {
   scoreBarTimes: undefined,
 };
 
-module.exports = finished;
+export default finished;

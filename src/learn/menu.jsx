@@ -1,8 +1,7 @@
-const { Link } = require('react-router-dom');
-const Toolbar = require('@material-ui/core/Toolbar').default;
-// const PropTypes = require('prop-types');
-const Button = require('@material-ui/core/Button').default;
-const React = require('react');
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ToolbarMenu extends React.Component {
   constructor(props) {
@@ -35,16 +34,4 @@ class ToolbarMenu extends React.Component {
   }
 }
 
-// ToolbarMenu.propTypes = {
-// match: PropTypes.shape({
-//   params: PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     slug: PropTypes.string.isRequired,
-//   }).isRequired,
-// }).isRequired,
-// history: React.PropTypes.shape({
-//   push: React.PropTypes.func.isRequired,
-// }).isRequired,
-// };
-
-module.exports = ToolbarMenu;
+export default ToolbarMenu;

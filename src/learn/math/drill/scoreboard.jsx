@@ -1,15 +1,15 @@
-const React = require('react');
-const TableHead = require('@material-ui/core/TableHead').default;
-const TableRow = require('@material-ui/core/TableRow').default;
-const TableBody = require('@material-ui/core/TableBody').default;
-const TableCell = require('@material-ui/core/TableCell').default;
-const Table = require('@material-ui/core/Table').default;
-const Paper = require('@material-ui/core/Paper').default;
+import React from 'react';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import Table from '@material-ui/core/Table';
+import Paper from '@material-ui/core/Paper';
 
-const Badge = require('./badge');
-const BadgeTotals = require('./badge-totals');
-const constants = require('../../common/constants');
-const helper = require('./helper');
+import Badge from './badge.jsx';
+import BadgeTotals from './badge-totals.jsx';
+import constants from '../../common/constants.js';
+import helper from './helper.js';
 
 const {
   ALPHABET: alphabet,
@@ -96,4 +96,4 @@ function scoreboard() {
   );
 }
 
-module.exports = scoreboard;
+export default scoreboard;
