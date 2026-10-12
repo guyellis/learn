@@ -6,8 +6,10 @@ exports[`App > should render an App component 1`] = `
     className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
   >
     <a
+      data-discover="true"
       href="/"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -33,8 +35,10 @@ exports[`App > should render an App component 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/math/drill"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -60,8 +64,10 @@ exports[`App > should render an App component 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/math/score"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -87,8 +93,10 @@ exports[`App > should render an App component 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/help"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -169,8 +177,10 @@ exports[`App > should render an App component 1`] = `
     </div>
     <div>
       <a
+        data-discover="true"
         href="/math/drill"
         onClick={[Function]}
+        ref={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -204,8 +214,10 @@ exports[`App > should render an App component 1`] = `
       }
     >
       <a
+        data-discover="true"
         href="/math/score"
         onClick={[Function]}
+        ref={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -239,8 +251,10 @@ exports[`App > should render an App component 1`] = `
       }
     >
       <a
+        data-discover="true"
         href="/help"
         onClick={[Function]}
+        ref={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -276,8 +290,10 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
     className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
   >
     <a
+      data-discover="true"
       href="/"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -303,8 +319,10 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/math/drill"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -330,8 +348,10 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/math/score"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -357,8 +377,10 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       </button>
     </a>
     <a
+      data-discover="true"
       href="/help"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -430,8 +452,10 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       }
     >
       <a
+        data-discover="true"
         href="/"
         onClick={[Function]}
+        ref={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"

@@ -56,8 +56,10 @@ exports[`Home > should render a Home component 1`] = `
   </div>
   <div>
     <a
+      data-discover="true"
       href="/math/drill"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -91,8 +93,10 @@ exports[`Home > should render a Home component 1`] = `
     }
   >
     <a
+      data-discover="true"
       href="/math/score"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
@@ -126,8 +130,10 @@ exports[`Home > should render a Home component 1`] = `
     }
   >
     <a
+      data-discover="true"
       href="/help"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"

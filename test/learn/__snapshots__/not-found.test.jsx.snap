@@ -47,8 +47,10 @@ exports[`NotFound > should render a NotFound component 1`] = `
     }
   >
     <a
+      data-discover="true"
       href="/"
       onClick={[Function]}
+      ref={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
