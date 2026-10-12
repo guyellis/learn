@@ -86,7 +86,10 @@ function finished(props) {
 
   const longestTime = long ? [long] : [];
   const shortestTime = short ? [short] : [];
-  const timePerQuestion = parseFloat((totalTime / correctCount).toFixed(1));
+  const calculatedTimePerQuestion = parseFloat((totalTime / correctCount).toFixed(1));
+  const timePerQuestion = (correctCount > 9 && scoreBarTimes && scoreBarTimes.length)
+    ? scoreBarTimes[scoreBarTimes.length - 1].timePerQuestion
+    : calculatedTimePerQuestion;
 
   const slowSort = PreviousResults.sortBySlowest(previousResults);
 
