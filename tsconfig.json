@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "checkJs": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": false,
-    "target": "ES2022"
+    "strict": true,
+    "target": "ES2022",
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "public", "coverage"],
   "include": [
