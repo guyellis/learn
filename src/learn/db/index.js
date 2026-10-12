@@ -1,8 +1,4 @@
-import {
-  DEFAULT_OPTIONS,
-  MATH_DRILL_OPTIONS,
-  MATH_DRILL_SCORES,
-} from '../common/constants.js';
+import { DEFAULT_OPTIONS, MATH_DRILL_OPTIONS, MATH_DRILL_SCORES } from '../common/constants.js';
 
 class DB {
   static setItem(key, value) {
@@ -57,8 +53,8 @@ class DB {
     const scores = DB.getScores() || [];
     scores.push(score);
     DB.saveScores({
-      version: 3,
       scores,
+      version: 3,
     });
   }
 
@@ -86,8 +82,8 @@ class DB {
     });
 
     return {
-      version: 2,
       scores,
+      version: 2,
     };
   }
 
@@ -98,7 +94,7 @@ class DB {
    * @memberof DB
    */
   static convertVersion2(scoresObj) {
-    const { version, scores } = scoresObj;
+    const { scores, version } = scoresObj;
     if (version !== 2) {
       throw new Error(`version must be 2 and not ${version} in convertVersion2`);
     }
@@ -111,8 +107,8 @@ class DB {
     });
 
     return {
-      version: 3,
       scores,
+      version: 3,
     };
   }
 

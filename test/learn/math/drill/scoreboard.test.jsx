@@ -1,6 +1,6 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import db from '../../../../src/learn/db/index.js';
 import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.jsx';
 
@@ -16,12 +16,14 @@ describe('ScoreBoard', () => {
   });
 
   test('should render showScoreBoard', () => {
-    db.getScores.mockReturnValueOnce([{
-      levelIndex: 0,
-      correctCount: 10,
-      opIndexes: [0],
-      timePerQuestion: 6,
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        correctCount: 10,
+        levelIndex: 0,
+        opIndexes: [0],
+        timePerQuestion: 6,
+      },
+    ]);
 
     let component;
     act(() => {
@@ -37,12 +39,14 @@ describe('ScoreBoard', () => {
   });
 
   test('should clear record history when clear button is clicked', () => {
-    db.getScores.mockReturnValue([{
-      levelIndex: 0,
-      correctCount: 10,
-      opIndexes: [0],
-      timePerQuestion: 6,
-    }]);
+    db.getScores.mockReturnValue([
+      {
+        correctCount: 10,
+        levelIndex: 0,
+        opIndexes: [0],
+        timePerQuestion: 6,
+      },
+    ]);
     db.clearScores = vi.fn();
 
     let component;

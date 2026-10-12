@@ -112,9 +112,7 @@ For now badges are only awarded for single-operation tests.
 `;
 
 function help() {
-  return (
-    <Markdown>{input}</Markdown>
-  );
+  return <Markdown>{input}</Markdown>;
 }
 
 export default help;

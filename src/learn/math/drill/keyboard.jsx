@@ -1,19 +1,19 @@
+import { Backspace, KeyboardReturn } from '@mui/icons-material';
 import FloatingActionButton from '@mui/material/Fab';
 import Tooltip from '@mui/material/Tooltip';
-import { Backspace, KeyboardReturn } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const normalButtonStyle = {
-  margin: '5px',
   fontSize: '2em',
+  margin: '5px',
 };
 
 const largeButtonStyle = {
-  height: '80px',
-  width: '80px',
-  margin: '5px',
   fontSize: '2em',
+  height: '80px',
+  margin: '5px',
+  width: '80px',
 };
 
 let buttonStyle = {};
@@ -44,9 +44,7 @@ class Keyboard extends React.Component {
   }
 
   render() {
-    const {
-      onscreenKeyboard,
-    } = this.props;
+    const { onscreenKeyboard } = this.props;
 
     if (!onscreenKeyboard) {
       return null;
@@ -85,27 +83,20 @@ class Keyboard extends React.Component {
 
     return (
       <div>
-        {
-          layout.map((lay) => (
-            <div key={lay[0]}>
-              {
-                lay.slice(1).map((item) => {
-                  const [content, title, click, key] = item;
-                  return (
-                    <Tooltip key={key} title={title}>
-                      <FloatingActionButton
-                        onClick={() => this.onClick(click)}
-                        style={buttonStyle}
-                      >
-                        {content}
-                      </FloatingActionButton>
-                    </Tooltip>
-                  );
-                })
-              }
-            </div>
-          ))
-        }
+        {layout.map((lay) => (
+          <div key={lay[0]}>
+            {lay.slice(1).map((item) => {
+              const [content, title, click, key] = item;
+              return (
+                <Tooltip key={key} title={title}>
+                  <FloatingActionButton onClick={() => this.onClick(click)} style={buttonStyle}>
+                    {content}
+                  </FloatingActionButton>
+                </Tooltip>
+              );
+            })}
+          </div>
+        ))}
       </div>
     );
   }
@@ -113,8 +104,8 @@ class Keyboard extends React.Component {
 
 Keyboard.propTypes = {
   keyPress: PropTypes.func.isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
   largeKeyboard: PropTypes.bool.isRequired,
+  onscreenKeyboard: PropTypes.bool.isRequired,
 };
 
 export default Keyboard;

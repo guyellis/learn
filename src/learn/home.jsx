@@ -1,7 +1,7 @@
+import { BugReport, Share } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import FloatingActionButton from '@mui/material/Fab';
 import Tooltip from '@mui/material/Tooltip';
-import { BugReport, Share } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,19 +10,20 @@ const style = {
 };
 
 const githubIconStyle = {
-  textAlign: 'right',
   marginTop: '20px',
+  textAlign: 'right',
 };
 
 function share() {
-  navigator.share({
-    title: 'Math Drill',
-    text: 'Math Exercises for Kids',
-    url: 'https://learn.headvert.com',
-  })
-  // eslint-disable-next-line no-console
+  navigator
+    .share({
+      text: 'Math Exercises for Kids',
+      title: 'Math Drill',
+      url: 'https://learn.headvert.com',
+    })
+    // eslint-disable-next-line no-console
     .then(() => console.log('Successful share'))
-  // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     .catch((error) => console.log('Error sharing', error));
 }
 
@@ -36,11 +37,7 @@ function shareComponent() {
   return (
     <span style={shareStyle}>
       <Tooltip title="Share">
-        <FloatingActionButton
-          color="primary"
-          aria-label="add"
-          onClick={share}
-        >
+        <FloatingActionButton aria-label="add" color="primary" onClick={share}>
           <Share />
         </FloatingActionButton>
       </Tooltip>
@@ -59,10 +56,7 @@ function home() {
           target="_blank"
         >
           <Tooltip title="Bugs and Issues">
-            <FloatingActionButton
-              color="primary"
-              aria-label="add"
-            >
+            <FloatingActionButton aria-label="add" color="primary">
               <BugReport />
             </FloatingActionButton>
           </Tooltip>
@@ -71,17 +65,23 @@ function home() {
       </div>
       <div>
         <Link to="/math/drill">
-          <Button variant="contained" color="primary">Math Drill</Button>
+          <Button color="primary" variant="contained">
+            Math Drill
+          </Button>
         </Link>
       </div>
       <div style={style}>
         <Link to="/math/score">
-          <Button variant="contained" color="primary">Scoreboard</Button>
+          <Button color="primary" variant="contained">
+            Scoreboard
+          </Button>
         </Link>
       </div>
       <div style={style}>
         <Link to="/help">
-          <Button variant="contained" color="primary">Help</Button>
+          <Button color="primary" variant="contained">
+            Help
+          </Button>
         </Link>
       </div>
     </div>

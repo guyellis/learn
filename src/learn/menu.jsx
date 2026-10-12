@@ -18,16 +18,24 @@ class ToolbarMenu extends React.Component {
     return (
       <Toolbar>
         <Link to="/">
-          <Button variant="contained" color="primary">Home</Button>
+          <Button color="primary" variant="contained">
+            Home
+          </Button>
         </Link>
         <Link to="/math/drill">
-          <Button variant="contained" color="primary">Drill</Button>
+          <Button color="primary" variant="contained">
+            Drill
+          </Button>
         </Link>
         <Link to="/math/score">
-          <Button variant="contained" color="primary">Score</Button>
+          <Button color="primary" variant="contained">
+            Score
+          </Button>
         </Link>
         <Link to="/help">
-          <Button variant="contained" color="primary">Help</Button>
+          <Button color="primary" variant="contained">
+            Help
+          </Button>
         </Link>
       </Toolbar>
     );

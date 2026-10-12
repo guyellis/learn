@@ -25,9 +25,7 @@
       "sourceMaps": true,
       "smartStep": true,
       "internalConsoleOptions": "openOnSessionStart",
-      "skipFiles": [
-        "node_modules/**"
-      ],
+      "skipFiles": ["node_modules/**"],
       "sourceMapPathOverrides": {
         "webpack:///*": "${webRoot}/*"
       }
@@ -44,11 +42,7 @@
       "name": "Debug Vitest Tests",
       "type": "node",
       "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceRoot}/node_modules/.bin/vitest",
-        "run"
-      ],
+      "runtimeArgs": ["--inspect-brk", "${workspaceRoot}/node_modules/.bin/vitest", "run"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }

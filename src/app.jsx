@@ -1,7 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import {
-  Route, Routes,
-} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Menu from './learn/menu.jsx';
 
 const Drill = lazy(() => import('./learn/math/drill/index.jsx'));
@@ -16,11 +14,11 @@ function app() {
       <Menu />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/math/drill" element={<Drill />} />
-          <Route path="/math/score" element={<Scoreboard />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="*" element={<NotFound />} />
+          <Route element={<Home />} path="/" />
+          <Route element={<Drill />} path="/math/drill" />
+          <Route element={<Scoreboard />} path="/math/score" />
+          <Route element={<Help />} path="/help" />
+          <Route element={<NotFound />} path="*" />
         </Routes>
       </Suspense>
     </div>

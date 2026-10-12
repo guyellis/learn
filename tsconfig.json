@@ -22,11 +22,5 @@
     "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "public", "coverage"],
-  "include": [
-    "./*.ts",
-    "./*.mjs",
-    "./*.js",
-    "src/**/*",
-    "test/**/*"
-  ]
+  "include": ["./*.ts", "./*.mjs", "./*.js", "src/**/*", "test/**/*"]
 }

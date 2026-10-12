@@ -1,9 +1,9 @@
-import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import { Temporal } from '@js-temporal/polyfill';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Drill from '../../../../src/learn/math/drill/index.jsx';
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
 import helper from '../../../../src/learn/math/drill/helper.js';
+import Drill from '../../../../src/learn/math/drill/index.jsx';
 
 const theme = createTheme();
 
@@ -20,8 +20,9 @@ describe('Drill', () => {
 
   beforeEach(() => {
     // eslint-disable-next-line no-proto
-    vi.spyOn(window.localStorage.__proto__, 'getItem')
-      .mockReturnValue(JSON.stringify(savedOptions));
+    vi.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValue(
+      JSON.stringify(savedOptions),
+    );
   });
 
   afterEach(() => {
@@ -148,7 +149,7 @@ describe('Drill', () => {
 
     const instance = component.root.findByType(Drill).instance;
     act(() => {
-      instance.onChange({ target: { name: 'largeKeyboard', type: 'checkbox', checked: false } });
+      instance.onChange({ target: { checked: false, name: 'largeKeyboard', type: 'checkbox' } });
     });
     expect(instance.state.largeKeyboard).toBe(false);
 
@@ -193,10 +194,10 @@ describe('Drill', () => {
     // Set a known task: 2 + 3 = 5 (task format: [left, right, opIndex, expected])
     act(() => {
       instance.setState({
-        currentTask: [2, 3, 0, 5],
-        totalProblems: '2',
         correctCount: 0,
+        currentTask: [2, 3, 0, 5],
         previousResults: [],
+        totalProblems: '2',
       });
     });
     act(() => {

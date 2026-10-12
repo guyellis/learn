@@ -1,8 +1,4 @@
-const defaultFeatures = [
-  'Map',
-  'Set',
-  'requestAnimationFrame',
-];
+const defaultFeatures = ['Map', 'Set', 'requestAnimationFrame'];
 
 function browserSupportsAllFeatures(features) {
   return features.every((f) => window[f]);

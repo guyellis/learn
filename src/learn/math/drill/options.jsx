@@ -1,24 +1,21 @@
-import FloatingActionButton from '@mui/material/Fab';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { Send } from '@mui/icons-material';
+import Button from '@mui/material/Button';
+import FloatingActionButton from '@mui/material/Fab';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
 
-const {
-  ALPHABET: alphabet,
-  OPERATIONS: operations,
-} = constants;
+const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 
 const buttonStyle = {
-  margin: '5px',
   fontSize: '2em',
+  margin: '5px',
 };
 
 const sectionStyle = {
@@ -59,157 +56,133 @@ function Options(props) {
   return (
     <div>
       <div style={sectionStyle}>
-        <h2>
-Level
-        </h2>
+        <h2>Level</h2>
         <div>
-          {
-            alphabet.map((letter, index) => (
-              <Tooltip key={letter} title={letter}>
-                <FloatingActionButton
-                  onClick={() => setParentState({ levelIndex: index })}
-                  color={index === levelIndex ? 'secondary' : 'primary'}
-                  style={buttonStyle}
-                >
-                  {letter}
-                </FloatingActionButton>
-              </Tooltip>
-            ))
-          }
+          {alphabet.map((letter, index) => (
+            <Tooltip key={letter} title={letter}>
+              <FloatingActionButton
+                color={index === levelIndex ? 'secondary' : 'primary'}
+                onClick={() => setParentState({ levelIndex: index })}
+                style={buttonStyle}
+              >
+                {letter}
+              </FloatingActionButton>
+            </Tooltip>
+          ))}
         </div>
       </div>
       <div style={sectionStyle}>
-        <h2>
-Operation
-        </h2>
+        <h2>Operation</h2>
         <div>
-          {
-            operations.map((operation, index) => (
-              <Tooltip key={operation} title={operation}>
-                <FloatingActionButton
-                  onClick={() => toggleOpIndex(index)}
-                  color={opIndexes.includes(index) ? 'secondary' : 'primary'}
-                  style={buttonStyle}
-                >
-                  {operation}
-                </FloatingActionButton>
-              </Tooltip>
-            ))
-          }
+          {operations.map((operation, index) => (
+            <Tooltip key={operation} title={operation}>
+              <FloatingActionButton
+                color={opIndexes.includes(index) ? 'secondary' : 'primary'}
+                onClick={() => toggleOpIndex(index)}
+                style={buttonStyle}
+              >
+                {operation}
+              </FloatingActionButton>
+            </Tooltip>
+          ))}
         </div>
       </div>
       <div style={sectionStyle}>
-        <h3>
-Time
-        </h3>
+        <h3>Time</h3>
         <TextField
-          label="Time"
           helperText="1"
           id="time-minutes"
+          label="Time"
           name="minutes"
           onChange={onChange}
-          style={{ width: 100, marginLeft: 20 }}
+          style={{ marginLeft: 20, width: 100 }}
           type="number"
           value={minutes}
         />
       </div>
       <div style={sectionStyle}>
-        <h3>
-Total Questions (you only get badges for 10 or more correct questions)
-        </h3>
+        <h3>Total Questions (you only get badges for 10 or more correct questions)</h3>
         <TextField
-          label="Total Questions"
           helperText="20"
           id="total-problems"
+          label="Total Questions"
           name="totalProblems"
           onChange={onChange}
-          style={{ width: 150, marginLeft: 40 }}
+          style={{ marginLeft: 40, width: 150 }}
           type="number"
           value={totalProblems}
         />
       </div>
       <div style={sectionStyle}>
-        <h3>
-Keyboard
-        </h3>
+        <h3>Keyboard</h3>
         <FormGroup row>
           <FormControlLabel
-            control={(
+            control={
               <Switch
+                checked={onscreenKeyboard}
+                color="primary"
                 name="onscreenKeyboard"
                 onChange={onChange}
-                color="primary"
-                checked={onscreenKeyboard}
               />
-)}
+            }
             label="Use onscreen keyboard"
           />
         </FormGroup>
       </div>
-      {onscreenKeyboard
-        && (
+      {onscreenKeyboard && (
         <div style={sectionStyle}>
-          <h3>
-Large Keyboard
-          </h3>
+          <h3>Large Keyboard</h3>
           <FormGroup row>
             <FormControlLabel
-              control={(
+              control={
                 <Switch
+                  checked={largeKeyboard}
+                  color="secondary"
                   name="largeKeyboard"
                   onChange={onChange}
-                  color="secondary"
-                  checked={largeKeyboard}
                 />
-)}
+              }
               label="Large Keyboard"
             />
           </FormGroup>
         </div>
-        )}
+      )}
       <div style={sectionStyle}>
-        <h3>
-Your Name (Optional)
-        </h3>
+        <h3>Your Name (Optional)</h3>
         <TextField
-          label="Your Name"
           helperText="Jemima Puddle-Duck"
           id="user-name"
+          label="Your Name"
           name="userName"
           onChange={onChange}
-          style={{ width: 250, marginLeft: 40 }}
+          style={{ marginLeft: 40, width: 250 }}
           type="text"
           value={userName}
         />
       </div>
       <div style={sectionStyle}>
-        <Button variant="contained" color="primary" onClick={onStart}>
-Start
+        <Button color="primary" onClick={onStart} variant="contained">
+          Start
           <Send />
         </Button>
       </div>
       <div style={sectionStyle}>
         <Button
-          id="clear-record-history"
-          variant="contained"
           color="secondary"
+          id="clear-record-history"
           onClick={() => {
             db.clearScores();
             setHistoryCleared(true);
           }}
+          variant="contained"
         >
           Clear Record History
         </Button>
-        {historyCleared && (
-          <span style={{ marginLeft: '10px' }}>
-            Record history cleared!
-          </span>
-        )}
+        {historyCleared && <span style={{ marginLeft: '10px' }}>Record history cleared!</span>}
       </div>
     </div>
   );
 }
-
 
 Options.propTypes = {
   largeKeyboard: PropTypes.bool.isRequired,

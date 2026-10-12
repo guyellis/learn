@@ -17,21 +17,17 @@ function badgeTotals(props) {
 
   return (
     <div>
-      {
-        totals.map((total, colorIndex) => {
-          const key = colorText[colorIndex];
-          const primaryText = `${key} Badge(s) - ${badgeBoundaries[colorIndex]}`;
+      {totals.map((total, colorIndex) => {
+        const key = colorText[colorIndex];
+        const primaryText = `${key} Badge(s) - ${badgeBoundaries[colorIndex]}`;
 
-          return (
-            <div key={key}>
-              <Badge color={colorIndex} content={total.toString()} />
-              <span>
-                {primaryText}
-              </span>
-            </div>
-          );
-        })
-      }
+        return (
+          <div key={key}>
+            <Badge color={colorIndex} content={total.toString()} />
+            <span>{primaryText}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

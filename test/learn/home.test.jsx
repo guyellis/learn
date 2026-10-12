@@ -1,7 +1,7 @@
-import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import renderer, { act } from 'react-test-renderer';
 import Home from '../../src/learn/home.jsx';
 
 const theme = createTheme();
@@ -15,7 +15,8 @@ describe('Home', () => {
           <MemoryRouter>
             <Home />
           </MemoryRouter>
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
 
     const app = component.toJSON();

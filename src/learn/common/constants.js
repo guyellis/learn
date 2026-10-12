@@ -13,7 +13,12 @@ export const DEFAULT_OPTIONS = {
 };
 export const MATH_DRILL_OPTIONS = 'mathDrillOptions';
 export const MATH_DRILL_SCORES = 'mathDrillScores';
-export const OPERATION_NAMES = Object.freeze(['Addition', 'Subtraction', 'Multiplication', 'Division']);
+export const OPERATION_NAMES = Object.freeze([
+  'Addition',
+  'Subtraction',
+  'Multiplication',
+  'Division',
+]);
 export const OPERATIONS = Object.freeze(['+', '-', 'x', '\u00F7']);
 export const RECORD_EQUAL = 'RECORD_EQUAL';
 export const RECORD_MISS = 'RECORD_MISS';

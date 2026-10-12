@@ -4,9 +4,15 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 if (!ReactDOM.findDOMNode) {
   ReactDOM.findDOMNode = (node) => {
-    if (node == null) return null;
-    if (typeof Element !== 'undefined' && node instanceof Element) return node;
-    if (node.nodeType) return node;
+    if (node === null || node === undefined) {
+      return null;
+    }
+    if (typeof Element !== 'undefined' && node instanceof Element) {
+      return node;
+    }
+    if (node.nodeType) {
+      return node;
+    }
     return node._reactInternals?.stateNode || null;
   };
 }

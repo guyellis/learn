@@ -12,7 +12,5 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 export default {
-  plugins: [
-    autoprefixer({ overrideBrowserslist: AUTOPREFIXER_BROWSERS }),
-  ],
+  plugins: [autoprefixer({ overrideBrowserslist: AUTOPREFIXER_BROWSERS })],
 };

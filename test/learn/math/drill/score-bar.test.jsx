@@ -22,10 +22,7 @@ describe('ScoreBar', () => {
 
     let component;
     act(() => {
-      component = renderer.create(<ScoreBar
-        showScoreBar={false}
-        times={times}
-      />);
+      component = renderer.create(<ScoreBar showScoreBar={false} times={times} />);
     });
 
     const finishedBadge = component.toJSON();
@@ -37,10 +34,7 @@ describe('ScoreBar', () => {
 
     let component;
     act(() => {
-      component = renderer.create(<ScoreBar
-        showScoreBar
-        times={times}
-      />);
+      component = renderer.create(<ScoreBar showScoreBar times={times} />);
     });
 
     const finishedBadge = component.toJSON();
@@ -48,20 +42,19 @@ describe('ScoreBar', () => {
   });
 
   test('should show 1 column with Gold Badge', () => {
-    const times = [{
-      date: 1506395542848, // 9/25/2017 8:12pm PST
-      timePerQuestion: 1.5,
-      dateMockDelta: 1000 * 60 * 4,
-    }];
+    const times = [
+      {
+        date: 1506395542848, // 9/25/2017 8:12pm PST
+        dateMockDelta: 1000 * 60 * 4,
+        timePerQuestion: 1.5,
+      },
+    ];
 
     mockDates(times);
 
     let component;
     act(() => {
-      component = renderer.create(<ScoreBar
-        showScoreBar
-        times={times}
-      />);
+      component = renderer.create(<ScoreBar showScoreBar times={times} />);
     });
 
     const finishedBadge = component.toJSON();
@@ -69,20 +62,19 @@ describe('ScoreBar', () => {
   });
 
   test('should show 1 column with below Blue Badge', () => {
-    const times = [{
-      date: 1506395542848, // 9/25/2017 8:12pm PST
-      timePerQuestion: 15.2,
-      dateMockDelta: 1000 * 60 * 4,
-    }];
+    const times = [
+      {
+        date: 1506395542848, // 9/25/2017 8:12pm PST
+        dateMockDelta: 1000 * 60 * 4,
+        timePerQuestion: 15.2,
+      },
+    ];
 
     mockDates(times);
 
     let component;
     act(() => {
-      component = renderer.create(<ScoreBar
-        showScoreBar
-        times={times}
-      />);
+      component = renderer.create(<ScoreBar showScoreBar times={times} />);
     });
 
     const finishedBadge = component.toJSON();
@@ -90,28 +82,29 @@ describe('ScoreBar', () => {
   });
 
   test('should show 5 columns with mixed Badges', () => {
-    const times = [{
-      date: 1506395542848, // 9/25/2017 8:12pm PST
-      timePerQuestion: 15.2,
-      dateMockDelta: 1000 * 60 * 4,
-    }, {
-      date: 1506395642848, // A bit later
-      timePerQuestion: 10.2,
-      dateMockDelta: 1000 * 60 * 2,
-    }, {
-      date: 1506395742848, // And later
-      timePerQuestion: 5.2,
-      dateMockDelta: 1000 * 3,
-    }];
+    const times = [
+      {
+        date: 1506395542848, // 9/25/2017 8:12pm PST
+        dateMockDelta: 1000 * 60 * 4,
+        timePerQuestion: 15.2,
+      },
+      {
+        date: 1506395642848, // A bit later
+        dateMockDelta: 1000 * 60 * 2,
+        timePerQuestion: 10.2,
+      },
+      {
+        date: 1506395742848, // And later
+        dateMockDelta: 1000 * 3,
+        timePerQuestion: 5.2,
+      },
+    ];
 
     mockDates(times);
 
     let component;
     act(() => {
-      component = renderer.create(<ScoreBar
-        showScoreBar
-        times={times}
-      />);
+      component = renderer.create(<ScoreBar showScoreBar times={times} />);
     });
 
     const finishedBadge = component.toJSON();

@@ -10,15 +10,13 @@ const {
   COLOR_TEXT: colorText,
 } = constants;
 
-const sbStyleBase = {
-
-};
+const sbStyleBase = {};
 
 const sbHeadStyleBase = {
-  width: '100%',
   border: '1px solid black',
   display: 'flex',
   textAlign: 'left',
+  width: '100%',
 };
 
 const sbHeadItemStyleBase = {
@@ -26,18 +24,18 @@ const sbHeadItemStyleBase = {
 };
 
 const sbBodyStyleBase = {
-  width: '100%',
   border: '1px solid black',
   display: 'flex',
+  width: '100%',
 };
 
 const sbBodyItemStyleBase = {
   border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
+  flexGrow: '1',
   fontSize: 'large',
   height: '100%',
-  flexGrow: '1',
   textAlign: 'center',
 };
 
@@ -54,44 +52,34 @@ function renderColors(times, maxVal) {
 
   return (
     <span style={sbBodyItemStyle}>
-      {
-        colorText.map((color, index) => {
-          const style = {
-            backgroundColor: htmlColors[index],
-            height: `${widths[index]}%`,
-          };
-          return (
-            <div
-              key={color}
-              style={style}
-            >
-              {color}
-            </div>
-          );
-        })
-      }
+      {colorText.map((color, index) => {
+        const style = {
+          backgroundColor: htmlColors[index],
+          height: `${widths[index]}%`,
+        };
+        return (
+          <div key={color} style={style}>
+            {color}
+          </div>
+        );
+      })}
     </span>
   );
 }
 
 function renderUserScores(times, maxVal) {
   return times.map((time) => {
-    const { timePerQuestion, date } = time;
+    const { date, timePerQuestion } = time;
     const sbBodyItemStyle = { ...sbBodyItemStyleBase, height: `${maxVal * 50}px` };
     const timePerQuestionLimit = Math.min(maxVal, timePerQuestion);
 
-    const one = Math.min(95, ((timePerQuestionLimit * 100) / maxVal) - 5).toFixed(1);
-    const three = Math.max(0, (((maxVal - timePerQuestionLimit) * 100) / maxVal) - 5).toFixed(1);
-    const userTimes = [
-      one,
-      10,
-      three,
-    ];
+    const one = Math.min(95, (timePerQuestionLimit * 100) / maxVal - 5).toFixed(1);
+    const three = Math.max(0, ((maxVal - timePerQuestionLimit) * 100) / maxVal - 5).toFixed(1);
+    const userTimes = [one, 10, three];
 
     const rightArrow = '\u21FE';
     const downArrow = '\u2193';
-    const arrow = timePerQuestion > timePerQuestionLimit
-      ? downArrow : rightArrow;
+    const arrow = timePerQuestion > timePerQuestionLimit ? downArrow : rightArrow;
 
     const userTimeText = ['', `YOU${arrow}`, ''];
 
@@ -99,31 +87,30 @@ function renderUserScores(times, maxVal) {
 
     return (
       <span key={date} style={sbBodyItemStyle}>
-        {
-          userTimes.map((userTime, index) => {
-            const key = `userTimes-${index}`;
-            const style = {
-              height: `${userTime}%`,
-            };
-            if (index === 1) {
-              style.backgroundColor = userColor;
-            }
-            return (
-              <span key={key} style={style}>
-                {userTimeText[index]}
-              </span>
-            );
-          })
-        }
+        {userTimes.map((userTime, index) => {
+          const key = `userTimes-${index}`;
+          const style = {
+            height: `${userTime}%`,
+          };
+          if (index === 1) {
+            style.backgroundColor = userColor;
+          }
+          return (
+            <span key={key} style={style}>
+              {userTimeText[index]}
+            </span>
+          );
+        })}
       </span>
     );
   });
 }
 
 function formatFromNow(date) {
-  const instant = typeof date === 'number'
-    ? Temporal.Instant.fromEpochMilliseconds(date)
-    : Temporal.Instant.from(date);
+  const instant =
+    typeof date === 'number'
+      ? Temporal.Instant.fromEpochMilliseconds(date)
+      : Temporal.Instant.from(date);
   const now = Temporal.Now.instant();
   const timeZone = Temporal.Now.timeZoneId();
   const zNow = now.toZonedDateTimeISO(timeZone);
@@ -156,42 +143,38 @@ function formatFromNow(date) {
 }
 
 function renderTitles(times) {
-  const titles = times.map(({ date }) => ({
-    title: formatFromNow(date),
-    date,
-  })).concat({ title: 'Badges', date: 0 });
+  const titles = times
+    .map(({ date }) => ({
+      date,
+      title: formatFromNow(date),
+    }))
+    .concat({ date: 0, title: 'Badges' });
 
   return (
     <div style={sbHeadStyleBase}>
-      {
-      titles.map(({ title, date }) => (
+      {titles.map(({ date, title }) => (
         <span key={date} style={sbHeadItemStyleBase}>
           {title}
         </span>
-      ))
-    }
+      ))}
     </div>
   );
 }
 
-function scoreBar({ times, showScoreBar }) {
+function scoreBar({ showScoreBar, times }) {
   if (!showScoreBar || !times.length) {
     return null;
   }
 
   const boundaryMax = Math.max(...badgeBoundaries);
   const maxTimePerQuestion = Math.max(...times.map((time) => time.timePerQuestion));
-  const maxVal = maxTimePerQuestion > (boundaryMax * 1.5)
-    ? boundaryMax * 2
-    : boundaryMax * 1.5;
+  const maxVal = maxTimePerQuestion > boundaryMax * 1.5 ? boundaryMax * 2 : boundaryMax * 1.5;
 
   const sbBodyStyle = { ...sbBodyStyleBase, height: `${maxVal * 50}px` };
 
   return (
     <div style={sbStyleBase}>
-      <div style={sbHeadStyleBase}>
-        {renderTitles(times)}
-      </div>
+      <div style={sbHeadStyleBase}>{renderTitles(times)}</div>
       <div style={sbBodyStyle}>
         {renderUserScores(times, maxVal)}
         {renderColors(times, maxVal)}
@@ -201,11 +184,13 @@ function scoreBar({ times, showScoreBar }) {
 }
 
 scoreBar.propTypes = {
-  times: PropTypes.arrayOf(PropTypes.shape({
-    date: PropTypes.number.isRequired,
-    timePerQuestion: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
   showScoreBar: PropTypes.bool.isRequired,
+  times: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.number.isRequired,
+      timePerQuestion: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export { formatFromNow };

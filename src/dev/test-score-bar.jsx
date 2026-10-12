@@ -33,9 +33,7 @@ const times2 = [
 ];
 
 function tester() {
-  return (
-    <ScoreBar times={times2} showScoreBar />
-  );
+  return <ScoreBar showScoreBar times={times2} />;
 }
 
 export default tester;

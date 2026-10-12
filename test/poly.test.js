@@ -25,7 +25,9 @@ describe('PolyFill', () => {
       const { appendChild } = document.head;
       document.head.appendChild = (js) => js.onerror('Fake Error');
       poly(['dummy'], (error) => {
-        expect(error.message).toBe('Failed to load script https://cdn.polyfill.io/v2/polyfill.min.js?features=dummy');
+        expect(error.message).toBe(
+          'Failed to load script https://cdn.polyfill.io/v2/polyfill.min.js?features=dummy',
+        );
         document.head.appendChild = appendChild;
         resolve();
       });

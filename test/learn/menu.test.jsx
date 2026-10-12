@@ -1,7 +1,7 @@
-import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import renderer, { act } from 'react-test-renderer';
 import Menu from '../../src/learn/menu.jsx';
 
 const theme = createTheme();
@@ -15,7 +15,8 @@ describe('Menu', () => {
           <MemoryRouter>
             <Menu />
           </MemoryRouter>
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
 
     const app = component.toJSON();
