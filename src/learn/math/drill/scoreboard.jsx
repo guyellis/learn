@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Badge from './badge.jsx';
 import BadgeTotals from './badge-totals.jsx';
 import constants from '../../common/constants.js';
+import db from '../../db/index.js';
 import helper from './helper.js';
 
 const {
@@ -43,7 +45,8 @@ function badge(badges) {
   );
 }
 
-function scoreboard() {
+function Scoreboard() {
+  const [, setRefresh] = useState(0);
   const { ops: operations, totals, levels } = helper.getScoreboard();
   const ops = [...operations];
   const opNames = ops.map((op) => {
@@ -51,6 +54,11 @@ function scoreboard() {
     const names = operators.map((operator) => operationNames[parseInt(operator, 10)]);
     return names.join(' / ');
   });
+
+  const handleClearHistory = () => {
+    db.clearScores();
+    setRefresh((count) => count + 1);
+  };
   /*
   {
     ops, // A Set of strings representing operators
@@ -92,8 +100,18 @@ function scoreboard() {
           </TableBody>
         </Table>
       </Paper>
+      <div style={{ marginTop: '20px' }}>
+        <Button
+          id="clear-record-history"
+          variant="contained"
+          color="secondary"
+          onClick={handleClearHistory}
+        >
+          Clear Record History
+        </Button>
+      </div>
     </div>
   );
 }
 
-export default scoreboard;
+export default Scoreboard;

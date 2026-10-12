@@ -11,15 +11,19 @@ describe('DB', () => {
   // });
   let getItemMock;
   let setItemMock;
+  let removeItemMock;
   beforeEach(() => {
     // eslint-disable-next-line no-proto
     setItemMock = jest.spyOn(window.localStorage.__proto__, 'setItem');
     // eslint-disable-next-line no-proto
     getItemMock = jest.spyOn(window.localStorage.__proto__, 'getItem');
+    // eslint-disable-next-line no-proto
+    removeItemMock = jest.spyOn(window.localStorage.__proto__, 'removeItem');
   });
   afterEach(() => {
     getItemMock.mockRestore();
     setItemMock.mockRestore();
+    removeItemMock.mockRestore();
   });
   test('should set an item', () => {
     const value = { prop: 'one' };
@@ -46,6 +50,11 @@ describe('DB', () => {
     expect(actual).toBeNull();
   });
 
+  test('should remove an item', () => {
+    db.removeItem('key');
+    expect(localStorage.removeItem).toHaveBeenCalledWith('key');
+  });
+
   test('should save options', () => {
     const value = { prop: 'one' };
     db.saveOptions(value);
@@ -56,6 +65,11 @@ describe('DB', () => {
     const value = { prop: 'one' };
     db.saveScores(value);
     expect(localStorage.setItem).toHaveBeenCalledWith(MATH_DRILL_SCORES, JSON.stringify(value));
+  });
+
+  test('should clear scores', () => {
+    db.clearScores();
+    expect(localStorage.removeItem).toHaveBeenCalledWith(MATH_DRILL_SCORES);
   });
 
   test('should append scores', () => {

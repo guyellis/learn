@@ -41,4 +41,30 @@ describe('ScoreBoard', () => {
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
   });
+
+  test('should clear record history when clear button is clicked', () => {
+    db.getScores.mockReturnValue([{
+      levelIndex: 0,
+      correctCount: 10,
+      opIndexes: [0],
+      timePerQuestion: 6,
+    }]);
+    db.clearScores = jest.fn();
+
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <ScoreBoard />
+        </MuiThemeProvider>,
+      );
+    });
+
+    const button = component.root.findByProps({ id: 'clear-record-history' });
+    act(() => {
+      button.props.onClick();
+    });
+
+    expect(db.clearScores).toHaveBeenCalled();
+  });
 });

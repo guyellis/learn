@@ -14,6 +14,10 @@ class DB {
     return item ? JSON.parse(item) : item;
   }
 
+  static removeItem(key) {
+    localStorage.removeItem(key);
+  }
+
   static saveOptions(data) {
     DB.setItem(MATH_DRILL_OPTIONS, data);
   }
@@ -43,6 +47,10 @@ class DB {
 
   static saveScores(data) {
     DB.setItem(MATH_DRILL_SCORES, data);
+  }
+
+  static clearScores() {
+    DB.removeItem(MATH_DRILL_SCORES);
   }
 
   static appendScore(score) {

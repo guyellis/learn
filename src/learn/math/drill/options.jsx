@@ -1,7 +1,7 @@
 import FloatingActionButton from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import React from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -9,6 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Send } from '@material-ui/icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import constants from '../../common/constants.js';
+import db from '../../db/index.js';
 
 const {
   ALPHABET: alphabet,
@@ -24,7 +25,8 @@ const sectionStyle = {
   marginTop: '30px',
 };
 
-function options(props) {
+function Options(props) {
+  const [historyCleared, setHistoryCleared] = useState(false);
   const {
     largeKeyboard,
     levelIndex,
@@ -186,13 +188,30 @@ Start
           <Send />
         </Button>
       </div>
-      <div style={sectionStyle} />
+      <div style={sectionStyle}>
+        <Button
+          id="clear-record-history"
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            db.clearScores();
+            setHistoryCleared(true);
+          }}
+        >
+          Clear Record History
+        </Button>
+        {historyCleared && (
+          <span style={{ marginLeft: '10px' }}>
+            Record history cleared!
+          </span>
+        )}
+      </div>
     </div>
   );
 }
 
 
-options.propTypes = {
+Options.propTypes = {
   largeKeyboard: PropTypes.bool.isRequired,
   levelIndex: PropTypes.number.isRequired,
   minutes: PropTypes.string.isRequired,
@@ -205,4 +224,4 @@ options.propTypes = {
   userName: PropTypes.string.isRequired,
 };
 
-export default options;
+export default Options;
