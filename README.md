@@ -2,7 +2,7 @@
 
 Experimental learning exercises for my kids
 
-Statically hosted at [learn.headert.com](https://learn.headert.com).
+Statically hosted at [learn.headvert.com](https://learn.headvert.com).
 
 ## Why?
 
