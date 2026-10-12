@@ -13,9 +13,7 @@ const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const {
   RECORD_NEW,
-  // RECORD_EQUAL,
-  // RECORD_MISS,
-  // RECORD_NOT_EXIST,
+  RECORD_MISS,
 } = constants;
 const muiTheme = getMuiTheme(lightBaseTheme);
 
@@ -142,5 +140,116 @@ describe('Finished', () => {
 
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
+  });
+
+  test('should use latest scoreBarTimes timePerQuestion for FinishedBadge when correct answers > 9', () => {
+    // 10 correct answers where individual times sum to 31.0s (3.1s average = Bronze)
+    const previousResults = Array.from({ length: 10 }, (_, id) => ({
+      actuals: [10],
+      id,
+      task: [5, 5, 0, 10],
+      timeTaken: 3.1,
+    }));
+    const resultInfo = {
+      text: 'Result Info Text',
+      newRecordInfo: RECORD_NEW,
+    };
+    // But scoreBarTimes latest is 2.9 (Silver)
+    const scoreBarTimes = [{
+      date: Date.now(),
+      timePerQuestion: 2.9,
+    }];
+
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            scoreBarTimes={scoreBarTimes}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={10}
+          />
+        </MuiThemeProvider>,
+      );
+    });
+
+    const tree = component.toJSON();
+    const stringified = JSON.stringify(tree);
+    expect(stringified).toContain('Silver Badge');
+    expect(stringified).not.toContain('Bronze Badge');
+  });
+
+  test('should fallback to calculatedTimePerQuestion when scoreBarTimes is empty and correct answers > 9', () => {
+    const previousResults = Array.from({ length: 10 }, (_, id) => ({
+      actuals: [10],
+      id,
+      task: [5, 5, 0, 10],
+      timeTaken: 1.5,
+    }));
+    const resultInfo = {
+      text: 'Result Info Text',
+      newRecordInfo: RECORD_MISS,
+    };
+
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            scoreBarTimes={[]}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={10}
+          />
+        </MuiThemeProvider>,
+      );
+    });
+
+    const tree = component.toJSON();
+    const stringified = JSON.stringify(tree);
+    expect(stringified).toContain('Gold Badge');
+  });
+
+  test('should render unknown newRecordInfo fallback', () => {
+    const previousResults = [{
+      actuals: [10],
+      id: 1,
+      task: [5, 5, 0, 10],
+      timeTaken: 2.2,
+    }];
+    const resultInfo = {
+      text: 'Unknown text',
+      newRecordInfo: 'UNKNOWN_RECORD_INFO',
+    };
+
+    let component;
+    act(() => {
+      component = renderer.create(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Finished
+            levelIndex={0}
+            opIndexes={[0]}
+            previousResults={previousResults}
+            resultInfo={resultInfo}
+            timeAllowed={600}
+            timeLeft={100}
+            totalProblems={20}
+          />
+        </MuiThemeProvider>,
+      );
+    });
+
+    const tree = component.toJSON();
+    const stringified = JSON.stringify(tree);
+    expect(stringified).toContain('Unknown newRecordInfo UNKNOWN_RECORD_INFO in switch case');
   });
 });
