@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
+exports[`Finished Badge > should be rendered if multiple opIndexes 1`] = `
 <div
   style={{}}
 >
@@ -44,7 +44,7 @@ exports[`Finished Badge should be rendered if multiple opIndexes 1`] = `
 </div>
 `;
 
-exports[`Finished Badge should be rendered on happy path 1`] = `
+exports[`Finished Badge > should be rendered on happy path 1`] = `
 <div
   style={{}}
 >
@@ -88,7 +88,7 @@ exports[`Finished Badge should be rendered on happy path 1`] = `
 </div>
 `;
 
-exports[`Finished Badge should not be rendered if correct answers under 10 1`] = `
+exports[`Finished Badge > should not be rendered if correct answers under 10 1`] = `
 <div
   style={{}}
 >

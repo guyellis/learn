@@ -19,8 +19,8 @@ const {
 
 describe('Helper', () => {
   beforeEach(() => {
-    db.getScores = jest.fn();
-    db.appendScore = jest.fn();
+    db.getScores = vi.fn();
+    db.appendScore = vi.fn();
   });
 
   afterEach(() => {
@@ -497,7 +497,7 @@ per question. (Your best score is 5 seconds per question.)',
       // 2017-01-01 01:01:40
       const end = new Date(2017, 0, 1, 1, 1, 40);
       const startTime = moment(start);
-      Date.now = jest.fn(() => end.valueOf());
+      Date.now = vi.fn(() => end.valueOf());
       const { newRecord } = helper;
       const input = {
         currentRecord: {

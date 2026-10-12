@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Help should render the Help component 1`] = `
+exports[`Help > should render the Help component 1`] = `
 [
   <h3>
     Help with Math Drill

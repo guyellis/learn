@@ -17,7 +17,7 @@ test('Badge totals should be rendered', () => {
     component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>
         <QuizLine
-          checkAnswer={jest.fn()}
+          checkAnswer={vi.fn()}
           newRecord={{
             isNewRecord: false,
             currentTimePerQuestion: 1.1,

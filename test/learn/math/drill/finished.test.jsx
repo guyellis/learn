@@ -19,7 +19,7 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('Finished', () => {
   beforeEach(() => {
-    db.getScores = jest.fn();
+    db.getScores = vi.fn();
   });
 
   afterEach(() => {

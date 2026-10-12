@@ -13,7 +13,7 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('Running', () => {
   const defaultProps = {
-    checkAnswer: jest.fn(),
+    checkAnswer: vi.fn(),
     currentTask: [2, 3, 0, 5],
     largeKeyboard: false,
     levelIndex: 0,
@@ -65,7 +65,7 @@ describe('Running', () => {
   });
 
   test('should return null and warn when currentTask is not defined', () => {
-    const spy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const result = Running({ ...defaultProps, currentTask: null });
 
     expect(result).toBeNull();

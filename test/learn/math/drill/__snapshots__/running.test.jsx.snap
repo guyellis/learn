@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Running should render multiple operations highlighted 1`] = `
+exports[`Running > should render multiple operations highlighted 1`] = `
 <div>
   <div>
     <span
@@ -468,7 +468,7 @@ exports[`Running should render multiple operations highlighted 1`] = `
 </div>
 `;
 
-exports[`Running should render the Running component with highlighted params 1`] = `
+exports[`Running > should render the Running component with highlighted params 1`] = `
 <div>
   <div>
     <span

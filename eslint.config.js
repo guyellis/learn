@@ -2,7 +2,6 @@ import js from '@eslint/js';
 import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import jestPlugin from 'eslint-plugin-jest';
 import prettierConfig from 'eslint-config-prettier';
 
 export default [
@@ -56,20 +55,10 @@ export default [
   },
   {
     files: ['test/**/*.{js,jsx,ts,tsx}', '**/*.test.{js,jsx,ts,tsx}'],
-    plugins: {
-      jest: jestPlugin,
-    },
     languageOptions: {
       globals: {
-        ...globals.jest,
+        ...globals.vitest,
       },
-    },
-    rules: {
-      'jest/no-disabled-tests': 'warn',
-      'jest/no-focused-tests': 'error',
-      'jest/no-identical-title': 'error',
-      'jest/prefer-to-have-length': 'warn',
-      'jest/valid-expect': 'error',
     },
   },
   prettierConfig,

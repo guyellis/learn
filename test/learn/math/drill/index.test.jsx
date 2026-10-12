@@ -13,7 +13,7 @@ const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
-jest.mock('material-ui/internal/EnhancedSwitch');
+vi.mock('material-ui/internal/EnhancedSwitch');
 
 describe('Drill', () => {
   const savedOptions = {
@@ -28,12 +28,12 @@ describe('Drill', () => {
 
   beforeEach(() => {
     // eslint-disable-next-line no-proto
-    jest.spyOn(window.localStorage.__proto__, 'getItem')
+    vi.spyOn(window.localStorage.__proto__, 'getItem')
       .mockReturnValue(JSON.stringify(savedOptions));
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   test('should render the Drill component', () => {
@@ -51,7 +51,7 @@ describe('Drill', () => {
   });
 
   test('should clear interval on unmount if timerId is active', () => {
-    const clearIntervalSpy = jest.spyOn(window, 'clearInterval');
+    const clearIntervalSpy = vi.spyOn(window, 'clearInterval');
     let component;
     act(() => {
       component = renderer.create(
@@ -77,7 +77,7 @@ describe('Drill', () => {
   });
 
   test('should not call clearInterval on unmount if timerId is not set', () => {
-    const clearIntervalSpy = jest.spyOn(window, 'clearInterval');
+    const clearIntervalSpy = vi.spyOn(window, 'clearInterval');
     let component;
     act(() => {
       component = renderer.create(
@@ -130,7 +130,7 @@ describe('Drill', () => {
     act(() => {
       instance.onStart();
     });
-    const endQuizSpy = jest.spyOn(instance, 'endQuiz');
+    const endQuizSpy = vi.spyOn(instance, 'endQuiz');
     instance.setState({
       endTime: moment().subtract(1, 'seconds'),
     });
@@ -271,7 +271,7 @@ describe('Drill', () => {
       opIndexes: [0],
     });
 
-    jest.spyOn(helper, 'getLowerUpper')
+    vi.spyOn(helper, 'getLowerUpper')
       .mockReturnValueOnce([1, 2, 0, 3])
       .mockReturnValueOnce([2, 4, 0, 6]);
 
@@ -304,7 +304,7 @@ describe('Drill', () => {
     });
     expect(component.toJSON()).toBeDefined();
 
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
       instance.setState({ currentAction: 'unknown_action' });
     });

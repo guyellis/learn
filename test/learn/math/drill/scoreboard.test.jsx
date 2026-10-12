@@ -14,7 +14,7 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('ScoreBoard', () => {
   beforeEach(() => {
-    db.getScores = jest.fn();
+    db.getScores = vi.fn();
   });
 
   afterEach(() => {
@@ -49,7 +49,7 @@ describe('ScoreBoard', () => {
       opIndexes: [0],
       timePerQuestion: 6,
     }]);
-    db.clearScores = jest.fn();
+    db.clearScores = vi.fn();
 
     let component;
     act(() => {
