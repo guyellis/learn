@@ -1,10 +1,8 @@
 # learn
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/guyellis/learn.svg)](https://greenkeeper.io/)
-
 Experimental learning exercises for my kids
 
-Statically hosted at [learn.guyellisrocks.com](http://learn.guyellisrocks.com).
+Statically hosted at [learn.headert.com](https://learn.headert.com).
 
 ## Why?
 
