@@ -1,5 +1,5 @@
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@mui/material/Button';
+import Toolbar from '@mui/material/Toolbar';
 import React from 'react';
 import { Link } from 'react-router-dom';
 

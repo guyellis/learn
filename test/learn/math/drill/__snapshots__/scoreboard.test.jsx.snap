@@ -8,9 +8,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
   <div>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -31,19 +33,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          0
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        0
       </button>
       <span>
         Gold Badge(s) - 2 seconds or less (per question)
@@ -51,9 +41,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
     </div>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -74,19 +66,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          0
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        0
       </button>
       <span>
         Silver Badge(s) - between 2 and 3 seconds (per question)
@@ -94,9 +74,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
     </div>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -117,19 +99,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          0
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        0
       </button>
       <span>
         Bronze Badge(s) - between 3 and 4 seconds (per question)
@@ -137,9 +107,11 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
     </div>
     <div>
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -160,19 +132,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          1
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        1
       </button>
       <span>
         Blue Badge(s) - more than 4 seconds (per question)
@@ -180,38 +140,36 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
     </div>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
-    ref={null}
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1gtchvp-MuiPaper-root"
     style={
       {
+        "--Paper-shadow": "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
         "width": "100%",
       }
     }
   >
     <table
-      className="MuiTable-root"
-      ref={null}
+      className="MuiTable-root css-1xwxv7r-MuiTable-root"
+      role={null}
     >
       <thead
-        className="MuiTableHead-root"
-        ref={null}
+        className="MuiTableHead-root css-1a7iywq-MuiTableHead-root"
+        role={null}
       >
         <tr
-          className="MuiTableRow-root MuiTableRow-head"
-          ref={null}
+          className="MuiTableRow-root MuiTableRow-head css-1xtozoh-MuiTableRow-root"
+          role={null}
         >
           <th
             aria-sort={null}
-            className="MuiTableCell-root MuiTableCell-head"
-            ref={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1orzuox-MuiTableCell-root"
             scope="col"
           >
             Level
           </th>
           <th
             aria-sort={null}
-            className="MuiTableCell-root MuiTableCell-head"
-            ref={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1orzuox-MuiTableCell-root"
             scope="col"
           >
             Addition
@@ -219,31 +177,31 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
         </tr>
       </thead>
       <tbody
-        className="MuiTableBody-root"
-        ref={null}
+        className="MuiTableBody-root css-gmh7jj-MuiTableBody-root"
+        role={null}
       >
         <tr
-          className="MuiTableRow-root"
-          ref={null}
+          className="MuiTableRow-root css-1xtozoh-MuiTableRow-root"
+          role={null}
         >
           <th
             aria-sort={null}
-            className="MuiTableCell-root MuiTableCell-body"
-            ref={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1dc80h3-MuiTableCell-root"
             scope="row"
           >
             A
           </th>
           <td
             aria-sort={null}
-            className="MuiTableCell-root MuiTableCell-body"
-            ref={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1dc80h3-MuiTableCell-root"
           >
             <span>
               <button
-                className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+                className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
                 disabled={false}
                 onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
                 onDragLeave={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
@@ -264,19 +222,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
                 tabIndex={0}
                 type="button"
               >
-                <span
-                  className="MuiFab-label"
-                >
-                  1
-                </span>
-                <span
-                  className="MuiTouchRipple-root"
-                  ref={
-                    {
-                      "current": null,
-                    }
-                  }
-                />
+                1
               </button>
             </span>
           </td>
@@ -292,11 +238,12 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
     }
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorSecondary css-18hdshg-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       id="clear-record-history"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -311,19 +258,7 @@ exports[`ScoreBoard > should render showScoreBoard 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Clear Record History
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Clear Record History
     </button>
   </div>
 </div>

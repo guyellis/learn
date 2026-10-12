@@ -1,16 +1,10 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
-import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../src/app.jsx';
 
-const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
-const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
-
-const muiTheme = getMuiTheme(lightBaseTheme);
+const theme = createTheme();
 
 describe('App', () => {
   const renderApp = async (path = '/') => {
@@ -24,11 +18,11 @@ describe('App', () => {
     let component;
     await act(async () => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <MemoryRouter initialEntries={[path]}>
             <App />
           </MemoryRouter>
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 

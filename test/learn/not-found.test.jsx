@@ -1,27 +1,21 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
-import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { MemoryRouter } from 'react-router-dom';
 import NotFound from '../../src/learn/not-found.jsx';
 
-const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
-const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
-
-const muiTheme = getMuiTheme(lightBaseTheme);
+const theme = createTheme();
 
 describe('NotFound', () => {
   test('should render a NotFound component', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <MemoryRouter>
             <NotFound />
           </MemoryRouter>
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 

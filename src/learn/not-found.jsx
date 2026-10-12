@@ -1,5 +1,5 @@
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ function NotFound() {
       <Typography variant="h4" component="h1" gutterBottom>
         Oops! Page Not Found
       </Typography>
-      <Typography variant="body1" color="textSecondary" paragraph>
+      <Typography variant="body1" color="text.secondary" paragraph>
         We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing math!
       </Typography>
       <div style={buttonWrapperStyle}>

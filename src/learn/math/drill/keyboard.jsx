@@ -1,6 +1,6 @@
-import FloatingActionButton from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import { Backspace, KeyboardReturn } from '@material-ui/icons';
+import FloatingActionButton from '@mui/material/Fab';
+import Tooltip from '@mui/material/Tooltip';
+import { Backspace, KeyboardReturn } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import React from 'react';
 

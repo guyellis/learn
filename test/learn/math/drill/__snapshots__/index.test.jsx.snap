@@ -14,11 +14,14 @@ exports[`Drill > should render the Drill component 1`] = `
     </h2>
     <div>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-secondary"
+        aria-label="A"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-secondary css-9uvrdz-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -38,29 +41,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="A"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          A
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        A
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="B"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -80,29 +73,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="B"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          B
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        B
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="C"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -122,29 +105,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="C"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          C
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        C
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="D"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -164,29 +137,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="D"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          D
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        D
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="E"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -206,29 +169,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="E"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          E
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        E
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="F"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -248,29 +201,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="F"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          F
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        F
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="G"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -290,29 +233,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="G"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          G
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        G
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="H"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -332,29 +265,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="H"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          H
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        H
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="I"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -374,29 +297,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="I"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          I
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        I
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="J"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -416,29 +329,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="J"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          J
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        J
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="K"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -458,29 +361,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="K"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          K
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        K
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="L"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -500,29 +393,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="L"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          L
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        L
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="M"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -542,29 +425,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="M"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          M
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        M
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="N"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -584,29 +457,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="N"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          N
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        N
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="O"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -626,29 +489,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="O"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          O
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        O
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="P"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -668,29 +521,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="P"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          P
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        P
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="Q"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -710,29 +553,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="Q"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          Q
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Q
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="R"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -752,29 +585,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="R"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          R
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        R
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="S"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -794,29 +617,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="S"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          S
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        S
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="T"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -836,29 +649,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="T"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          T
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        T
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="U"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -878,29 +681,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="U"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          U
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        U
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="V"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -920,29 +713,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="V"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          V
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        V
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="W"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -962,29 +745,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="W"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          W
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        W
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="X"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1004,29 +777,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="X"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          X
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        X
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="Y"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1046,29 +809,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="Y"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          Y
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Y
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="Z"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1088,22 +841,9 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="Z"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          Z
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Z
       </button>
     </div>
   </div>
@@ -1119,11 +859,14 @@ exports[`Drill > should render the Drill component 1`] = `
     </h2>
     <div>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-secondary"
+        aria-label="+"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-secondary css-9uvrdz-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1143,29 +886,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="+"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="-"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1185,29 +918,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="-"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          -
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        -
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="x"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1227,29 +950,19 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="x"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          x
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        x
       </button>
       <button
-        aria-describedby={null}
-        className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+        aria-label="÷"
+        aria-labelledby={null}
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+        data-mui-internal-clone-element={true}
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1269,22 +982,9 @@ exports[`Drill > should render the Drill component 1`] = `
           }
         }
         tabIndex={0}
-        title="÷"
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          ÷
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        ÷
       </button>
     </div>
   </div>
@@ -1299,8 +999,7 @@ exports[`Drill > should render the Drill component 1`] = `
       Time
     </h3>
     <div
-      className="MuiFormControl-root MuiTextField-root"
-      ref={null}
+      className="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
       style={
         {
           "marginLeft": 20,
@@ -1309,29 +1008,26 @@ exports[`Drill > should render the Drill component 1`] = `
       }
     >
       <label
-        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-        data-shrink={true}
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
         htmlFor="time-minutes"
-        ref={
-          {
-            "current": null,
-          }
-        }
+        id="time-minutes-label"
       >
         Time
       </label>
       <div
-        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
         onClick={[Function]}
-        ref={null}
       >
         <input
           aria-describedby="time-minutes-helper-text"
           aria-invalid={false}
-          className="MuiInputBase-input MuiInput-input"
+          autoFocus={false}
+          className="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
           disabled={false}
           id="time-minutes"
           name="minutes"
+          onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1340,11 +1036,22 @@ exports[`Drill > should render the Drill component 1`] = `
           type="number"
           value="1"
         />
+        <fieldset
+          aria-hidden={true}
+          className="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            className="css-1n64csd-MuiNotchedOutlined-root"
+          >
+            <span>
+              Time
+            </span>
+          </legend>
+        </fieldset>
       </div>
       <p
-        className="MuiFormHelperText-root MuiFormHelperText-filled"
+        className="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-er619e-MuiFormHelperText-root"
         id="time-minutes-helper-text"
-        ref={null}
       >
         1
       </p>
@@ -1361,8 +1068,7 @@ exports[`Drill > should render the Drill component 1`] = `
       Total Questions (you only get badges for 10 or more correct questions)
     </h3>
     <div
-      className="MuiFormControl-root MuiTextField-root"
-      ref={null}
+      className="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
       style={
         {
           "marginLeft": 40,
@@ -1371,29 +1077,26 @@ exports[`Drill > should render the Drill component 1`] = `
       }
     >
       <label
-        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-        data-shrink={true}
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
         htmlFor="total-problems"
-        ref={
-          {
-            "current": null,
-          }
-        }
+        id="total-problems-label"
       >
         Total Questions
       </label>
       <div
-        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
         onClick={[Function]}
-        ref={null}
       >
         <input
           aria-describedby="total-problems-helper-text"
           aria-invalid={false}
-          className="MuiInputBase-input MuiInput-input"
+          autoFocus={false}
+          className="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
           disabled={false}
           id="total-problems"
           name="totalProblems"
+          onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1402,11 +1105,22 @@ exports[`Drill > should render the Drill component 1`] = `
           type="number"
           value="20"
         />
+        <fieldset
+          aria-hidden={true}
+          className="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            className="css-1n64csd-MuiNotchedOutlined-root"
+          >
+            <span>
+              Total Questions
+            </span>
+          </legend>
+        </fieldset>
       </div>
       <p
-        className="MuiFormHelperText-root MuiFormHelperText-filled"
+        className="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-er619e-MuiFormHelperText-root"
         id="total-problems-helper-text"
-        ref={null}
       >
         20
       </p>
@@ -1423,20 +1137,19 @@ exports[`Drill > should render the Drill component 1`] = `
       Keyboard
     </h3>
     <div
-      className="MuiFormGroup-root MuiFormGroup-row"
-      ref={null}
+      className="MuiFormGroup-root MuiFormGroup-row css-cis11t-MuiFormGroup-root"
     >
       <label
-        className="MuiFormControlLabel-root"
-        ref={null}
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-19opgx6-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-rehya9-MuiSwitch-root"
         >
           <span
-            aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-checked-2 Mui-checked"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1ljh8g4-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1450,36 +1163,26 @@ exports[`Drill > should render the Drill component 1`] = `
             ref={[Function]}
             tabIndex={null}
           >
+            <input
+              checked={true}
+              className="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+              name="onscreenKeyboard"
+              onChange={[Function]}
+              required={false}
+              role="switch"
+              type="checkbox"
+            />
             <span
-              className="MuiIconButton-label"
-            >
-              <span
-                className="MuiSwitch-thumb"
-              />
-              <input
-                checked={true}
-                className="PrivateSwitchBase-input-4 MuiSwitch-input"
-                name="onscreenKeyboard"
-                onChange={[Function]}
-                type="checkbox"
-              />
-            </span>
-            <span
-              className="MuiTouchRipple-root"
-              ref={
-                {
-                  "current": null,
-                }
-              }
+              className="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
             />
           </span>
           <span
-            className="MuiSwitch-track"
+            className="MuiSwitch-track css-pm6g3f-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-          ref={null}
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-rizt0-MuiTypography-root"
+          style={{}}
         >
           Use onscreen keyboard
         </span>
@@ -1497,20 +1200,19 @@ exports[`Drill > should render the Drill component 1`] = `
       Large Keyboard
     </h3>
     <div
-      className="MuiFormGroup-root MuiFormGroup-row"
-      ref={null}
+      className="MuiFormGroup-root MuiFormGroup-row css-cis11t-MuiFormGroup-root"
     >
       <label
-        className="MuiFormControlLabel-root"
-        ref={null}
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-19opgx6-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-rehya9-MuiSwitch-root"
         >
           <span
-            aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-2 Mui-checked"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary Mui-checked Mui-checked css-1h4u4f6-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1524,36 +1226,26 @@ exports[`Drill > should render the Drill component 1`] = `
             ref={[Function]}
             tabIndex={null}
           >
+            <input
+              checked={true}
+              className="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+              name="largeKeyboard"
+              onChange={[Function]}
+              required={false}
+              role="switch"
+              type="checkbox"
+            />
             <span
-              className="MuiIconButton-label"
-            >
-              <span
-                className="MuiSwitch-thumb"
-              />
-              <input
-                checked={true}
-                className="PrivateSwitchBase-input-4 MuiSwitch-input"
-                name="largeKeyboard"
-                onChange={[Function]}
-                type="checkbox"
-              />
-            </span>
-            <span
-              className="MuiTouchRipple-root"
-              ref={
-                {
-                  "current": null,
-                }
-              }
+              className="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
             />
           </span>
           <span
-            className="MuiSwitch-track"
+            className="MuiSwitch-track css-pm6g3f-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-          ref={null}
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-rizt0-MuiTypography-root"
+          style={{}}
         >
           Large Keyboard
         </span>
@@ -1571,8 +1263,7 @@ exports[`Drill > should render the Drill component 1`] = `
       Your Name (Optional)
     </h3>
     <div
-      className="MuiFormControl-root MuiTextField-root"
-      ref={null}
+      className="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
       style={
         {
           "marginLeft": 40,
@@ -1581,29 +1272,26 @@ exports[`Drill > should render the Drill component 1`] = `
       }
     >
       <label
-        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-        data-shrink={true}
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
         htmlFor="user-name"
-        ref={
-          {
-            "current": null,
-          }
-        }
+        id="user-name-label"
       >
         Your Name
       </label>
       <div
-        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
         onClick={[Function]}
-        ref={null}
       >
         <input
           aria-describedby="user-name-helper-text"
           aria-invalid={false}
-          className="MuiInputBase-input MuiInput-input"
+          autoFocus={false}
+          className="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
           disabled={false}
           id="user-name"
           name="userName"
+          onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1612,11 +1300,22 @@ exports[`Drill > should render the Drill component 1`] = `
           type="text"
           value="my name"
         />
+        <fieldset
+          aria-hidden={true}
+          className="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            className="css-1n64csd-MuiNotchedOutlined-root"
+          >
+            <span>
+              Your Name
+            </span>
+          </legend>
+        </fieldset>
       </div>
       <p
-        className="MuiFormHelperText-root MuiFormHelperText-filled"
+        className="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-er619e-MuiFormHelperText-root"
         id="user-name-helper-text"
-        ref={null}
       >
         Jemima Puddle-Duck
       </p>
@@ -1630,10 +1329,11 @@ exports[`Drill > should render the Drill component 1`] = `
     }
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -1648,31 +1348,18 @@ exports[`Drill > should render the Drill component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
+      Start
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+        data-testid="SendIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        Start
-        <svg
-          aria-hidden="true"
-          className="MuiSvgIcon-root"
-          focusable="false"
-          ref={null}
-          role="presentation"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-          />
-        </svg>
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+        <path
+          d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"
+        />
+      </svg>
     </button>
   </div>
   <div
@@ -1683,11 +1370,12 @@ exports[`Drill > should render the Drill component 1`] = `
     }
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorSecondary css-18hdshg-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       id="clear-record-history"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -1702,19 +1390,7 @@ exports[`Drill > should render the Drill component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Clear Record History
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Clear Record History
     </button>
   </div>
 </div>

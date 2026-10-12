@@ -1,21 +1,16 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
-import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Finished from '../../../../src/learn/math/drill/finished.jsx';
 import constants from '../../../../src/learn/common/constants.js';
 import db from '../../../../src/learn/db/index.js';
 
-const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
-const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
+const theme = createTheme();
 
 const {
   RECORD_NEW,
   RECORD_MISS,
 } = constants;
-const muiTheme = getMuiTheme(lightBaseTheme);
 
 describe('Finished', () => {
   beforeEach(() => {
@@ -41,7 +36,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -51,7 +46,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </MuiThemeProvider>);
+        </ThemeProvider>);
     });
 
     const finishedBadge = component.toJSON();
@@ -73,7 +68,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -83,7 +78,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </MuiThemeProvider>);
+        </ThemeProvider>);
     });
 
     const finishedBadge = component.toJSON();
@@ -125,7 +120,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -135,7 +130,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </MuiThemeProvider>);
+        </ThemeProvider>);
     });
 
     const finishedBadge = component.toJSON();
@@ -163,7 +158,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -174,7 +169,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={10}
           />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -199,7 +194,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -210,7 +205,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={10}
           />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -234,7 +229,7 @@ describe('Finished', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Finished
             levelIndex={0}
             opIndexes={[0]}
@@ -244,7 +239,7 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 

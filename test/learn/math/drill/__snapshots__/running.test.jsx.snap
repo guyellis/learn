@@ -138,9 +138,8 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           =
         </span>
         <div
-          className="MuiFormControl-root MuiTextField-root"
+          className="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
           onKeyPress={[Function]}
-          ref={null}
           style={
             {
               "textAlign": "center",
@@ -148,17 +147,17 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           }
         >
           <div
-            className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
             onClick={[Function]}
-            ref={null}
           >
             <input
               aria-invalid={false}
               autoFocus={true}
-              className="MuiInputBase-input MuiInput-input"
+              className="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
               disabled={false}
               id="answer-number"
               name="answer"
+              onAnimationStart={[Function]}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -167,13 +166,29 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               type="number"
               value=""
             />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-1nf2c5d-MuiNotchedOutlined-root"
+              >
+                <span
+                  aria-hidden={true}
+                  className="notranslate"
+                >
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <button
-          className="MuiButtonBase-root MuiFab-root"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -193,31 +208,18 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+            data-testid="DoneIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              className="MuiSvgIcon-root"
-              focusable="false"
-              ref={null}
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-              />
-            </svg>
-            Check Answer
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+            <path
+              d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"
+            />
+          </svg>
+          Check Answer
         </button>
       </div>
       <div
@@ -240,9 +242,11 @@ exports[`Running > should render multiple operations highlighted 1`] = `
             }
           >
             <button
-              className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+              className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
               disabled={false}
               onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
               onDragLeave={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -263,19 +267,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
               tabIndex={0}
               type="button"
             >
-              <span
-                className="MuiFab-label"
-              >
-                +
-              </span>
-              <span
-                className="MuiTouchRipple-root"
-                ref={
-                  {
-                    "current": null,
-                  }
-                }
-              />
+              +
             </button>
             <span
               style={
@@ -381,9 +373,11 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           2)
         </span>
         <button
-          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -404,19 +398,7 @@ exports[`Running > should render multiple operations highlighted 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
-          >
-            +
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          +
         </button>
         <span
           style={
@@ -628,9 +610,8 @@ exports[`Running > should render the Running component with highlighted params 1
           =
         </span>
         <div
-          className="MuiFormControl-root MuiTextField-root"
+          className="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
           onKeyPress={[Function]}
-          ref={null}
           style={
             {
               "textAlign": "center",
@@ -638,17 +619,17 @@ exports[`Running > should render the Running component with highlighted params 1
           }
         >
           <div
-            className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
             onClick={[Function]}
-            ref={null}
           >
             <input
               aria-invalid={false}
               autoFocus={true}
-              className="MuiInputBase-input MuiInput-input"
+              className="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
               disabled={false}
               id="answer-number"
               name="answer"
+              onAnimationStart={[Function]}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -657,13 +638,29 @@ exports[`Running > should render the Running component with highlighted params 1
               type="number"
               value=""
             />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-1nf2c5d-MuiNotchedOutlined-root"
+              >
+                <span
+                  aria-hidden={true}
+                  className="notranslate"
+                >
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <button
-          className="MuiButtonBase-root MuiFab-root"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -683,31 +680,18 @@ exports[`Running > should render the Running component with highlighted params 1
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+            data-testid="DoneIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              className="MuiSvgIcon-root"
-              focusable="false"
-              ref={null}
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-              />
-            </svg>
-            Check Answer
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+            <path
+              d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"
+            />
+          </svg>
+          Check Answer
         </button>
       </div>
       <div
@@ -730,9 +714,11 @@ exports[`Running > should render the Running component with highlighted params 1
             }
           >
             <button
-              className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+              className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
               disabled={false}
               onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
               onDragLeave={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -753,19 +739,7 @@ exports[`Running > should render the Running component with highlighted params 1
               tabIndex={0}
               type="button"
             >
-              <span
-                className="MuiFab-label"
-              >
-                +
-              </span>
-              <span
-                className="MuiTouchRipple-root"
-                ref={
-                  {
-                    "current": null,
-                  }
-                }
-              />
+              +
             </button>
             <span
               style={
@@ -871,9 +845,11 @@ exports[`Running > should render the Running component with highlighted params 1
           2)
         </span>
         <button
-          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -894,19 +870,7 @@ exports[`Running > should render the Running component with highlighted params 1
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
-          >
-            +
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          +
         </button>
         <span
           style={

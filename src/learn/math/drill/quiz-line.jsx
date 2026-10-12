@@ -1,6 +1,6 @@
-import FloatingActionButton from '@material-ui/core/Fab';
-import TextField from '@material-ui/core/TextField';
-import { Done } from '@material-ui/icons';
+import FloatingActionButton from '@mui/material/Fab';
+import TextField from '@mui/material/TextField';
+import { Done } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
