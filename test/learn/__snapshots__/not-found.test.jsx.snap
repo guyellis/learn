@@ -1,0 +1,79 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotFound > should render a NotFound component 1`] = `
+<div
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "column",
+      "marginTop": "40px",
+      "padding": "20px",
+      "textAlign": "center",
+    }
+  }
+>
+  <img
+    alt="404 Page Not Found"
+    src="/404.webp"
+    style={
+      {
+        "borderRadius": "8px",
+        "height": "auto",
+        "marginBottom": "24px",
+        "maxWidth": "100%",
+        "width": "500px",
+      }
+    }
+  />
+  <h1
+    className="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
+  >
+    Oops! Page Not Found
+  </h1>
+  <p
+    className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-paragraph"
+  >
+    We couldn't find the page you were looking for. Let's get you back to practicing math!
+  </p>
+  <div
+    style={
+      {
+        "marginTop": "20px",
+      }
+    }
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Back to Home
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </a>
+  </div>
+</div>
+`;
