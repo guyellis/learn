@@ -17,7 +17,7 @@ test('Badge totals should be rendered', () => {
     component = renderer.create(
       <MuiThemeProvider muiTheme={muiTheme}>
         <Keyboard
-          keyPress={jest.fn()}
+          keyPress={vi.fn()}
           onscreenKeyboard
           largeKeyboard
         />

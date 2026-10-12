@@ -14,11 +14,11 @@ describe('DB', () => {
   let removeItemMock;
   beforeEach(() => {
     // eslint-disable-next-line no-proto
-    setItemMock = jest.spyOn(window.localStorage.__proto__, 'setItem');
+    setItemMock = vi.spyOn(window.localStorage.__proto__, 'setItem');
     // eslint-disable-next-line no-proto
-    getItemMock = jest.spyOn(window.localStorage.__proto__, 'getItem');
+    getItemMock = vi.spyOn(window.localStorage.__proto__, 'getItem');
     // eslint-disable-next-line no-proto
-    removeItemMock = jest.spyOn(window.localStorage.__proto__, 'removeItem');
+    removeItemMock = vi.spyOn(window.localStorage.__proto__, 'removeItem');
   });
   afterEach(() => {
     getItemMock.mockRestore();
@@ -29,7 +29,7 @@ describe('DB', () => {
     const value = { prop: 'one' };
 
     // eslint-disable-next-line no-proto
-    jest.spyOn(window.localStorage.__proto__, 'setItem');
+    vi.spyOn(window.localStorage.__proto__, 'setItem');
 
     db.setItem('key', value);
     expect(localStorage.setItem).toHaveBeenCalledWith('key', JSON.stringify(value));

@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ScoreBar should not show if showScoreBar is false 1`] = `null`;
+exports[`ScoreBar > should not show if showScoreBar is false 1`] = `null`;
 
-exports[`ScoreBar should not show if times is empty 1`] = `null`;
+exports[`ScoreBar > should not show if times is empty 1`] = `null`;
 
-exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
+exports[`ScoreBar > should show 1 column with Gold Badge 1`] = `
 <div
   style={{}}
 >
@@ -158,7 +158,7 @@ exports[`ScoreBar should show 1 column with Gold Badge 1`] = `
 </div>
 `;
 
-exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
+exports[`ScoreBar > should show 1 column with below Blue Badge 1`] = `
 <div
   style={{}}
 >
@@ -312,7 +312,7 @@ exports[`ScoreBar should show 1 column with below Blue Badge 1`] = `
 </div>
 `;
 
-exports[`ScoreBar should show 5 columns with mixed Badges 1`] = `
+exports[`ScoreBar > should show 5 columns with mixed Badges 1`] = `
 <div
   style={{}}
 >

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App should render an App component 1`] = `
+exports[`App > should render an App component 1`] = `
 <div>
   <div
     className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"

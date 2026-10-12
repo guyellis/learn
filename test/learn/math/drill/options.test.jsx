@@ -12,24 +12,24 @@ const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
 
 const muiTheme = getMuiTheme(lightBaseTheme);
 
-jest.mock('material-ui/internal/EnhancedSwitch');
+vi.mock('material-ui/internal/EnhancedSwitch');
 
 describe('Options', () => {
   const defaultProps = {
     largeKeyboard: true,
     levelIndex: 0,
     minutes: '1',
-    onChange: jest.fn(),
+    onChange: vi.fn(),
     onscreenKeyboard: true,
-    onStart: jest.fn(),
+    onStart: vi.fn(),
     opIndexes: [0],
-    setParentState: jest.fn(),
+    setParentState: vi.fn(),
     totalProblems: '20',
     userName: 'Tester',
   };
 
   test('should clear record history when clear button is clicked', () => {
-    const clearScoresMock = jest.spyOn(db, 'clearScores').mockImplementation(() => {});
+    const clearScoresMock = vi.spyOn(db, 'clearScores').mockImplementation(() => {});
 
     let component;
     act(() => {

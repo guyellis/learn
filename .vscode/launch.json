@@ -2,12 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Jest (this file)",
+      "name": "Vitest (this file)",
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
         "--inspect-brk",
-        "${workspaceFolder}/node_modules/.bin/jest",
+        "${workspaceFolder}/node_modules/.bin/vitest",
+        "run",
         "${relativeFile}"
       ],
       "console": "integratedTerminal",
@@ -35,18 +36,18 @@
       "name": "Unit Test",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/node_modules/.bin/jest",
-      "args": ["-i"],
+      "program": "${workspaceRoot}/node_modules/.bin/vitest",
+      "args": ["run"],
       "cwd": "${workspaceRoot}"
     },
     {
-      "name": "Debug Jest Tests",
+      "name": "Debug Vitest Tests",
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
         "--inspect-brk",
-        "${workspaceRoot}/node_modules/.bin/jest",
-        "--runInBand"
+        "${workspaceRoot}/node_modules/.bin/vitest",
+        "run"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"

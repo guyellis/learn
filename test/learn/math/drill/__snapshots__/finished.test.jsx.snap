@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Finished should render when there is a mix of correct and incorrect results 1`] = `
+exports[`Finished > should render when there is a mix of correct and incorrect results 1`] = `
 <div>
   <h1>
     Finished
@@ -824,7 +824,7 @@ test you got 2 answer(s) correct.
 </div>
 `;
 
-exports[`Finished should render when there is a single correct result 1`] = `
+exports[`Finished > should render when there is a single correct result 1`] = `
 <div>
   <h1>
     Finished
@@ -1193,7 +1193,7 @@ test you got 1 answer(s) correct.
 </div>
 `;
 
-exports[`Finished should render when there is a single incorrect result 1`] = `
+exports[`Finished > should render when there is a single incorrect result 1`] = `
 <div>
   <h1>
     Finished

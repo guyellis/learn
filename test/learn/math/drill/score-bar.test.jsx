@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import ScoreBar from '../../../../src/learn/math/drill/score-bar.jsx';
 
 function mockDates(times) {
-  Date.now = jest.fn();
+  Date.now = vi.fn();
   times.forEach((time) => {
     const mockDate = time.date + time.dateMockDelta;
     Date.now.mockImplementationOnce(() => mockDate);
