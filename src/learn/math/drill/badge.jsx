@@ -1,4 +1,4 @@
-import FloatingActionButton from '@material-ui/core/Fab';
+import FloatingActionButton from '@mui/material/Fab';
 import PropTypes from 'prop-types';
 import React from 'react';
 

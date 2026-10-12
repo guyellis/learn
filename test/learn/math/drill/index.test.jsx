@@ -1,19 +1,11 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { Temporal } from '@js-temporal/polyfill';
-import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
-import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Drill from '../../../../src/learn/math/drill/index.jsx';
 import helper from '../../../../src/learn/math/drill/helper.js';
 
-const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
-const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
-
-const muiTheme = getMuiTheme(lightBaseTheme);
-
-vi.mock('material-ui/internal/EnhancedSwitch');
+const theme = createTheme();
 
 describe('Drill', () => {
   const savedOptions = {
@@ -40,9 +32,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -55,9 +47,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -81,9 +73,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -98,9 +90,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -121,9 +113,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -148,9 +140,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -170,9 +162,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -187,9 +179,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -241,9 +233,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -262,9 +254,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 
@@ -292,9 +284,9 @@ describe('Drill', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Drill />
-        </MuiThemeProvider>,
+        </ThemeProvider>,
       );
     });
 

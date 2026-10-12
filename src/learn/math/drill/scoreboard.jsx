@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import Table from '@material-ui/core/Table';
-import Paper from '@material-ui/core/Paper';
+import Button from '@mui/material/Button';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import Table from '@mui/material/Table';
+import Paper from '@mui/material/Paper';
 
 import Badge from './badge.jsx';
 import BadgeTotals from './badge-totals.jsx';

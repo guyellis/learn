@@ -2,17 +2,18 @@
 
 exports[`Menu > should render a Menu component 1`] = `
 <div
-  className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
-  ref={null}
+  className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
 >
   <a
     href="/"
     onClick={[Function]}
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -27,19 +28,7 @@ exports[`Menu > should render a Menu component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Home
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Home
     </button>
   </a>
   <a
@@ -47,9 +36,11 @@ exports[`Menu > should render a Menu component 1`] = `
     onClick={[Function]}
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -64,19 +55,7 @@ exports[`Menu > should render a Menu component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Drill
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Drill
     </button>
   </a>
   <a
@@ -84,9 +63,11 @@ exports[`Menu > should render a Menu component 1`] = `
     onClick={[Function]}
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -101,19 +82,7 @@ exports[`Menu > should render a Menu component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Score
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Score
     </button>
   </a>
   <a
@@ -121,9 +90,11 @@ exports[`Menu > should render a Menu component 1`] = `
     onClick={[Function]}
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+      disabled={null}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -138,19 +109,7 @@ exports[`Menu > should render a Menu component 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiButton-label"
-      >
-        Help
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      Help
     </button>
   </a>
 </div>

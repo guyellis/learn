@@ -3,17 +3,18 @@
 exports[`App > should render an App component 1`] = `
 <div>
   <div
-    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
-    ref={null}
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
   >
     <a
       href="/"
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -28,19 +29,7 @@ exports[`App > should render an App component 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Home
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Home
       </button>
     </a>
     <a
@@ -48,9 +37,11 @@ exports[`App > should render an App component 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -65,19 +56,7 @@ exports[`App > should render an App component 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Drill
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Drill
       </button>
     </a>
     <a
@@ -85,9 +64,11 @@ exports[`App > should render an App component 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -102,19 +83,7 @@ exports[`App > should render an App component 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Score
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Score
       </button>
     </a>
     <a
@@ -122,9 +91,11 @@ exports[`App > should render an App component 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -139,19 +110,7 @@ exports[`App > should render an App component 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Help
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Help
       </button>
     </a>
   </div>
@@ -171,11 +130,14 @@ exports[`App > should render an App component 1`] = `
         target="_blank"
       >
         <button
-          aria-describedby={null}
           aria-label="add"
-          className="MuiButtonBase-root MuiFab-root MuiFab-primary"
+          aria-labelledby={null}
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-kszrs2-MuiButtonBase-root-MuiFab-root"
+          data-mui-internal-clone-element={true}
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -189,33 +151,19 @@ exports[`App > should render an App component 1`] = `
           onTouchStart={[Function]}
           ref={[Function]}
           tabIndex={0}
-          title="Bugs and Issues"
           type="button"
         >
-          <span
-            className="MuiFab-label"
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+            data-testid="BugReportIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              className="MuiSvgIcon-root"
-              focusable="false"
-              ref={null}
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"
-              />
-            </svg>
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+            <path
+              d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5s-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20zm-6 8h-4v-2h4zm0-4h-4v-2h4z"
+            />
+          </svg>
         </button>
       </a>
     </div>
@@ -225,9 +173,11 @@ exports[`App > should render an App component 1`] = `
         onClick={[Function]}
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-          disabled={false}
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+          disabled={null}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -242,19 +192,7 @@ exports[`App > should render an App component 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiButton-label"
-          >
-            Math Drill
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          Math Drill
         </button>
       </a>
     </div>
@@ -270,9 +208,11 @@ exports[`App > should render an App component 1`] = `
         onClick={[Function]}
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-          disabled={false}
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+          disabled={null}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -287,19 +227,7 @@ exports[`App > should render an App component 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiButton-label"
-          >
-            Scoreboard
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          Scoreboard
         </button>
       </a>
     </div>
@@ -315,9 +243,11 @@ exports[`App > should render an App component 1`] = `
         onClick={[Function]}
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-          disabled={false}
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+          disabled={null}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -332,19 +262,7 @@ exports[`App > should render an App component 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiButton-label"
-          >
-            Help
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          Help
         </button>
       </a>
     </div>
@@ -355,17 +273,18 @@ exports[`App > should render an App component 1`] = `
 exports[`App > should render the NotFound component for unknown route 1`] = `
 <div>
   <div
-    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
-    ref={null}
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
   >
     <a
       href="/"
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -380,19 +299,7 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Home
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Home
       </button>
     </a>
     <a
@@ -400,9 +307,11 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -417,19 +326,7 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Drill
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Drill
       </button>
     </a>
     <a
@@ -437,9 +334,11 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -454,19 +353,7 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Score
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Score
       </button>
     </a>
     <a
@@ -474,9 +361,11 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-        disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+        disabled={null}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -491,19 +380,7 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          Help
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        Help
       </button>
     </a>
   </div>
@@ -533,14 +410,15 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
       }
     />
     <h1
-      className="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
-      ref={null}
+      className="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-1it4a80-MuiTypography-root"
+      style={{}}
     >
       Oops! Page Not Found
     </h1>
     <p
-      className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-paragraph"
-      ref={null}
+      className="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+      paragraph={true}
+      style={{}}
     >
       We couldn't find the page you were looking for. Let's get you back to practicing math!
     </p>
@@ -556,9 +434,11 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
         onClick={[Function]}
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-          disabled={false}
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-sizeMedium MuiButton-colorPrimary css-i572rh-MuiButtonBase-root-MuiButton-root"
+          disabled={null}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -573,19 +453,7 @@ exports[`App > should render the NotFound component for unknown route 1`] = `
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiButton-label"
-          >
-            Back to Home
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          Back to Home
         </button>
       </a>
     </div>

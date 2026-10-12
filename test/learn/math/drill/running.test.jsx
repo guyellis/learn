@@ -1,15 +1,9 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import MuiThemeProviderPkg from 'material-ui/styles/MuiThemeProvider';
-import getMuiThemePkg from 'material-ui/styles/getMuiTheme';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Running from '../../../../src/learn/math/drill/running.jsx';
 
-const MuiThemeProvider = MuiThemeProviderPkg.default || MuiThemeProviderPkg;
-const getMuiTheme = getMuiThemePkg.default || getMuiThemePkg;
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
-
-const muiTheme = getMuiTheme(lightBaseTheme);
+const theme = createTheme();
 
 describe('Running', () => {
   const defaultProps = {
@@ -40,9 +34,9 @@ describe('Running', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Running {...defaultProps} />
-        </MuiThemeProvider>
+        </ThemeProvider>
       );
     });
 
@@ -54,9 +48,9 @@ describe('Running', () => {
     let component;
     act(() => {
       component = renderer.create(
-        <MuiThemeProvider muiTheme={muiTheme}>
+        <ThemeProvider theme={theme}>
           <Running {...defaultProps} opIndexes={[0, 1]} levelIndex={1} />
-        </MuiThemeProvider>
+        </ThemeProvider>
       );
     });
 

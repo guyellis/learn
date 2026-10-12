@@ -4,9 +4,11 @@ exports[`Badge totals should be rendered 1`] = `
 <div>
   <div>
     <button
-      className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -27,19 +29,7 @@ exports[`Badge totals should be rendered 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        1
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      1
     </button>
     <span>
       Gold Badge(s) - 2 seconds or less (per question)
@@ -47,9 +37,11 @@ exports[`Badge totals should be rendered 1`] = `
   </div>
   <div>
     <button
-      className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -70,19 +62,7 @@ exports[`Badge totals should be rendered 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        2
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      2
     </button>
     <span>
       Silver Badge(s) - between 2 and 3 seconds (per question)
@@ -90,9 +70,11 @@ exports[`Badge totals should be rendered 1`] = `
   </div>
   <div>
     <button
-      className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -113,19 +95,7 @@ exports[`Badge totals should be rendered 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        3
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      3
     </button>
     <span>
       Bronze Badge(s) - between 3 and 4 seconds (per question)

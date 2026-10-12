@@ -4,11 +4,14 @@ exports[`Badge totals should be rendered 1`] = `
 <div>
   <div>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="One"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -30,29 +33,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="One"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        1
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      1
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Two"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -74,29 +67,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Two"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        2
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      2
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Three"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -118,29 +101,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Three"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        3
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      3
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Backspace"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -162,42 +135,31 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Backspace"
       type="button"
     >
-      <span
-        className="MuiFab-label"
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+        data-testid="BackspaceIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          className="MuiSvgIcon-root"
-          focusable="false"
-          ref={null}
-          role="presentation"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z"
-          />
-        </svg>
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+        <path
+          d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12z"
+        />
+      </svg>
     </button>
   </div>
   <div>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Four"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -219,29 +181,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Four"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        4
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      4
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Five"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -263,29 +215,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Five"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        5
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      5
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Six"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -307,29 +249,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Six"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        6
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      6
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label=" "
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -351,31 +283,21 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title=" "
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-         
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+       
     </button>
   </div>
   <div>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Seven"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -397,29 +319,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Seven"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        7
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      7
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Eight"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -441,29 +353,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Eight"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        8
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      8
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Nine"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -485,29 +387,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Nine"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        9
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      9
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label=" "
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -529,31 +421,21 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title=" "
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-         
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+       
     </button>
   </div>
   <div>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label=" "
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -575,29 +457,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title=" "
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-         
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+       
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Zero"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -619,29 +491,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Zero"
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        0
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      0
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label=" "
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -663,29 +525,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title=" "
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-         
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+       
     </button>
     <button
-      aria-describedby={null}
-      className="MuiButtonBase-root MuiFab-root"
+      aria-label="Enter"
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-default css-vcbypy-MuiButtonBase-root-MuiFab-root"
+      data-mui-internal-clone-element={true}
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -707,33 +559,19 @@ exports[`Badge totals should be rendered 1`] = `
         }
       }
       tabIndex={0}
-      title="Enter"
       type="button"
     >
-      <span
-        className="MuiFab-label"
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+        data-testid="KeyboardReturnIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          className="MuiSvgIcon-root"
-          focusable="false"
-          ref={null}
-          role="presentation"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"
-          />
-        </svg>
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+        <path
+          d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"
+        />
+      </svg>
     </button>
   </div>
 </div>

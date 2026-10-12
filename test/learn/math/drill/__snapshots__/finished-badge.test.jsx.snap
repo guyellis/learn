@@ -6,9 +6,11 @@ exports[`Finished Badge > should be rendered if multiple opIndexes 1`] = `
 >
   <span>
     <button
-      className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -29,19 +31,7 @@ exports[`Finished Badge > should be rendered if multiple opIndexes 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        M
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      M
     </button>
   </span>
   <span>
@@ -56,9 +46,11 @@ exports[`Finished Badge > should be rendered on happy path 1`] = `
 >
   <span>
     <button
-      className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+      className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -79,19 +71,7 @@ exports[`Finished Badge > should be rendered on happy path 1`] = `
       tabIndex={0}
       type="button"
     >
-      <span
-        className="MuiFab-label"
-      >
-        +
-      </span>
-      <span
-        className="MuiTouchRipple-root"
-        ref={
-          {
-            "current": null,
-          }
-        }
-      />
+      +
     </button>
   </span>
   <span>

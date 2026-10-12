@@ -1,25 +1,12 @@
 import './index.scss';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import lightBaseThemePkg from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { BrowserRouter } from 'react-router-dom';
 import poly from './poly.js';
 import App from './app.jsx';
 
-if (!ReactDOM.findDOMNode) {
-  ReactDOM.findDOMNode = (node) => {
-    if (node == null) return null;
-    if (typeof Element !== 'undefined' && node instanceof Element) return node;
-    if (node.nodeType) return node;
-    return node._reactInternals?.stateNode || null;
-  };
-}
-
-const lightBaseTheme = lightBaseThemePkg.default || lightBaseThemePkg;
-const theme = createMuiTheme({
-  ...lightBaseTheme,
+const theme = createTheme({
   typography: {
     fontFamily: '"Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     fontSize: 16,
@@ -89,10 +76,10 @@ poly(undefined, (err) => {
 
   const root = createRoot(document.querySelector('#app'));
   root.render(
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </MuiThemeProvider>,
+    </ThemeProvider>,
   );
 });

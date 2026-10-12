@@ -1,7 +1,7 @@
-import Button from '@material-ui/core/Button';
-import FloatingActionButton from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import { BugReport, Share } from '@material-ui/icons';
+import Button from '@mui/material/Button';
+import FloatingActionButton from '@mui/material/Fab';
+import Tooltip from '@mui/material/Tooltip';
+import { BugReport, Share } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 

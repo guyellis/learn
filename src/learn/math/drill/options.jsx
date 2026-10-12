@@ -1,13 +1,13 @@
-import FloatingActionButton from '@material-ui/core/Fab';
+import FloatingActionButton from '@mui/material/Fab';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Switch from '@material-ui/core/Switch';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Send } from '@material-ui/icons';
-import Tooltip from '@material-ui/core/Tooltip';
+import TextField from '@mui/material/TextField';
+import Switch from '@mui/material/Switch';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { Send } from '@mui/icons-material';
+import Tooltip from '@mui/material/Tooltip';
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
 

@@ -43,9 +43,11 @@ test you got 2 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -66,19 +68,7 @@ test you got 2 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -161,9 +151,11 @@ test you got 2 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -184,19 +176,7 @@ test you got 2 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -280,9 +260,11 @@ test you got 2 answer(s) correct.
         }
       >
         <button
-          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -303,19 +285,7 @@ test you got 2 answer(s) correct.
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
-          >
-            +
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          +
         </button>
         <span
           style={
@@ -393,9 +363,11 @@ test you got 2 answer(s) correct.
         }
       >
         <button
-          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -416,19 +388,7 @@ test you got 2 answer(s) correct.
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
-          >
-            +
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          +
         </button>
         <span
           style={
@@ -522,9 +482,11 @@ test you got 2 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -545,19 +507,7 @@ test you got 2 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -635,9 +585,11 @@ test you got 2 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -658,19 +610,7 @@ test you got 2 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -748,9 +688,11 @@ test you got 2 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -771,19 +713,7 @@ test you got 2 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -909,9 +839,11 @@ test you got 1 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -932,19 +864,7 @@ test you got 1 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -1027,9 +947,11 @@ test you got 1 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1050,19 +972,7 @@ test you got 1 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -1145,9 +1055,11 @@ test you got 1 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1168,19 +1080,7 @@ test you got 1 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -1296,9 +1196,11 @@ test you got 0 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1319,19 +1221,7 @@ test you got 0 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -1414,9 +1304,11 @@ test you got 0 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1437,19 +1329,7 @@ test you got 0 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={
@@ -1533,9 +1413,11 @@ test you got 0 answer(s) correct.
         }
       >
         <button
-          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
           disabled={false}
           onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -1556,19 +1438,7 @@ test you got 0 answer(s) correct.
           tabIndex={0}
           type="button"
         >
-          <span
-            className="MuiFab-label"
-          >
-            +
-          </span>
-          <span
-            className="MuiTouchRipple-root"
-            ref={
-              {
-                "current": null,
-              }
-            }
-          />
+          +
         </button>
         <span
           style={
@@ -1652,9 +1522,11 @@ test you got 0 answer(s) correct.
       }
     >
       <button
-        className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+        className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1675,19 +1547,7 @@ test you got 0 answer(s) correct.
         tabIndex={0}
         type="button"
       >
-        <span
-          className="MuiFab-label"
-        >
-          +
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-          ref={
-            {
-              "current": null,
-            }
-          }
-        />
+        +
       </button>
       <span
         style={

@@ -2,9 +2,11 @@
 
 exports[`Badge should be rendered 1`] = `
 <button
-  className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+  className="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeMedium MuiFab-primary css-l7fq58-MuiButtonBase-root-MuiFab-root"
   disabled={false}
   onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -25,18 +27,6 @@ exports[`Badge should be rendered 1`] = `
   tabIndex={0}
   type="button"
 >
-  <span
-    className="MuiFab-label"
-  >
-    +
-  </span>
-  <span
-    className="MuiTouchRipple-root"
-    ref={
-      {
-        "current": null,
-      }
-    }
-  />
+  +
 </button>
 `;
