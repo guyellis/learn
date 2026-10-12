@@ -49,6 +49,13 @@ class MathDrill extends React.Component {
     this.setParentState = this.setParentState.bind(this);
   }
 
+  componentWillUnmount() {
+    const { timerId } = this.state;
+    if (timerId) {
+      clearInterval(timerId);
+    }
+  }
+
   onInterval() {
     const {
       endTime,
