@@ -1,0 +1,937 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Running should render multiple operations highlighted 1`] = `
+<div>
+  <div>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Level: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        B
+      </span>
+    </span>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Operation(s): 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        +,-
+      </span>
+    </span>
+  </div>
+  <div>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Time Left: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        58
+      </span>
+       seconds
+    </span>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Questions Remaining: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        19
+      </span>
+    </span>
+  </div>
+  <div>
+    <div>
+      <div
+        style={
+          {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          2
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          +
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          3
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          =
+        </span>
+        <div
+          className="MuiFormControl-root MuiTextField-root"
+          onKeyPress={[Function]}
+          style={
+            {
+              "textAlign": "center",
+            }
+          }
+        >
+          <div
+            className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={true}
+              className="MuiInputBase-input MuiInput-input"
+              disabled={false}
+              id="answer-number"
+              name="answer"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={false}
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+        <button
+          className="MuiButtonBase-root MuiFab-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            {
+              "margin": "10px",
+            }
+          }
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiFab-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+              />
+            </svg>
+            Check Answer
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        style={
+          {
+            "border": "medium solid green",
+            "borderRadius": "5px",
+            "display": "inline-block",
+            "paddingRight": "20px",
+          }
+        }
+      >
+        <div>
+          <div
+            style={
+              {
+                "color": "green",
+                "lineHeight": "35px",
+              }
+            }
+          >
+            <button
+              className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              style={
+                {
+                  "fontSize": "1.5em",
+                  "margin": "5px",
+                }
+              }
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiFab-label"
+              >
+                +
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
+            </button>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              1
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              +
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              2
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              =
+            </span>
+            <span
+              style={
+                {
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "marginLeft": 20,
+                  "padding": 3,
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              ✔
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              1.2 seconds
+            </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style={
+            {
+              "border": "medium solid green",
+              "borderRadius": "5px",
+              "display": "inline-block",
+              "paddingRight": "20px",
+            }
+          }
+        >
+          Current Speed 1.5 and Record 2
+        </div>
+      </div>
+      <div />
+    </div>
+    <div>
+      <div
+        style={
+          {
+            "color": "green",
+            "lineHeight": "35px",
+          }
+        }
+      >
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          2)
+        </span>
+        <button
+          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            {
+              "fontSize": "1.5em",
+              "margin": "5px",
+            }
+          }
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiFab-label"
+          >
+            +
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          1
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          +
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          2
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          style={
+            {
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "marginLeft": 20,
+              "padding": 3,
+            }
+          }
+        >
+          3
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          ✔
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          1.2 seconds
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Running should render the Running component with highlighted params 1`] = `
+<div>
+  <div>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Level: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        A
+      </span>
+    </span>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Operation(s): 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        +
+      </span>
+    </span>
+  </div>
+  <div>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Time Left: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        58
+      </span>
+       seconds
+    </span>
+    <span
+      style={
+        {
+          "paddingLeft": 20,
+        }
+      }
+    >
+      Questions Remaining: 
+      <span
+        style={
+          {
+            "backgroundColor": "lightblue",
+            "borderRadius": "3px",
+            "padding": "2px 5px",
+          }
+        }
+      >
+        19
+      </span>
+    </span>
+  </div>
+  <div>
+    <div>
+      <div
+        style={
+          {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          2
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          +
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          3
+        </span>
+        <span
+          style={
+            {
+              "fontSize": "xx-large",
+              "margin": "10px",
+            }
+          }
+        >
+          =
+        </span>
+        <div
+          className="MuiFormControl-root MuiTextField-root"
+          onKeyPress={[Function]}
+          style={
+            {
+              "textAlign": "center",
+            }
+          }
+        >
+          <div
+            className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={true}
+              className="MuiInputBase-input MuiInput-input"
+              disabled={false}
+              id="answer-number"
+              name="answer"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={false}
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+        <button
+          className="MuiButtonBase-root MuiFab-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            {
+              "margin": "10px",
+            }
+          }
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiFab-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+              />
+            </svg>
+            Check Answer
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        style={
+          {
+            "border": "medium solid green",
+            "borderRadius": "5px",
+            "display": "inline-block",
+            "paddingRight": "20px",
+          }
+        }
+      >
+        <div>
+          <div
+            style={
+              {
+                "color": "green",
+                "lineHeight": "35px",
+              }
+            }
+          >
+            <button
+              className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              style={
+                {
+                  "fontSize": "1.5em",
+                  "margin": "5px",
+                }
+              }
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiFab-label"
+              >
+                +
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
+            </button>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              1
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              +
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              2
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              =
+            </span>
+            <span
+              style={
+                {
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "marginLeft": 20,
+                  "padding": 3,
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              ✔
+            </span>
+            <span
+              style={
+                {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              1.2 seconds
+            </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style={
+            {
+              "border": "medium solid green",
+              "borderRadius": "5px",
+              "display": "inline-block",
+              "paddingRight": "20px",
+            }
+          }
+        >
+          Current Speed 1.5 and Record 2
+        </div>
+      </div>
+      <div />
+    </div>
+    <div>
+      <div
+        style={
+          {
+            "color": "green",
+            "lineHeight": "35px",
+          }
+        }
+      >
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          2)
+        </span>
+        <button
+          className="MuiButtonBase-root MuiFab-root MuiFab-sizeMedium MuiFab-primary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            {
+              "fontSize": "1.5em",
+              "margin": "5px",
+            }
+          }
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiFab-label"
+          >
+            +
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          1
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          +
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          2
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          style={
+            {
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "marginLeft": 20,
+              "padding": 3,
+            }
+          }
+        >
+          3
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          ✔
+        </span>
+        <span
+          style={
+            {
+              "paddingLeft": 20,
+            }
+          }
+        >
+          1.2 seconds
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
