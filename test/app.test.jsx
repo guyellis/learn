@@ -25,8 +25,16 @@ describe('App', () => {
       );
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    act(() => {});
+    const startTime = Date.now();
+    const timeout = 5000;
+    while (Date.now() - startTime < timeout) {
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      act(() => {});
+      const tree = JSON.stringify(component.toJSON());
+      if (tree && !tree.includes('Loading...')) {
+        break;
+      }
+    }
     return component;
   };
 
