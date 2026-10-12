@@ -1,3 +1,15 @@
+import ReactDOM from 'react-dom';
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+
+if (!ReactDOM.findDOMNode) {
+  ReactDOM.findDOMNode = (node) => {
+    if (node == null) return null;
+    if (typeof Element !== 'undefined' && node instanceof Element) return node;
+    if (node.nodeType) return node;
+    return node._reactInternals?.stateNode || null;
+  };
+}
 
 global.requestAnimationFrame = (done) => {
   setTimeout(done, 0);

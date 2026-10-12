@@ -30,6 +30,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -47,6 +48,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -66,6 +72,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -83,6 +90,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -102,6 +114,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -119,6 +132,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -138,6 +156,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -155,6 +174,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -174,6 +198,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -191,6 +216,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -210,6 +240,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -227,6 +258,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -246,6 +282,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -263,6 +300,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -282,6 +324,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -299,6 +342,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -318,6 +366,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -335,6 +384,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -354,6 +408,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -371,6 +426,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -390,6 +450,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -407,6 +468,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -426,6 +492,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -443,6 +510,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -462,6 +534,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -479,6 +552,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -498,6 +576,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -515,6 +594,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -534,6 +618,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -551,6 +636,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -570,6 +660,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -587,6 +678,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -606,6 +702,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -623,6 +720,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -642,6 +744,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -659,6 +762,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -678,6 +786,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -695,6 +804,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -714,6 +828,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -731,6 +846,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -750,6 +870,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -767,6 +888,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -786,6 +912,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -803,6 +930,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -822,6 +954,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -839,6 +972,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -858,6 +996,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -875,6 +1014,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -894,6 +1038,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -911,6 +1056,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -930,6 +1080,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -947,6 +1098,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </div>
@@ -979,6 +1135,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -996,6 +1153,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -1015,6 +1177,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -1032,6 +1195,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -1051,6 +1219,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -1068,6 +1237,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
       <button
@@ -1087,6 +1261,7 @@ exports[`Drill > should render the Drill component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         style={
           {
             "fontSize": "2em",
@@ -1104,6 +1279,11 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </div>
@@ -1120,6 +1300,7 @@ exports[`Drill > should render the Drill component 1`] = `
     </h3>
     <div
       className="MuiFormControl-root MuiTextField-root"
+      ref={null}
       style={
         {
           "marginLeft": 20,
@@ -1131,12 +1312,18 @@ exports[`Drill > should render the Drill component 1`] = `
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
         data-shrink={true}
         htmlFor="time-minutes"
+        ref={
+          {
+            "current": null,
+          }
+        }
       >
         Time
       </label>
       <div
         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
         onClick={[Function]}
+        ref={null}
       >
         <input
           aria-describedby="time-minutes-helper-text"
@@ -1148,6 +1335,7 @@ exports[`Drill > should render the Drill component 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
+          ref={[Function]}
           required={false}
           type="number"
           value="1"
@@ -1156,6 +1344,7 @@ exports[`Drill > should render the Drill component 1`] = `
       <p
         className="MuiFormHelperText-root MuiFormHelperText-filled"
         id="time-minutes-helper-text"
+        ref={null}
       >
         1
       </p>
@@ -1173,6 +1362,7 @@ exports[`Drill > should render the Drill component 1`] = `
     </h3>
     <div
       className="MuiFormControl-root MuiTextField-root"
+      ref={null}
       style={
         {
           "marginLeft": 40,
@@ -1184,12 +1374,18 @@ exports[`Drill > should render the Drill component 1`] = `
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
         data-shrink={true}
         htmlFor="total-problems"
+        ref={
+          {
+            "current": null,
+          }
+        }
       >
         Total Questions
       </label>
       <div
         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
         onClick={[Function]}
+        ref={null}
       >
         <input
           aria-describedby="total-problems-helper-text"
@@ -1201,6 +1397,7 @@ exports[`Drill > should render the Drill component 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
+          ref={[Function]}
           required={false}
           type="number"
           value="20"
@@ -1209,6 +1406,7 @@ exports[`Drill > should render the Drill component 1`] = `
       <p
         className="MuiFormHelperText-root MuiFormHelperText-filled"
         id="total-problems-helper-text"
+        ref={null}
       >
         20
       </p>
@@ -1226,9 +1424,11 @@ exports[`Drill > should render the Drill component 1`] = `
     </h3>
     <div
       className="MuiFormGroup-root MuiFormGroup-row"
+      ref={null}
     >
       <label
         className="MuiFormControlLabel-root"
+        ref={null}
       >
         <span
           className="MuiSwitch-root"
@@ -1247,6 +1447,7 @@ exports[`Drill > should render the Drill component 1`] = `
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
+            ref={[Function]}
             tabIndex={null}
           >
             <span
@@ -1265,6 +1466,11 @@ exports[`Drill > should render the Drill component 1`] = `
             </span>
             <span
               className="MuiTouchRipple-root"
+              ref={
+                {
+                  "current": null,
+                }
+              }
             />
           </span>
           <span
@@ -1273,6 +1479,7 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+          ref={null}
         >
           Use onscreen keyboard
         </span>
@@ -1291,9 +1498,11 @@ exports[`Drill > should render the Drill component 1`] = `
     </h3>
     <div
       className="MuiFormGroup-root MuiFormGroup-row"
+      ref={null}
     >
       <label
         className="MuiFormControlLabel-root"
+        ref={null}
       >
         <span
           className="MuiSwitch-root"
@@ -1312,6 +1521,7 @@ exports[`Drill > should render the Drill component 1`] = `
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
+            ref={[Function]}
             tabIndex={null}
           >
             <span
@@ -1330,6 +1540,11 @@ exports[`Drill > should render the Drill component 1`] = `
             </span>
             <span
               className="MuiTouchRipple-root"
+              ref={
+                {
+                  "current": null,
+                }
+              }
             />
           </span>
           <span
@@ -1338,6 +1553,7 @@ exports[`Drill > should render the Drill component 1`] = `
         </span>
         <span
           className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+          ref={null}
         >
           Large Keyboard
         </span>
@@ -1356,6 +1572,7 @@ exports[`Drill > should render the Drill component 1`] = `
     </h3>
     <div
       className="MuiFormControl-root MuiTextField-root"
+      ref={null}
       style={
         {
           "marginLeft": 40,
@@ -1367,12 +1584,18 @@ exports[`Drill > should render the Drill component 1`] = `
         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
         data-shrink={true}
         htmlFor="user-name"
+        ref={
+          {
+            "current": null,
+          }
+        }
       >
         Your Name
       </label>
       <div
         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
         onClick={[Function]}
+        ref={null}
       >
         <input
           aria-describedby="user-name-helper-text"
@@ -1384,6 +1607,7 @@ exports[`Drill > should render the Drill component 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
+          ref={[Function]}
           required={false}
           type="text"
           value="my name"
@@ -1392,6 +1616,7 @@ exports[`Drill > should render the Drill component 1`] = `
       <p
         className="MuiFormHelperText-root MuiFormHelperText-filled"
         id="user-name-helper-text"
+        ref={null}
       >
         Jemima Puddle-Duck
       </p>
@@ -1419,6 +1644,7 @@ exports[`Drill > should render the Drill component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -1430,6 +1656,7 @@ exports[`Drill > should render the Drill component 1`] = `
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
+          ref={null}
           role="presentation"
           viewBox="0 0 24 24"
         >
@@ -1440,6 +1667,11 @@ exports[`Drill > should render the Drill component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>
@@ -1466,6 +1698,7 @@ exports[`Drill > should render the Drill component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       tabIndex={0}
       type="button"
     >
@@ -1476,6 +1709,11 @@ exports[`Drill > should render the Drill component 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>

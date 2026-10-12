@@ -28,11 +28,13 @@ exports[`NotFound > should render a NotFound component 1`] = `
   />
   <h1
     className="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
+    ref={null}
   >
     Oops! Page Not Found
   </h1>
   <p
     className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-paragraph"
+    ref={null}
   >
     We couldn't find the page you were looking for. Let's get you back to practicing math!
   </p>
@@ -61,6 +63,7 @@ exports[`NotFound > should render a NotFound component 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
+        ref={[Function]}
         tabIndex={0}
         type="button"
       >
@@ -71,6 +74,11 @@ exports[`NotFound > should render a NotFound component 1`] = `
         </span>
         <span
           className="MuiTouchRipple-root"
+          ref={
+            {
+              "current": null,
+            }
+          }
         />
       </button>
     </a>

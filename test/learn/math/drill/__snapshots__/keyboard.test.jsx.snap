@@ -20,6 +20,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -39,6 +40,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -58,6 +64,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -77,6 +84,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -96,6 +108,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -115,6 +128,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -134,6 +152,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -153,6 +172,7 @@ exports[`Badge totals should be rendered 1`] = `
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
+          ref={null}
           role="presentation"
           viewBox="0 0 24 24"
         >
@@ -163,6 +183,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>
@@ -184,6 +209,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -203,6 +229,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -222,6 +253,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -241,6 +273,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -260,6 +297,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -279,6 +317,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -298,6 +341,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -317,6 +361,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>
@@ -338,6 +387,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -357,6 +407,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -376,6 +431,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -395,6 +451,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -414,6 +475,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -433,6 +495,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -452,6 +519,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -471,6 +539,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>
@@ -492,6 +565,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -511,6 +585,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -530,6 +609,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -549,6 +629,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -568,6 +653,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -587,6 +673,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
     <button
@@ -606,6 +697,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "fontSize": "2em",
@@ -625,6 +717,7 @@ exports[`Badge totals should be rendered 1`] = `
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
+          ref={null}
           role="presentation"
           viewBox="0 0 24 24"
         >
@@ -635,6 +728,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>

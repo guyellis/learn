@@ -13,6 +13,7 @@ export default [
       '**/dist/**',
       'tsconfig.tsbuildinfo',
       '**/*.snap',
+      '**/*.d.ts',
     ],
   },
   js.configs.recommended,
@@ -41,7 +42,7 @@ export default [
     },
     settings: {
       react: {
-        version: '16.9',
+        version: '19.3',
       },
     },
     rules: {

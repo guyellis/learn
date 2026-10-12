@@ -15,6 +15,7 @@ exports[`Badge should be rendered 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  ref={[Function]}
   style={
     {
       "fontSize": "1.5em",
@@ -31,6 +32,11 @@ exports[`Badge should be rendered 1`] = `
   </span>
   <span
     className="MuiTouchRipple-root"
+    ref={
+      {
+        "current": null,
+      }
+    }
   />
 </button>
 `;

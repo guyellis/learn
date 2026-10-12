@@ -53,6 +53,7 @@ exports[`Badge totals should be rendered 1`] = `
     <div
       className="MuiFormControl-root MuiTextField-root"
       onKeyPress={[Function]}
+      ref={null}
       style={
         {
           "textAlign": "center",
@@ -62,6 +63,7 @@ exports[`Badge totals should be rendered 1`] = `
       <div
         className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
         onClick={[Function]}
+        ref={null}
       >
         <input
           aria-invalid={false}
@@ -73,6 +75,7 @@ exports[`Badge totals should be rendered 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
+          ref={[Function]}
           required={false}
           type="number"
           value=""
@@ -94,6 +97,7 @@ exports[`Badge totals should be rendered 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      ref={[Function]}
       style={
         {
           "margin": "10px",
@@ -109,6 +113,7 @@ exports[`Badge totals should be rendered 1`] = `
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
+          ref={null}
           role="presentation"
           viewBox="0 0 24 24"
         >
@@ -120,6 +125,11 @@ exports[`Badge totals should be rendered 1`] = `
       </span>
       <span
         className="MuiTouchRipple-root"
+        ref={
+          {
+            "current": null,
+          }
+        }
       />
     </button>
   </div>
