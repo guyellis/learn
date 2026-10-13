@@ -2,6 +2,15 @@ import ReactDOM from 'react-dom';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
+if (!('Temporal' in globalThis)) {
+  const { Temporal, toTemporalInstant } = await import('@js-temporal/polyfill');
+  globalThis.Temporal = Temporal;
+  Date.prototype.toTemporalInstant = toTemporalInstant;
+}
+
+// Hook Temporal.Now.instant to Date.now in test environment to respect Date.now mocks
+Temporal.Now.instant = () => Temporal.Instant.fromEpochMilliseconds(Date.now());
+
 if (!ReactDOM.findDOMNode) {
   ReactDOM.findDOMNode = (node) => {
     if (node === null || node === undefined) {

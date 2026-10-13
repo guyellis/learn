@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import React from 'react';
 import db from '../../db/index.js';
 import Finished from './finished.jsx';

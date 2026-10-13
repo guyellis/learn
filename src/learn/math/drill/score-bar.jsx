@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
