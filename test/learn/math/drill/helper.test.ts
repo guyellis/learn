@@ -2,6 +2,7 @@ import constants from '../../../../src/learn/common/constants.js';
 import util from '../../../../src/learn/common/util.js';
 import db from '../../../../src/learn/db/index.js';
 import helper from '../../../../src/learn/math/drill/helper.js';
+import type { ScoreBarTime, TaskPair } from '../../../../src/learn/math/drill/types.js';
 
 const { getScoreboard } = helper;
 
@@ -18,13 +19,12 @@ const {
 
 describe('Helper', () => {
   beforeEach(() => {
-    db.getScores = vi.fn();
-    db.appendScore = vi.fn();
+    vi.spyOn(db, 'getScores').mockReturnValue([]);
+    vi.spyOn(db, 'appendScore').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    db.getScores.mockClear();
-    db.appendScore.mockClear();
+    vi.restoreAllMocks();
   });
 
   test('should get a pair of numbers from level #1 plus', () => {
@@ -39,21 +39,26 @@ describe('Helper', () => {
   });
 
   test('should default to [] when scores null in getScoreBarTimes()', () => {
-    db.getScores.mockReturnValueOnce(null);
+    vi.mocked(db.getScores).mockReturnValueOnce(null);
 
     const actual = helper.getScoreBarTimes(0, [0]);
 
-    const expected = [];
+    const expected: ScoreBarTime[] = [];
 
     expect(actual).toEqual(expected);
   });
 
   test('should getScoreBarTimes() for zero items', () => {
-    const scores = [];
+    const scores: Array<{
+      correctCount: number;
+      date: number;
+      key: string;
+      timePerQuestion: number;
+    }> = [];
 
     const actual = helper.getScoreBarTimes(0, [0], scores);
 
-    const expected = [];
+    const expected: ScoreBarTime[] = [];
 
     expect(actual).toEqual(expected);
   });
@@ -81,8 +86,13 @@ describe('Helper', () => {
   });
 
   test('should get the expected number of results', () => {
-    const scores = [];
-    const expected = [];
+    const scores: Array<{
+      correctCount: number;
+      date: number;
+      key: string;
+      timePerQuestion: number;
+    }> = [];
+    const expected: ScoreBarTime[] = [];
     for (let i = 0; i < 5; i += 1) {
       scores.push({
         correctCount: 10,
@@ -204,7 +214,7 @@ describe('Helper', () => {
 
   test('should calculate all Answer operators', () => {
     const { calculateAnswer } = helper;
-    const inputs = [
+    const inputs: Array<[TaskPair, number, number]> = [
       [[6, 3], 0, 9], // 6 + 3 = 9
       [[6, 3], 1, 3], // 6 - 3 = 3
       [[6, 3], 2, 18], // 6 x 3 = 18
@@ -220,7 +230,7 @@ describe('Helper', () => {
   });
 
   test('should get current record if data exists', () => {
-    db.getScores.mockReturnValueOnce([
+    vi.mocked(db.getScores).mockReturnValueOnce([
       {
         key: '0-01',
         timePerQuestion: 2,
@@ -244,7 +254,7 @@ describe('Helper', () => {
   });
 
   test('should get undefined for current record if no data exists', () => {
-    db.getScores.mockReturnValueOnce(undefined);
+    vi.mocked(db.getScores).mockReturnValueOnce(undefined);
     const { getCurrentRecord } = helper;
 
     const actual = getCurrentRecord(0, [0, 1]);
@@ -252,7 +262,7 @@ describe('Helper', () => {
   });
 
   test('should append score with no existing record', () => {
-    db.getScores.mockReturnValueOnce(undefined);
+    vi.mocked(db.getScores).mockReturnValueOnce(undefined);
     const { appendScore } = helper;
     const results = {
       correctCount: 10,
@@ -278,7 +288,7 @@ beat this score. Good luck!",
   });
 
   test('should not append score if no correct answers', () => {
-    db.getScores.mockReturnValueOnce(undefined);
+    vi.mocked(db.getScores).mockReturnValueOnce(undefined);
     const { appendScore } = helper;
     const results = {
       correctCount: 0,
@@ -304,7 +314,7 @@ easier level or an easier operator.",
   });
 
   test('should report an equal record', () => {
-    db.getScores.mockReturnValueOnce([
+    vi.mocked(db.getScores).mockReturnValueOnce([
       {
         key: '0-0',
         timePerQuestion: 6,
@@ -333,7 +343,7 @@ easier level or an easier operator.",
   });
 
   test('should report a new record', () => {
-    db.getScores.mockReturnValueOnce([
+    vi.mocked(db.getScores).mockReturnValueOnce([
       {
         key: '0-0',
         timePerQuestion: 7,
@@ -362,7 +372,7 @@ easier level or an easier operator.",
   });
 
   test('should report a slower result', () => {
-    db.getScores.mockReturnValueOnce([
+    vi.mocked(db.getScores).mockReturnValueOnce([
       {
         key: '0-0',
         timePerQuestion: 5,
@@ -393,7 +403,7 @@ per question. (Your best score is 5 seconds per question.)',
 
   describe('getScoreboard', () => {
     test('should get null, false and 0 for no scores', () => {
-      db.getScores.mockReturnValueOnce(undefined);
+      vi.mocked(db.getScores).mockReturnValueOnce(undefined);
       const expected = {
         levels: [],
         ops: new Set(),
@@ -405,7 +415,7 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for one score', () => {
-      db.getScores.mockReturnValueOnce([
+      vi.mocked(db.getScores).mockReturnValueOnce([
         {
           correctCount: 10,
           levelIndex: 0,
@@ -426,7 +436,7 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for mixed operators', () => {
-      db.getScores.mockReturnValueOnce([
+      vi.mocked(db.getScores).mockReturnValueOnce([
         {
           correctCount: 10,
           levelIndex: 0,
@@ -447,7 +457,7 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for multiple operations', () => {
-      db.getScores.mockReturnValueOnce([
+      vi.mocked(db.getScores).mockReturnValueOnce([
         {
           correctCount: 10,
           levelIndex: 0,
@@ -474,7 +484,7 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get null, false and 0 for correct answers under 10', () => {
-      db.getScores.mockReturnValueOnce([
+      vi.mocked(db.getScores).mockReturnValueOnce([
         {
           correctCount: 9,
           levelIndex: 0,
@@ -535,7 +545,7 @@ per question. (Your best score is 5 seconds per question.)',
       // 2017-01-01 01:01:40
       const end = new Date(2017, 0, 1, 1, 1, 40);
       const startTime = Temporal.Instant.fromEpochMilliseconds(start.getTime());
-      Date.now = vi.fn(() => end.valueOf());
+      const dateSpy = vi.spyOn(Date, 'now').mockReturnValue(end.valueOf());
       const { newRecord } = helper;
       const input = {
         currentRecord: {
@@ -544,7 +554,7 @@ per question. (Your best score is 5 seconds per question.)',
         previousResults: [
           {
             actuals: [55],
-            task: [0, 0, 0, 55],
+            task: [0, 0, 0, 55] as [number, number, number, number],
           },
         ],
         startTime,
@@ -557,7 +567,7 @@ per question. (Your best score is 5 seconds per question.)',
       const actual = newRecord(input);
 
       expect(actual).toEqual(expected);
-      Date.now.mockClear();
+      dateSpy.mockRestore();
     });
   });
 

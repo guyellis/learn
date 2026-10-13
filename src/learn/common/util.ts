@@ -1,4 +1,4 @@
-export function fillArray(size, value) {
+export function fillArray<T>(size: number, value: T): T[] {
   return [...Array(size).keys()].map(() => value);
 }
 

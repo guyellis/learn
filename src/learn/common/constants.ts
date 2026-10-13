@@ -1,8 +1,15 @@
-export const ALPHABET = Object.freeze('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
-export const BADGE_BOUNDARIES = Object.freeze([0, 2, 3, 4]); // Seconds per question boundaries for badges
-export const COLOR_HTML = Object.freeze(['#ffd700', '#c0c0c0', '#8C7853', 'lightblue']);
-export const COLOR_TEXT = Object.freeze(['Gold', 'Silver', 'Bronze', 'Blue']);
-export const DEFAULT_OPTIONS = {
+import type { DrillOptions } from '../math/drill/types.js';
+
+export const ALPHABET: readonly string[] = Object.freeze('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
+export const BADGE_BOUNDARIES: readonly number[] = Object.freeze([0, 2, 3, 4]); // Seconds per question boundaries for badges
+export const COLOR_HTML: readonly string[] = Object.freeze([
+  '#ffd700',
+  '#c0c0c0',
+  '#8C7853',
+  'lightblue',
+]);
+export const COLOR_TEXT: readonly string[] = Object.freeze(['Gold', 'Silver', 'Bronze', 'Blue']);
+export const DEFAULT_OPTIONS: DrillOptions = {
   largeKeyboard: false,
   levelIndex: 0, // A
   minutes: '10',
@@ -13,13 +20,13 @@ export const DEFAULT_OPTIONS = {
 };
 export const MATH_DRILL_OPTIONS = 'mathDrillOptions';
 export const MATH_DRILL_SCORES = 'mathDrillScores';
-export const OPERATION_NAMES = Object.freeze([
+export const OPERATION_NAMES: readonly string[] = Object.freeze([
   'Addition',
   'Subtraction',
   'Multiplication',
   'Division',
 ]);
-export const OPERATIONS = Object.freeze(['+', '-', 'x', '\u00F7']);
+export const OPERATIONS: readonly string[] = Object.freeze(['+', '-', 'x', '\u00F7']);
 export const RECORD_EQUAL = 'RECORD_EQUAL';
 export const RECORD_MISS = 'RECORD_MISS';
 export const RECORD_NEW = 'RECORD_NEW';
