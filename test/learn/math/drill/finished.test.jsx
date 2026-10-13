@@ -1,16 +1,13 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Finished from '../../../../src/learn/math/drill/finished.jsx';
 import constants from '../../../../src/learn/common/constants.js';
 import db from '../../../../src/learn/db/index.js';
+import Finished from '../../../../src/learn/math/drill/finished.jsx';
 
 const theme = createTheme();
 
-const {
-  RECORD_NEW,
-  RECORD_MISS,
-} = constants;
+const { RECORD_MISS, RECORD_NEW } = constants;
 
 describe('Finished', () => {
   beforeEach(() => {
@@ -22,15 +19,17 @@ describe('Finished', () => {
   });
 
   test('should render when there is a single incorrect result', () => {
-    const previousResults = [{
-      actuals: [5],
-      id: 1,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }];
+    const previousResults = [
+      {
+        actuals: [5],
+        id: 1,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+    ];
     const resultInfo = {
-      text: 'Result Info Text',
       newRecordInfo: RECORD_NEW,
+      text: 'Result Info Text',
     };
 
     let component;
@@ -46,7 +45,8 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
 
     const finishedBadge = component.toJSON();
@@ -54,15 +54,17 @@ describe('Finished', () => {
   });
 
   test('should render when there is a single correct result', () => {
-    const previousResults = [{
-      actuals: [10],
-      id: 1,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }];
+    const previousResults = [
+      {
+        actuals: [10],
+        id: 1,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+    ];
     const resultInfo = {
-      text: 'Result Info Text',
       newRecordInfo: RECORD_NEW,
+      text: 'Result Info Text',
     };
 
     let component;
@@ -78,7 +80,8 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
 
     const finishedBadge = component.toJSON();
@@ -86,36 +89,44 @@ describe('Finished', () => {
   });
 
   test('should render when there is a mix of correct and incorrect results', () => {
-    const previousResults = [{
-      actuals: [5], // single incorrect
-      id: 1,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }, {
-      actuals: [10], // single correct
-      id: 2,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }, {
-      actuals: [10, 5, 4, 3], // correct with some wrong
-      id: 3,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }];
+    const previousResults = [
+      {
+        actuals: [5], // single incorrect
+        id: 1,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+      {
+        actuals: [10], // single correct
+        id: 2,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+      {
+        actuals: [10, 5, 4, 3], // correct with some wrong
+        id: 3,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+    ];
     const resultInfo = {
-      text: 'Result Info Text',
       newRecordInfo: RECORD_NEW,
+      text: 'Result Info Text',
     };
-    db.getScores.mockReturnValueOnce([{
-      key: '0-01',
-      timePerQuestion: 2,
-    }, {
-      key: '0-02',
-      timePerQuestion: 0.5,
-    }, {
-      key: '0-01',
-      timePerQuestion: 1,
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        key: '0-01',
+        timePerQuestion: 2,
+      },
+      {
+        key: '0-02',
+        timePerQuestion: 0.5,
+      },
+      {
+        key: '0-01',
+        timePerQuestion: 1,
+      },
+    ]);
 
     let component;
     act(() => {
@@ -130,7 +141,8 @@ describe('Finished', () => {
             timeLeft={100}
             totalProblems={20}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
 
     const finishedBadge = component.toJSON();
@@ -146,14 +158,16 @@ describe('Finished', () => {
       timeTaken: 3.1,
     }));
     const resultInfo = {
-      text: 'Result Info Text',
       newRecordInfo: RECORD_NEW,
+      text: 'Result Info Text',
     };
     // But scoreBarTimes latest is 2.9 (Silver)
-    const scoreBarTimes = [{
-      date: Date.now(),
-      timePerQuestion: 2.9,
-    }];
+    const scoreBarTimes = [
+      {
+        date: Date.now(),
+        timePerQuestion: 2.9,
+      },
+    ];
 
     let component;
     act(() => {
@@ -187,8 +201,8 @@ describe('Finished', () => {
       timeTaken: 1.5,
     }));
     const resultInfo = {
-      text: 'Result Info Text',
       newRecordInfo: RECORD_MISS,
+      text: 'Result Info Text',
     };
 
     let component;
@@ -215,15 +229,17 @@ describe('Finished', () => {
   });
 
   test('should render unknown newRecordInfo fallback', () => {
-    const previousResults = [{
-      actuals: [10],
-      id: 1,
-      task: [5, 5, 0, 10],
-      timeTaken: 2.2,
-    }];
+    const previousResults = [
+      {
+        actuals: [10],
+        id: 1,
+        task: [5, 5, 0, 10],
+        timeTaken: 2.2,
+      },
+    ];
     const resultInfo = {
-      text: 'Unknown text',
       newRecordInfo: 'UNKNOWN_RECORD_INFO',
+      text: 'Unknown text',
     };
 
     let component;

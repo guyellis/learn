@@ -1,6 +1,6 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import db from '../../../../src/learn/db/index.js';
 import Options from '../../../../src/learn/math/drill/options.jsx';
 

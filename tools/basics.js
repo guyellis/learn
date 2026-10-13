@@ -2,10 +2,10 @@
 // Multiplication: From 1x1 to 12x12
 // Division: From 1/1 to 144/12
 
-import _ from 'lodash';
-import fse from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fse from 'fs-extra';
+import _ from 'lodash';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,13 +14,12 @@ const allPairs = () => {
   const numbers = [...Array(12).keys()].map((a) => a + 1);
 
   const m = numbers.reduce((acc, num) => {
-    const pairs = numbers.map((a) => ([a, num]));
+    const pairs = numbers.map((a) => [a, num]);
     return acc.concat(pairs);
   }, []);
 
-
   const d = numbers.reduce((acc, num) => {
-    const pairs = numbers.map((a) => ([a * num, num]));
+    const pairs = numbers.map((a) => [a * num, num]);
     return acc.concat(pairs);
   }, []);
 

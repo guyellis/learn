@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import Table from '@mui/material/Table';
-import Paper from '@mui/material/Paper';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import React, { useState } from 'react';
 
-import Badge from './badge.jsx';
-import BadgeTotals from './badge-totals.jsx';
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
+import BadgeTotals from './badge-totals.jsx';
+import Badge from './badge.jsx';
 import helper from './helper.js';
 
-const {
-  ALPHABET: alphabet,
-  OPERATION_NAMES: operationNames,
-} = constants;
-
+const { ALPHABET: alphabet, OPERATION_NAMES: operationNames } = constants;
 
 function badge(badges) {
   if (!badges) {
@@ -25,29 +21,21 @@ function badge(badges) {
   }
   return (
     <span>
-      {
-      badges.map((amount, color) => {
+      {badges.map((amount, color) => {
         if (!amount) {
           return null;
         }
         const key = `${amount}${color}`;
 
-        return (
-          <Badge
-            key={key}
-            color={color}
-            content={amount.toString()}
-          />
-        );
-      })
-    }
+        return <Badge color={color} content={amount.toString()} key={key} />;
+      })}
     </span>
   );
 }
 
 function Scoreboard() {
   const [, setRefresh] = useState(0);
-  const { ops: operations, totals, levels } = helper.getScoreboard();
+  const { levels, ops: operations, totals } = helper.getScoreboard();
   const ops = [...operations];
   const opNames = ops.map((op) => {
     const operators = op.split('');
@@ -69,9 +57,7 @@ function Scoreboard() {
 
   return (
     <div>
-      <h3>
-       Scoreboard
-      </h3>
+      <h3>Scoreboard</h3>
       <BadgeTotals totals={totals} />
       <Paper style={{ width: '100%' }}>
         <Table>
@@ -79,33 +65,34 @@ function Scoreboard() {
             <TableRow>
               <TableCell>Level</TableCell>
               {opNames.map((opName) => (
-                <TableCell key={opName}>
-                  {opName}
-                </TableCell>
+                <TableCell key={opName}>{opName}</TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {levels.map((level, index) => (level ? (
-              <TableRow key={alphabet[index]}>
-                <TableCell component="th" scope="row" key={alphabet[index]}>
-                  {alphabet[index]}
-                </TableCell>
-                {ops.map((op) => (
-                  <TableCell key={op}>{badge(level[op])}</TableCell>
-                ))}
-              </TableRow>
-            ) : ('')
-            ))}
+            {levels.map((level, index) =>
+              level ? (
+                <TableRow key={alphabet[index]}>
+                  <TableCell component="th" key={alphabet[index]} scope="row">
+                    {alphabet[index]}
+                  </TableCell>
+                  {ops.map((op) => (
+                    <TableCell key={op}>{badge(level[op])}</TableCell>
+                  ))}
+                </TableRow>
+              ) : (
+                ''
+              ),
+            )}
           </TableBody>
         </Table>
       </Paper>
       <div style={{ marginTop: '20px' }}>
         <Button
-          id="clear-record-history"
-          variant="contained"
           color="secondary"
+          id="clear-record-history"
           onClick={handleClearHistory}
+          variant="contained"
         >
           Clear Record History
         </Button>

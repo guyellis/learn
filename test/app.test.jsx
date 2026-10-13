@@ -1,7 +1,7 @@
-import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import renderer, { act } from 'react-test-renderer';
 import App from '../src/app.jsx';
 
 const theme = createTheme();

@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const buttonStyle = {
-  margin: '5px',
   fontSize: '1.5em',
+  margin: '5px',
 };
 
 function badge({ content }) {
   return (
-    <FloatingActionButton
-      color="primary"
-      style={buttonStyle}
-      size="medium"
-    >
+    <FloatingActionButton color="primary" size="medium" style={buttonStyle}>
       {`${content}`}
     </FloatingActionButton>
   );

@@ -2,18 +2,18 @@ env:
   - CXX=g++-4.8
 language: node_js
 node_js:
-  - "10"
+  - '10'
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - gcc-4.8
-    - g++-4.8
+      - gcc-4.8
+      - g++-4.8
 install: npm install
 before_install:
-# Don't need to install latest npm because Node >= 9
-# - npm install -g npm
-- npm install -g greenkeeper-lockfile@1
+  # Don't need to install latest npm because Node >= 9
+  # - npm install -g npm
+  - npm install -g greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload

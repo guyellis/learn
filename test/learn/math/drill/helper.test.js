@@ -1,17 +1,17 @@
 import { Temporal } from '@js-temporal/polyfill';
-import db from '../../../../src/learn/db/index.js';
-import helper from '../../../../src/learn/math/drill/helper.js';
 import constants from '../../../../src/learn/common/constants.js';
 import util from '../../../../src/learn/common/util.js';
+import db from '../../../../src/learn/db/index.js';
+import helper from '../../../../src/learn/math/drill/helper.js';
 
 const { getScoreboard } = helper;
 
 const { fillArray } = util;
 
 const {
-  RECORD_NEW,
   RECORD_EQUAL,
   RECORD_MISS,
+  RECORD_NEW,
   RECORD_NOT_EXIST,
   // BADGE_BOUNDARIES: badgeBoundaries,
   // COLOR_HTML,
@@ -60,19 +60,23 @@ describe('Helper', () => {
   });
 
   test('should getScoreBarTimes() for single item', () => {
-    const scores = [{
-      key: '0-0',
-      correctCount: 10,
-      date: 1,
-      timePerQuestion: 1.3,
-    }];
+    const scores = [
+      {
+        correctCount: 10,
+        date: 1,
+        key: '0-0',
+        timePerQuestion: 1.3,
+      },
+    ];
 
     const actual = helper.getScoreBarTimes(0, [0], scores);
 
-    const expected = [{
-      date: 1,
-      timePerQuestion: 1.3,
-    }];
+    const expected = [
+      {
+        date: 1,
+        timePerQuestion: 1.3,
+      },
+    ];
 
     expect(actual).toEqual(expected);
   });
@@ -82,9 +86,9 @@ describe('Helper', () => {
     const expected = [];
     for (let i = 0; i < 5; i += 1) {
       scores.push({
-        key: '0-0',
         correctCount: 10,
         date: 1,
+        key: '0-0',
         timePerQuestion: 2,
       });
 
@@ -100,88 +104,104 @@ describe('Helper', () => {
   });
 
   test('should sort getScoreBarTimes() for two items', () => {
-    const scores = [{
-      key: '0-0',
-      correctCount: 22,
-      date: 2,
-      timePerQuestion: 2.2,
-    }, {
-      key: '0-0',
-      correctCount: 11,
-      date: 1,
-      timePerQuestion: 1.1,
-    }];
+    const scores = [
+      {
+        correctCount: 22,
+        date: 2,
+        key: '0-0',
+        timePerQuestion: 2.2,
+      },
+      {
+        correctCount: 11,
+        date: 1,
+        key: '0-0',
+        timePerQuestion: 1.1,
+      },
+    ];
 
     const actual = helper.getScoreBarTimes(0, [0], scores);
 
-    const expected = [{
-      date: 1,
-      timePerQuestion: 1.1,
-    }, {
-      date: 2,
-      timePerQuestion: 2.2,
-    }];
+    const expected = [
+      {
+        date: 1,
+        timePerQuestion: 1.1,
+      },
+      {
+        date: 2,
+        timePerQuestion: 2.2,
+      },
+    ];
 
     expect(actual).toEqual(expected);
   });
 
-  test(
-    'should not return more than 5 items getScoreBarTimes() for six items',
-    () => {
-      const scores = [{
-        key: '0-0',
+  test('should not return more than 5 items getScoreBarTimes() for six items', () => {
+    const scores = [
+      {
         correctCount: 66,
         date: 6,
-        timePerQuestion: 6.6,
-      }, {
         key: '0-0',
+        timePerQuestion: 6.6,
+      },
+      {
         correctCount: 55,
         date: 5,
-        timePerQuestion: 5.5,
-      }, {
         key: '0-0',
+        timePerQuestion: 5.5,
+      },
+      {
         correctCount: 44,
         date: 4,
-        timePerQuestion: 4.4,
-      }, {
         key: '0-0',
+        timePerQuestion: 4.4,
+      },
+      {
         correctCount: 33,
         date: 3,
-        timePerQuestion: 3.3,
-      }, {
         key: '0-0',
+        timePerQuestion: 3.3,
+      },
+      {
         correctCount: 22,
         date: 2,
-        timePerQuestion: 2.2,
-      }, {
         key: '0-0',
+        timePerQuestion: 2.2,
+      },
+      {
         correctCount: 11,
         date: 1,
+        key: '0-0',
         timePerQuestion: 1.1,
-      }];
+      },
+    ];
 
-      const actual = helper.getScoreBarTimes(0, [0], scores);
+    const actual = helper.getScoreBarTimes(0, [0], scores);
 
-      const expected = [{
+    const expected = [
+      {
         date: 2,
         timePerQuestion: 2.2,
-      }, {
+      },
+      {
         date: 3,
         timePerQuestion: 3.3,
-      }, {
+      },
+      {
         date: 4,
         timePerQuestion: 4.4,
-      }, {
+      },
+      {
         date: 5,
         timePerQuestion: 5.5,
-      }, {
+      },
+      {
         date: 6,
         timePerQuestion: 6.6,
-      }];
+      },
+    ];
 
-      expect(actual).toEqual(expected);
-    },
-  );
+    expect(actual).toEqual(expected);
+  });
 
   test('should calculate all Answer operators', () => {
     const { calculateAnswer } = helper;
@@ -201,16 +221,20 @@ describe('Helper', () => {
   });
 
   test('should get current record if data exists', () => {
-    db.getScores.mockReturnValueOnce([{
-      key: '0-01',
-      timePerQuestion: 2,
-    }, {
-      key: '0-02',
-      timePerQuestion: 0.5,
-    }, {
-      key: '0-01',
-      timePerQuestion: 1,
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        key: '0-01',
+        timePerQuestion: 2,
+      },
+      {
+        key: '0-02',
+        timePerQuestion: 0.5,
+      },
+      {
+        key: '0-01',
+        timePerQuestion: 1,
+      },
+    ]);
     const { getCurrentRecord } = helper;
 
     const actual = getCurrentRecord(0, [0, 1]);
@@ -244,11 +268,11 @@ describe('Helper', () => {
 
     const actual = appendScore(results);
     expect(actual).toEqual({
-      // eslint-disable-next-line no-multi-str
-      text: 'This is the first time you\'ve done this problem. You took \
-6 seconds per question. Do this test again to see if you can \
-beat this score. Good luck!',
       newRecordInfo: RECORD_NOT_EXIST,
+      // eslint-disable-next-line no-multi-str
+      text: "This is the first time you've done this problem. You took \
+6 seconds per question. Do this test again to see if you can \
+beat this score. Good luck!",
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
@@ -270,21 +294,23 @@ beat this score. Good luck!',
 
     const actual = appendScore(results);
     expect(actual).toEqual({
-      // eslint-disable-next-line no-multi-str
-      text: 'You didn\'t answer any questions correctly so we are not going to use this score \
-as part of your high scores. If you are struggling with these problems then try an \
-easier level or an easier operator.',
       newRecordInfo: RECORD_MISS,
+      // eslint-disable-next-line no-multi-str
+      text: "You didn't answer any questions correctly so we are not going to use this score \
+as part of your high scores. If you are struggling with these problems then try an \
+easier level or an easier operator.",
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).not.toHaveBeenCalled();
   });
 
   test('should report an equal record', () => {
-    db.getScores.mockReturnValueOnce([{
-      timePerQuestion: 6,
-      key: '0-0',
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        key: '0-0',
+        timePerQuestion: 6,
+      },
+    ]);
     const { appendScore } = helper;
     const results = {
       correctCount: 10,
@@ -299,19 +325,21 @@ easier level or an easier operator.',
 
     const actual = appendScore(results);
     expect(actual).toEqual({
+      newRecordInfo: RECORD_EQUAL,
       // eslint-disable-next-line no-multi-str
       text: 'Your time is equal to your best score of 6 seconds per question. Great job!',
-      newRecordInfo: RECORD_EQUAL,
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
   });
 
   test('should report a new record', () => {
-    db.getScores.mockReturnValueOnce([{
-      timePerQuestion: 7,
-      key: '0-0',
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        key: '0-0',
+        timePerQuestion: 7,
+      },
+    ]);
     const { appendScore } = helper;
     const results = {
       correctCount: 10,
@@ -326,19 +354,21 @@ easier level or an easier operator.',
 
     const actual = appendScore(results);
     expect(actual).toEqual({
+      newRecordInfo: RECORD_NEW,
       // eslint-disable-next-line no-multi-str
       text: 'NEW RECORD! Awesome work! Your new best score is 6 seconds per question.',
-      newRecordInfo: RECORD_NEW,
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
   });
 
   test('should report a slower result', () => {
-    db.getScores.mockReturnValueOnce([{
-      timePerQuestion: 5,
-      key: '0-0',
-    }]);
+    db.getScores.mockReturnValueOnce([
+      {
+        key: '0-0',
+        timePerQuestion: 5,
+      },
+    ]);
     const { appendScore } = helper;
     const results = {
       correctCount: 10,
@@ -353,10 +383,10 @@ easier level or an easier operator.',
 
     const actual = appendScore(results);
     expect(actual).toEqual({
+      newRecordInfo: RECORD_MISS,
       // eslint-disable-next-line no-multi-str
       text: 'You answered the questions at a rate of 6 seconds \
 per question. (Your best score is 5 seconds per question.)',
-      newRecordInfo: RECORD_MISS,
     });
     expect(db.getScores).toHaveBeenCalled();
     expect(db.appendScore).toHaveBeenCalled();
@@ -376,12 +406,14 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for one score', () => {
-      db.getScores.mockReturnValueOnce([{
-        levelIndex: 0,
-        correctCount: 10,
-        opIndexes: [0],
-        timePerQuestion: 6,
-      }]);
+      db.getScores.mockReturnValueOnce([
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [0],
+          timePerQuestion: 6,
+        },
+      ]);
 
       const expected = {
         levels: [{ 0: [0, 0, 0, 1] }], // Blue badge for Level A
@@ -395,12 +427,14 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for mixed operators', () => {
-      db.getScores.mockReturnValueOnce([{
-        levelIndex: 0,
-        correctCount: 10,
-        opIndexes: [0, 1],
-        timePerQuestion: 6,
-      }]);
+      db.getScores.mockReturnValueOnce([
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [0, 1],
+          timePerQuestion: 6,
+        },
+      ]);
 
       const expected = {
         levels: [{ '01': [0, 0, 0, 1] }], // Blue badge for Level A
@@ -414,17 +448,20 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get values for multiple operations', () => {
-      db.getScores.mockReturnValueOnce([{
-        levelIndex: 0,
-        correctCount: 10,
-        opIndexes: [0],
-        timePerQuestion: 6,
-      }, {
-        levelIndex: 0,
-        correctCount: 10,
-        opIndexes: [1],
-        timePerQuestion: 6,
-      }]);
+      db.getScores.mockReturnValueOnce([
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [0],
+          timePerQuestion: 6,
+        },
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [1],
+          timePerQuestion: 6,
+        },
+      ]);
 
       const expected = {
         levels: [{ 0: [0, 0, 0, 1], 1: [0, 0, 0, 1] }], // Blue badge for Level A
@@ -438,12 +475,14 @@ per question. (Your best score is 5 seconds per question.)',
     });
 
     test('should get null, false and 0 for correct answers under 10', () => {
-      db.getScores.mockReturnValueOnce([{
-        levelIndex: 0,
-        correctCount: 9,
-        opIndexes: [0],
-        timePerQuestion: 6,
-      }]);
+      db.getScores.mockReturnValueOnce([
+        {
+          correctCount: 9,
+          levelIndex: 0,
+          opIndexes: [0],
+          timePerQuestion: 6,
+        },
+      ]);
 
       const expected = {
         levels: [],
@@ -466,9 +505,9 @@ per question. (Your best score is 5 seconds per question.)',
         startTime: 0,
       };
       const expected = {
-        isNewRecord: false,
         currentTimePerQuestion: NaN,
         existingRecordTimePerQuestion: NaN,
+        isNewRecord: false,
       };
       const actual = newRecord(input);
 
@@ -482,9 +521,9 @@ per question. (Your best score is 5 seconds per question.)',
         startTime: 0,
       };
       const expected = {
-        isNewRecord: false,
         currentTimePerQuestion: NaN,
         existingRecordTimePerQuestion: NaN,
+        isNewRecord: false,
       };
       const actual = newRecord(input);
 
@@ -503,16 +542,18 @@ per question. (Your best score is 5 seconds per question.)',
         currentRecord: {
           timePerQuestion: 6,
         },
-        previousResults: [{
-          task: [0, 0, 0, 55],
-          actuals: [55],
-        }],
+        previousResults: [
+          {
+            actuals: [55],
+            task: [0, 0, 0, 55],
+          },
+        ],
         startTime,
       };
       const expected = {
-        isNewRecord: false,
         currentTimePerQuestion: 39,
         existingRecordTimePerQuestion: 6,
+        isNewRecord: false,
       };
       const actual = newRecord(input);
 

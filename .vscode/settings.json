@@ -5,7 +5,5 @@
     "**/bower_components": true,
     "**/public": true
   },
-  "cSpell.words": [
-    "actuals"
-  ]
+  "cSpell.words": ["actuals"]
 }

@@ -1,17 +1,11 @@
-import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [
-    react({
-      jsxRuntime: 'automatic',
-    }),
-  ],
-  publicDir: 'assets',
   build: {
-    outDir: 'public',
     emptyOutDir: true,
+    outDir: 'public',
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
@@ -19,18 +13,21 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    react({
+      jsxRuntime: 'automatic',
+    }),
+  ],
+  publicDir: 'assets',
   server: {
     port: Number(process.env.PORT) || 8888,
   },
   test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./test/_setup.js'],
     coverage: {
+      exclude: ['src/dev/**', 'src/index.jsx', 'src/tester.jsx'],
+      include: ['src/**/*.{js,jsx}'],
       provider: 'istanbul',
       reporter: ['text', 'html', 'json'],
-      include: ['src/**/*.{js,jsx}'],
-      exclude: ['src/dev/**', 'src/index.jsx', 'src/tester.jsx'],
       thresholds: {
         branches: 50,
         functions: 70,
@@ -38,5 +35,8 @@ export default defineConfig({
         statements: 70,
       },
     },
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./test/_setup.js'],
   },
 });

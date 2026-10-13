@@ -30,8 +30,8 @@ class MathDrill extends React.Component {
     // TODO: Fix and remove this ESLint disable
     // eslint-disable-next-line react/state-in-constructor
     this.state = {
-      largeKeyboard: options.largeKeyboard,
       currentTask: [],
+      largeKeyboard: options.largeKeyboard,
       levelIndex: options.levelIndex,
       minutes: options.minutes,
       onscreenKeyboard: options.onscreenKeyboard,
@@ -57,9 +57,7 @@ class MathDrill extends React.Component {
   }
 
   onInterval() {
-    const {
-      endTime,
-    } = this.state;
+    const { endTime } = this.state;
     const endInstant = helper.toInstant(endTime);
     const timeLeft = Math.round(endInstant.since(Temporal.Now.instant()).total({ unit: 'second' }));
     if (timeLeft <= 0) {
@@ -73,12 +71,7 @@ class MathDrill extends React.Component {
 
   onStart() {
     this.setNextTask();
-    const {
-      levelIndex,
-      minutes = '1',
-      opIndexes,
-      totalProblems,
-    } = this.state;
+    const { levelIndex, minutes = '1', opIndexes, totalProblems } = this.state;
     const seconds = parseFloat(minutes, 10) * 60;
     const startTime = Temporal.Now.instant();
     const endTime = startTime.add(Temporal.Duration.from({ seconds }));
@@ -110,7 +103,7 @@ class MathDrill extends React.Component {
   }
 
   setNextTask() {
-    const { levelIndex, opIndexes, currentTask } = this.state;
+    const { currentTask, levelIndex, opIndexes } = this.state;
     const nextTask = helper.getLowerUpper(levelIndex, opIndexes);
 
     if (nextTask.every((item, index) => currentTask[index] === item)) {
@@ -130,7 +123,6 @@ class MathDrill extends React.Component {
     // a call to this.setState() in a previous method because it batches
     // its calls and may not have updated state.
     const state = {
-
       ...this.state,
       ...otherState,
     };
@@ -168,7 +160,7 @@ class MathDrill extends React.Component {
         Temporal.Now.instant().since(prevInstant).total({ unit: 'second' }).toFixed(1),
       );
 
-      const [,,, expected] = task;
+      const [, , , expected] = task;
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
@@ -187,18 +179,21 @@ class MathDrill extends React.Component {
       } else {
         const actuals = [actual];
         previousResults.push({
-          task, actuals, timeTaken, id: previousResults.length,
+          actuals,
+          id: previousResults.length,
+          task,
+          timeTaken,
         });
       }
 
       const otherState = {
         correct,
         correctCount,
-        previousTime,
-        result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
         previousResults,
-        totalCount,
+        previousTime,
         questionsRemaining: totalProblems - correctCount,
+        result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
+        totalCount,
       };
 
       if (correctCount === totalProblems) {
@@ -259,26 +254,19 @@ class MathDrill extends React.Component {
         currentTask={currentTask}
         largeKeyboard={largeKeyboard}
         levelIndex={levelIndex}
+        newRecord={helper.newRecord({ currentRecord, previousResults, startTime })}
         onscreenKeyboard={onscreenKeyboard}
         opIndexes={opIndexes}
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}
         timeLeft={timeLeft}
-        newRecord={helper.newRecord({ currentRecord, previousResults, startTime })}
       />
     );
   }
 
   renderFinished() {
-    const {
-      previousResults,
-      resultInfo,
-      seconds,
-      timeLeft,
-      totalProblems,
-      levelIndex,
-      opIndexes,
-    } = this.state;
+    const { levelIndex, opIndexes, previousResults, resultInfo, seconds, timeLeft, totalProblems } =
+      this.state;
     return (
       <Finished
         levelIndex={levelIndex}
@@ -293,9 +281,7 @@ class MathDrill extends React.Component {
   }
 
   render() {
-    const {
-      currentAction = 'start',
-    } = this.state || {};
+    const { currentAction = 'start' } = this.state || {};
     switch (currentAction) {
       case 'start':
         return this.renderOptions();

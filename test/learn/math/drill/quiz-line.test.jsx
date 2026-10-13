@@ -1,6 +1,6 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import QuizLine from '../../../../src/learn/math/drill/quiz-line.jsx';
 
 const theme = createTheme();
@@ -12,16 +12,17 @@ test('Badge totals should be rendered', () => {
       <ThemeProvider theme={theme}>
         <QuizLine
           checkAnswer={vi.fn()}
+          largeKeyboard={false}
           newRecord={{
-            isNewRecord: false,
             currentTimePerQuestion: 1.1,
             existingRecordTimePerQuestion: 1,
+            isNewRecord: false,
           }}
           onscreenKeyboard={false}
-          largeKeyboard={false}
           problem={[1, 1, 0, 2]}
         />
-      </ThemeProvider>);
+      </ThemeProvider>,
+    );
   });
   const badgeTotals = component.toJSON();
   expect(badgeTotals).toMatchSnapshot();

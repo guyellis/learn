@@ -4,10 +4,7 @@ import constants from '../../common/constants.js';
 import QuizLine from './quiz-line.jsx';
 import RunningResults from './running-results.jsx';
 
-const {
-  ALPHABET: alphabet,
-  OPERATIONS: operations,
-} = constants;
+const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 
 function running(props) {
   const {
@@ -68,16 +65,13 @@ function running(props) {
       <div>
         <QuizLine
           checkAnswer={checkAnswer}
+          largeKeyboard={largeKeyboard}
           lastResult={lastResult}
           newRecord={newRecord}
           onscreenKeyboard={onscreenKeyboard}
           problem={currentTask}
-          largeKeyboard={largeKeyboard}
         />
-        <RunningResults
-          previousResults={lastTen}
-          showIndex
-        />
+        <RunningResults previousResults={lastTen} showIndex />
       </div>
     </div>
   );
@@ -89,18 +83,20 @@ running.propTypes = {
   largeKeyboard: PropTypes.bool.isRequired,
   levelIndex: PropTypes.number.isRequired,
   newRecord: PropTypes.shape({
-    isNewRecord: PropTypes.bool.isRequired,
     currentTimePerQuestion: PropTypes.number.isRequired,
     existingRecordTimePerQuestion: PropTypes.number.isRequired,
+    isNewRecord: PropTypes.bool.isRequired,
   }).isRequired,
   onscreenKeyboard: PropTypes.bool.isRequired,
   opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  previousResults: PropTypes.arrayOf(PropTypes.shape({
-    task: PropTypes.array.isRequired, // left, right, opIndex, answer
-    actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
-    timeTaken: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-  })).isRequired,
+  previousResults: PropTypes.arrayOf(
+    PropTypes.shape({
+      actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
+      id: PropTypes.number.isRequired,
+      task: PropTypes.array.isRequired, // left, right, opIndex, answer
+      timeTaken: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
   questionsRemaining: PropTypes.number.isRequired,
   timeLeft: PropTypes.number.isRequired,
 };

@@ -4,20 +4,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const containerStyle = {
+  alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
-  textAlign: 'center',
   marginTop: '40px',
   padding: '20px',
+  textAlign: 'center',
 };
 
 const imageStyle = {
+  borderRadius: '8px',
+  height: 'auto',
+  marginBottom: '24px',
   maxWidth: '100%',
   width: '500px',
-  height: 'auto',
-  borderRadius: '8px',
-  marginBottom: '24px',
 };
 
 const buttonWrapperStyle = {
@@ -27,20 +27,17 @@ const buttonWrapperStyle = {
 function NotFound() {
   return (
     <div style={containerStyle}>
-      <img
-        src="/404.webp"
-        alt="404 Page Not Found"
-        style={imageStyle}
-      />
-      <Typography variant="h4" component="h1" gutterBottom>
+      <img alt="404 Page Not Found" src="/404.webp" style={imageStyle} />
+      <Typography component="h1" gutterBottom variant="h4">
         Oops! Page Not Found
       </Typography>
-      <Typography variant="body1" color="text.secondary" paragraph>
-        We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing math!
+      <Typography color="text.secondary" paragraph variant="body1">
+        We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing
+        math!
       </Typography>
       <div style={buttonWrapperStyle}>
         <Link to="/">
-          <Button variant="contained" color="primary">
+          <Button color="primary" variant="contained">
             Back to Home
           </Button>
         </Link>

@@ -1,6 +1,6 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import FinishedBadge from '../../../../src/learn/math/drill/finished-badge.jsx';
 
 const theme = createTheme();
@@ -17,7 +17,8 @@ describe('Finished Badge', () => {
             timePerQuestion={2.2}
             totalCorrectAnswers={10}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -34,7 +35,8 @@ describe('Finished Badge', () => {
             timePerQuestion={2.2}
             totalCorrectAnswers={10}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();
@@ -51,7 +53,8 @@ describe('Finished Badge', () => {
             timePerQuestion={2.2}
             totalCorrectAnswers={9}
           />
-        </ThemeProvider>);
+        </ThemeProvider>,
+      );
     });
     const finishedBadge = component.toJSON();
     expect(finishedBadge).toMatchSnapshot();

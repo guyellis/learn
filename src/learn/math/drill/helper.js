@@ -1,17 +1,16 @@
 import { Temporal } from '@js-temporal/polyfill';
-import db from '../../db/index.js';
 import constants from '../../common/constants.js';
+import db from '../../db/index.js';
 import { levelOps } from './helper-problems.js';
 
 const {
-  RECORD_NEW,
-  RECORD_EQUAL,
-  RECORD_MISS,
-  RECORD_NOT_EXIST,
   BADGE_BOUNDARIES: badgeBoundaries,
   COLOR_HTML,
+  RECORD_EQUAL,
+  RECORD_MISS,
+  RECORD_NEW,
+  RECORD_NOT_EXIST,
 } = constants;
-
 
 function calculateAnswer([left, right], opIndex) {
   switch (opIndex) {
@@ -51,9 +50,10 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   // level = 0, [0]
   // level = 1: [0, 1, 1]
   // level = 2: [0, 1, 1, 2, 2, 2]
-  const weightedLevels = [...Array(levelIndex + 1).keys()]
-    .reduce((acc, level) => acc.concat([...Array(level + 1).keys()]
-      .map(() => level)), []);
+  const weightedLevels = [...Array(levelIndex + 1).keys()].reduce(
+    (acc, level) => acc.concat([...Array(level + 1).keys()].map(() => level)),
+    [],
+  );
 
   // Pick a random value from the array
   const levelElement = weightedLevels[Math.floor(Math.random() * weightedLevels.length)];
@@ -76,7 +76,8 @@ function getCurrentRecord(levelIndex, opIndexes) {
   const existingScores = db.getScores() || [];
   const key = createKey(levelIndex, opIndexes);
 
-  const matchingProblems = existingScores.filter((score) => score.key === key)
+  const matchingProblems = existingScores
+    .filter((score) => score.key === key)
     .sort((a, b) => a.timePerQuestion - b.timePerQuestion);
   return matchingProblems[0];
 }
@@ -95,11 +96,10 @@ function appendScore(results) {
   const opIndexes = operatorIndexes.sort();
 
   const completed = questionsRemaining === 0;
-  const timeTaken = (minutes * 60) - timeLeft;
+  const timeTaken = minutes * 60 - timeLeft;
 
-  const timePerQuestion = correctCount === 0
-    ? NaN
-    : parseFloat((timeTaken / correctCount).toFixed(1));
+  const timePerQuestion =
+    correctCount === 0 ? NaN : parseFloat((timeTaken / correctCount).toFixed(1));
   const incorrectCount = previousResults.length - correctCount;
   const date = Date.now();
 
@@ -162,8 +162,10 @@ beat this score. Good luck!`;
 }
 
 function getBadgeColorIndex(timePerQuestion) {
-  return badgeBoundaries
-    .reduce((badgeColor, boundary, index) => (timePerQuestion > boundary ? index : badgeColor), 0);
+  return badgeBoundaries.reduce(
+    (badgeColor, boundary, index) => (timePerQuestion > boundary ? index : badgeColor),
+    0,
+  );
 }
 
 function getBadgeHtmlColor(timePerQuestion) {
@@ -175,20 +177,17 @@ function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
   const thisKey = createKey(levelIndex, opIndexes);
   const scores = scoreParams || db.getScores() || [];
   const filteredScores = scores
-    .filter(({ key, correctCount }) => key === thisKey && correctCount > 9)
+    .filter(({ correctCount, key }) => key === thisKey && correctCount > 9)
     .sort((a, b) => a.date - b.date);
   if (!filteredScores.length) {
     return [];
   }
 
-  return filteredScores
-    .slice(-5)
-    .map(({ date, timePerQuestion }) => ({
-      date,
-      timePerQuestion,
-    }));
+  return filteredScores.slice(-5).map(({ date, timePerQuestion }) => ({
+    date,
+    timePerQuestion,
+  }));
 }
-
 
 function getScoreboard() {
   const scores = db.getScores() || [];
@@ -206,12 +205,7 @@ function getScoreboard() {
   // Example value:
   // [0, 5, 2, 1] - 0 Gold, 5 Silver, 2 Bronze, 1 Blue
   const levelOperators = scores.reduce((acc, score) => {
-    const {
-      levelIndex,
-      correctCount,
-      opIndexes,
-      timePerQuestion,
-    } = score;
+    const { correctCount, levelIndex, opIndexes, timePerQuestion } = score;
 
     // Filter down the scores to just those that have
     // at least 10 correct answers
@@ -263,11 +257,10 @@ function getScoreboard() {
   // and ops is a set with:
   // '0', '01', '02'
 
-
   return {
+    levels, // An sparse array of up to 26 elements of objects with keys matching values in ops Set
     ops, // A Set of strings representing operators
     totals, // A 4 element array of badge totals
-    levels, // An sparse array of up to 26 elements of objects with keys matching values in ops Set
   };
 }
 
@@ -292,30 +285,28 @@ function currentTimePerQuestion({ previousResults, startTime }) {
   const timeElapsed = Temporal.Now.instant().since(startInstant).total({ unit: 'second' });
   const correctQuestions = previousResults.reduce((acc, result) => {
     // result: {"task":[1,3,0,4],"actuals":[4],"timeTaken":2.5,"id":0}
-    const { task, actuals } = result;
+    const { actuals, task } = result;
     const [actual] = actuals;
-    const [,,, answer] = task;
+    const [, , , answer] = task;
     return acc + Number(actual === answer);
   }, 0);
-  return correctQuestions
-    ? parseFloat((timeElapsed / correctQuestions).toFixed(1))
-    : NaN;
+  return correctQuestions ? parseFloat((timeElapsed / correctQuestions).toFixed(1)) : NaN;
 }
 
 function newRecord({ currentRecord, previousResults, startTime }) {
   const currentTime = currentTimePerQuestion({ previousResults, startTime });
   if (!currentRecord) {
     return {
-      isNewRecord: false,
       currentTimePerQuestion: currentTime,
       existingRecordTimePerQuestion: NaN,
+      isNewRecord: false,
     };
   }
   const { timePerQuestion } = currentRecord;
   return {
-    isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
     currentTimePerQuestion: currentTime,
     existingRecordTimePerQuestion: timePerQuestion || NaN,
+    isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
   };
 }
 

@@ -3,27 +3,41 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import poly from './poly.js';
 import App from './app.jsx';
+import poly from './poly.js';
 
 const theme = createTheme({
   typography: {
-    fontFamily: '"Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    body1: {
+      fontSize: '1rem',
+      letterSpacing: '0.01em',
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: '0.925rem',
+      letterSpacing: '0.01em',
+      lineHeight: 1.5,
+    },
+    button: {
+      fontWeight: 500,
+      letterSpacing: '0.02em',
+    },
+    fontFamily:
+      '"Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     fontSize: 16,
-    htmlFontSize: 16,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
     fontWeightBold: 700,
+    fontWeightLight: 300,
+    fontWeightMedium: 500,
+    fontWeightRegular: 400,
     h1: {
       fontWeight: 600,
-      lineHeight: 1.2,
       letterSpacing: '-0.01em',
+      lineHeight: 1.2,
     },
     h2: {
       fontWeight: 600,
-      lineHeight: 1.25,
       letterSpacing: '-0.005em',
+      lineHeight: 1.25,
     },
     h3: {
       fontWeight: 600,
@@ -41,29 +55,16 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: 1.45,
     },
+    htmlFontSize: 16,
     subtitle1: {
       fontSize: '1.05rem',
-      lineHeight: 1.5,
       letterSpacing: '0.01em',
+      lineHeight: 1.5,
     },
     subtitle2: {
       fontSize: '0.925rem',
-      lineHeight: 1.5,
       letterSpacing: '0.01em',
-    },
-    body1: {
-      fontSize: '1rem',
       lineHeight: 1.5,
-      letterSpacing: '0.01em',
-    },
-    body2: {
-      fontSize: '0.925rem',
-      lineHeight: 1.5,
-      letterSpacing: '0.01em',
-    },
-    button: {
-      fontWeight: 500,
-      letterSpacing: '0.02em',
     },
   },
 });

@@ -21,25 +21,31 @@ function tester() {
     timeTaken: 1 + parseFloat((1.1 * id).toFixed(1), 10),
   }));
   const resultInfo = {
-    text: 'Result Info Text',
     newRecordInfo: RECORD_NEW,
+    text: 'Result Info Text',
   };
-  const scoreBarTimes = [{
-    date: Date.now() - (1000 * 60 * 10),
-    timePerQuestion: 1.5,
-  }, {
-    date: Date.now() - (1000 * 60 * 8),
-    timePerQuestion: 3.5,
-  }, {
-    date: Date.now() - (1000 * 60 * 6),
-    timePerQuestion: 3.5,
-  }, {
-    date: Date.now() - (1000 * 60 * 4),
-    timePerQuestion: 4.5,
-  }, {
-    date: Date.now() - (1000 * 60 * 2),
-    timePerQuestion: 1.5,
-  }];
+  const scoreBarTimes = [
+    {
+      date: Date.now() - 1000 * 60 * 10,
+      timePerQuestion: 1.5,
+    },
+    {
+      date: Date.now() - 1000 * 60 * 8,
+      timePerQuestion: 3.5,
+    },
+    {
+      date: Date.now() - 1000 * 60 * 6,
+      timePerQuestion: 3.5,
+    },
+    {
+      date: Date.now() - 1000 * 60 * 4,
+      timePerQuestion: 4.5,
+    },
+    {
+      date: Date.now() - 1000 * 60 * 2,
+      timePerQuestion: 1.5,
+    },
+  ];
 
   return (
     <Finished

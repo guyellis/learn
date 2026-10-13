@@ -1,6 +1,6 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Running from '../../../../src/learn/math/drill/running.jsx';
 
 const theme = createTheme();
@@ -12,18 +12,18 @@ describe('Running', () => {
     largeKeyboard: false,
     levelIndex: 0,
     newRecord: {
-      isNewRecord: false,
       currentTimePerQuestion: 1.5,
       existingRecordTimePerQuestion: 2.0,
+      isNewRecord: false,
     },
     onscreenKeyboard: false,
     opIndexes: [0],
     previousResults: [
       {
-        task: [1, 2, 0, 3],
         actuals: [3],
-        timeTaken: 1.2,
         id: 1,
+        task: [1, 2, 0, 3],
+        timeTaken: 1.2,
       },
     ],
     questionsRemaining: 19,
@@ -36,7 +36,7 @@ describe('Running', () => {
       component = renderer.create(
         <ThemeProvider theme={theme}>
           <Running {...defaultProps} />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
     });
 
@@ -49,8 +49,8 @@ describe('Running', () => {
     act(() => {
       component = renderer.create(
         <ThemeProvider theme={theme}>
-          <Running {...defaultProps} opIndexes={[0, 1]} levelIndex={1} />
-        </ThemeProvider>
+          <Running {...defaultProps} levelIndex={1} opIndexes={[0, 1]} />
+        </ThemeProvider>,
       );
     });
 
