@@ -11,20 +11,21 @@ describe('Temporal loading and compatibility', () => {
     const savedToTemporalInstant = Date.prototype.toTemporalInstant;
 
     try {
-      delete globalThis.Temporal;
+      delete (globalThis as { Temporal?: unknown }).Temporal;
       expect('Temporal' in globalThis).toBe(false);
 
       if (!('Temporal' in globalThis)) {
         const { Temporal, toTemporalInstant } = await import('@js-temporal/polyfill');
-        globalThis.Temporal = Temporal;
-        Date.prototype.toTemporalInstant = toTemporalInstant;
+        (globalThis as { Temporal?: unknown }).Temporal = Temporal;
+        (Date.prototype as unknown as { toTemporalInstant: unknown }).toTemporalInstant =
+          toTemporalInstant;
       }
 
       expect('Temporal' in globalThis).toBe(true);
       expect(typeof globalThis.Temporal.Instant).toBe('function');
       expect(typeof Date.prototype.toTemporalInstant).toBe('function');
     } finally {
-      globalThis.Temporal = savedTemporal;
+      (globalThis as { Temporal?: unknown }).Temporal = savedTemporal;
       Date.prototype.toTemporalInstant = savedToTemporalInstant;
     }
   });
@@ -35,7 +36,7 @@ describe('Temporal loading and compatibility', () => {
     const { Temporal: PolyfillTemporal } = await import('@js-temporal/polyfill');
 
     try {
-      globalThis.Temporal = PolyfillTemporal;
+      (globalThis as { Temporal?: unknown }).Temporal = PolyfillTemporal;
       PolyfillTemporal.Now.instant = () =>
         PolyfillTemporal.Instant.fromEpochMilliseconds(Date.now());
 
@@ -46,7 +47,7 @@ describe('Temporal loading and compatibility', () => {
       Date.now = vi.fn(() => base + 1000 * 10);
       expect(formatFromNow(base)).toBe('a few seconds ago');
     } finally {
-      globalThis.Temporal = savedTemporal;
+      (globalThis as { Temporal?: unknown }).Temporal = savedTemporal;
       Date.now = savedDateNow;
     }
   });

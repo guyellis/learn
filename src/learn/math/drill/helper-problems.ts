@@ -1,16 +1,18 @@
+import type { TaskPair } from './types.js';
+
 // Define the problems for math drill
 
-const special1 = [...Array(9).keys()].map((a) => [0, a + 1]);
-const special2 = [...Array(9).keys()].map((a) => [a + 1, 0]);
-const special3 = [...Array(10).keys()].map((a) => [a + 1, 0]);
-const special4 = [...Array(18).keys()].map((a) => [a + 1, a + 1]);
-const special5 = [...Array(9).keys()].map((a) => [1, a + 1]);
-const special6 = [...Array(9).keys()].map((a) => [a + 1, 1]); // [1...9, 1]
-const special7 = [...Array(9).keys()].map((a) => [a + 1, a + 1]); // [[1,1],...[9,9]]
+const special1: TaskPair[] = [...Array(9).keys()].map((a) => [0, a + 1]);
+const special2: TaskPair[] = [...Array(9).keys()].map((a) => [a + 1, 0]);
+const special3: TaskPair[] = [...Array(10).keys()].map((a) => [a + 1, 0]);
+const special4: TaskPair[] = [...Array(18).keys()].map((a) => [a + 1, a + 1]);
+const special5: TaskPair[] = [...Array(9).keys()].map((a) => [1, a + 1]);
+const special6: TaskPair[] = [...Array(9).keys()].map((a) => [a + 1, 1]); // [1...9, 1]
+const special7: TaskPair[] = [...Array(9).keys()].map((a) => [a + 1, a + 1]); // [[1,1],...[9,9]]
 
 const special8 = [...Array(8).keys()]
   .map((a) => a + 2) // [2...9]
-  .reduce((acc, denominator) => {
+  .reduce<TaskPair[]>((acc, denominator) => {
     let numerator = denominator - 1;
     while (numerator > 0) {
       acc.push([numerator, denominator]);
@@ -20,19 +22,19 @@ const special8 = [...Array(8).keys()]
   }, []); // [[1,2],[1,3],[2,3]...]
 
 // Extra for multiplication
-const special9 = [...Array(11).keys()].map((a) => [10, a]);
-const special10 = [...Array(11).keys()].map((a) => [a, 10]);
-const special11 = [...Array(12).keys()].map((a) => [11, a]);
-const special12 = [...Array(12).keys()].map((a) => [a, 11]);
-const special13 = [...Array(13).keys()].map((a) => [12, a]);
-const special14 = [...Array(13).keys()].map((a) => [a, 12]);
+const special9: TaskPair[] = [...Array(11).keys()].map((a) => [10, a]);
+const special10: TaskPair[] = [...Array(11).keys()].map((a) => [a, 10]);
+const special11: TaskPair[] = [...Array(12).keys()].map((a) => [11, a]);
+const special12: TaskPair[] = [...Array(12).keys()].map((a) => [a, 11]);
+const special13: TaskPair[] = [...Array(13).keys()].map((a) => [12, a]);
+const special14: TaskPair[] = [...Array(13).keys()].map((a) => [a, 12]);
 
 // Extra for division
-const special15 = [...Array(12).keys()].map((a) => [(a + 1) * 10, 10]);
-const special16 = [...Array(12).keys()].map((a) => [(a + 1) * 11, 11]);
-const special17 = [...Array(12).keys()].map((a) => [(a + 1) * 12, 12]);
+const special15: TaskPair[] = [...Array(12).keys()].map((a) => [(a + 1) * 10, 10]);
+const special16: TaskPair[] = [...Array(12).keys()].map((a) => [(a + 1) * 11, 11]);
+const special17: TaskPair[] = [...Array(12).keys()].map((a) => [(a + 1) * 12, 12]);
 
-const levelOps = [
+const levelOps: TaskPair[][][] = [
   // Addition +
   [
     [

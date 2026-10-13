@@ -1,6 +1,17 @@
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
 import { levelOps } from './helper-problems.js';
+import type {
+  DrillResults,
+  DrillTask,
+  NewRecordComparison,
+  PreviousResult,
+  ResultInfo,
+  ScoreBarTime,
+  ScoreboardData,
+  ScoreRecord,
+  TaskPair,
+} from './types.js';
 
 const {
   BADGE_BOUNDARIES: badgeBoundaries,
@@ -11,7 +22,7 @@ const {
   RECORD_NOT_EXIST,
 } = constants;
 
-function calculateAnswer([left, right], opIndex) {
+function calculateAnswer([left, right]: TaskPair | [number, number], opIndex: number): number {
   switch (opIndex) {
     case 0:
       return left + right;
@@ -30,10 +41,10 @@ function calculateAnswer([left, right], opIndex) {
 
 /**
  *
- * @param {number} levelIndex - 0 through 25 - each letter of the alphabet
+ * @param {number} levelIndexParam - 0 through 25 - each letter of the alphabet
  * @param {number[]} opIndexes - An array of 0 through 3 - operators +, -, *, /
  */
-function getLowerUpper(levelIndexParam, opIndexes) {
+function getLowerUpper(levelIndexParam: number, opIndexes: number[]): DrillTask {
   // Pick a random value from the opIndexes array
   const opIndex = opIndexes[Math.floor(Math.random() * opIndexes.length)];
 
@@ -49,7 +60,7 @@ function getLowerUpper(levelIndexParam, opIndexes) {
   // level = 0, [0]
   // level = 1: [0, 1, 1]
   // level = 2: [0, 1, 1, 2, 2, 2]
-  const weightedLevels = [...Array(levelIndex + 1).keys()].reduce(
+  const weightedLevels = [...Array(levelIndex + 1).keys()].reduce<number[]>(
     (acc, level) => acc.concat([...Array(level + 1).keys()].map(() => level)),
     [],
   );
@@ -67,11 +78,11 @@ function getLowerUpper(levelIndexParam, opIndexes) {
 // The key identifies a problem set by level and operators. This allows us
 // to search for previous scores that used that combination to see if this
 // is a new record.
-function createKey(levelIndex, opIndexes) {
+function createKey(levelIndex: number, opIndexes: number[]): string {
   return `${levelIndex.toString()}-${opIndexes.join('')}`;
 }
 
-function getCurrentRecord(levelIndex, opIndexes) {
+function getCurrentRecord(levelIndex: number, opIndexes: number[]): ScoreRecord | undefined {
   const existingScores = db.getScores() || [];
   const key = createKey(levelIndex, opIndexes);
 
@@ -81,7 +92,7 @@ function getCurrentRecord(levelIndex, opIndexes) {
   return matchingProblems[0];
 }
 
-function appendScore(results) {
+function appendScore(results: DrillResults): ResultInfo {
   const {
     correctCount,
     levelIndex,
@@ -92,7 +103,7 @@ function appendScore(results) {
     timeLeft,
     totalProblems,
   } = results;
-  const opIndexes = operatorIndexes.sort();
+  const opIndexes = [...operatorIndexes].sort();
 
   const completed = questionsRemaining === 0;
   const timeTaken = minutes * 60 - timeLeft;
@@ -102,7 +113,7 @@ function appendScore(results) {
   const incorrectCount = previousResults.length - correctCount;
   const date = Date.now();
 
-  const resultInfo = {};
+  const resultInfo: ResultInfo = {};
   const currentRecord = getCurrentRecord(levelIndex, opIndexes);
 
   // 5 scenarios
@@ -137,7 +148,7 @@ beat this score. Good luck!`;
   }
 
   if (!isNaN(timePerQuestion)) {
-    const record = {
+    const record: ScoreRecord = {
       completed,
       correctCount,
       date,
@@ -160,19 +171,23 @@ beat this score. Good luck!`;
   return resultInfo;
 }
 
-function getBadgeColorIndex(timePerQuestion) {
+function getBadgeColorIndex(timePerQuestion: number): number {
   return badgeBoundaries.reduce(
     (badgeColor, boundary, index) => (timePerQuestion > boundary ? index : badgeColor),
     0,
   );
 }
 
-function getBadgeHtmlColor(timePerQuestion) {
+function getBadgeHtmlColor(timePerQuestion: number): string {
   const index = getBadgeColorIndex(timePerQuestion);
   return COLOR_HTML[index];
 }
 
-function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
+function getScoreBarTimes(
+  levelIndex: number,
+  opIndexes: number[],
+  scoreParams?: Array<Pick<ScoreRecord, 'correctCount' | 'date' | 'key' | 'timePerQuestion'>>,
+): ScoreBarTime[] {
   const thisKey = createKey(levelIndex, opIndexes);
   const scores = scoreParams || db.getScores() || [];
   const filteredScores = scores
@@ -188,7 +203,7 @@ function getScoreBarTimes(levelIndex, opIndexes, scoreParams) {
   }));
 }
 
-function getScoreboard() {
+function getScoreboard(): ScoreboardData {
   const scores = db.getScores() || [];
   // totals are for badges irrespective of operators so there will always be
   // 4 of these for Gold, Silver, Bronze and Blue
@@ -203,7 +218,7 @@ function getScoreboard() {
   // badges at that level/operator(s)
   // Example value:
   // [0, 5, 2, 1] - 0 Gold, 5 Silver, 2 Bronze, 1 Blue
-  const levelOperators = scores.reduce((acc, score) => {
+  const levelOperators = scores.reduce<Record<string, number[]>>((acc, score) => {
     const { correctCount, levelIndex, opIndexes, timePerQuestion } = score;
 
     // Filter down the scores to just those that have
@@ -228,7 +243,7 @@ function getScoreboard() {
   // maps to an index value from 0 through 3.
   // For example: '0' is + and '13' is mixed - and /
   // Each new operator key is appended to this Set.
-  const ops = new Set();
+  const ops = new Set<string>();
 
   // levelOperators is now an object with both the level and the operators
   // in the keys. In order to make this easy for the component to show this
@@ -236,16 +251,19 @@ function getScoreboard() {
   // array. The rows will map to levels and then each row will have a collection
   // of arrays that show the number of badges for that operator(s).
   // We will need another array to map the operator(s) into the columns.
-  const levels = Object.keys(levelOperators).reduce((acc, levelOperator) => {
-    const [levelIndexSplit, operatorIndexes] = levelOperator.split('-');
-    const levelIndex = parseInt(levelIndexSplit, 10);
-    ops.add(operatorIndexes);
-    if (!acc[levelIndex]) {
-      acc[levelIndex] = {};
-    }
-    acc[levelIndex][operatorIndexes] = levelOperators[levelOperator];
-    return acc;
-  }, []);
+  const levels = Object.keys(levelOperators).reduce<Array<{ [key: string]: number[] } | undefined>>(
+    (acc, levelOperator) => {
+      const [levelIndexSplit, operatorIndexes] = levelOperator.split('-');
+      const levelIndex = parseInt(levelIndexSplit, 10);
+      ops.add(operatorIndexes);
+      if (!acc[levelIndex]) {
+        acc[levelIndex] = {};
+      }
+      acc[levelIndex]![operatorIndexes] = levelOperators[levelOperator];
+      return acc;
+    },
+    [],
+  );
 
   // levels now looks something like this:
   // [
@@ -263,7 +281,7 @@ function getScoreboard() {
   };
 }
 
-function toInstant(value) {
+function toInstant(value?: unknown): Temporal.Instant {
   if (!value) {
     return Temporal.Instant.fromEpochMilliseconds(0);
   }
@@ -276,10 +294,16 @@ function toInstant(value) {
   if (value instanceof Date) {
     return Temporal.Instant.fromEpochMilliseconds(value.getTime());
   }
-  return Temporal.Instant.from(value);
+  return Temporal.Instant.from(value as string);
 }
 
-function currentTimePerQuestion({ previousResults, startTime }) {
+function currentTimePerQuestion({
+  previousResults,
+  startTime,
+}: {
+  previousResults: Array<Pick<PreviousResult, 'actuals' | 'task'>>;
+  startTime: unknown;
+}): number {
   const startInstant = toInstant(startTime);
   const timeElapsed = Temporal.Now.instant().since(startInstant).total({ unit: 'second' });
   const correctQuestions = previousResults.reduce((acc, result) => {
@@ -292,7 +316,15 @@ function currentTimePerQuestion({ previousResults, startTime }) {
   return correctQuestions ? parseFloat((timeElapsed / correctQuestions).toFixed(1)) : NaN;
 }
 
-function newRecord({ currentRecord, previousResults, startTime }) {
+function newRecord({
+  currentRecord,
+  previousResults,
+  startTime,
+}: {
+  currentRecord?: Partial<ScoreRecord> | null;
+  previousResults: Array<Pick<PreviousResult, 'actuals' | 'task'>>;
+  startTime: unknown;
+}): NewRecordComparison {
   const currentTime = currentTimePerQuestion({ previousResults, startTime });
   if (!currentRecord) {
     return {
@@ -304,8 +336,8 @@ function newRecord({ currentRecord, previousResults, startTime }) {
   const { timePerQuestion } = currentRecord;
   return {
     currentTimePerQuestion: currentTime,
-    existingRecordTimePerQuestion: timePerQuestion || NaN,
-    isNewRecord: isNaN(currentTime) ? false : timePerQuestion > currentTime,
+    existingRecordTimePerQuestion: timePerQuestion ?? NaN,
+    isNewRecord: isNaN(currentTime) ? false : (timePerQuestion ?? 0) > currentTime,
   };
 }
 

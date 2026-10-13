@@ -1,10 +1,12 @@
+import type { PreviousResult, PreviousResultsStats } from './types.js';
+
 class PreviousResults {
-  static sortBySlowest(previousResults = []) {
+  static sortBySlowest<T extends { timeTaken: number }>(previousResults: T[] = []): T[] {
     return previousResults.sort((a, b) => b.timeTaken - a.timeTaken);
   }
 
-  static getStats(previousResults = []) {
-    return previousResults.reduce(
+  static getStats(previousResults: PreviousResult[] = []): PreviousResultsStats {
+    return previousResults.reduce<PreviousResultsStats>(
       (acc, problem) => {
         const { actuals, task, timeTaken } = problem;
         const [actual] = actuals;

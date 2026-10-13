@@ -25,7 +25,7 @@ export default defineConfig({
   test: {
     coverage: {
       exclude: ['src/dev/**', 'src/index.jsx', 'src/tester.jsx'],
-      include: ['src/**/*.{js,jsx}'],
+      include: ['src/**/*.{js,jsx,ts,tsx}'],
       provider: 'istanbul',
       reporter: ['text', 'html', 'json'],
       thresholds: {
@@ -37,6 +37,6 @@ export default defineConfig({
     },
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./test/_setup.js'],
+    setupFiles: ['./test/_setup.ts'],
   },
 });
