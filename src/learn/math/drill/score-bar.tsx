@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
 import helper from './helper.js';
+import type { ScoreBarTime } from './types.js';
 
 const {
   BADGE_BOUNDARIES: badgeBoundaries,
@@ -9,40 +9,45 @@ const {
   COLOR_TEXT: colorText,
 } = constants;
 
-const sbStyleBase = {};
+const sbStyleBase: React.CSSProperties = {};
 
-const sbHeadStyleBase = {
+const sbHeadStyleBase: React.CSSProperties = {
   border: '1px solid black',
   display: 'flex',
   textAlign: 'left',
   width: '100%',
 };
 
-const sbHeadItemStyleBase = {
-  flexGrow: '1',
+const sbHeadItemStyleBase: React.CSSProperties = {
+  flexGrow: 1,
 };
 
-const sbBodyStyleBase = {
+const sbBodyStyleBase: React.CSSProperties = {
   border: '1px solid black',
   display: 'flex',
   width: '100%',
 };
 
-const sbBodyItemStyleBase = {
+const sbBodyItemStyleBase: React.CSSProperties = {
   border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
-  flexGrow: '1',
+  flexGrow: 1,
   fontSize: 'large',
   height: '100%',
   textAlign: 'center',
 };
 
-function renderColors(times, maxVal) {
+export interface ScoreBarProps {
+  showScoreBar: boolean;
+  times: ScoreBarTime[];
+}
+
+function renderColors(times: ScoreBarTime[], maxVal: number) {
   const sbBodyItemStyle = { ...sbBodyItemStyleBase, height: `${maxVal * 50}px` };
 
   const extra = badgeBoundaries.concat(maxVal);
-  const widths = extra.reduce((acc, boundary, index) => {
+  const widths = extra.reduce<number[]>((acc, boundary, index) => {
     if (index !== badgeBoundaries.length) {
       acc.push(Math.round((100 * (extra[index + 1] - boundary)) / maxVal));
     }
@@ -52,7 +57,7 @@ function renderColors(times, maxVal) {
   return (
     <span style={sbBodyItemStyle}>
       {colorText.map((color, index) => {
-        const style = {
+        const style: React.CSSProperties = {
           backgroundColor: htmlColors[index],
           height: `${widths[index]}%`,
         };
@@ -66,7 +71,7 @@ function renderColors(times, maxVal) {
   );
 }
 
-function renderUserScores(times, maxVal) {
+function renderUserScores(times: ScoreBarTime[], maxVal: number) {
   return times.map((time) => {
     const { date, timePerQuestion } = time;
     const sbBodyItemStyle = { ...sbBodyItemStyleBase, height: `${maxVal * 50}px` };
@@ -88,7 +93,7 @@ function renderUserScores(times, maxVal) {
       <span key={date} style={sbBodyItemStyle}>
         {userTimes.map((userTime, index) => {
           const key = `userTimes-${index}`;
-          const style = {
+          const style: React.CSSProperties = {
             height: `${userTime}%`,
           };
           if (index === 1) {
@@ -105,7 +110,7 @@ function renderUserScores(times, maxVal) {
   });
 }
 
-function formatFromNow(date) {
+function formatFromNow(date: number | string) {
   const instant =
     typeof date === 'number'
       ? Temporal.Instant.fromEpochMilliseconds(date)
@@ -141,7 +146,7 @@ function formatFromNow(date) {
   return totalYears <= 1 ? 'a year ago' : `${totalYears} years ago`;
 }
 
-function renderTitles(times) {
+function renderTitles(times: ScoreBarTime[]) {
   const titles = times
     .map(({ date }) => ({
       date,
@@ -160,7 +165,7 @@ function renderTitles(times) {
   );
 }
 
-function scoreBar({ showScoreBar, times }) {
+function scoreBar({ showScoreBar, times }: ScoreBarProps) {
   if (!showScoreBar || !times.length) {
     return null;
   }
@@ -169,7 +174,7 @@ function scoreBar({ showScoreBar, times }) {
   const maxTimePerQuestion = Math.max(...times.map((time) => time.timePerQuestion));
   const maxVal = maxTimePerQuestion > boundaryMax * 1.5 ? boundaryMax * 2 : boundaryMax * 1.5;
 
-  const sbBodyStyle = { ...sbBodyStyleBase, height: `${maxVal * 50}px` };
+  const sbBodyStyle: React.CSSProperties = { ...sbBodyStyleBase, height: `${maxVal * 50}px` };
 
   return (
     <div style={sbStyleBase}>
@@ -181,16 +186,6 @@ function scoreBar({ showScoreBar, times }) {
     </div>
   );
 }
-
-scoreBar.propTypes = {
-  showScoreBar: PropTypes.bool.isRequired,
-  times: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.number.isRequired,
-      timePerQuestion: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
 
 export { formatFromNow };
 export default scoreBar;

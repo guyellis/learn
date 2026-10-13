@@ -1,7 +1,7 @@
 // Used for experimenting with components that are WIP
 
 import React from 'react';
-import ScoreBar from '../learn/math/drill/score-bar.jsx';
+import ScoreBar from '../learn/math/drill/score-bar.js';
 
 // import helper from './learn/math/drill/helper';
 // import scoreParams from '../test/fixtures/local-storage';

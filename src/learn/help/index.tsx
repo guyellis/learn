@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-const Markdown = ReactMarkdown.default || ReactMarkdown;
+const Markdown =
+  (ReactMarkdown as unknown as { default?: typeof ReactMarkdown }).default || ReactMarkdown;
 
 const input = `
 ### Help with Math Drill

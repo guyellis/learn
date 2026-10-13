@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import Badge from './badge.jsx';
+import Badge from './badge.js';
 import helper from './helper.js';
+import type { PreviousResult } from './types.js';
 
 const { OPERATIONS } = constants;
-const spanStyle = { paddingLeft: 20 };
-const inABox = {
+const spanStyle: React.CSSProperties = { paddingLeft: 20 };
+const inABox: React.CSSProperties = {
   borderStyle: 'solid',
   borderWidth: 1,
   marginLeft: 20,
@@ -14,13 +14,18 @@ const inABox = {
 };
 const check = '\u2714';
 const xmark = '\u2717';
-const lineStyle = { lineHeight: '35px' };
-const correctStyle = { color: 'green', ...lineStyle };
-const incorrectStyle = { color: 'red', ...lineStyle };
-const spanStyleIncorrect = { color: 'red', ...spanStyle };
+const lineStyle: React.CSSProperties = { lineHeight: '35px' };
+const correctStyle: React.CSSProperties = { color: 'green', ...lineStyle };
+const incorrectStyle: React.CSSProperties = { color: 'red', ...lineStyle };
+const spanStyleIncorrect: React.CSSProperties = { color: 'red', ...spanStyle };
 
-function runningResults(props) {
-  const { previousResults, showIndex } = props;
+export interface RunningResultsProps {
+  previousResults: PreviousResult[];
+  showIndex?: boolean;
+}
+
+function runningResults(props: RunningResultsProps) {
+  const { previousResults, showIndex = false } = props;
   const previousResultRows = previousResults.map(({ actuals, id, task, timeTaken }) => {
     const [left, right, opIndex, answer] = task;
     const [actual] = actuals; // most recent answer is first in array
@@ -48,21 +53,5 @@ function runningResults(props) {
   });
   return <div>{previousResultRows}</div>;
 }
-
-runningResults.propTypes = {
-  previousResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
-      id: PropTypes.number.isRequired,
-      task: PropTypes.array.isRequired, // left, right, opIndex, answer
-      timeTaken: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-  showIndex: PropTypes.bool,
-};
-
-runningResults.defaultProps = {
-  showIndex: false,
-};
 
 export default runningResults;

@@ -1,13 +1,49 @@
 import React from 'react';
 import db from '../../db/index.js';
-import Finished from './finished.jsx';
+import Finished from './finished.js';
 import helper from './helper.js';
-import Options from './options.jsx';
-import Running from './running.jsx';
+import Options from './options.js';
+import Running from './running.js';
+import type {
+  DrillOptions,
+  DrillResults,
+  DrillTask,
+  PreviousResult,
+  ResultInfo,
+  ScoreRecord,
+} from './types.js';
 
-class MathDrill extends React.Component {
-  static save(keyValuePair) {
-    const options = db.getOptions();
+export type MathDrillProps = Record<string, never>;
+
+export interface MathDrillState {
+  correct?: boolean;
+  correctCount?: number;
+  currentAction?: 'finished' | 'running' | 'start';
+  currentRecord?: ScoreRecord | null;
+  currentTask: DrillTask;
+  endTime?: Temporal.Instant;
+  largeKeyboard: boolean;
+  levelIndex: number;
+  minutes: string;
+  onscreenKeyboard: boolean;
+  opIndexes: number[];
+  previousResults: PreviousResult[];
+  previousTime?: Temporal.Instant;
+  questionsRemaining: number;
+  result?: string;
+  resultInfo?: ResultInfo;
+  seconds: number;
+  startTime?: Temporal.Instant;
+  timeLeft: number;
+  timerId?: NodeJS.Timeout | number | null;
+  totalCount: number;
+  totalProblems: string;
+  userName: string;
+}
+
+class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
+  static save(keyValuePair: Record<string, unknown>) {
+    const options = db.getOptions() as unknown as Record<string, unknown>;
     if (!options || !keyValuePair || !keyValuePair.hasOwnProperty) {
       return;
     }
@@ -18,24 +54,28 @@ class MathDrill extends React.Component {
       }
     });
 
-    db.saveOptions(options);
+    db.saveOptions(options as unknown as DrillOptions);
   }
 
-  constructor() {
-    super();
+  constructor(props: MathDrillProps) {
+    super(props);
 
     const options = db.getOptions();
 
     // TODO: Fix and remove this ESLint disable
     // eslint-disable-next-line react/state-in-constructor
     this.state = {
-      currentTask: [],
+      currentTask: [] as unknown as DrillTask,
       largeKeyboard: options.largeKeyboard,
       levelIndex: options.levelIndex,
       minutes: options.minutes,
       onscreenKeyboard: options.onscreenKeyboard,
       opIndexes: options.opIndexes,
       previousResults: [], // previousResults results of quiz
+      questionsRemaining: 0,
+      seconds: 0,
+      timeLeft: 0,
+      totalCount: 0,
       totalProblems: options.totalProblems,
       userName: options.userName,
     };
@@ -51,7 +91,7 @@ class MathDrill extends React.Component {
   componentWillUnmount() {
     const { timerId } = this.state;
     if (timerId) {
-      clearInterval(timerId);
+      clearInterval(timerId as number);
     }
   }
 
@@ -71,7 +111,7 @@ class MathDrill extends React.Component {
   onStart() {
     this.setNextTask();
     const { levelIndex, minutes = '1', opIndexes, totalProblems } = this.state;
-    const seconds = parseFloat(minutes, 10) * 60;
+    const seconds = parseFloat(minutes) * 60;
     const startTime = Temporal.Now.instant();
     const endTime = startTime.add(Temporal.Duration.from({ seconds }));
     const timerId = setInterval(this.onInterval, 1000);
@@ -88,16 +128,19 @@ class MathDrill extends React.Component {
     });
   }
 
-  onChange(e) {
+  onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name } = e.target;
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const value =
+      (e.target as HTMLInputElement).type === 'checkbox'
+        ? (e.target as HTMLInputElement).checked
+        : e.target.value;
     const kvp = { [name]: value };
-    this.setState(kvp);
+    this.setState(kvp as unknown as Pick<MathDrillState, keyof MathDrillState>);
     MathDrill.save(kvp);
   }
 
-  setParentState(state) {
-    this.setState(state);
+  setParentState(state: Partial<DrillOptions>) {
+    this.setState(state as unknown as Pick<MathDrillState, keyof MathDrillState>);
     MathDrill.save(state);
   }
 
@@ -114,9 +157,9 @@ class MathDrill extends React.Component {
     }
   }
 
-  endQuiz(otherState = {}) {
+  endQuiz(otherState: Record<string, unknown> = {}) {
     const { timerId } = this.state;
-    clearInterval(timerId);
+    clearInterval(timerId as number);
     // Need to do this to get latest results. Merging in otherState
     // with state will provide the final results. We can't rely on
     // a call to this.setState() in a previous method because it batches
@@ -125,17 +168,18 @@ class MathDrill extends React.Component {
       ...this.state,
       ...otherState,
     };
-    const resultInfo = helper.appendScore(state);
-    this.setState({
-      currentAction: 'finished',
-      timerId: null,
+    const resultInfo = helper.appendScore(state as unknown as DrillResults);
+    this.setState((prevState) => ({
+      ...prevState,
       ...otherState,
+      currentAction: 'finished',
       resultInfo,
-    });
+      timerId: null,
+    }));
   }
 
   // eslint-disable-next-line react/sort-comp
-  static currentMatchesLast(task, previousResults) {
+  static currentMatchesLast(task: DrillTask, previousResults: PreviousResult[]) {
     if (!previousResults.length) {
       return false;
     }
@@ -144,14 +188,14 @@ class MathDrill extends React.Component {
     return task.length === 4 && task.every((t, i) => t === lastTask[i]);
   }
 
-  checkAnswer(answer) {
+  checkAnswer(answer: string) {
     const actual = parseInt(answer, 10);
-    let { totalProblems } = this.state;
+    const { totalProblems } = this.state;
     const { startTime } = this.state;
-    totalProblems = parseInt(totalProblems, 10);
+    const totalProblemsNum = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults = [] } = this.state;
-      let { correctCount = 0, totalCount } = this.state;
+      let { correctCount = 0, totalCount = 0 } = this.state;
       totalCount += 1;
       let { previousTime = startTime } = this.state;
       const prevInstant = helper.toInstant(previousTime);
@@ -159,7 +203,7 @@ class MathDrill extends React.Component {
         Temporal.Now.instant().since(prevInstant).total({ unit: 'second' }).toFixed(1),
       );
 
-      const [, , , expected] = task;
+      const [, , , expected] = task as DrillTask;
       const correct = actual === expected;
       if (correct) {
         correctCount += 1;
@@ -171,7 +215,7 @@ class MathDrill extends React.Component {
       // If problem exists at end of array then replace otherwise push.
       // A task is an array of:  left, right, opIndex, expectedAnswer
       // and problems are not repeated so a first time can be checked using this.
-      if (MathDrill.currentMatchesLast(task, previousResults)) {
+      if (MathDrill.currentMatchesLast(task as DrillTask, previousResults)) {
         const current = previousResults[previousResults.length - 1];
         current.actuals.unshift(actual);
         current.timeTaken = timeTaken;
@@ -180,7 +224,7 @@ class MathDrill extends React.Component {
         previousResults.push({
           actuals,
           id: previousResults.length,
-          task,
+          task: task as DrillTask,
           timeTaken,
         });
       }
@@ -190,12 +234,12 @@ class MathDrill extends React.Component {
         correctCount,
         previousResults,
         previousTime,
-        questionsRemaining: totalProblems - correctCount,
+        questionsRemaining: totalProblemsNum - correctCount,
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
         totalCount,
       };
 
-      if (correctCount === totalProblems) {
+      if (correctCount === totalProblemsNum) {
         this.endQuiz(otherState);
       } else {
         this.setState(otherState);
@@ -215,7 +259,7 @@ class MathDrill extends React.Component {
       opIndexes,
       totalProblems,
       userName,
-    } = this.state || {};
+    } = this.state;
 
     return (
       <Options
@@ -271,7 +315,7 @@ class MathDrill extends React.Component {
         levelIndex={levelIndex}
         opIndexes={opIndexes}
         previousResults={previousResults}
-        resultInfo={resultInfo}
+        resultInfo={resultInfo!}
         timeAllowed={seconds}
         timeLeft={timeLeft}
         totalProblems={parseInt(totalProblems, 10)}
@@ -280,7 +324,7 @@ class MathDrill extends React.Component {
   }
 
   render() {
-    const { currentAction = 'start' } = this.state || {};
+    const { currentAction = 'start' } = this.state;
     switch (currentAction) {
       case 'start':
         return this.renderOptions();

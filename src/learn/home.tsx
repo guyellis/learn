@@ -5,11 +5,11 @@ import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const style = {
+const style: React.CSSProperties = {
   marginTop: '20px',
 };
 
-const githubIconStyle = {
+const githubIconStyle: React.CSSProperties = {
   marginTop: '20px',
   textAlign: 'right',
 };
@@ -31,7 +31,7 @@ function shareComponent() {
   if (!navigator.share) {
     return null;
   }
-  const shareStyle = {
+  const shareStyle: React.CSSProperties = {
     paddingLeft: '20px',
   };
   return (

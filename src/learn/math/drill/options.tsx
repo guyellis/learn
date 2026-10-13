@@ -6,23 +6,36 @@ import FormGroup from '@mui/material/FormGroup';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
+import type { DrillOptions } from './types.js';
 
 const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
   fontSize: '2em',
   margin: '5px',
 };
 
-const sectionStyle = {
+const sectionStyle: React.CSSProperties = {
   marginTop: '30px',
 };
 
-function Options(props) {
+export interface OptionsProps {
+  largeKeyboard: boolean;
+  levelIndex: number;
+  minutes: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onscreenKeyboard: boolean;
+  onStart: () => void;
+  opIndexes: number[];
+  setParentState: (state: Partial<DrillOptions>) => void;
+  totalProblems: string;
+  userName: string;
+}
+
+function Options(props: OptionsProps) {
   const [historyCleared, setHistoryCleared] = useState(false);
   const {
     largeKeyboard,
@@ -37,9 +50,9 @@ function Options(props) {
     userName,
   } = props;
 
-  function toggleOpIndex(opIndex) {
+  function toggleOpIndex(opIndex: number) {
     const position = props.opIndexes.indexOf(opIndex);
-    let operatIndexes;
+    let operatIndexes: number[];
     if (position >= 0) {
       operatIndexes = props.opIndexes;
       if (props.opIndexes.length > 1) {
@@ -183,18 +196,5 @@ function Options(props) {
     </div>
   );
 }
-
-Options.propTypes = {
-  largeKeyboard: PropTypes.bool.isRequired,
-  levelIndex: PropTypes.number.isRequired,
-  minutes: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
-  onStart: PropTypes.func.isRequired,
-  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  setParentState: PropTypes.func.isRequired,
-  totalProblems: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-};
 
 export default Options;

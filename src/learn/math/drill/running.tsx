@@ -1,12 +1,35 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import QuizLine from './quiz-line.jsx';
-import RunningResults from './running-results.jsx';
+import QuizLine from './quiz-line.js';
+import RunningResults from './running-results.js';
+import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
 
 const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 
-function running(props) {
+const spanStyle: React.CSSProperties = {
+  paddingLeft: 20,
+};
+
+const highlightStyle: React.CSSProperties = {
+  backgroundColor: 'lightblue',
+  borderRadius: '3px',
+  padding: '2px 5px',
+};
+
+export interface RunningProps {
+  checkAnswer: (answer: string) => void;
+  currentTask?: DrillTask;
+  largeKeyboard: boolean;
+  levelIndex: number;
+  newRecord: NewRecordComparison;
+  onscreenKeyboard: boolean;
+  opIndexes: number[];
+  previousResults: PreviousResult[];
+  questionsRemaining: number;
+  timeLeft: number;
+}
+
+function running(props: RunningProps) {
   const {
     checkAnswer,
     currentTask,
@@ -25,16 +48,6 @@ function running(props) {
     console.warn('No currentTask defined in renderRunning');
     return null;
   }
-
-  const spanStyle = {
-    paddingLeft: 20,
-  };
-
-  const highlightStyle = {
-    backgroundColor: 'lightblue',
-    borderRadius: '3px',
-    padding: '2px 5px',
-  };
 
   const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
   const lastResult = lastTen[0];
@@ -76,33 +89,5 @@ function running(props) {
     </div>
   );
 }
-
-running.propTypes = {
-  checkAnswer: PropTypes.func.isRequired,
-  currentTask: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  largeKeyboard: PropTypes.bool.isRequired,
-  levelIndex: PropTypes.number.isRequired,
-  newRecord: PropTypes.shape({
-    currentTimePerQuestion: PropTypes.number.isRequired,
-    existingRecordTimePerQuestion: PropTypes.number.isRequired,
-    isNewRecord: PropTypes.bool.isRequired,
-  }).isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
-  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  previousResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
-      id: PropTypes.number.isRequired,
-      task: PropTypes.array.isRequired, // left, right, opIndex, answer
-      timeTaken: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-  questionsRemaining: PropTypes.number.isRequired,
-  timeLeft: PropTypes.number.isRequired,
-};
-
-running.defaultProps = {
-  // currentRecord: null,
-};
 
 export default running;

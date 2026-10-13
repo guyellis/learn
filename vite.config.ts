@@ -24,7 +24,7 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      exclude: ['src/dev/**', 'src/index.jsx', 'src/tester.jsx'],
+      exclude: ['src/dev/**', 'src/index.tsx', 'src/tester.jsx'],
       include: ['src/**/*.{js,jsx,ts,tsx}'],
       provider: 'istanbul',
       reporter: ['text', 'html', 'json'],

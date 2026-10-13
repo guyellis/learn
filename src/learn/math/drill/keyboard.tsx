@@ -1,29 +1,36 @@
 import { Backspace, KeyboardReturn } from '@mui/icons-material';
 import FloatingActionButton from '@mui/material/Fab';
 import Tooltip from '@mui/material/Tooltip';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const normalButtonStyle = {
+const normalButtonStyle: React.CSSProperties = {
   fontSize: '2em',
   margin: '5px',
 };
 
-const largeButtonStyle = {
+const largeButtonStyle: React.CSSProperties = {
   fontSize: '2em',
   height: '80px',
   margin: '5px',
   width: '80px',
 };
 
-let buttonStyle = {};
+let buttonStyle: React.CSSProperties = {};
+
+export interface KeyboardProps {
+  keyPress: (key: number | string) => void;
+  largeKeyboard: boolean;
+  onscreenKeyboard: boolean;
+}
 
 // eslint-disable-next-line react/prefer-stateless-function
-class Keyboard extends React.Component {
-  constructor(props) {
+class Keyboard extends React.Component<KeyboardProps> {
+  click: Record<string, () => void>;
+
+  constructor(props: KeyboardProps) {
     super(props);
     const buttons = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'back', 'enter', 'nothing'];
-    this.click = buttons.reduce((acc, item) => {
+    this.click = buttons.reduce<Record<string, () => void>>((acc, item) => {
       acc[item] = this.onClick.bind(this, item);
       return acc;
     }, {});
@@ -35,7 +42,7 @@ class Keyboard extends React.Component {
     }
   }
 
-  onClick(value) {
+  onClick(value: number | string) {
     if (value === 'nothing') {
       return;
     }
@@ -50,13 +57,16 @@ class Keyboard extends React.Component {
       return null;
     }
 
-    const layout = [
+    type LayoutItem = [React.ReactNode, string, number | string, string];
+    type LayoutRow = [string, ...LayoutItem[]];
+
+    const layout: LayoutRow[] = [
       [
         '1', // key
         ['1', 'One', 1, '1'],
         ['2', 'Two', 2, '2'],
         ['3', 'Three', 3, '3'],
-        [<Backspace />, 'Backspace', 'back', '4'],
+        [<Backspace key="backspace" />, 'Backspace', 'back', '4'],
       ],
       [
         '2', // key
@@ -77,7 +87,7 @@ class Keyboard extends React.Component {
         [' ', ' ', 'Nothing3', '13'],
         ['0', 'Zero', 0, '14'],
         [' ', ' ', 'Nothing4', '15'],
-        [<KeyboardReturn />, 'Enter', 'enter', '16'],
+        [<KeyboardReturn key="return" />, 'Enter', 'enter', '16'],
       ],
     ];
 
@@ -85,7 +95,7 @@ class Keyboard extends React.Component {
       <div>
         {layout.map((lay) => (
           <div key={lay[0]}>
-            {lay.slice(1).map((item) => {
+            {(lay.slice(1) as LayoutItem[]).map((item) => {
               const [content, title, click, key] = item;
               return (
                 <Tooltip key={key} title={title}>
@@ -101,11 +111,5 @@ class Keyboard extends React.Component {
     );
   }
 }
-
-Keyboard.propTypes = {
-  keyPress: PropTypes.func.isRequired,
-  largeKeyboard: PropTypes.bool.isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
-};
 
 export default Keyboard;

@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import Badge from './badge.jsx';
+import Badge from './badge.js';
 import helper from './helper.js';
 
-const finishedBadgeStyle = {};
+const finishedBadgeStyle: React.CSSProperties = {};
 
 const {
   ALPHABET: alphabet,
@@ -13,11 +12,18 @@ const {
   OPERATIONS: operations,
 } = constants;
 
-function noBadge(message) {
+export interface FinishedBadgeProps {
+  levelIndex: number;
+  opIndexes: number[];
+  timePerQuestion: number;
+  totalCorrectAnswers: number;
+}
+
+function noBadge(message: string) {
   return <div style={finishedBadgeStyle}>{message}</div>;
 }
 
-function finishedBadge(props) {
+function finishedBadge(props: FinishedBadgeProps) {
   const { levelIndex, opIndexes, timePerQuestion, totalCorrectAnswers } = props;
 
   if (totalCorrectAnswers < 10) {
@@ -48,12 +54,5 @@ test you got ${totalCorrectAnswers} answer(s) correct.`;
     </div>
   );
 }
-
-finishedBadge.propTypes = {
-  levelIndex: PropTypes.number.isRequired,
-  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  timePerQuestion: PropTypes.number.isRequired,
-  totalCorrectAnswers: PropTypes.number.isRequired,
-};
 
 export default finishedBadge;

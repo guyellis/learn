@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const containerStyle = {
+const containerStyle: React.CSSProperties = {
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
@@ -12,7 +12,7 @@ const containerStyle = {
   textAlign: 'center',
 };
 
-const imageStyle = {
+const imageStyle: React.CSSProperties = {
   borderRadius: '8px',
   height: 'auto',
   marginBottom: '24px',
@@ -20,7 +20,7 @@ const imageStyle = {
   width: '500px',
 };
 
-const buttonWrapperStyle = {
+const buttonWrapperStyle: React.CSSProperties = {
   marginTop: '20px',
 };
 
@@ -31,6 +31,7 @@ function NotFound() {
       <Typography component="h1" gutterBottom variant="h4">
         Oops! Page Not Found
       </Typography>
+      {/* @ts-expect-error paragraph was removed in MUI v6, but preserved to match existing behavior and tests */}
       <Typography color="text.secondary" paragraph variant="body1">
         We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing
         math!

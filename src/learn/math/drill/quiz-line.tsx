@@ -1,28 +1,28 @@
 import { Done } from '@mui/icons-material';
 import FloatingActionButton from '@mui/material/Fab';
 import TextField from '@mui/material/TextField';
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import Keyboard from './keyboard.jsx';
-import RunningResults from './running-results.jsx';
+import Keyboard from './keyboard.js';
+import RunningResults from './running-results.js';
+import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
 
 const { OPERATIONS: operations } = constants;
 
-const numberStyle = {
+const numberStyle: React.CSSProperties = {
   fontSize: 'xx-large',
   margin: '10px',
 };
 
-const checkStyle = {
+const checkStyle: React.CSSProperties = {
   margin: '10px',
 };
 
-const inputStyle = {
+const inputStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-const answerStyle = {
+const answerStyle: React.CSSProperties = {
   backgroundColor: 'green',
   color: 'white',
   fontSize: 'xx-large',
@@ -30,23 +30,39 @@ const answerStyle = {
   paddingRight: '15px',
 };
 
-const lastResultCorrectStyle = {
+const lastResultCorrectStyle: React.CSSProperties = {
   border: 'medium solid green',
   borderRadius: '5px',
   display: 'inline-block',
   paddingRight: '20px',
 };
 
-const lastResultIncorrectStyle = { ...lastResultCorrectStyle, border: 'medium solid red' };
+const lastResultIncorrectStyle: React.CSSProperties = {
+  ...lastResultCorrectStyle,
+  border: 'medium solid red',
+};
 
-const quizLineStyle = {
+const quizLineStyle: React.CSSProperties = {
   marginBottom: '10px',
   marginTop: '10px',
 };
 
-class QuizLine extends React.Component {
-  constructor() {
-    super();
+export interface QuizLineProps {
+  checkAnswer: (answer: string) => void;
+  largeKeyboard: boolean;
+  lastResult?: PreviousResult | null;
+  newRecord: NewRecordComparison;
+  onscreenKeyboard: boolean;
+  problem: DrillTask;
+}
+
+export interface QuizLineState {
+  answer: string;
+}
+
+class QuizLine extends React.Component<QuizLineProps, QuizLineState> {
+  constructor(props: QuizLineProps) {
+    super(props);
     this.onChange = this.onChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.checkAnswer = this.checkAnswer.bind(this);
@@ -56,11 +72,11 @@ class QuizLine extends React.Component {
     this.state = { answer: '' };
   }
 
-  onChange(e) {
+  onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
-    });
+    } as unknown as Pick<QuizLineState, keyof QuizLineState>);
   }
 
   checkAnswer() {
@@ -72,15 +88,15 @@ class QuizLine extends React.Component {
     });
   }
 
-  handleKeyPress(event) {
+  handleKeyPress(event: React.KeyboardEvent) {
     if (event.key === 'Enter') {
       this.checkAnswer();
     }
   }
 
-  keyPress(key) {
+  keyPress(key: number | string) {
     const { answer } = this.state;
-    if (!isNaN(key)) {
+    if (!isNaN(key as number)) {
       this.setState({
         answer: `${answer}${key}`,
       });
@@ -194,27 +210,5 @@ class QuizLine extends React.Component {
     );
   }
 }
-
-QuizLine.propTypes = {
-  checkAnswer: PropTypes.func.isRequired,
-  largeKeyboard: PropTypes.bool.isRequired,
-  lastResult: PropTypes.shape({
-    actuals: PropTypes.arrayOf(PropTypes.number).isRequired,
-    id: PropTypes.number.isRequired,
-    task: PropTypes.array.isRequired, // left, right, opIndex, answer
-    timeTaken: PropTypes.number.isRequired,
-  }),
-  newRecord: PropTypes.shape({
-    currentTimePerQuestion: PropTypes.number.isRequired,
-    existingRecordTimePerQuestion: PropTypes.number.isRequired,
-    isNewRecord: PropTypes.bool.isRequired,
-  }).isRequired,
-  onscreenKeyboard: PropTypes.bool.isRequired,
-  problem: PropTypes.arrayOf(PropTypes.number).isRequired,
-};
-
-QuizLine.defaultProps = {
-  lastResult: null,
-};
 
 export default QuizLine;

@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import Badge from './badge.jsx';
+import Badge from './badge.js';
 
 const { COLOR_TEXT: colorText } = constants;
 
@@ -12,7 +11,11 @@ const badgeBoundaries = [
   'more than 4 seconds (per question)',
 ];
 
-function badgeTotals(props) {
+export interface BadgeTotalsProps {
+  totals: number[];
+}
+
+function badgeTotals(props: BadgeTotalsProps) {
   const { totals } = props;
 
   return (
@@ -31,9 +34,5 @@ function badgeTotals(props) {
     </div>
   );
 }
-
-badgeTotals.propTypes = {
-  totals: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-};
 
 export default badgeTotals;

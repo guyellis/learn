@@ -2,7 +2,8 @@
 
 import React from 'react';
 import constants from '../learn/common/constants.js';
-import Finished from '../learn/math/drill/finished.jsx';
+import Finished from '../learn/math/drill/finished.js';
+import type { DrillTask } from '../learn/math/drill/types.js';
 
 const {
   RECORD_NEW,
@@ -17,8 +18,8 @@ function tester() {
   const previousResults = a.map((id) => ({
     actuals: [5],
     id,
-    task: [5, 5, 0, 5],
-    timeTaken: 1 + parseFloat((1.1 * id).toFixed(1), 10),
+    task: [5, 5, 0, 5] as DrillTask,
+    timeTaken: 1 + parseFloat((1.1 * id).toFixed(1)),
   }));
   const resultInfo = {
     newRecordInfo: RECORD_NEW,
