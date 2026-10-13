@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import constants from '../../../../src/learn/common/constants.js';
 import util from '../../../../src/learn/common/util.js';
 import db from '../../../../src/learn/db/index.js';

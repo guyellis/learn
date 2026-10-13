@@ -69,10 +69,16 @@ const theme = createTheme({
   },
 });
 
-poly(undefined, (err) => {
+poly(undefined, async (err) => {
   if (err) {
     // eslint-disable-next-line no-console
     console.error(err);
+  }
+
+  if (!('Temporal' in globalThis)) {
+    const { Temporal, toTemporalInstant } = await import('@js-temporal/polyfill');
+    globalThis.Temporal = Temporal;
+    Date.prototype.toTemporalInstant = toTemporalInstant;
   }
 
   const root = createRoot(document.querySelector('#app'));
