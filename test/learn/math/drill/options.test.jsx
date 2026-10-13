@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import db from '../../../../src/learn/db/index.js';
 import Options from '../../../../src/learn/math/drill/options.jsx';
@@ -20,7 +21,8 @@ describe('Options', () => {
     userName: 'Tester',
   };
 
-  test('should clear record history when clear button is clicked', () => {
+  test('should clear record history when clear button is clicked', async () => {
+    const user = userEvent.setup();
     const clearScoresMock = vi.spyOn(db, 'clearScores').mockImplementation(() => {});
 
     render(
@@ -30,13 +32,14 @@ describe('Options', () => {
     );
 
     const button = document.getElementById('clear-record-history');
-    fireEvent.click(button);
+    await user.click(button);
 
     expect(clearScoresMock).toHaveBeenCalled();
     clearScoresMock.mockRestore();
   });
 
-  test('should toggle opIndex when operation button clicked', () => {
+  test('should toggle opIndex when operation button clicked', async () => {
+    const user = userEvent.setup();
     render(
       <ThemeProvider theme={theme}>
         <Options {...defaultProps} opIndexes={[0, 1]} />
@@ -44,7 +47,7 @@ describe('Options', () => {
     );
 
     const plusButton = screen.getByRole('button', { name: '+' });
-    fireEvent.click(plusButton);
+    await user.click(plusButton);
 
     expect(defaultProps.setParentState).toHaveBeenCalled();
   });

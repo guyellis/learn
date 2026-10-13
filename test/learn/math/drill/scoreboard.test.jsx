@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import db from '../../../../src/learn/db/index.js';
 import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.jsx';
@@ -36,7 +37,8 @@ describe('ScoreBoard', () => {
     expect(screen.getByRole('rowheader', { name: 'A' })).toBeDefined();
   });
 
-  test('should clear record history when clear button is clicked', () => {
+  test('should clear record history when clear button is clicked', async () => {
+    const user = userEvent.setup();
     db.getScores.mockReturnValue([
       {
         correctCount: 10,
@@ -54,7 +56,7 @@ describe('ScoreBoard', () => {
     );
 
     const button = document.getElementById('clear-record-history');
-    fireEvent.click(button);
+    await user.click(button);
 
     expect(db.clearScores).toHaveBeenCalled();
   });

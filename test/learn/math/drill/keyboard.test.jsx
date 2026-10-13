@@ -1,11 +1,13 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Keyboard from '../../../../src/learn/math/drill/keyboard.jsx';
 
 const theme = createTheme();
 
-test('Badge totals should be rendered', () => {
+test('Badge totals should be rendered', async () => {
+  const user = userEvent.setup();
   const keyPress = vi.fn();
   render(
     <ThemeProvider theme={theme}>
@@ -18,6 +20,6 @@ test('Badge totals should be rendered', () => {
   expect(screen.getByRole('button', { name: 'Zero' })).toBeDefined();
   expect(screen.getByRole('button', { name: 'Nine' })).toBeDefined();
 
-  fireEvent.click(button1);
+  await user.click(button1);
   expect(keyPress).toHaveBeenCalledWith(1);
 });
