@@ -2,18 +2,24 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import App from '../src/app.jsx';
+import App from '../src/app.js';
 
 const theme = createTheme();
 
 describe('App', () => {
-  const renderApp = async (path = '/') => {
+  const renderApp = async (path: string = '/') => {
     // Preload lazy route module so dynamic import resolves immediately
-    if (path === '/') await import('../src/learn/home.jsx');
-    else if (path === '/math/drill') await import('../src/learn/math/drill/index.jsx');
-    else if (path === '/math/score') await import('../src/learn/math/drill/scoreboard.jsx');
-    else if (path === '/help') await import('../src/learn/help/index.jsx');
-    else await import('../src/learn/not-found.jsx');
+    if (path === '/') {
+      await import('../src/learn/home.js');
+    } else if (path === '/math/drill') {
+      await import('../src/learn/math/drill/index.js');
+    } else if (path === '/math/score') {
+      await import('../src/learn/math/drill/scoreboard.js');
+    } else if (path === '/help') {
+      await import('../src/learn/help/index.js');
+    } else {
+      await import('../src/learn/not-found.js');
+    }
 
     render(
       <ThemeProvider theme={theme}>

@@ -3,12 +3,12 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import db from '../../../../src/learn/db/index.js';
-import Options from '../../../../src/learn/math/drill/options.jsx';
+import Options, { type OptionsProps } from '../../../../src/learn/math/drill/options.js';
 
 const theme = createTheme();
 
 describe('Options', () => {
-  const defaultProps = {
+  const defaultProps: OptionsProps = {
     largeKeyboard: true,
     levelIndex: 0,
     minutes: '1',
@@ -32,7 +32,7 @@ describe('Options', () => {
     );
 
     const button = document.getElementById('clear-record-history');
-    await user.click(button);
+    await user.click(button!);
 
     expect(clearScoresMock).toHaveBeenCalled();
     clearScoresMock.mockRestore();

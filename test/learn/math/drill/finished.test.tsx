@@ -1,25 +1,33 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
+import type { MockInstance } from 'vitest';
 import constants from '../../../../src/learn/common/constants.js';
 import db from '../../../../src/learn/db/index.js';
-import Finished from '../../../../src/learn/math/drill/finished.jsx';
+import Finished from '../../../../src/learn/math/drill/finished.js';
+import type {
+  PreviousResult,
+  ResultInfo,
+  ScoreBarTime,
+} from '../../../../src/learn/math/drill/types.js';
 
 const theme = createTheme();
 
 const { RECORD_MISS, RECORD_NEW } = constants;
 
 describe('Finished', () => {
+  let getScoresSpy: MockInstance;
+
   beforeEach(() => {
-    db.getScores = vi.fn();
+    getScoresSpy = vi.spyOn(db, 'getScores').mockReturnValue([]);
   });
 
   afterEach(() => {
-    db.getScores.mockClear();
+    getScoresSpy.mockRestore();
   });
 
   test('should render when there is a single incorrect result', () => {
-    const previousResults = [
+    const previousResults: PreviousResult[] = [
       {
         actuals: [5],
         id: 1,
@@ -55,7 +63,7 @@ describe('Finished', () => {
   });
 
   test('should render when there is a single correct result', () => {
-    const previousResults = [
+    const previousResults: PreviousResult[] = [
       {
         actuals: [10],
         id: 1,
@@ -63,7 +71,7 @@ describe('Finished', () => {
         timeTaken: 2.2,
       },
     ];
-    const resultInfo = {
+    const resultInfo: ResultInfo = {
       newRecordInfo: RECORD_NEW,
       text: 'Result Info Text',
     };
@@ -91,7 +99,7 @@ describe('Finished', () => {
   });
 
   test('should render when there is a mix of correct and incorrect results', () => {
-    const previousResults = [
+    const previousResults: PreviousResult[] = [
       {
         actuals: [5], // single incorrect
         id: 1,
@@ -111,11 +119,11 @@ describe('Finished', () => {
         timeTaken: 2.2,
       },
     ];
-    const resultInfo = {
+    const resultInfo: ResultInfo = {
       newRecordInfo: RECORD_NEW,
       text: 'Result Info Text',
     };
-    db.getScores.mockReturnValueOnce([
+    getScoresSpy.mockReturnValueOnce([
       {
         key: '0-01',
         timePerQuestion: 2,
@@ -160,18 +168,18 @@ describe('Finished', () => {
 
   test('should use latest scoreBarTimes timePerQuestion for FinishedBadge when correct answers > 9', () => {
     // 10 correct answers where individual times sum to 31.0s (3.1s average = Bronze)
-    const previousResults = Array.from({ length: 10 }, (_, id) => ({
+    const previousResults: PreviousResult[] = Array.from({ length: 10 }, (_, id) => ({
       actuals: [10],
       id,
       task: [5, 5, 0, 10],
       timeTaken: 3.1,
     }));
-    const resultInfo = {
+    const resultInfo: ResultInfo = {
       newRecordInfo: RECORD_NEW,
       text: 'Result Info Text',
     };
     // But scoreBarTimes latest is 2.9 (Silver)
-    const scoreBarTimes = [
+    const scoreBarTimes: ScoreBarTime[] = [
       {
         date: Date.now(),
         timePerQuestion: 2.9,
@@ -198,13 +206,13 @@ describe('Finished', () => {
   });
 
   test('should fallback to calculatedTimePerQuestion when scoreBarTimes is empty and correct answers > 9', () => {
-    const previousResults = Array.from({ length: 10 }, (_, id) => ({
+    const previousResults: PreviousResult[] = Array.from({ length: 10 }, (_, id) => ({
       actuals: [10],
       id,
       task: [5, 5, 0, 10],
       timeTaken: 1.5,
     }));
-    const resultInfo = {
+    const resultInfo: ResultInfo = {
       newRecordInfo: RECORD_MISS,
       text: 'Result Info Text',
     };
@@ -228,7 +236,7 @@ describe('Finished', () => {
   });
 
   test('should render unknown newRecordInfo fallback', () => {
-    const previousResults = [
+    const previousResults: PreviousResult[] = [
       {
         actuals: [10],
         id: 1,
@@ -236,7 +244,7 @@ describe('Finished', () => {
         timeTaken: 2.2,
       },
     ];
-    const resultInfo = {
+    const resultInfo: ResultInfo = {
       newRecordInfo: 'UNKNOWN_RECORD_INFO',
       text: 'Unknown text',
     };

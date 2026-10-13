@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { act, render, screen } from '@testing-library/react';
 import React from 'react';
 import helper from '../../../../src/learn/math/drill/helper.js';
-import Drill from '../../../../src/learn/math/drill/index.jsx';
+import Drill, { type MathDrillProps } from '../../../../src/learn/math/drill/index.js';
 
 const theme = createTheme();
 
@@ -18,20 +18,17 @@ describe('Drill', () => {
   };
 
   const renderDrill = () => {
-    const drillRef = React.createRef();
+    const drillRef = React.createRef<Drill>();
     const utils = render(
       <ThemeProvider theme={theme}>
-        <Drill ref={drillRef} />
+        <Drill {...({ ref: drillRef } as unknown as MathDrillProps)} />
       </ThemeProvider>,
     );
-    return { ...utils, instance: drillRef.current };
+    return { ...utils, instance: drillRef.current! };
   };
 
   beforeEach(() => {
-    // eslint-disable-next-line no-proto
-    vi.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValue(
-      JSON.stringify(savedOptions),
-    );
+    vi.spyOn(Storage.prototype, 'getItem').mockReturnValue(JSON.stringify(savedOptions));
   });
 
   afterEach(() => {
@@ -108,12 +105,16 @@ describe('Drill', () => {
     const { instance } = renderDrill();
 
     act(() => {
-      instance.onChange({ target: { checked: false, name: 'largeKeyboard', type: 'checkbox' } });
+      instance.onChange({
+        target: { checked: false, name: 'largeKeyboard', type: 'checkbox' },
+      } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
     expect(instance.state.largeKeyboard).toBe(false);
 
     act(() => {
-      instance.onChange({ target: { name: 'userName', type: 'text', value: 'Alice' } });
+      instance.onChange({
+        target: { name: 'userName', type: 'text', value: 'Alice' },
+      } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
     expect(instance.state.userName).toBe('Alice');
   });
@@ -224,7 +225,7 @@ describe('Drill', () => {
 
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
-      instance.setState({ currentAction: 'unknown_action' });
+      instance.setState({ currentAction: 'unknown_action' as unknown as 'start' });
     });
     expect(container.firstChild).toBeNull();
     expect(consoleErrorSpy).toHaveBeenCalled();
@@ -232,7 +233,7 @@ describe('Drill', () => {
   });
 
   test('MathDrill.save handles edge cases safely', () => {
-    expect(() => Drill.save(null)).not.toThrow();
+    expect(() => Drill.save(null as unknown as Record<string, unknown>)).not.toThrow();
     expect(() => Drill.save({})).not.toThrow();
   });
 });
