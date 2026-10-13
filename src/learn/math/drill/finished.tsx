@@ -1,16 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import constants from '../../common/constants.js';
-import FinishedBadge from './finished-badge.jsx';
+import FinishedBadge from './finished-badge.js';
 import helper from './helper.js';
 import PreviousResults from './previous-results.js';
-import RunningResults from './running-results.jsx';
-import ScoreBar from './score-bar.jsx';
-import Types from './types.js';
+import RunningResults from './running-results.js';
+import ScoreBar from './score-bar.js';
+import type { PreviousResult, ResultInfo, ScoreBarTime } from './types.js';
 
 const { RECORD_EQUAL, RECORD_MISS, RECORD_NEW, RECORD_NOT_EXIST } = constants;
 
-const baseRecordStyle = {
+const baseRecordStyle: React.CSSProperties = {
   backgroundColor: '#8bc78b',
   borderRadius: '5px',
   color: 'black',
@@ -18,19 +17,30 @@ const baseRecordStyle = {
   padding: '20px',
 };
 
-const newRecordStyle = baseRecordStyle;
+const newRecordStyle: React.CSSProperties = baseRecordStyle;
 
-const missRecordStyle = { ...baseRecordStyle, backgroundColor: '#ecc9e0' };
+const missRecordStyle: React.CSSProperties = { ...baseRecordStyle, backgroundColor: '#ecc9e0' };
 
-const notExistRecordStyle = {
+const notExistRecordStyle: React.CSSProperties = {
   ...baseRecordStyle,
   backgroundColor: '#8583dc',
   color: 'white',
 };
 
-function processResultInfo(resultInfo) {
+export interface FinishedProps {
+  levelIndex: number;
+  opIndexes: number[];
+  previousResults: PreviousResult[];
+  resultInfo: ResultInfo;
+  scoreBarTimes?: ScoreBarTime[];
+  timeAllowed: number;
+  timeLeft: number;
+  totalProblems: number;
+}
+
+function processResultInfo(resultInfo: ResultInfo) {
   const { newRecordInfo, text } = resultInfo;
-  let style;
+  let style: React.CSSProperties | undefined;
   switch (newRecordInfo) {
     case RECORD_NEW:
     case RECORD_EQUAL:
@@ -48,7 +58,7 @@ function processResultInfo(resultInfo) {
   return <div style={style}>{text}</div>;
 }
 
-function finished(props) {
+function finished(props: FinishedProps) {
   const { levelIndex: propsLevelIndex, opIndexes: propsOpIndexes } = props;
   const {
     levelIndex,
@@ -118,28 +128,5 @@ function finished(props) {
     </div>
   );
 }
-
-finished.propTypes = {
-  levelIndex: PropTypes.number.isRequired,
-  opIndexes: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  previousResults: PropTypes.arrayOf(Types.previousResults).isRequired,
-  resultInfo: PropTypes.shape({
-    newRecordInfo: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }).isRequired,
-  scoreBarTimes: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.number.isRequired,
-      timePerQuestion: PropTypes.number.isRequired,
-    }),
-  ),
-  timeAllowed: PropTypes.number.isRequired,
-  timeLeft: PropTypes.number.isRequired,
-  totalProblems: PropTypes.number.isRequired,
-};
-
-finished.defaultProps = {
-  scoreBarTimes: undefined,
-};
 
 export default finished;

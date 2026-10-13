@@ -9,13 +9,13 @@ import React, { useState } from 'react';
 
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
-import BadgeTotals from './badge-totals.jsx';
-import Badge from './badge.jsx';
+import BadgeTotals from './badge-totals.js';
+import Badge from './badge.js';
 import helper from './helper.js';
 
 const { ALPHABET: alphabet, OPERATION_NAMES: operationNames } = constants;
 
-function badge(badges) {
+function badge(badges?: number[] | null) {
   if (!badges) {
     return null;
   }

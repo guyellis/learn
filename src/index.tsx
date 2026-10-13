@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app.jsx';
+import App from './app.js';
 import poly from './poly.js';
 
 const theme = createTheme({
@@ -77,16 +77,20 @@ poly(undefined, async (err) => {
 
   if (!('Temporal' in globalThis)) {
     const { Temporal, toTemporalInstant } = await import('@js-temporal/polyfill');
-    globalThis.Temporal = Temporal;
-    Date.prototype.toTemporalInstant = toTemporalInstant;
+    (globalThis as unknown as { Temporal: unknown }).Temporal = Temporal;
+    (Date.prototype as unknown as { toTemporalInstant: unknown }).toTemporalInstant =
+      toTemporalInstant;
   }
 
-  const root = createRoot(document.querySelector('#app'));
-  root.render(
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>,
-  );
+  const container = document.querySelector('#app');
+  if (container) {
+    const root = createRoot(container);
+    root.render(
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>,
+    );
+  }
 });
