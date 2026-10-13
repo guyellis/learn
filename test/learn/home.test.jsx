@@ -1,25 +1,24 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import renderer, { act } from 'react-test-renderer';
 import Home from '../../src/learn/home.jsx';
 
 const theme = createTheme();
 
 describe('Home', () => {
   test('should render a Home component', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <Home />
-          </MemoryRouter>
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
 
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: /Math Drill/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Scoreboard/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Help/i })).toBeDefined();
+    expect(screen.getByRole('link', { name: /Issue guyellis\/learn on GitHub/i })).toBeDefined();
   });
 });

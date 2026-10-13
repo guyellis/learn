@@ -1,19 +1,23 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import Keyboard from '../../../../src/learn/math/drill/keyboard.jsx';
 
 const theme = createTheme();
 
 test('Badge totals should be rendered', () => {
-  let component;
-  act(() => {
-    component = renderer.create(
-      <ThemeProvider theme={theme}>
-        <Keyboard keyPress={vi.fn()} largeKeyboard onscreenKeyboard />
-      </ThemeProvider>,
-    );
-  });
-  const badgeTotals = component.toJSON();
-  expect(badgeTotals).toMatchSnapshot();
+  const keyPress = vi.fn();
+  render(
+    <ThemeProvider theme={theme}>
+      <Keyboard keyPress={keyPress} largeKeyboard onscreenKeyboard />
+    </ThemeProvider>,
+  );
+
+  const button1 = screen.getByRole('button', { name: 'One' });
+  expect(button1).toBeDefined();
+  expect(screen.getByRole('button', { name: 'Zero' })).toBeDefined();
+  expect(screen.getByRole('button', { name: 'Nine' })).toBeDefined();
+
+  fireEvent.click(button1);
+  expect(keyPress).toHaveBeenCalledWith(1);
 });

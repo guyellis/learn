@@ -1,31 +1,34 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import renderer, { act } from 'react-test-renderer';
 import NotFound from '../../src/learn/not-found.jsx';
 
 const theme = createTheme();
 
 describe('NotFound', () => {
   test('should render a NotFound component', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <NotFound />
-          </MemoryRouter>
-        </ThemeProvider>,
-      );
-    });
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    render(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <NotFound />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
 
-    const img = component.root.findByProps({ alt: '404 Page Not Found' });
-    expect(img.props.src).toEqual('/404.webp');
+    expect(screen.getByRole('heading', { level: 1, name: /Oops! Page Not Found/i })).toBeDefined();
+    expect(screen.getByText(/We couldn't find the page you were looking for/i)).toBeDefined();
 
-    const link = component.root.findByProps({ to: '/' });
+    const img = screen.getByAltText('404 Page Not Found');
+    expect(img.getAttribute('src')).toEqual('/404.webp');
+
+    const link = screen.getByRole('link', { name: /Back to Home/i });
     expect(link).toBeDefined();
+    expect(link.getAttribute('href')).toEqual('/');
+
+    expect(consoleErrorSpy).toHaveBeenCalled();
+    consoleErrorSpy.mockRestore();
   });
 });

@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import constants from '../../../../src/learn/common/constants.js';
 import db from '../../../../src/learn/db/index.js';
 import Finished from '../../../../src/learn/math/drill/finished.jsx';
@@ -32,25 +32,26 @@ describe('Finished', () => {
       text: 'Result Info Text',
     };
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={20}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={20}
+        />
+      </ThemeProvider>,
+    );
 
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    expect(screen.getByRole('heading', { level: 1, name: 'Finished' })).toBeDefined();
+    expect(screen.getByText('Result Info Text')).toBeDefined();
+    expect(
+      screen.getByText(/You had 100 seconds left out of the 600 seconds allowed/i),
+    ).toBeDefined();
+    expect(screen.getByText(/You correctly answered 0 of the 20 problems/i)).toBeDefined();
   });
 
   test('should render when there is a single correct result', () => {
@@ -67,25 +68,26 @@ describe('Finished', () => {
       text: 'Result Info Text',
     };
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={20}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={20}
+        />
+      </ThemeProvider>,
+    );
 
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    expect(screen.getByRole('heading', { level: 1, name: 'Finished' })).toBeDefined();
+    expect(screen.getByText('Result Info Text')).toBeDefined();
+    expect(
+      screen.getByText(/You had 100 seconds left out of the 600 seconds allowed/i),
+    ).toBeDefined();
+    expect(screen.getByText(/You correctly answered 1 of the 20 problems/i)).toBeDefined();
   });
 
   test('should render when there is a mix of correct and incorrect results', () => {
@@ -128,25 +130,32 @@ describe('Finished', () => {
       },
     ]);
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={20}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={20}
+        />
+      </ThemeProvider>,
+    );
 
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    expect(screen.getByRole('heading', { level: 1, name: 'Finished' })).toBeDefined();
+    expect(screen.getByText('Result Info Text')).toBeDefined();
+    expect(
+      screen.getByText(/You had 100 seconds left out of the 600 seconds allowed/i),
+    ).toBeDefined();
+    expect(screen.getByText(/You correctly answered 2 of the 20 problems/i)).toBeDefined();
+    expect(
+      screen.getByRole('heading', {
+        level: 4,
+        name: 'The problem that took you the longest to answer',
+      }),
+    ).toBeDefined();
   });
 
   test('should use latest scoreBarTimes timePerQuestion for FinishedBadge when correct answers > 9', () => {
@@ -169,28 +178,23 @@ describe('Finished', () => {
       },
     ];
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            scoreBarTimes={scoreBarTimes}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={10}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          scoreBarTimes={scoreBarTimes}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={10}
+        />
+      </ThemeProvider>,
+    );
 
-    const tree = component.toJSON();
-    const stringified = JSON.stringify(tree);
-    expect(stringified).toContain('Silver Badge');
-    expect(stringified).not.toContain('Bronze Badge');
+    expect(screen.getByText(/Silver Badge/i)).toBeDefined();
+    expect(screen.queryByText(/Bronze Badge/i)).toBeNull();
   });
 
   test('should fallback to calculatedTimePerQuestion when scoreBarTimes is empty and correct answers > 9', () => {
@@ -205,27 +209,22 @@ describe('Finished', () => {
       text: 'Result Info Text',
     };
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            scoreBarTimes={[]}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={10}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          scoreBarTimes={[]}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={10}
+        />
+      </ThemeProvider>,
+    );
 
-    const tree = component.toJSON();
-    const stringified = JSON.stringify(tree);
-    expect(stringified).toContain('Gold Badge');
+    expect(screen.getByText(/Gold Badge/i)).toBeDefined();
   });
 
   test('should render unknown newRecordInfo fallback', () => {
@@ -242,25 +241,22 @@ describe('Finished', () => {
       text: 'Unknown text',
     };
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Finished
-            levelIndex={0}
-            opIndexes={[0]}
-            previousResults={previousResults}
-            resultInfo={resultInfo}
-            timeAllowed={600}
-            timeLeft={100}
-            totalProblems={20}
-          />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Finished
+          levelIndex={0}
+          opIndexes={[0]}
+          previousResults={previousResults}
+          resultInfo={resultInfo}
+          timeAllowed={600}
+          timeLeft={100}
+          totalProblems={20}
+        />
+      </ThemeProvider>,
+    );
 
-    const tree = component.toJSON();
-    const stringified = JSON.stringify(tree);
-    expect(stringified).toContain('Unknown newRecordInfo UNKNOWN_RECORD_INFO in switch case');
+    expect(
+      screen.getByText(/Unknown newRecordInfo UNKNOWN_RECORD_INFO in switch case/i),
+    ).toBeDefined();
   });
 });

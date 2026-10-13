@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import db from '../../../../src/learn/db/index.js';
 import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.jsx';
 
@@ -25,17 +25,15 @@ describe('ScoreBoard', () => {
       },
     ]);
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <ScoreBoard />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <ScoreBoard />
+      </ThemeProvider>,
+    );
 
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: /Clear Record History/i })).toBeDefined();
+    expect(screen.getByRole('heading', { level: 3, name: 'Scoreboard' })).toBeDefined();
+    expect(screen.getByRole('rowheader', { name: 'A' })).toBeDefined();
   });
 
   test('should clear record history when clear button is clicked', () => {
@@ -49,19 +47,14 @@ describe('ScoreBoard', () => {
     ]);
     db.clearScores = vi.fn();
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <ScoreBoard />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <ScoreBoard />
+      </ThemeProvider>,
+    );
 
-    const button = component.root.findByProps({ id: 'clear-record-history' });
-    act(() => {
-      button.props.onClick();
-    });
+    const button = document.getElementById('clear-record-history');
+    fireEvent.click(button);
 
     expect(db.clearScores).toHaveBeenCalled();
   });

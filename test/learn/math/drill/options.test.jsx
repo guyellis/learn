@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import db from '../../../../src/learn/db/index.js';
 import Options from '../../../../src/learn/math/drill/options.jsx';
 
@@ -23,41 +23,28 @@ describe('Options', () => {
   test('should clear record history when clear button is clicked', () => {
     const clearScoresMock = vi.spyOn(db, 'clearScores').mockImplementation(() => {});
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Options {...defaultProps} />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} />
+      </ThemeProvider>,
+    );
 
-    const button = component.root.findByProps({ id: 'clear-record-history' });
-    act(() => {
-      button.props.onClick();
-    });
+    const button = document.getElementById('clear-record-history');
+    fireEvent.click(button);
 
     expect(clearScoresMock).toHaveBeenCalled();
     clearScoresMock.mockRestore();
   });
 
   test('should toggle opIndex when operation button clicked', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Options {...defaultProps} opIndexes={[0, 1]} />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} opIndexes={[0, 1]} />
+      </ThemeProvider>,
+    );
 
-    // click operation button
-    const fabButtons = component.root.findAllByType('button');
-    // First 26 are alphabet A-Z, next 4 are operations (+, -, x, /)
-    const plusButton = fabButtons[26];
-    act(() => {
-      plusButton.props.onClick();
-    });
+    const plusButton = screen.getByRole('button', { name: '+' });
+    fireEvent.click(plusButton);
 
     expect(defaultProps.setParentState).toHaveBeenCalled();
   });

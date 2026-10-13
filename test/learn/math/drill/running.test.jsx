@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import Running from '../../../../src/learn/math/drill/running.jsx';
 
 const theme = createTheme();
@@ -31,31 +31,29 @@ describe('Running', () => {
   };
 
   test('should render the Running component with highlighted params', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Running {...defaultProps} />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} />
+      </ThemeProvider>,
+    );
 
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(screen.getByText('Level:')).toBeDefined();
+    expect(screen.getByText('A')).toBeDefined();
+    expect(screen.getByText('Operation(s):')).toBeDefined();
+    expect(screen.getAllByText('+').length).toBeGreaterThan(0);
+    expect(screen.getByText('58')).toBeDefined();
   });
 
   test('should render multiple operations highlighted', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Running {...defaultProps} levelIndex={1} opIndexes={[0, 1]} />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} levelIndex={1} opIndexes={[0, 1]} />
+      </ThemeProvider>,
+    );
 
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(screen.getByText('Level:')).toBeDefined();
+    expect(screen.getByText('B')).toBeDefined();
+    expect(screen.getByText('+,-')).toBeDefined();
   });
 
   test('should return null and warn when currentTask is not defined', () => {

@@ -1,19 +1,17 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import Badge from '../../../../src/learn/math/drill/badge.jsx';
 
 const theme = createTheme();
 
 test('Badge should be rendered', () => {
-  let component;
-  act(() => {
-    component = renderer.create(
-      <ThemeProvider theme={theme}>
-        <Badge color={0} content="+" />
-      </ThemeProvider>,
-    );
-  });
-  const badgeTotals = component.toJSON();
-  expect(badgeTotals).toMatchSnapshot();
+  render(
+    <ThemeProvider theme={theme}>
+      <Badge color={0} content="+" />
+    </ThemeProvider>,
+  );
+  const button = screen.getByRole('button', { name: '+' });
+  expect(button).toBeDefined();
+  expect(button.textContent).toBe('+');
 });
