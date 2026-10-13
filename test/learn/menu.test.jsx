@@ -1,25 +1,24 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import renderer, { act } from 'react-test-renderer';
 import Menu from '../../src/learn/menu.jsx';
 
 const theme = createTheme();
 
 describe('Menu', () => {
   test('should render a Menu component', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <Menu />
-          </MemoryRouter>
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <Menu />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
 
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: /Home/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Drill/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Score/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Help/i })).toBeDefined();
   });
 });

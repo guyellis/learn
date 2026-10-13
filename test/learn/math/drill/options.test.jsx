@@ -1,6 +1,7 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import db from '../../../../src/learn/db/index.js';
 import Options from '../../../../src/learn/math/drill/options.jsx';
 
@@ -20,44 +21,33 @@ describe('Options', () => {
     userName: 'Tester',
   };
 
-  test('should clear record history when clear button is clicked', () => {
+  test('should clear record history when clear button is clicked', async () => {
+    const user = userEvent.setup();
     const clearScoresMock = vi.spyOn(db, 'clearScores').mockImplementation(() => {});
 
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Options {...defaultProps} />
-        </ThemeProvider>,
-      );
-    });
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} />
+      </ThemeProvider>,
+    );
 
-    const button = component.root.findByProps({ id: 'clear-record-history' });
-    act(() => {
-      button.props.onClick();
-    });
+    const button = document.getElementById('clear-record-history');
+    await user.click(button);
 
     expect(clearScoresMock).toHaveBeenCalled();
     clearScoresMock.mockRestore();
   });
 
-  test('should toggle opIndex when operation button clicked', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Options {...defaultProps} opIndexes={[0, 1]} />
-        </ThemeProvider>,
-      );
-    });
+  test('should toggle opIndex when operation button clicked', async () => {
+    const user = userEvent.setup();
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} opIndexes={[0, 1]} />
+      </ThemeProvider>,
+    );
 
-    // click operation button
-    const fabButtons = component.root.findAllByType('button');
-    // First 26 are alphabet A-Z, next 4 are operations (+, -, x, /)
-    const plusButton = fabButtons[26];
-    act(() => {
-      plusButton.props.onClick();
-    });
+    const plusButton = screen.getByRole('button', { name: '+' });
+    await user.click(plusButton);
 
     expect(defaultProps.setParentState).toHaveBeenCalled();
   });

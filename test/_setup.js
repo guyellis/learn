@@ -30,13 +30,51 @@ global.requestAnimationFrame = (done) => {
   setTimeout(done, 0);
 };
 
-// Prevent tests from passing if a prop-type is not correct by
-// throwing an error instead of doing a console.error()
-const { error } = console;
-// eslint-disable-next-line no-console
-console.error = (warning, ...args) => {
-  if (/(Invalid prop|Failed prop type)/gi.test(warning)) {
-    throw new Error(warning);
+let unhandledOutput = [];
+let logSpy;
+let warnSpy;
+let errorSpy;
+let stderrSpy;
+
+beforeEach(() => {
+  unhandledOutput = [];
+  logSpy = vi.spyOn(console, 'log').mockImplementation((...args) => {
+    unhandledOutput.push({ args, type: 'console.log' });
+  });
+  warnSpy = vi.spyOn(console, 'warn').mockImplementation((...args) => {
+    unhandledOutput.push({ args, type: 'console.warn' });
+  });
+  errorSpy = vi.spyOn(console, 'error').mockImplementation((warning, ...args) => {
+    if (typeof warning === 'string' && /(Invalid prop|Failed prop type)/gi.test(warning)) {
+      throw new Error(warning);
+    }
+    unhandledOutput.push({ args: [warning, ...args], type: 'console.error' });
+  });
+  stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation((chunk, encoding, callback) => {
+    unhandledOutput.push({ args: [chunk?.toString()], type: 'process.stderr.write' });
+    if (typeof encoding === 'function') {
+      encoding();
+    } else if (typeof callback === 'function') {
+      callback();
+    }
+    return true;
+  });
+});
+
+afterEach(() => {
+  logSpy?.mockRestore();
+  warnSpy?.mockRestore();
+  errorSpy?.mockRestore();
+  stderrSpy?.mockRestore();
+
+  if (unhandledOutput.length > 0) {
+    const formatted = unhandledOutput
+      .map(
+        ({ args, type }) =>
+          `${type}: ${args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' ')}`,
+      )
+      .join('\n');
+    unhandledOutput = [];
+    throw new Error(`Unexpected unhandled console/stderr output in test:\n${formatted}`);
   }
-  error.apply(console, [warning, ...args]);
-};
+});

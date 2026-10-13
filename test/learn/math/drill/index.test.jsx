@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { act, render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import helper from '../../../../src/learn/math/drill/helper.js';
 import Drill from '../../../../src/learn/math/drill/index.jsx';
 
@@ -17,6 +17,16 @@ describe('Drill', () => {
     userName: 'my name',
   };
 
+  const renderDrill = () => {
+    const drillRef = React.createRef();
+    const utils = render(
+      <ThemeProvider theme={theme}>
+        <Drill ref={drillRef} />
+      </ThemeProvider>,
+    );
+    return { ...utils, instance: drillRef.current };
+  };
+
   beforeEach(() => {
     // eslint-disable-next-line no-proto
     vi.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValue(
@@ -29,31 +39,16 @@ describe('Drill', () => {
   });
 
   test('should render the Drill component', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
-
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    renderDrill();
+    expect(screen.getByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    expect(screen.getByRole('heading', { level: 2, name: /Operation/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Start/i })).toBeDefined();
   });
 
   test('should clear interval on unmount if timerId is active', () => {
     const clearIntervalSpy = vi.spyOn(window, 'clearInterval');
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance, unmount } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.onStart();
     });
@@ -61,42 +56,23 @@ describe('Drill', () => {
     const { timerId } = instance.state;
     expect(timerId).toBeDefined();
 
-    act(() => {
-      component.unmount();
-    });
+    unmount();
 
     expect(clearIntervalSpy).toHaveBeenCalledWith(timerId);
   });
 
   test('should not call clearInterval on unmount if timerId is not set', () => {
     const clearIntervalSpy = vi.spyOn(window, 'clearInterval');
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { unmount } = renderDrill();
 
-    act(() => {
-      component.unmount();
-    });
+    unmount();
 
     expect(clearIntervalSpy).not.toHaveBeenCalled();
   });
 
   test('should update timeLeft on interval when timeLeft > 0', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.setState({
         endTime: Temporal.Now.instant().add(Temporal.Duration.from({ seconds: 30 })),
@@ -110,16 +86,8 @@ describe('Drill', () => {
   });
 
   test('should end quiz on interval when timeLeft <= 0', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.onStart();
     });
@@ -137,16 +105,8 @@ describe('Drill', () => {
   });
 
   test('should handle onChange for checkbox and input fields', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.onChange({ target: { checked: false, name: 'largeKeyboard', type: 'checkbox' } });
     });
@@ -159,16 +119,8 @@ describe('Drill', () => {
   });
 
   test('should set parent state and save', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.setParentState({ minutes: '2' });
     });
@@ -176,16 +128,8 @@ describe('Drill', () => {
   });
 
   test('should process correct and incorrect answers and finish quiz', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.onStart();
     });
@@ -230,16 +174,8 @@ describe('Drill', () => {
   });
 
   test('should ignore non-numeric answer in checkAnswer', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.onStart();
     });
@@ -251,16 +187,8 @@ describe('Drill', () => {
   });
 
   test('should re-roll next task if it matches currentTask', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
+    const { instance } = renderDrill();
 
-    const instance = component.root.findByType(Drill).instance;
     act(() => {
       instance.setState({
         currentTask: [1, 2, 0, 3],
@@ -281,33 +209,26 @@ describe('Drill', () => {
   });
 
   test('should render running and finished states, and handle unknown state', () => {
-    let component;
-    act(() => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <Drill />
-        </ThemeProvider>,
-      );
-    });
-
-    const instance = component.root.findByType(Drill).instance;
+    const { container, instance } = renderDrill();
 
     act(() => {
       instance.onStart();
     });
-    expect(component.toJSON()).toBeDefined();
+    expect(screen.getByText(/Time Left:/i)).toBeDefined();
 
     act(() => {
       instance.endQuiz();
     });
-    expect(component.toJSON()).toBeDefined();
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Finished' })).toBeDefined();
 
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
       instance.setState({ currentAction: 'unknown_action' });
     });
-    expect(component.toJSON()).toBeNull();
+    expect(container.firstChild).toBeNull();
     expect(consoleErrorSpy).toHaveBeenCalled();
+    consoleErrorSpy.mockRestore();
   });
 
   test('MathDrill.save handles edge cases safely', () => {

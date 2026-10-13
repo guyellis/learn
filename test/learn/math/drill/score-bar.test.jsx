@@ -1,5 +1,5 @@
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
 import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.jsx';
 
 const nowFn = Date.now;
@@ -19,26 +19,14 @@ describe('ScoreBar', () => {
 
   test('should not show if showScoreBar is false', () => {
     const times = [];
-
-    let component;
-    act(() => {
-      component = renderer.create(<ScoreBar showScoreBar={false} times={times} />);
-    });
-
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    const { container } = render(<ScoreBar showScoreBar={false} times={times} />);
+    expect(container.firstChild).toBeNull();
   });
 
   test('should not show if times is empty', () => {
     const times = [];
-
-    let component;
-    act(() => {
-      component = renderer.create(<ScoreBar showScoreBar times={times} />);
-    });
-
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    const { container } = render(<ScoreBar showScoreBar times={times} />);
+    expect(container.firstChild).toBeNull();
   });
 
   test('should show 1 column with Gold Badge', () => {
@@ -52,13 +40,10 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    let component;
-    act(() => {
-      component = renderer.create(<ScoreBar showScoreBar times={times} />);
-    });
-
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    render(<ScoreBar showScoreBar times={times} />);
+    expect(screen.getByText('4 minutes ago')).toBeDefined();
+    expect(screen.getByText('Badges')).toBeDefined();
+    expect(screen.getByText('YOU\u21FE')).toBeDefined();
   });
 
   test('should show 1 column with below Blue Badge', () => {
@@ -72,13 +57,10 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    let component;
-    act(() => {
-      component = renderer.create(<ScoreBar showScoreBar times={times} />);
-    });
-
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    render(<ScoreBar showScoreBar times={times} />);
+    expect(screen.getByText('4 minutes ago')).toBeDefined();
+    expect(screen.getByText('Badges')).toBeDefined();
+    expect(screen.getByText('YOU\u2193')).toBeDefined();
   });
 
   test('should show 5 columns with mixed Badges', () => {
@@ -102,13 +84,12 @@ describe('ScoreBar', () => {
 
     mockDates(times);
 
-    let component;
-    act(() => {
-      component = renderer.create(<ScoreBar showScoreBar times={times} />);
-    });
-
-    const finishedBadge = component.toJSON();
-    expect(finishedBadge).toMatchSnapshot();
+    render(<ScoreBar showScoreBar times={times} />);
+    expect(screen.getByText('4 minutes ago')).toBeDefined();
+    expect(screen.getByText('2 minutes ago')).toBeDefined();
+    expect(screen.getByText('a few seconds ago')).toBeDefined();
+    expect(screen.getByText('Badges')).toBeDefined();
+    expect(screen.getAllByText(/YOU/i).length).toBe(3);
   });
 
   describe('formatFromNow', () => {

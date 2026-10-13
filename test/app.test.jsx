@@ -1,7 +1,7 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import renderer, { act } from 'react-test-renderer';
 import App from '../src/app.jsx';
 
 const theme = createTheme();
@@ -15,56 +15,44 @@ describe('App', () => {
     else if (path === '/help') await import('../src/learn/help/index.jsx');
     else await import('../src/learn/not-found.jsx');
 
-    let component;
-    await act(async () => {
-      component = renderer.create(
-        <ThemeProvider theme={theme}>
-          <MemoryRouter initialEntries={[path]}>
-            <App />
-          </MemoryRouter>
-        </ThemeProvider>,
-      );
-    });
-
-    const startTime = Date.now();
-    const timeout = 5000;
-    while (Date.now() - startTime < timeout) {
-      const tree = JSON.stringify(component.toJSON());
-      if (tree && !tree.includes('Loading...')) {
-        break;
-      }
-      await act(async () => {
-        await new Promise((resolve) => setTimeout(resolve, 20));
-      });
-    }
-    return component;
+    render(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={[path]}>
+          <App />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
   };
 
   test('should render an App component', async () => {
-    const component = await renderApp('/');
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    await renderApp('/');
+    expect(await screen.findByRole('button', { name: /Math Drill/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Scoreboard/i })).toBeDefined();
   });
 
   test('should render the Drill route', async () => {
-    const component = await renderApp('/math/drill');
-    expect(component.root.findAllByType('h2')[0].children).toEqual(['Level']);
+    await renderApp('/math/drill');
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
   });
 
   test('should render the Score route', async () => {
-    const component = await renderApp('/math/score');
-    expect(component.root.findByProps({ id: 'clear-record-history' })).toBeDefined();
+    await renderApp('/math/score');
+    expect(await screen.findByRole('button', { name: /Clear Record History/i })).toBeDefined();
   });
 
   test('should render the Help route', async () => {
-    const component = await renderApp('/help');
-    expect(component.toJSON()).toBeDefined();
+    await renderApp('/help');
+    expect(
+      await screen.findByRole('heading', { level: 3, name: /Help with Math Drill/i }),
+    ).toBeDefined();
   });
 
   test('should render the NotFound component for unknown route', async () => {
-    const component = await renderApp('/unknown');
-    expect(component.root.findByProps({ alt: '404 Page Not Found' })).toBeDefined();
-    const app = component.toJSON();
-    expect(app).toMatchSnapshot();
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    await renderApp('/unknown');
+    expect(await screen.findByAltText('404 Page Not Found')).toBeDefined();
+    expect(screen.getByRole('heading', { level: 1, name: /Oops! Page Not Found/i })).toBeDefined();
+    expect(consoleErrorSpy).toHaveBeenCalled();
+    consoleErrorSpy.mockRestore();
   });
 });
