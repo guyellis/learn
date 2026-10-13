@@ -503,6 +503,33 @@ per question. (Your best score is 5 seconds per question.)',
 
       expect(actual).toEqual(expected);
     });
+
+    test('should aggregate multiple scores for the same level and operation', () => {
+      vi.mocked(db.getScores).mockReturnValueOnce([
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [0],
+          timePerQuestion: 6,
+        },
+        {
+          correctCount: 10,
+          levelIndex: 0,
+          opIndexes: [0],
+          timePerQuestion: 3,
+        },
+      ]);
+
+      const expected = {
+        levels: [{ 0: [0, 1, 0, 1] }],
+        ops: new Set(['0']),
+        totals: [0, 1, 0, 1],
+      };
+
+      const actual = getScoreboard();
+
+      expect(actual).toEqual(expected);
+    });
   });
 
   describe('newRecord()', () => {
@@ -568,6 +595,69 @@ per question. (Your best score is 5 seconds per question.)',
 
       expect(actual).toEqual(expected);
       dateSpy.mockRestore();
+    });
+
+    test('should return isNewRecord true when currentTime is faster than existing record', () => {
+      const start = new Date(2017, 0, 1, 1, 1, 1);
+      const end = new Date(2017, 0, 1, 1, 1, 40);
+      const startTime = Temporal.Instant.fromEpochMilliseconds(start.getTime());
+      const dateSpy = vi.spyOn(Date, 'now').mockReturnValue(end.valueOf());
+      const { newRecord } = helper;
+      const input = {
+        currentRecord: {
+          timePerQuestion: 40,
+        },
+        previousResults: [
+          {
+            actuals: [55],
+            task: [0, 0, 0, 55] as [number, number, number, number],
+          },
+        ],
+        startTime,
+      };
+      const expected = {
+        currentTimePerQuestion: 39,
+        existingRecordTimePerQuestion: 40,
+        isNewRecord: true,
+      };
+      const actual = newRecord(input);
+
+      expect(actual).toEqual(expected);
+      dateSpy.mockRestore();
+    });
+
+    test('should return NaN for existingRecordTimePerQuestion when currentRecord lacks timePerQuestion', () => {
+      const start = new Date(2017, 0, 1, 1, 1, 1);
+      const end = new Date(2017, 0, 1, 1, 1, 40);
+      const startTime = Temporal.Instant.fromEpochMilliseconds(start.getTime());
+      const dateSpy = vi.spyOn(Date, 'now').mockReturnValue(end.valueOf());
+      const { newRecord } = helper;
+      const input = {
+        currentRecord: {},
+        previousResults: [
+          {
+            actuals: [55],
+            task: [0, 0, 0, 55] as [number, number, number, number],
+          },
+        ],
+        startTime,
+      };
+      const expected = {
+        currentTimePerQuestion: 39,
+        existingRecordTimePerQuestion: NaN,
+        isNewRecord: false,
+      };
+      const actual = newRecord(input);
+
+      expect(actual).toEqual(expected);
+      dateSpy.mockRestore();
+    });
+  });
+
+  describe('getBadgeHtmlColor()', () => {
+    test('should return HTML color for badge index', () => {
+      expect(helper.getBadgeHtmlColor(1)).toBe('#ffd700');
+      expect(helper.getBadgeHtmlColor(6)).toBe('lightblue');
     });
   });
 

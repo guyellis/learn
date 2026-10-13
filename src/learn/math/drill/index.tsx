@@ -110,7 +110,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
 
   onStart() {
     this.setNextTask();
-    const { levelIndex, minutes = '1', opIndexes, totalProblems } = this.state;
+    const { levelIndex, minutes, opIndexes, totalProblems } = this.state;
     const seconds = parseFloat(minutes) * 60;
     const startTime = Temporal.Now.instant();
     const endTime = startTime.add(Temporal.Duration.from({ seconds }));
@@ -194,8 +194,8 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
     const { startTime } = this.state;
     const totalProblemsNum = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
-      const { currentTask: task, previousResults = [] } = this.state;
-      let { correctCount = 0, totalCount = 0 } = this.state;
+      const { currentTask: task, previousResults } = this.state;
+      let { correctCount = 0, totalCount } = this.state;
       totalCount += 1;
       let { previousTime = startTime } = this.state;
       const prevInstant = helper.toInstant(previousTime);

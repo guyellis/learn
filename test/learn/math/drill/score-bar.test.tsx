@@ -105,6 +105,12 @@ describe('ScoreBar', () => {
       expect(formatFromNow(base)).toBe('a few seconds ago');
     });
 
+    test('should format string ISO date', () => {
+      const instant = Temporal.Instant.fromEpochMilliseconds(base);
+      Date.now = vi.fn(() => base + 1000 * 10);
+      expect(formatFromNow(instant.toString())).toBe('a few seconds ago');
+    });
+
     test('should format 1 minute as a minute ago', () => {
       Date.now = vi.fn(() => base + 1000 * 60);
       expect(formatFromNow(base)).toBe('a minute ago');

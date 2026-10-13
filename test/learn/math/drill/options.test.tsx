@@ -40,15 +40,71 @@ describe('Options', () => {
 
   test('should toggle opIndex when operation button clicked', async () => {
     const user = userEvent.setup();
+    const setParentState = vi.fn();
     render(
       <ThemeProvider theme={theme}>
-        <Options {...defaultProps} opIndexes={[0, 1]} />
+        <Options {...defaultProps} opIndexes={[0, 1]} setParentState={setParentState} />
       </ThemeProvider>,
     );
 
     const plusButton = screen.getByRole('button', { name: '+' });
     await user.click(plusButton);
 
-    expect(defaultProps.setParentState).toHaveBeenCalled();
+    expect(setParentState).toHaveBeenCalledWith({ opIndexes: [1] });
+  });
+
+  test('should add opIndex when unselected operation button is clicked', async () => {
+    const user = userEvent.setup();
+    const setParentState = vi.fn();
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} opIndexes={[0]} setParentState={setParentState} />
+      </ThemeProvider>,
+    );
+
+    const minusButton = screen.getByRole('button', { name: '-' });
+    await user.click(minusButton);
+
+    expect(setParentState).toHaveBeenCalledWith({ opIndexes: [0, 1] });
+  });
+
+  test('should not reduce opIndexes below 1 when clicking the only selected operation', async () => {
+    const user = userEvent.setup();
+    const setParentState = vi.fn();
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} opIndexes={[0]} setParentState={setParentState} />
+      </ThemeProvider>,
+    );
+
+    const plusButton = screen.getByRole('button', { name: '+' });
+    await user.click(plusButton);
+
+    expect(setParentState).toHaveBeenCalledWith({ opIndexes: [0] });
+  });
+
+  test('should update levelIndex when a level button is clicked', async () => {
+    const user = userEvent.setup();
+    const setParentState = vi.fn();
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} setParentState={setParentState} />
+      </ThemeProvider>,
+    );
+
+    const bButton = screen.getByRole('button', { name: 'B' });
+    await user.click(bButton);
+
+    expect(setParentState).toHaveBeenCalledWith({ levelIndex: 1 });
+  });
+
+  test('should not render large keyboard switch when onscreenKeyboard is false', () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Options {...defaultProps} onscreenKeyboard={false} />
+      </ThemeProvider>,
+    );
+
+    expect(screen.queryByLabelText(/Large Keyboard/i)).toBeNull();
   });
 });
