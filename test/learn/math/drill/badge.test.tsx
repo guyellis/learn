@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Badge from '../../../../src/learn/math/drill/badge.jsx';
+import Badge from '../../../../src/learn/math/drill/badge.js';
 
 const theme = createTheme();
 

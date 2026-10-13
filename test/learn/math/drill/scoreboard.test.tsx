@@ -2,22 +2,28 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import type { MockInstance } from 'vitest';
 import db from '../../../../src/learn/db/index.js';
-import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.jsx';
+import ScoreBoard from '../../../../src/learn/math/drill/scoreboard.js';
 
 const theme = createTheme();
 
 describe('ScoreBoard', () => {
+  let getScoresSpy: MockInstance;
+  let clearScoresSpy: MockInstance;
+
   beforeEach(() => {
-    db.getScores = vi.fn();
+    getScoresSpy = vi.spyOn(db, 'getScores').mockReturnValue([]);
+    clearScoresSpy = vi.spyOn(db, 'clearScores').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    db.getScores.mockClear();
+    getScoresSpy.mockRestore();
+    clearScoresSpy.mockRestore();
   });
 
   test('should render showScoreBoard', () => {
-    db.getScores.mockReturnValueOnce([
+    getScoresSpy.mockReturnValueOnce([
       {
         correctCount: 10,
         levelIndex: 0,
@@ -39,7 +45,7 @@ describe('ScoreBoard', () => {
 
   test('should clear record history when clear button is clicked', async () => {
     const user = userEvent.setup();
-    db.getScores.mockReturnValue([
+    getScoresSpy.mockReturnValue([
       {
         correctCount: 10,
         levelIndex: 0,
@@ -47,7 +53,6 @@ describe('ScoreBoard', () => {
         timePerQuestion: 6,
       },
     ]);
-    db.clearScores = vi.fn();
 
     render(
       <ThemeProvider theme={theme}>
@@ -56,8 +61,8 @@ describe('ScoreBoard', () => {
     );
 
     const button = document.getElementById('clear-record-history');
-    await user.click(button);
+    await user.click(button!);
 
-    expect(db.clearScores).toHaveBeenCalled();
+    expect(clearScoresSpy).toHaveBeenCalled();
   });
 });

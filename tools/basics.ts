@@ -1,0 +1,37 @@
+// This module generates pages of basic multiplication and division problems.
+// Multiplication: From 1x1 to 12x12
+// Division: From 1/1 to 144/12
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+// @ts-expect-error lodash has no type definitions installed
+import _ from 'lodash';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const allPairs = (): string[] => {
+  const numbers = [...Array(12).keys()].map((a) => a + 1);
+
+  const m = numbers.reduce<[number, number][]>((acc, num) => {
+    const pairs: [number, number][] = numbers.map((a) => [a, num]);
+    return acc.concat(pairs);
+  }, []);
+
+  const d = numbers.reduce<[number, number][]>((acc, num) => {
+    const pairs: [number, number][] = numbers.map((a) => [a * num, num]);
+    return acc.concat(pairs);
+  }, []);
+
+  const mult = m.reduce<string[]>((acc, [a, b]) => acc.concat(`${a} x ${b} =`), []);
+  const div = d.reduce<string[]>((acc, [a, b]) => acc.concat(`${a} / ${b} =`), []);
+
+  return _.shuffle(mult.concat(div));
+};
+
+const math = allPairs();
+
+const text = math.join('\n');
+
+fs.writeFileSync(path.join(__dirname, 'problems.txt'), text, 'utf-8');

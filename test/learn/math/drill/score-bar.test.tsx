@@ -1,10 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.jsx';
+import ScoreBar, { formatFromNow } from '../../../../src/learn/math/drill/score-bar.js';
+import type { ScoreBarTime } from '../../../../src/learn/math/drill/types.js';
+
+interface MockTime extends ScoreBarTime {
+  dateMockDelta: number;
+}
 
 const nowFn = Date.now;
 
-function mockDates(times) {
+function mockDates(times: MockTime[]) {
   let idx = 0;
   Date.now = vi.fn(() => {
     const time = times[Math.min(idx++, times.length - 1)];
@@ -18,13 +23,13 @@ describe('ScoreBar', () => {
   });
 
   test('should not show if showScoreBar is false', () => {
-    const times = [];
+    const times: ScoreBarTime[] = [];
     const { container } = render(<ScoreBar showScoreBar={false} times={times} />);
     expect(container.firstChild).toBeNull();
   });
 
   test('should not show if times is empty', () => {
-    const times = [];
+    const times: ScoreBarTime[] = [];
     const { container } = render(<ScoreBar showScoreBar times={times} />);
     expect(container.firstChild).toBeNull();
   });

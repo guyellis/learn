@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import Menu from '../../src/learn/menu.jsx';
+import Menu from '../../src/learn/menu.js';
 
 const theme = createTheme();
 

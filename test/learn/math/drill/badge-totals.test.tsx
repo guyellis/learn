@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import BadgeTotals from '../../../../src/learn/math/drill/badge-totals.jsx';
+import BadgeTotals from '../../../../src/learn/math/drill/badge-totals.js';
 
 const theme = createTheme();
 

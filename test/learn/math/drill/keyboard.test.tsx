@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import Keyboard from '../../../../src/learn/math/drill/keyboard.jsx';
+import Keyboard from '../../../../src/learn/math/drill/keyboard.js';
 
 const theme = createTheme();
 

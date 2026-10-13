@@ -1,31 +1,40 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Running from '../../../../src/learn/math/drill/running.jsx';
+import Running, { type RunningProps } from '../../../../src/learn/math/drill/running.js';
+import type {
+  DrillTask,
+  NewRecordComparison,
+  PreviousResult,
+} from '../../../../src/learn/math/drill/types.js';
 
 const theme = createTheme();
 
 describe('Running', () => {
-  const defaultProps = {
+  const currentTask: DrillTask = [2, 3, 0, 5];
+  const newRecord: NewRecordComparison = {
+    currentTimePerQuestion: 1.5,
+    existingRecordTimePerQuestion: 2.0,
+    isNewRecord: false,
+  };
+  const previousResults: PreviousResult[] = [
+    {
+      actuals: [3],
+      id: 1,
+      task: [1, 2, 0, 3],
+      timeTaken: 1.2,
+    },
+  ];
+
+  const defaultProps: RunningProps = {
     checkAnswer: vi.fn(),
-    currentTask: [2, 3, 0, 5],
+    currentTask,
     largeKeyboard: false,
     levelIndex: 0,
-    newRecord: {
-      currentTimePerQuestion: 1.5,
-      existingRecordTimePerQuestion: 2.0,
-      isNewRecord: false,
-    },
+    newRecord,
     onscreenKeyboard: false,
     opIndexes: [0],
-    previousResults: [
-      {
-        actuals: [3],
-        id: 1,
-        task: [1, 2, 0, 3],
-        timeTaken: 1.2,
-      },
-    ],
+    previousResults,
     questionsRemaining: 19,
     timeLeft: 58,
   };
@@ -58,7 +67,7 @@ describe('Running', () => {
 
   test('should return null and warn when currentTask is not defined', () => {
     const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    const result = Running({ ...defaultProps, currentTask: null });
+    const result = Running({ ...defaultProps, currentTask: null as unknown as undefined });
 
     expect(result).toBeNull();
     expect(spy).toHaveBeenCalledWith('No currentTask defined in renderRunning');
