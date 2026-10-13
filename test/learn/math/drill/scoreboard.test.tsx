@@ -30,6 +30,12 @@ describe('ScoreBoard', () => {
         opIndexes: [0],
         timePerQuestion: 6,
       },
+      {
+        correctCount: 10,
+        levelIndex: 2,
+        opIndexes: [1],
+        timePerQuestion: 6,
+      },
     ]);
 
     render(
@@ -41,6 +47,7 @@ describe('ScoreBoard', () => {
     expect(screen.getByRole('button', { name: /Clear Record History/i })).toBeDefined();
     expect(screen.getByRole('heading', { level: 3, name: 'Scoreboard' })).toBeDefined();
     expect(screen.getByRole('rowheader', { name: 'A' })).toBeDefined();
+    expect(screen.getByRole('rowheader', { name: 'C' })).toBeDefined();
   });
 
   test('should clear record history when clear button is clicked', async () => {

@@ -236,4 +236,20 @@ describe('Drill', () => {
     expect(() => Drill.save(null as unknown as Record<string, unknown>)).not.toThrow();
     expect(() => Drill.save({})).not.toThrow();
   });
+
+  test('should initialize correctCount on first answer when undefined in state', () => {
+    const { instance } = renderDrill();
+    act(() => {
+      instance.onStart();
+    });
+    act(() => {
+      instance.setState({
+        currentTask: [2, 3, 0, 5],
+      });
+    });
+    act(() => {
+      instance.checkAnswer('5');
+    });
+    expect(instance.state.correctCount).toBe(1);
+  });
 });

@@ -237,4 +237,10 @@ describe('DB', () => {
 
     expect(actual).toEqual(scoresVersion3.scores);
   });
+
+  test('should throw an error when convertVersion2 is called with version not equal to 2', () => {
+    expect(() => {
+      db.convertVersion2({ scores: [], version: 1 as unknown as 2 });
+    }).toThrow('version must be 2 and not 1 in convertVersion2');
+  });
 });

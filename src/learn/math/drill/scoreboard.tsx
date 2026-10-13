@@ -70,20 +70,16 @@ function Scoreboard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {levels.map((level, index) =>
-              level ? (
-                <TableRow key={alphabet[index]}>
-                  <TableCell component="th" key={alphabet[index]} scope="row">
-                    {alphabet[index]}
-                  </TableCell>
-                  {ops.map((op) => (
-                    <TableCell key={op}>{badge(level[op])}</TableCell>
-                  ))}
-                </TableRow>
-              ) : (
-                ''
-              ),
-            )}
+            {levels.map((level, index) => (
+              <TableRow key={alphabet[index]}>
+                <TableCell component="th" key={alphabet[index]} scope="row">
+                  {alphabet[index]}
+                </TableCell>
+                {ops.map((op) => (
+                  <TableCell key={op}>{badge(level![op])}</TableCell>
+                ))}
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </Paper>
