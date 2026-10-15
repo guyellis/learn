@@ -1,4 +1,5 @@
 import './index.scss';
+import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -7,6 +8,24 @@ import App from './app.js';
 import poly from './poly.js';
 
 const theme = createTheme({
+  palette: {
+    background: {
+      default: '#f8fafc',
+      paper: '#ffffff',
+    },
+    error: {
+      main: '#dc2626',
+    },
+    primary: {
+      main: '#4f46e5',
+    },
+    secondary: {
+      main: '#f59e0b',
+    },
+    success: {
+      main: '#16a34a',
+    },
+  },
   typography: {
     body1: {
       fontSize: '1rem',
@@ -87,6 +106,7 @@ poly(undefined, async (err) => {
     const root = createRoot(container);
     root.render(
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <BrowserRouter>
           <App />
         </BrowserRouter>

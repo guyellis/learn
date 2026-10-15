@@ -1,3 +1,4 @@
+import Container from '@mui/material/Container';
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Menu from './learn/menu.js';
@@ -12,15 +13,17 @@ function app() {
   return (
     <div>
       <Menu />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route element={<Home />} path="/" />
-          <Route element={<Drill />} path="/math/drill" />
-          <Route element={<Scoreboard />} path="/math/score" />
-          <Route element={<Help />} path="/help" />
-          <Route element={<NotFound />} path="*" />
-        </Routes>
-      </Suspense>
+      <Container component="main" maxWidth="md" sx={{ px: { sm: 3, xs: 2 }, py: 3 }}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route element={<Home />} path="/" />
+            <Route element={<Drill />} path="/math/drill" />
+            <Route element={<Scoreboard />} path="/math/score" />
+            <Route element={<Help />} path="/help" />
+            <Route element={<NotFound />} path="*" />
+          </Routes>
+        </Suspense>
+      </Container>
     </div>
   );
 }
