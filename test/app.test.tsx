@@ -58,7 +58,7 @@ describe('App', () => {
     await renderApp('/unknown');
     expect(await screen.findByAltText('404 Page Not Found')).toBeDefined();
     expect(screen.getByRole('heading', { level: 1, name: /Oops! Page Not Found/i })).toBeDefined();
-    expect(consoleErrorSpy).toHaveBeenCalled();
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
     consoleErrorSpy.mockRestore();
   });
 });
