@@ -13,7 +13,9 @@ import type {
   ScoreRecord,
 } from './types.js';
 
-export type MathDrillProps = Record<string, never>;
+export interface MathDrillProps {
+  key?: React.Key;
+}
 
 export interface MathDrillState {
   asked: Set<string>;
