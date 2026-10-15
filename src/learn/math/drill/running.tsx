@@ -3,6 +3,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import React, { useEffect, useRef, useState } from 'react';
 import constants from '../../common/constants.js';
+import helper from './helper.js';
 import QuizLine from './quiz-line.js';
 import RunningResults from './running-results.js';
 import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
@@ -17,6 +18,7 @@ export interface RunningProps {
   opIndexes: number[];
   previousResults: PreviousResult[];
   questionsRemaining: number;
+  questionStartTime?: Temporal.Instant;
   timeLeft: number;
 }
 
@@ -29,6 +31,7 @@ function Running(props: RunningProps) {
     opIndexes,
     previousResults,
     questionsRemaining,
+    questionStartTime,
     timeLeft,
   } = props;
 
@@ -70,6 +73,36 @@ function Running(props: RunningProps) {
       }
     }
     checkAnswer(answer);
+  };
+
+  const questionStartInstant = questionStartTime ? helper.toInstant(questionStartTime) : null;
+  const elapsedSeconds = questionStartInstant
+    ? Math.max(
+        0,
+        Math.floor(Temporal.Now.instant().since(questionStartInstant).total({ unit: 'second' })),
+      )
+    : 0;
+  const timerBadgeColor = helper.getBadgeHtmlColor(elapsedSeconds);
+
+  const renderPaceChip = () => {
+    const { currentTimePerQuestion, existingRecordTimePerQuestion, isNewRecord } = newRecord;
+    if (isNaN(currentTimePerQuestion)) {
+      return null;
+    }
+
+    const hasRecord = !isNaN(existingRecordTimePerQuestion);
+    const baseText = hasRecord
+      ? `Speed ${currentTimePerQuestion}s · Record ${existingRecordTimePerQuestion}s`
+      : `Speed ${currentTimePerQuestion}s`;
+    const label = `${baseText}${isNewRecord ? ' · NEW RECORD!' : ''}`;
+
+    return (
+      <Chip
+        color={isNewRecord ? 'success' : undefined}
+        label={label}
+        variant={isNewRecord ? 'filled' : 'outlined'}
+      />
+    );
   };
 
   const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
@@ -132,14 +165,20 @@ function Running(props: RunningProps) {
           }
           variant="outlined"
         />
+        <Chip
+          aria-label={`Current question time ${elapsedSeconds} seconds`}
+          label={`${elapsedSeconds}s`}
+          style={{ backgroundColor: timerBadgeColor }}
+          sx={{
+            backgroundColor: timerBadgeColor,
+            color: 'common.black',
+            fontWeight: 'bold',
+          }}
+        />
+        {renderPaceChip()}
       </Stack>
       <div>
-        <QuizLine
-          checkAnswer={handleCheckAnswer}
-          lastResult={lastResult}
-          newRecord={newRecord}
-          problem={currentTask}
-        />
+        <QuizLine checkAnswer={handleCheckAnswer} lastResult={lastResult} problem={currentTask} />
         <RunningResults previousResults={lastTen} showIndex />
       </div>
     </Box>

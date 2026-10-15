@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import constants from '../../common/constants.js';
 import { generateAnswerChoices } from './answer-choices.js';
 import RunningResults from './running-results.js';
-import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
+import type { DrillTask, PreviousResult } from './types.js';
 
 const { OPERATIONS: operations } = constants;
 
@@ -34,12 +34,11 @@ const quizLineStyle: React.CSSProperties = {
 export interface QuizLineProps {
   checkAnswer: (answer: string) => void;
   lastResult?: PreviousResult | null;
-  newRecord: NewRecordComparison;
   problem: DrillTask;
 }
 
 function QuizLine(props: QuizLineProps) {
-  const { checkAnswer, lastResult, newRecord, problem } = props;
+  const { checkAnswer, lastResult, problem } = props;
   const [problemKey, setProblemKey] = useState<string>(() => problem.join(','));
   const [choices, setChoices] = useState<number[]>(() => generateAnswerChoices(problem));
   const [disabledAnswers, setDisabledAnswers] = useState<number[]>([]);
@@ -59,21 +58,6 @@ function QuizLine(props: QuizLineProps) {
       setDisabledAnswers((prev) => [...prev, choice]);
     }
     checkAnswer(String(choice));
-  };
-
-  const renderNewRecord = () => {
-    const { currentTimePerQuestion, existingRecordTimePerQuestion, isNewRecord } = newRecord;
-
-    const current = isNaN(currentTimePerQuestion) ? '[none]' : currentTimePerQuestion;
-    const existing = existingRecordTimePerQuestion || '[none]';
-
-    const recordText = `Current Speed ${current} and Record ${existing}${isNewRecord ? ' NEW RECORD!' : ''}`;
-
-    return (
-      <div>
-        <div style={lastResultCorrectStyle}>{recordText}</div>
-      </div>
-    );
   };
 
   const renderLastResult = () => {
@@ -159,7 +143,6 @@ function QuizLine(props: QuizLineProps) {
         })}
       </Box>
       {renderLastResult()}
-      {renderNewRecord()}
     </div>
   );
 }

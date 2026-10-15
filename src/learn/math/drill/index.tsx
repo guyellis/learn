@@ -119,6 +119,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
       currentAction: 'running',
       currentRecord,
       endTime,
+      previousTime: undefined,
       questionsRemaining: parseInt(totalProblems, 10),
       seconds,
       startTime,
@@ -299,6 +300,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
       levelIndex,
       opIndexes,
       previousResults,
+      previousTime,
       questionsRemaining,
       startTime,
       timeLeft,
@@ -313,6 +315,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
         opIndexes={opIndexes}
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}
+        questionStartTime={previousTime ?? startTime}
         timeLeft={timeLeft}
       />
     );
