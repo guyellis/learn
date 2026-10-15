@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React from 'react';
@@ -20,10 +21,6 @@ const imageStyle: React.CSSProperties = {
   width: '500px',
 };
 
-const buttonWrapperStyle: React.CSSProperties = {
-  marginTop: '20px',
-};
-
 function NotFound() {
   return (
     <div style={containerStyle}>
@@ -36,13 +33,13 @@ function NotFound() {
         We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing
         math!
       </Typography>
-      <div style={buttonWrapperStyle}>
+      <Box sx={{ mt: 3 }}>
         <Link to="/">
-          <Button color="primary" variant="contained">
+          <Button color="primary" size="large" sx={{ minHeight: '48px' }} variant="contained">
             Back to Home
           </Button>
         </Link>
-      </div>
+      </Box>
     </div>
   );
 }

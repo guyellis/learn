@@ -1,8 +1,9 @@
 import { Send } from '@mui/icons-material';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import FloatingActionButton from '@mui/material/Fab';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
@@ -12,15 +13,6 @@ import db from '../../db/index.js';
 import type { DrillOptions } from './types.js';
 
 const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
-
-const buttonStyle: React.CSSProperties = {
-  fontSize: '2em',
-  margin: '5px',
-};
-
-const sectionStyle: React.CSSProperties = {
-  marginTop: '30px',
-};
 
 export interface OptionsProps {
   largeKeyboard: boolean;
@@ -67,40 +59,44 @@ function Options(props: OptionsProps) {
   }
 
   return (
-    <div>
-      <div style={sectionStyle}>
+    <Stack spacing={3}>
+      <Box>
         <h2>Level</h2>
-        <div>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {alphabet.map((letter, index) => (
             <Tooltip key={letter} title={letter}>
-              <FloatingActionButton
-                color={index === levelIndex ? 'secondary' : 'primary'}
+              <Button
+                color="primary"
                 onClick={() => setParentState({ levelIndex: index })}
-                style={buttonStyle}
+                size="large"
+                sx={{ minHeight: '48px', minWidth: '48px' }}
+                variant={index === levelIndex ? 'contained' : 'outlined'}
               >
                 {letter}
-              </FloatingActionButton>
+              </Button>
             </Tooltip>
           ))}
-        </div>
-      </div>
-      <div style={sectionStyle}>
+        </Box>
+      </Box>
+      <Box>
         <h2>Operation</h2>
-        <div>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {operations.map((operation, index) => (
             <Tooltip key={operation} title={operation}>
-              <FloatingActionButton
-                color={opIndexes.includes(index) ? 'secondary' : 'primary'}
+              <Button
+                color="secondary"
                 onClick={() => toggleOpIndex(index)}
-                style={buttonStyle}
+                size="large"
+                sx={{ fontSize: '1.25rem', minHeight: '48px', minWidth: '48px' }}
+                variant={opIndexes.includes(index) ? 'contained' : 'outlined'}
               >
                 {operation}
-              </FloatingActionButton>
+              </Button>
             </Tooltip>
           ))}
-        </div>
-      </div>
-      <div style={sectionStyle}>
+        </Box>
+      </Box>
+      <Box>
         <h3>Time</h3>
         <TextField
           helperText="1"
@@ -108,12 +104,12 @@ function Options(props: OptionsProps) {
           label="Time"
           name="minutes"
           onChange={onChange}
-          style={{ marginLeft: 20, width: 100 }}
+          sx={{ width: 100 }}
           type="number"
           value={minutes}
         />
-      </div>
-      <div style={sectionStyle}>
+      </Box>
+      <Box>
         <h3>Total Questions (you only get badges for 10 or more correct questions)</h3>
         <TextField
           helperText="20"
@@ -121,12 +117,12 @@ function Options(props: OptionsProps) {
           label="Total Questions"
           name="totalProblems"
           onChange={onChange}
-          style={{ marginLeft: 40, width: 150 }}
+          sx={{ width: 150 }}
           type="number"
           value={totalProblems}
         />
-      </div>
-      <div style={sectionStyle}>
+      </Box>
+      <Box>
         <h3>Keyboard</h3>
         <FormGroup row>
           <FormControlLabel
@@ -141,9 +137,9 @@ function Options(props: OptionsProps) {
             label="Use onscreen keyboard"
           />
         </FormGroup>
-      </div>
+      </Box>
       {onscreenKeyboard && (
-        <div style={sectionStyle}>
+        <Box>
           <h3>Large Keyboard</h3>
           <FormGroup row>
             <FormControlLabel
@@ -158,9 +154,9 @@ function Options(props: OptionsProps) {
               label="Large Keyboard"
             />
           </FormGroup>
-        </div>
+        </Box>
       )}
-      <div style={sectionStyle}>
+      <Box>
         <h3>Your Name (Optional)</h3>
         <TextField
           helperText="Jemima Puddle-Duck"
@@ -168,18 +164,24 @@ function Options(props: OptionsProps) {
           label="Your Name"
           name="userName"
           onChange={onChange}
-          style={{ marginLeft: 40, width: 250 }}
+          sx={{ maxWidth: '100%', width: 250 }}
           type="text"
           value={userName}
         />
-      </div>
-      <div style={sectionStyle}>
-        <Button color="primary" onClick={onStart} variant="contained">
+      </Box>
+      <Box>
+        <Button
+          color="primary"
+          onClick={onStart}
+          size="large"
+          sx={{ minHeight: '48px' }}
+          variant="contained"
+        >
           Start
-          <Send />
+          <Send sx={{ ml: 1 }} />
         </Button>
-      </div>
-      <div style={sectionStyle}>
+      </Box>
+      <Box sx={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', gap: 2 }}>
         <Button
           color="secondary"
           id="clear-record-history"
@@ -187,13 +189,15 @@ function Options(props: OptionsProps) {
             db.clearScores();
             setHistoryCleared(true);
           }}
+          size="large"
+          sx={{ minHeight: '48px' }}
           variant="contained"
         >
           Clear Record History
         </Button>
-        {historyCleared && <span style={{ marginLeft: '10px' }}>Record history cleared!</span>}
-      </div>
-    </div>
+        {historyCleared && <span>Record history cleared!</span>}
+      </Box>
+    </Stack>
   );
 }
 

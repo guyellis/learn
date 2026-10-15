@@ -1,3 +1,6 @@
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import React from 'react';
 import constants from '../../common/constants.js';
 import QuizLine from './quiz-line.js';
@@ -5,16 +8,6 @@ import RunningResults from './running-results.js';
 import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
 
 const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
-
-const spanStyle: React.CSSProperties = {
-  paddingLeft: 20,
-};
-
-const highlightStyle: React.CSSProperties = {
-  backgroundColor: 'lightblue',
-  borderRadius: '3px',
-  padding: '2px 5px',
-};
 
 export interface RunningProps {
   checkAnswer: (answer: string) => void;
@@ -54,27 +47,53 @@ function running(props: RunningProps) {
 
   return (
     <div>
-      <div>
-        <span style={spanStyle}>
-          {'Level: '}
-          <span style={highlightStyle}>{alphabet[levelIndex]}</span>
-        </span>
-        <span style={spanStyle}>
-          {'Operation(s): '}
-          <span style={highlightStyle}>{opIndexes.map((i) => operations[i]).join()}</span>
-        </span>
-      </div>
-      <div>
-        <span style={spanStyle}>
-          {'Time Left: '}
-          <span style={highlightStyle}>{timeLeft}</span>
-          {' seconds'}
-        </span>
-        <span style={spanStyle}>
-          {'Questions Remaining: '}
-          <span style={highlightStyle}>{questionsRemaining}</span>
-        </span>
-      </div>
+      <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1, mb: 2 }}>
+        <Chip
+          label={
+            <span>
+              <span>Level:</span>{' '}
+              <Box component="span" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+                {alphabet[levelIndex]}
+              </Box>
+            </span>
+          }
+          variant="outlined"
+        />
+        <Chip
+          label={
+            <span>
+              <span>Operation(s):</span>{' '}
+              <Box component="span" sx={{ color: 'secondary.main', fontWeight: 'bold' }}>
+                {opIndexes.map((i) => operations[i]).join()}
+              </Box>
+            </span>
+          }
+          variant="outlined"
+        />
+        <Chip
+          label={
+            <span>
+              <span>Time Left:</span>{' '}
+              <Box component="span" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+                {timeLeft}
+              </Box>
+              <span> seconds</span>
+            </span>
+          }
+          variant="outlined"
+        />
+        <Chip
+          label={
+            <span>
+              <span>Questions Remaining:</span>{' '}
+              <Box component="span" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+                {questionsRemaining}
+              </Box>
+            </span>
+          }
+          variant="outlined"
+        />
+      </Stack>
       <div>
         <QuizLine
           checkAnswer={checkAnswer}

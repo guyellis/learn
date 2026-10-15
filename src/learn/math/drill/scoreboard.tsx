@@ -1,8 +1,10 @@
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useState } from 'react';
@@ -59,7 +61,7 @@ function Scoreboard() {
     <div>
       <h3>Scoreboard</h3>
       <BadgeTotals totals={totals} />
-      <Paper style={{ width: '100%' }}>
+      <TableContainer component={Paper} sx={{ maxWidth: '100%', overflowX: 'auto', width: '100%' }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -82,17 +84,19 @@ function Scoreboard() {
             ))}
           </TableBody>
         </Table>
-      </Paper>
-      <div style={{ marginTop: '20px' }}>
+      </TableContainer>
+      <Box sx={{ mt: 3 }}>
         <Button
           color="secondary"
           id="clear-record-history"
           onClick={handleClearHistory}
+          size="large"
+          sx={{ minHeight: '48px' }}
           variant="contained"
         >
           Clear Record History
         </Button>
-      </div>
+      </Box>
     </div>
   );
 }
