@@ -77,7 +77,7 @@ describe('Running', () => {
   });
 
   test('should trigger green flash on correct answer tap and return to normal after 300ms', () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const checkAnswer = vi.fn();
 
     render(
@@ -162,7 +162,7 @@ describe('Running', () => {
   });
 
   test('should clear timer on unmount', () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const clearTimeoutSpy = vi.spyOn(window, 'clearTimeout');
 
     const { unmount } = render(
