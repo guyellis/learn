@@ -20,5 +20,11 @@ describe('Help', () => {
     expect(screen.getByRole('heading', { level: 4, name: /Options/i })).toBeDefined();
     expect(screen.getByRole('heading', { level: 3, name: /Running/i })).toBeDefined();
     expect(screen.getByRole('heading', { level: 1, name: /Scoreboard/i })).toBeDefined();
+    expect(screen.getByRole('heading', { level: 3, name: /Bugs and Issues/i })).toBeDefined();
+    expect(screen.getByText(/Math Drill is an open source project/i)).toBeDefined();
+
+    const link = screen.getByRole('link', { name: /open an issue on GitHub/i });
+    expect(link).toBeDefined();
+    expect(link.getAttribute('href')).toEqual('https://github.com/guyellis/learn/issues');
   });
 });

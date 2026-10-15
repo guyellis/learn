@@ -1,4 +1,4 @@
-import { BugReport, Share } from '@mui/icons-material';
+import { Share } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -26,32 +26,20 @@ function shareComponent() {
     return null;
   }
   return (
-    <Tooltip title="Share">
-      <FloatingActionButton aria-label="Share" color="primary" onClick={share}>
-        <Share />
-      </FloatingActionButton>
-    </Tooltip>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 3 }}>
+      <Tooltip title="Share">
+        <FloatingActionButton aria-label="Share" color="primary" onClick={share}>
+          <Share />
+        </FloatingActionButton>
+      </Tooltip>
+    </Box>
   );
 }
 
 function home() {
   return (
     <Container maxWidth="sm" sx={{ py: 3 }}>
-      <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', mb: 3 }}>
-        <a
-          aria-label="Issue guyellis/learn on GitHub"
-          href="https://github.com/guyellis/learn/issues"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Tooltip title="Bugs and Issues">
-            <FloatingActionButton aria-label="Report a bug" color="primary">
-              <BugReport />
-            </FloatingActionButton>
-          </Tooltip>
-        </a>
-        {shareComponent()}
-      </Box>
+      {shareComponent()}
       <Stack spacing={2}>
         <Link style={{ textDecoration: 'none' }} to="/math/drill">
           <Button
