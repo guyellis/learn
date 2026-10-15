@@ -76,6 +76,56 @@ function getLowerUpper(levelIndexParam: number, opIndexes: number[]): DrillTask 
   return [...pair, opIndex, calculateAnswer(pair, opIndex)];
 }
 
+function toTupleKey(item: DrillTask | [number, number, number] | string): string {
+  if (typeof item === 'string') {
+    return item;
+  }
+  return `${item[0]},${item[1]},${item[2]}`;
+}
+
+function getPool(levelIndexParam: number, opIndexes: number[]): Set<string> {
+  const pool = new Set<string>();
+  for (const opIndex of opIndexes) {
+    const levels = levelOps[opIndex].filter((level) => !!level.length);
+    const maxLevel = Math.min(levelIndexParam, levels.length - 1);
+    for (let i = 0; i <= maxLevel; i += 1) {
+      for (const pair of levels[i]) {
+        pool.add(`${pair[0]},${pair[1]},${opIndex}`);
+      }
+    }
+  }
+  Object.defineProperty(pool, 'length', {
+    configurable: true,
+    enumerable: false,
+    get() {
+      return this.size;
+    },
+  });
+  return pool;
+}
+
+const enumeratePool = getPool;
+
+function getNextTask(
+  levelIndex: number,
+  opIndexes: number[],
+  askedParam?: Array<string | [number, number, number]> | Set<string | [number, number, number]>,
+): DrillTask {
+  const pool = getPool(levelIndex, opIndexes);
+  const asked = new Set<string>();
+  if (askedParam) {
+    for (const item of askedParam) {
+      asked.add(toTupleKey(item));
+    }
+  }
+
+  let task = helper.getLowerUpper(levelIndex, opIndexes);
+  while (asked.size < pool.size && asked.has(toTupleKey(task))) {
+    task = helper.getLowerUpper(levelIndex, opIndexes);
+  }
+  return task;
+}
+
 // The key identifies a problem set by level and operators. This allows us
 // to search for previous scores that used that combination to see if this
 // is a new record.
@@ -345,29 +395,37 @@ function newRecord({
 export {
   appendScore,
   calculateAnswer,
+  enumeratePool,
   generateAnswerChoices,
   getBadgeColorIndex,
   getBadgeHtmlColor,
   getCurrentRecord,
   getLowerUpper,
+  getNextTask,
+  getPool,
   getScoreBarTimes,
   getScoreboard,
   newRecord,
   toInstant,
+  toTupleKey,
 };
 
 const helper = {
   appendScore,
   calculateAnswer,
+  enumeratePool,
   generateAnswerChoices,
   getBadgeColorIndex,
   getBadgeHtmlColor,
   getCurrentRecord,
   getLowerUpper,
+  getNextTask,
+  getPool,
   getScoreBarTimes,
   getScoreboard,
   newRecord,
   toInstant,
+  toTupleKey,
 };
 
 export default helper;

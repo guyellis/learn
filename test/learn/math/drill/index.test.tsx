@@ -319,4 +319,83 @@ describe('Drill', () => {
     });
     expect(instance.state.correctCount).toBe(1);
   });
+
+  test('should serve all-unique tuples in a drill of 20 questions drawn from a pool larger than 20', () => {
+    const { instance } = renderDrill();
+
+    // Addition at level J (levelIndex 9) has 48 unique questions
+    act(() => {
+      instance.setParentState({ levelIndex: 9, opIndexes: [0], totalProblems: '20' });
+      instance.onStart();
+    });
+
+    const tasks: Array<Drill['state']['currentTask']> = [];
+    for (let i = 0; i < 20; i += 1) {
+      const task = instance.state.currentTask;
+      tasks.push(task);
+      act(() => {
+        instance.checkAnswer(task[3].toString());
+      });
+    }
+
+    const uniqueKeys = new Set(tasks.map((t) => helper.toTupleKey(t)));
+    expect(uniqueKeys.size).toBe(20);
+  });
+
+  test('should serve unique tuples within each consecutive block of 4 and never repeat consecutively for Level A addition', () => {
+    const { instance } = renderDrill();
+
+    // Addition level A (pool of 4) with default 20 questions
+    act(() => {
+      instance.setParentState({ levelIndex: 0, opIndexes: [0], totalProblems: '20' });
+      instance.onStart();
+    });
+
+    const tasks: Array<Drill['state']['currentTask']> = [];
+    for (let i = 0; i < 20; i += 1) {
+      const task = instance.state.currentTask;
+      tasks.push(task);
+      act(() => {
+        instance.checkAnswer(task[3].toString());
+      });
+    }
+
+    expect(tasks).toHaveLength(20);
+
+    // Within each consecutive block of 4 questions, all tuples are unique
+    for (let i = 0; i < 20; i += 4) {
+      const block = tasks.slice(i, i + 4);
+      const uniqueInBlock = new Set(block.map((t) => helper.toTupleKey(t)));
+      expect(uniqueInBlock.size).toBe(4);
+    }
+
+    // No two consecutive questions are identical anywhere, including across cycle boundaries
+    for (let i = 1; i < 20; i += 1) {
+      const prev = tasks[i - 1];
+      const curr = tasks[i];
+      const isSame = curr.every((item, idx) => prev[idx] === item);
+      expect(isSame).toBe(false);
+    }
+  });
+
+  test('should reset the asked set when starting a new drill', () => {
+    const { instance } = renderDrill();
+
+    act(() => {
+      instance.setParentState({ levelIndex: 0, opIndexes: [0], totalProblems: '5' });
+      instance.onStart();
+    });
+
+    // Answer 2 questions so asked has 2 items
+    act(() => {
+      instance.checkAnswer(instance.state.currentTask[3].toString());
+    });
+    expect(instance.state.asked.size).toBe(2);
+
+    // Start a new drill
+    act(() => {
+      instance.onStart();
+    });
+    expect(instance.state.asked.size).toBe(1);
+  });
 });

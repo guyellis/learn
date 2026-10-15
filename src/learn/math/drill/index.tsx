@@ -16,6 +16,7 @@ import type {
 export type MathDrillProps = Record<string, never>;
 
 export interface MathDrillState {
+  asked: Set<string>;
   correct?: boolean;
   correctCount?: number;
   currentAction?: 'finished' | 'running' | 'start';
@@ -63,6 +64,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
     // TODO: Fix and remove this ESLint disable
     // eslint-disable-next-line react/state-in-constructor
     this.state = {
+      asked: new Set<string>(),
       currentTask: [] as unknown as DrillTask,
       levelIndex: options.levelIndex,
       minutes: options.minutes,
@@ -105,7 +107,8 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
   }
 
   onStart() {
-    this.setNextTask();
+    const asked = new Set<string>();
+    this.setNextTask(asked);
     const { levelIndex, minutes, opIndexes, totalProblems } = this.state;
     const seconds = parseFloat(minutes) * 60;
     const startTime = Temporal.Now.instant();
@@ -140,14 +143,29 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
     MathDrill.save(state);
   }
 
-  setNextTask() {
+  setNextTask(overrideAsked?: Set<string>) {
     const { currentTask, levelIndex, opIndexes } = this.state;
-    const nextTask = helper.getLowerUpper(levelIndex, opIndexes);
+    const asked = overrideAsked ?? this.state.asked;
+    const pool = helper.getPool(levelIndex, opIndexes);
+
+    let activeAsked = asked;
+    let isNewCycle = false;
+    if (activeAsked.size >= pool.size) {
+      activeAsked = new Set([helper.toTupleKey(currentTask)]);
+      isNewCycle = true;
+    }
+
+    const nextTask = helper.getNextTask(levelIndex, opIndexes, activeAsked);
 
     if (nextTask.every((item, index) => currentTask[index] === item)) {
-      this.setNextTask();
+      this.setNextTask(overrideAsked);
     } else {
+      const nextTupleKey = helper.toTupleKey(nextTask);
+      const newAsked = isNewCycle
+        ? new Set([nextTupleKey])
+        : new Set(activeAsked).add(nextTupleKey);
       this.setState({
+        asked: newAsked,
         currentTask: nextTask,
       });
     }
@@ -209,7 +227,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
       // If correct and was previously wrong then replace otherwise push.
       // If problem exists at end of array then replace otherwise push.
       // A task is an array of:  left, right, opIndex, expectedAnswer
-      // and problems are not repeated so a first time can be checked using this.
+      // and problems are not repeated within a pool cycle so a first time can be checked using this.
       if (MathDrill.currentMatchesLast(task as DrillTask, previousResults)) {
         const current = previousResults[previousResults.length - 1];
         current.actuals.unshift(actual);
