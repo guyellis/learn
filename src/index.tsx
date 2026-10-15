@@ -1,92 +1,10 @@
 import './index.scss';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app.js';
 import poly from './poly.js';
-
-const theme = createTheme({
-  palette: {
-    background: {
-      default: '#f8fafc',
-      paper: '#ffffff',
-    },
-    error: {
-      main: '#dc2626',
-    },
-    primary: {
-      main: '#4f46e5',
-    },
-    secondary: {
-      main: '#f59e0b',
-    },
-    success: {
-      main: '#16a34a',
-    },
-  },
-  typography: {
-    body1: {
-      fontSize: '1rem',
-      letterSpacing: '0.01em',
-      lineHeight: 1.5,
-    },
-    body2: {
-      fontSize: '0.925rem',
-      letterSpacing: '0.01em',
-      lineHeight: 1.5,
-    },
-    button: {
-      fontWeight: 500,
-      letterSpacing: '0.02em',
-    },
-    fontFamily:
-      '"Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    fontSize: 16,
-    fontWeightBold: 700,
-    fontWeightLight: 300,
-    fontWeightMedium: 500,
-    fontWeightRegular: 400,
-    h1: {
-      fontWeight: 600,
-      letterSpacing: '-0.01em',
-      lineHeight: 1.2,
-    },
-    h2: {
-      fontWeight: 600,
-      letterSpacing: '-0.005em',
-      lineHeight: 1.25,
-    },
-    h3: {
-      fontWeight: 600,
-      lineHeight: 1.3,
-    },
-    h4: {
-      fontWeight: 500,
-      lineHeight: 1.35,
-    },
-    h5: {
-      fontWeight: 500,
-      lineHeight: 1.4,
-    },
-    h6: {
-      fontWeight: 500,
-      lineHeight: 1.45,
-    },
-    htmlFontSize: 16,
-    subtitle1: {
-      fontSize: '1.05rem',
-      letterSpacing: '0.01em',
-      lineHeight: 1.5,
-    },
-    subtitle2: {
-      fontSize: '0.925rem',
-      letterSpacing: '0.01em',
-      lineHeight: 1.5,
-    },
-  },
-});
+import { AppThemeProvider } from './theme/app-theme-provider.js';
 
 poly(undefined, async (err) => {
   if (err) {
@@ -105,12 +23,11 @@ poly(undefined, async (err) => {
   if (container) {
     const root = createRoot(container);
     root.render(
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+      <AppThemeProvider>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </ThemeProvider>,
+      </AppThemeProvider>,
     );
   }
 });
