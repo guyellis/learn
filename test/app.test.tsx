@@ -1,8 +1,10 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../src/app.js';
+import helper from '../src/learn/math/drill/helper.js';
 
 const theme = createTheme();
 
@@ -60,5 +62,110 @@ describe('App', () => {
     expect(screen.getByRole('heading', { level: 1, name: /Oops! Page Not Found/i })).toBeDefined();
     expect(consoleErrorSpy).not.toHaveBeenCalled();
     consoleErrorSpy.mockRestore();
+  });
+
+  test('should return to fresh drill setup screen when Drill menu item is clicked from finished state', async () => {
+    const user = userEvent.setup();
+    const savedOptions = {
+      levelIndex: 0,
+      minutes: '1',
+      opIndexes: [0],
+      totalProblems: '1',
+      userName: 'Tester',
+    };
+    const getItemSpy = vi
+      .spyOn(Storage.prototype, 'getItem')
+      .mockReturnValue(JSON.stringify(savedOptions));
+    const nextTaskSpy = vi.spyOn(helper, 'getNextTask').mockReturnValue([1, 2, 0, 3]);
+
+    await renderApp('/math/drill');
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    const startButton = screen.getByRole('button', { name: /Start/i });
+
+    await user.click(startButton);
+
+    const answerButton = await screen.findByRole('button', { name: '3' });
+    await user.click(answerButton);
+
+    expect(screen.queryByRole('button', { name: /Start/i })).toBeNull();
+
+    const drillMenuButton = screen.getByRole('button', { name: /^Drill$/i });
+    await user.click(drillMenuButton);
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Start/i })).toBeDefined();
+    expect(screen.getByLabelText(/Your Name/i)).toHaveProperty('value', 'Tester');
+
+    getItemSpy.mockRestore();
+    nextTaskSpy.mockRestore();
+  });
+
+  test('should return to fresh drill setup screen when Drill menu item is clicked from running state', async () => {
+    const user = userEvent.setup();
+    const nextTaskSpy = vi.spyOn(helper, 'getNextTask').mockReturnValue([1, 2, 0, 3]);
+
+    await renderApp('/math/drill');
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    await user.click(screen.getByRole('button', { name: /Start/i }));
+
+    expect(await screen.findByRole('button', { name: '3' })).toBeDefined();
+    expect(screen.queryByRole('button', { name: /Start/i })).toBeNull();
+
+    const drillMenuButton = screen.getByRole('button', { name: /^Drill$/i });
+    await user.click(drillMenuButton);
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Start/i })).toBeDefined();
+
+    nextTaskSpy.mockRestore();
+  });
+
+  test('should return to fresh drill setup screen when Drill menu item is clicked from start state', async () => {
+    const user = userEvent.setup();
+
+    await renderApp('/math/drill');
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Start/i })).toBeDefined();
+
+    const drillMenuButton = screen.getByRole('button', { name: /^Drill$/i });
+    await user.click(drillMenuButton);
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Start/i })).toBeDefined();
+  });
+
+  test('should not reset drill component on unrelated re-renders', async () => {
+    const user = userEvent.setup();
+    const nextTaskSpy = vi.spyOn(helper, 'getNextTask').mockReturnValue([1, 2, 0, 3]);
+
+    const { rerender } = render(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={['/math/drill']}>
+          <App />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
+
+    expect(await screen.findByRole('heading', { level: 2, name: /Level/i })).toBeDefined();
+    await user.click(screen.getByRole('button', { name: /Start/i }));
+
+    expect(await screen.findByRole('button', { name: '3' })).toBeDefined();
+
+    // Re-render without navigation
+    rerender(
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={['/math/drill']}>
+          <App />
+        </MemoryRouter>
+      </ThemeProvider>,
+    );
+
+    // Drill should still be in running state
+    expect(screen.getByRole('button', { name: '3' })).toBeDefined();
+
+    nextTaskSpy.mockRestore();
   });
 });

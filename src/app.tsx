@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
 import React, { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Menu from './learn/menu.js';
 
 const Drill = lazy(() => import('./learn/math/drill/index.js'));
@@ -9,7 +9,9 @@ const Home = lazy(() => import('./learn/home.js'));
 const Scoreboard = lazy(() => import('./learn/math/drill/scoreboard.js'));
 const NotFound = lazy(() => import('./learn/not-found.js'));
 
-function app() {
+function App() {
+  const location = useLocation();
+
   return (
     <div>
       <Menu />
@@ -17,7 +19,7 @@ function app() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<Drill />} path="/math/drill" />
+            <Route element={<Drill key={location.key} />} path="/math/drill" />
             <Route element={<Scoreboard />} path="/math/score" />
             <Route element={<Help />} path="/help" />
             <Route element={<NotFound />} path="*" />
@@ -28,4 +30,4 @@ function app() {
   );
 }
 
-export default app;
+export default App;
