@@ -5,13 +5,13 @@ import Badge from '../../../../src/learn/math/drill/badge.js';
 
 const theme = createTheme();
 
-test('Badge should be rendered', () => {
+test('Badge should be rendered as a non-interactive element', () => {
   render(
     <ThemeProvider theme={theme}>
-      <Badge color={0} content="+" />
+      <Badge content="+" />
     </ThemeProvider>,
   );
-  const button = screen.getByRole('button', { name: '+' });
-  expect(button).toBeDefined();
-  expect(button.textContent).toBe('+');
+  const badgeElement = screen.getByText('+');
+  expect(badgeElement).toBeDefined();
+  expect(screen.queryByRole('button')).toBeNull();
 });

@@ -46,7 +46,7 @@ test you got ${totalCorrectAnswers} answer(s) correct.`;
   return (
     <div style={finishedBadgeStyle}>
       <span>
-        <Badge color={colorIndex} content={operation} />
+        <Badge content={operation} />
       </span>
       <span>
         {` Congratulations on getting a new ${color} Badge for Level ${letter} ${operationName}!`}

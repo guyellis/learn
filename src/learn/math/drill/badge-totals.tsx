@@ -26,7 +26,7 @@ function badgeTotals(props: BadgeTotalsProps) {
 
         return (
           <div key={key}>
-            <Badge color={colorIndex} content={total.toString()} />
+            <Badge content={total.toString()} />
             <span>{primaryText}</span>
           </div>
         );
