@@ -693,4 +693,73 @@ per question. (Your best score is 5 seconds per question.)',
       expect(instant.toString()).toBe('2026-10-12T15:00:00Z');
     });
   });
+
+  describe('toTupleKey()', () => {
+    test('should format DrillTask or tuple into string key', () => {
+      expect(helper.toTupleKey([1, 2, 0, 3])).toBe('1,2,0');
+      expect(helper.toTupleKey([5, 6, 2])).toBe('5,6,2');
+      expect(helper.toTupleKey('7,8,1')).toBe('7,8,1');
+    });
+  });
+
+  describe('getPool() / enumeratePool()', () => {
+    test('should return true unique counts for spot-checks', () => {
+      const addA = helper.getPool(0, [0]);
+      expect(addA.size).toBe(4);
+      expect((addA as unknown as { length: number }).length).toBe(4);
+
+      const divA = helper.getPool(0, [3]);
+      expect(divA.size).toBe(9);
+
+      const multAll = helper.enumeratePool(25, [2]);
+      expect(multAll.size).toBe(168);
+    });
+
+    test('should maintain uniqueness on full tuple including operator when multiple operators selected', () => {
+      const mixed = helper.getPool(0, [0, 1]);
+      expect(mixed.size).toBe(8);
+      for (const item of mixed) {
+        const [, , op] = item.split(',');
+        expect(['0', '1']).toContain(op);
+      }
+    });
+  });
+
+  describe('getNextTask()', () => {
+    test('should return a task and draw only unasked tuples when asked is smaller than pool', () => {
+      const asked = new Set(['1,2,0', '2,1,0', '1,3,0']);
+      const task = helper.getNextTask(0, [0], asked);
+      expect(task).toBeDefined();
+      expect(helper.toTupleKey(task)).toBe('3,1,0');
+    });
+
+    test('should accept array of string keys or tuple items for askedParam', () => {
+      const taskFromArray = helper.getNextTask(0, [0], ['1,2,0', '2,1,0', '1,3,0']);
+      expect(helper.toTupleKey(taskFromArray)).toBe('3,1,0');
+
+      const taskFromTuples = helper.getNextTask(
+        0,
+        [0],
+        [
+          [1, 2, 0],
+          [2, 1, 0],
+          [1, 3, 0],
+        ],
+      );
+      expect(helper.toTupleKey(taskFromTuples)).toBe('3,1,0');
+    });
+
+    test('should return task without re-drawing when asked size is greater than or equal to pool size', () => {
+      const allAsked = helper.getPool(0, [0]);
+      const task = helper.getNextTask(0, [0], allAsked);
+      expect(task).toBeDefined();
+      expect(allAsked.has(helper.toTupleKey(task))).toBe(true);
+    });
+
+    test('should draw a task when askedParam is undefined', () => {
+      const task = helper.getNextTask(0, [0]);
+      expect(task).toBeDefined();
+      expect(helper.getPool(0, [0]).has(helper.toTupleKey(task))).toBe(true);
+    });
+  });
 });
