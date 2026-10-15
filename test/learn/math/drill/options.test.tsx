@@ -9,11 +9,9 @@ const theme = createTheme();
 
 describe('Options', () => {
   const defaultProps: OptionsProps = {
-    largeKeyboard: true,
     levelIndex: 0,
     minutes: '1',
     onChange: vi.fn(),
-    onscreenKeyboard: true,
     onStart: vi.fn(),
     opIndexes: [0],
     setParentState: vi.fn(),
@@ -98,13 +96,14 @@ describe('Options', () => {
     expect(setParentState).toHaveBeenCalledWith({ levelIndex: 1 });
   });
 
-  test('should not render large keyboard switch when onscreenKeyboard is false', () => {
+  test('should not render keyboard switches', () => {
     render(
       <ThemeProvider theme={theme}>
-        <Options {...defaultProps} onscreenKeyboard={false} />
+        <Options {...defaultProps} />
       </ThemeProvider>,
     );
 
+    expect(screen.queryByLabelText(/onscreen keyboard/i)).toBeNull();
     expect(screen.queryByLabelText(/Large Keyboard/i)).toBeNull();
   });
 });

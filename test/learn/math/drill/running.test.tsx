@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import Running, { type RunningProps } from '../../../../src/learn/math/drill/running.js';
 import type {
@@ -29,10 +29,8 @@ describe('Running', () => {
   const defaultProps: RunningProps = {
     checkAnswer: vi.fn(),
     currentTask,
-    largeKeyboard: false,
     levelIndex: 0,
     newRecord,
-    onscreenKeyboard: false,
     opIndexes: [0],
     previousResults,
     questionsRemaining: 19,
@@ -67,10 +65,120 @@ describe('Running', () => {
 
   test('should return null and warn when currentTask is not defined', () => {
     const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    const result = Running({ ...defaultProps, currentTask: null as unknown as undefined });
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} currentTask={undefined} />
+      </ThemeProvider>,
+    );
 
-    expect(result).toBeNull();
+    expect(container.firstChild).toBeNull();
     expect(spy).toHaveBeenCalledWith('No currentTask defined in renderRunning');
     spy.mockRestore();
+  });
+
+  test('should trigger green flash on correct answer tap and return to normal after 300ms', () => {
+    vi.useFakeTimers();
+    const checkAnswer = vi.fn();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} checkAnswer={checkAnswer} />
+      </ThemeProvider>,
+    );
+
+    const container = screen.getByTestId('quiz-area-container');
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '5')!;
+
+    fireEvent.click(correctButton);
+    expect(checkAnswer).toHaveBeenCalledWith('5');
+
+    // Flashing state is true
+    expect(container.getAttribute('data-flashing')).toBe('true');
+
+    // Trigger another correct tap while still flashing to exercise clearTimeout
+    fireEvent.click(correctButton);
+    expect(container.getAttribute('data-flashing')).toBe('true');
+
+    // After 300ms, returns to false
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(container.getAttribute('data-flashing')).toBe('false');
+
+    vi.useRealTimers();
+  });
+
+  test('should not trigger flash on wrong answer tap', () => {
+    const checkAnswer = vi.fn();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} checkAnswer={checkAnswer} />
+      </ThemeProvider>,
+    );
+
+    const container = screen.getByTestId('quiz-area-container');
+    const buttons = screen.getAllByRole('button');
+    const wrongButton = buttons.find((btn) => btn.textContent !== '5')!;
+
+    fireEvent.click(wrongButton);
+    expect(checkAnswer).toHaveBeenCalledWith(wrongButton.textContent);
+    expect(container.getAttribute('data-flashing')).toBe('false');
+  });
+
+  test('should skip flash when user prefers reduced motion', () => {
+    const originalMatchMedia = window.matchMedia;
+    window.matchMedia = vi.fn().mockImplementation((query) => ({
+      addEventListener: vi.fn(),
+      addListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query,
+      onchange: null,
+      removeEventListener: vi.fn(),
+      removeListener: vi.fn(),
+    }));
+
+    const checkAnswer = vi.fn();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} checkAnswer={checkAnswer} />
+      </ThemeProvider>,
+    );
+
+    const container = screen.getByTestId('quiz-area-container');
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '5')!;
+
+    fireEvent.click(correctButton);
+    expect(checkAnswer).toHaveBeenCalledWith('5');
+
+    // Should NOT flash because prefers-reduced-motion is true
+    expect(container.getAttribute('data-flashing')).toBe('false');
+
+    window.matchMedia = originalMatchMedia;
+  });
+
+  test('should clear timer on unmount', () => {
+    vi.useFakeTimers();
+    const clearTimeoutSpy = vi.spyOn(window, 'clearTimeout');
+
+    const { unmount } = render(
+      <ThemeProvider theme={theme}>
+        <Running {...defaultProps} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '5')!;
+    fireEvent.click(correctButton);
+
+    unmount();
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+
+    vi.useRealTimers();
+    clearTimeoutSpy.mockRestore();
   });
 });

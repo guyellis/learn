@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import constants from '../../common/constants.js';
 import QuizLine from './quiz-line.js';
 import RunningResults from './running-results.js';
@@ -12,29 +12,36 @@ const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 export interface RunningProps {
   checkAnswer: (answer: string) => void;
   currentTask?: DrillTask;
-  largeKeyboard: boolean;
   levelIndex: number;
   newRecord: NewRecordComparison;
-  onscreenKeyboard: boolean;
   opIndexes: number[];
   previousResults: PreviousResult[];
   questionsRemaining: number;
   timeLeft: number;
 }
 
-function running(props: RunningProps) {
+function Running(props: RunningProps) {
   const {
     checkAnswer,
     currentTask,
-    largeKeyboard,
     levelIndex,
     newRecord,
-    onscreenKeyboard,
     opIndexes,
     previousResults,
     questionsRemaining,
     timeLeft,
   } = props;
+
+  const [isFlashing, setIsFlashing] = useState(false);
+  const flashTimerRef = useRef<NodeJS.Timeout | number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (flashTimerRef.current) {
+        clearTimeout(flashTimerRef.current as NodeJS.Timeout);
+      }
+    };
+  }, []);
 
   if (!currentTask) {
     // eslint-disable-next-line no-console
@@ -42,11 +49,43 @@ function running(props: RunningProps) {
     return null;
   }
 
+  const handleCheckAnswer = (answer: string) => {
+    const actual = parseInt(answer, 10);
+    const [, , , expected] = currentTask;
+    if (actual === expected) {
+      const prefersReducedMotion =
+        typeof window !== 'undefined' &&
+        typeof window.matchMedia === 'function' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        setIsFlashing(true);
+        if (flashTimerRef.current) {
+          clearTimeout(flashTimerRef.current as NodeJS.Timeout);
+        }
+        flashTimerRef.current = setTimeout(() => {
+          setIsFlashing(false);
+          flashTimerRef.current = null;
+        }, 300);
+      }
+    }
+    checkAnswer(answer);
+  };
+
   const lastTen = previousResults.slice(Math.max(0, previousResults.length - 10)).reverse();
   const lastResult = lastTen[0];
 
   return (
-    <div>
+    <Box
+      data-flashing={isFlashing}
+      data-testid="quiz-area-container"
+      sx={{
+        backgroundColor: isFlashing ? 'success.main' : 'transparent',
+        borderRadius: 2,
+        p: 2,
+        transition: 'background-color 150ms ease',
+      }}
+    >
       <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1, mb: 2 }}>
         <Chip
           label={
@@ -96,17 +135,15 @@ function running(props: RunningProps) {
       </Stack>
       <div>
         <QuizLine
-          checkAnswer={checkAnswer}
-          largeKeyboard={largeKeyboard}
+          checkAnswer={handleCheckAnswer}
           lastResult={lastResult}
           newRecord={newRecord}
-          onscreenKeyboard={onscreenKeyboard}
           problem={currentTask}
         />
         <RunningResults previousResults={lastTen} showIndex />
       </div>
-    </div>
+    </Box>
   );
 }
 
-export default running;
+export default Running;

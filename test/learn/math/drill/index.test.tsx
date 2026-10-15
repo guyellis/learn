@@ -8,10 +8,8 @@ const theme = createTheme();
 
 describe('Drill', () => {
   const savedOptions = {
-    largeKeyboard: true,
     levelIndex: 0, // A
     minutes: '1',
-    onscreenKeyboard: true,
     opIndexes: [0], // A
     totalProblems: '20',
     userName: 'my name',
@@ -106,10 +104,10 @@ describe('Drill', () => {
 
     act(() => {
       instance.onChange({
-        target: { checked: false, name: 'largeKeyboard', type: 'checkbox' },
+        target: { checked: false, name: 'customCheck', type: 'checkbox' },
       } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
-    expect(instance.state.largeKeyboard).toBe(false);
+    expect((instance.state as unknown as Record<string, unknown>).customCheck).toBe(false);
 
     act(() => {
       instance.onChange({
@@ -126,6 +124,75 @@ describe('Drill', () => {
       instance.setParentState({ minutes: '2' });
     });
     expect(instance.state.minutes).toBe('2');
+  });
+
+  test('should reduce timeLeft by 1 on wrong answer, reduce again on second wrong answer, and end quiz if timeLeft reaches 0', () => {
+    const { instance } = renderDrill();
+
+    act(() => {
+      instance.onStart();
+      instance.setState({
+        currentTask: [2, 3, 0, 5],
+        endTime: Temporal.Now.instant().add(Temporal.Duration.from({ seconds: 10 })),
+        timeLeft: 10,
+      });
+    });
+
+    const initialEndTime = instance.state.endTime!;
+
+    // First wrong tap: timeLeft drops from 10 to 9, endTime decreases by 1s
+    act(() => {
+      instance.checkAnswer('4');
+    });
+    expect(instance.state.timeLeft).toBe(9);
+    expect(instance.state.endTime?.epochMilliseconds).toBe(
+      initialEndTime.subtract(Temporal.Duration.from({ seconds: 1 })).epochMilliseconds,
+    );
+
+    // Second wrong tap: timeLeft drops from 9 to 8
+    act(() => {
+      instance.checkAnswer('6');
+    });
+    expect(instance.state.timeLeft).toBe(8);
+
+    // Correct tap does not penalize timeLeft
+    act(() => {
+      instance.checkAnswer('5');
+    });
+    expect(instance.state.timeLeft).toBe(8);
+
+    // When timeLeft reaches 0 via penalty, quiz ends immediately
+    act(() => {
+      instance.setState({
+        currentTask: [1, 2, 0, 3],
+        timeLeft: 1,
+      });
+    });
+
+    act(() => {
+      instance.checkAnswer('99');
+    });
+    expect(instance.state.timeLeft).toBe(0);
+    expect(instance.state.currentAction).toBe('finished');
+  });
+
+  test('should handle wrong answer when endTime is undefined', () => {
+    const { instance } = renderDrill();
+
+    act(() => {
+      instance.setState({
+        currentTask: [2, 3, 0, 5],
+        endTime: undefined,
+        timeLeft: 10,
+        totalProblems: '5',
+      });
+    });
+
+    act(() => {
+      instance.checkAnswer('4');
+    });
+    expect(instance.state.timeLeft).toBe(9);
+    expect(instance.state.endTime).toBeUndefined();
   });
 
   test('should process correct and incorrect answers and finish quiz', () => {

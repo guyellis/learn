@@ -1,5 +1,6 @@
 import constants from '../../common/constants.js';
 import db from '../../db/index.js';
+import { generateAnswerChoices } from './answer-choices.js';
 import { levelOps } from './helper-problems.js';
 import type {
   DrillResults,
@@ -344,6 +345,7 @@ function newRecord({
 export {
   appendScore,
   calculateAnswer,
+  generateAnswerChoices,
   getBadgeColorIndex,
   getBadgeHtmlColor,
   getCurrentRecord,
@@ -357,6 +359,7 @@ export {
 const helper = {
   appendScore,
   calculateAnswer,
+  generateAnswerChoices,
   getBadgeColorIndex,
   getBadgeHtmlColor,
   getCurrentRecord,

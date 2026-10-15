@@ -1,9 +1,9 @@
-import { Done } from '@mui/icons-material';
-import FloatingActionButton from '@mui/material/Fab';
-import TextField from '@mui/material/TextField';
-import React from 'react';
+import { Close } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import React, { useState } from 'react';
 import constants from '../../common/constants.js';
-import Keyboard from './keyboard.js';
+import { generateAnswerChoices } from './answer-choices.js';
 import RunningResults from './running-results.js';
 import type { DrillTask, NewRecordComparison, PreviousResult } from './types.js';
 
@@ -12,22 +12,6 @@ const { OPERATIONS: operations } = constants;
 const numberStyle: React.CSSProperties = {
   fontSize: 'xx-large',
   margin: '10px',
-};
-
-const checkStyle: React.CSSProperties = {
-  margin: '10px',
-};
-
-const inputStyle: React.CSSProperties = {
-  textAlign: 'center',
-};
-
-const answerStyle: React.CSSProperties = {
-  backgroundColor: 'green',
-  color: 'white',
-  fontSize: 'xx-large',
-  paddingLeft: '15px',
-  paddingRight: '15px',
 };
 
 const lastResultCorrectStyle: React.CSSProperties = {
@@ -49,81 +33,36 @@ const quizLineStyle: React.CSSProperties = {
 
 export interface QuizLineProps {
   checkAnswer: (answer: string) => void;
-  largeKeyboard: boolean;
   lastResult?: PreviousResult | null;
   newRecord: NewRecordComparison;
-  onscreenKeyboard: boolean;
   problem: DrillTask;
 }
 
-export interface QuizLineState {
-  answer: string;
-}
+function QuizLine(props: QuizLineProps) {
+  const { checkAnswer, lastResult, newRecord, problem } = props;
+  const [problemKey, setProblemKey] = useState<string>(() => problem.join(','));
+  const [choices, setChoices] = useState<number[]>(() => generateAnswerChoices(problem));
+  const [disabledAnswers, setDisabledAnswers] = useState<number[]>([]);
 
-class QuizLine extends React.Component<QuizLineProps, QuizLineState> {
-  constructor(props: QuizLineProps) {
-    super(props);
-    this.onChange = this.onChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.checkAnswer = this.checkAnswer.bind(this);
-    this.keyPress = this.keyPress.bind(this);
-    // TODO: Fix and remove this ESLint disable
-    // eslint-disable-next-line react/state-in-constructor
-    this.state = { answer: '' };
+  const currentKey = problem.join(',');
+  if (currentKey !== problemKey) {
+    setProblemKey(currentKey);
+    setChoices(generateAnswerChoices(problem));
+    setDisabledAnswers([]);
   }
 
-  onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    } as unknown as Pick<QuizLineState, keyof QuizLineState>);
-  }
+  const [left, right, opIndex, expected] = problem;
+  const operator = operations[opIndex];
 
-  checkAnswer() {
-    const { checkAnswer } = this.props;
-    const { answer } = this.state;
-    checkAnswer(answer);
-    this.setState({
-      answer: '',
-    });
-  }
-
-  handleKeyPress(event: React.KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.checkAnswer();
+  const handleChoiceClick = (choice: number) => {
+    if (choice !== expected) {
+      setDisabledAnswers((prev) => [...prev, choice]);
     }
-  }
+    checkAnswer(String(choice));
+  };
 
-  keyPress(key: number | string) {
-    const { answer } = this.state;
-    if (!isNaN(key as number)) {
-      this.setState({
-        answer: `${answer}${key}`,
-      });
-    } else {
-      switch (key) {
-        case 'back':
-          if (answer.length) {
-            this.setState({
-              answer: answer.substr(0, answer.length - 1),
-            });
-          }
-          break;
-        case 'enter':
-          this.checkAnswer();
-          break;
-        default:
-          // eslint-disable-next-line no-console
-          console.warn(`Unknown key in keyPress ${key}`);
-          break;
-      }
-    }
-  }
-
-  renderNewRecord() {
-    const {
-      newRecord: { currentTimePerQuestion, existingRecordTimePerQuestion, isNewRecord },
-    } = this.props;
+  const renderNewRecord = () => {
+    const { currentTimePerQuestion, existingRecordTimePerQuestion, isNewRecord } = newRecord;
 
     const current = isNaN(currentTimePerQuestion) ? '[none]' : currentTimePerQuestion;
     const existing = existingRecordTimePerQuestion || '[none]';
@@ -135,10 +74,9 @@ class QuizLine extends React.Component<QuizLineProps, QuizLineState> {
         <div style={lastResultCorrectStyle}>{recordText}</div>
       </div>
     );
-  }
+  };
 
-  renderLastResult() {
-    const { lastResult } = this.props;
+  const renderLastResult = () => {
     if (!lastResult) {
       const divStyle = {
         ...lastResultCorrectStyle,
@@ -162,53 +100,68 @@ class QuizLine extends React.Component<QuizLineProps, QuizLineState> {
         <RunningResults previousResults={[lastResult]} />
       </div>
     );
-  }
+  };
 
-  render() {
-    const { answer } = this.state;
-    const { largeKeyboard, onscreenKeyboard, problem } = this.props;
-    const [left, right, opIndex] = problem;
-    const operator = operations[opIndex];
-    return (
-      <div>
-        <div style={quizLineStyle}>
-          <span style={numberStyle}>{left}</span>
-          <span style={numberStyle}>{operator}</span>
-          <span style={numberStyle}>{right}</span>
-          <span style={numberStyle}>=</span>
-          {onscreenKeyboard ? (
-            <span style={answerStyle}>{answer || '?'}</span>
-          ) : (
-            <TextField
-              autoFocus
-              id="answer-number"
-              name="answer"
-              onChange={this.onChange}
-              onKeyPress={this.handleKeyPress}
-              style={inputStyle}
-              type="number"
-              value={answer}
-            />
-          )}
-          {!onscreenKeyboard && (
-            <FloatingActionButton onClick={this.checkAnswer} style={checkStyle}>
-              <Done />
-              Check Answer
-            </FloatingActionButton>
-          )}
-        </div>
-        {this.renderLastResult()}
-        {this.renderNewRecord()}
-        <div>
-          <Keyboard
-            keyPress={this.keyPress}
-            largeKeyboard={largeKeyboard}
-            onscreenKeyboard={onscreenKeyboard}
-          />
-        </div>
+  return (
+    <div>
+      <div style={quizLineStyle}>
+        <span style={numberStyle}>{left}</span>
+        <span style={numberStyle}>{operator}</span>
+        <span style={numberStyle}>{right}</span>
+        <span style={numberStyle}>=</span>
       </div>
-    );
-  }
+      <Box
+        sx={{
+          display: 'grid',
+          gap: 1.5,
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          maxWidth: 340,
+          my: 2,
+        }}
+      >
+        {choices.map((choice) => {
+          const isDisabled = disabledAnswers.includes(choice);
+          return (
+            <Button
+              color="primary"
+              disabled={isDisabled}
+              key={choice}
+              onClick={() => handleChoiceClick(choice)}
+              sx={{
+                borderRadius: 2,
+                fontSize: '1.75rem',
+                fontWeight: 'bold',
+                minHeight: '64px',
+                position: 'relative',
+                ...(isDisabled && {
+                  '&.Mui-disabled': {
+                    borderColor: 'error.main',
+                    color: 'text.disabled',
+                  },
+                }),
+              }}
+              variant="outlined"
+            >
+              {choice}
+              {isDisabled && (
+                <Close
+                  aria-label="incorrect"
+                  sx={{
+                    color: 'error.main',
+                    fontSize: '2.5rem',
+                    pointerEvents: 'none',
+                    position: 'absolute',
+                  }}
+                />
+              )}
+            </Button>
+          );
+        })}
+      </Box>
+      {renderLastResult()}
+      {renderNewRecord()}
+    </div>
+  );
 }
 
 export default QuizLine;

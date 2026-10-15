@@ -55,23 +55,6 @@ complete.
 If you want to collect badges for completed tests you must answer at least ten \
 questions in each test.
 
-##### Keyboard
-
-If you're doing this on a touch device like a smart phone or tablet the the \
-onscreen keyboard is the easiest to use. It's a simple keyboard that has all
-the functionality you need.
-
-If you doing this from a desktop computer or laptop then switching this off \
-is probably going to be easier.
-
-Try them both and see which one works best for you.
-
-##### Large Keyboard
-
-This will only show up if you have selected "onscreen keyboard." Selecting \
-this option will increase the size of the onscreen keyboard. It seems to \
-make it easier for kids to use a larger keyboard sometimes.
-
 ##### Your Name
 
 This is entirely optional.
@@ -81,10 +64,12 @@ This is entirely optional.
 Once you start running the test you will see the Level, Operation(s) \
 Time Left and Questions Remaining at the top of the screen.
 
-The current question will be presented right below that with a ? in a green \
-box where the answer will go.
+The current question will be presented right below that with a 3x3 grid of answer \
+choices. Tap a number to answer. Tapping the correct answer advances immediately to the \
+next question with a green flash. Tapping a wrong answer marks that square with a red X, \
+disables it for that question, and deducts one second from your time.
 
-Answering a question correctly will advance to the next question until they \
+Answering questions correctly will advance through the test until they \
 are all completed or until time runs out.
 
 After you have started answering questions two more pieces of information \
