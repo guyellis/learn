@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import constants from '../../common/constants.js';
 import helper from './helper.js';
 import QuizLine from './quiz-line.js';
@@ -35,45 +35,11 @@ function Running(props: RunningProps) {
     timeLeft,
   } = props;
 
-  const [isFlashing, setIsFlashing] = useState(false);
-  const flashTimerRef = useRef<NodeJS.Timeout | number | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (flashTimerRef.current) {
-        clearTimeout(flashTimerRef.current as NodeJS.Timeout);
-      }
-    };
-  }, []);
-
   if (!currentTask) {
     // eslint-disable-next-line no-console
     console.warn('No currentTask defined in renderRunning');
     return null;
   }
-
-  const handleCheckAnswer = (answer: string) => {
-    const actual = parseInt(answer, 10);
-    const [, , , expected] = currentTask;
-    if (actual === expected) {
-      const prefersReducedMotion =
-        typeof window !== 'undefined' &&
-        typeof window.matchMedia === 'function' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!prefersReducedMotion) {
-        setIsFlashing(true);
-        if (flashTimerRef.current) {
-          clearTimeout(flashTimerRef.current as NodeJS.Timeout);
-        }
-        flashTimerRef.current = setTimeout(() => {
-          setIsFlashing(false);
-          flashTimerRef.current = null;
-        }, 300);
-      }
-    }
-    checkAnswer(answer);
-  };
 
   const questionStartInstant = questionStartTime ? helper.toInstant(questionStartTime) : null;
   const elapsedSeconds = questionStartInstant
@@ -110,13 +76,11 @@ function Running(props: RunningProps) {
 
   return (
     <Box
-      data-flashing={isFlashing}
       data-testid="quiz-area-container"
       sx={{
-        backgroundColor: isFlashing ? 'success.main' : 'transparent',
+        backgroundColor: 'transparent',
         borderRadius: 2,
         p: 2,
-        transition: 'background-color 150ms ease',
       }}
     >
       <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1, mb: 2 }}>
@@ -178,7 +142,7 @@ function Running(props: RunningProps) {
         {renderPaceChip()}
       </Stack>
       <div>
-        <QuizLine checkAnswer={handleCheckAnswer} lastResult={lastResult} problem={currentTask} />
+        <QuizLine checkAnswer={checkAnswer} lastResult={lastResult} problem={currentTask} />
         <RunningResults previousResults={lastTen} showIndex />
       </div>
     </Box>

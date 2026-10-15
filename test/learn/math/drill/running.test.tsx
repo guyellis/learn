@@ -76,7 +76,7 @@ describe('Running', () => {
     spy.mockRestore();
   });
 
-  test('should trigger green flash on correct answer tap and return to normal after 300ms', async () => {
+  test('should trigger radial glow on correct answer tap and remove glow after 300ms', async () => {
     const checkAnswer = vi.fn();
 
     render(
@@ -88,27 +88,37 @@ describe('Running', () => {
     const container = screen.getByTestId('quiz-area-container');
     const buttons = screen.getAllByRole('button');
     const correctButton = buttons.find((btn) => btn.textContent === '5')!;
+    const otherButtons = buttons.filter((btn) => btn !== correctButton);
 
     fireEvent.click(correctButton);
     expect(checkAnswer).toHaveBeenCalledWith('5');
 
-    // Flashing state is true
-    expect(container.getAttribute('data-flashing')).toBe('true');
+    // Container does not flash or change color
+    expect(container.getAttribute('data-flashing')).toBeNull();
 
-    // Trigger another correct tap while still flashing to exercise clearTimeout
+    // The tapped cell shows the glow and other cells do not
+    expect(correctButton.getAttribute('data-glowing')).toBe('true');
+    expect(correctButton.querySelector('[data-testid="radial-glow"]')).not.toBeNull();
+    for (const otherButton of otherButtons) {
+      expect(otherButton.getAttribute('data-glowing')).toBe('false');
+      expect(otherButton.querySelector('[data-testid="radial-glow"]')).toBeNull();
+    }
+
+    // Trigger another correct tap while still glowing to exercise clearTimeout
     fireEvent.click(correctButton);
-    expect(container.getAttribute('data-flashing')).toBe('true');
+    expect(correctButton.getAttribute('data-glowing')).toBe('true');
 
-    // After 300ms, returns to false
+    // After 300ms, glow is gone
     await waitFor(
       () => {
-        expect(container.getAttribute('data-flashing')).toBe('false');
+        expect(correctButton.getAttribute('data-glowing')).toBe('false');
+        expect(correctButton.querySelector('[data-testid="radial-glow"]')).toBeNull();
       },
       { timeout: 1000 },
     );
   });
 
-  test('should not trigger flash on wrong answer tap', () => {
+  test('should not trigger glow on wrong answer tap', () => {
     const checkAnswer = vi.fn();
 
     render(
@@ -123,10 +133,12 @@ describe('Running', () => {
 
     fireEvent.click(wrongButton);
     expect(checkAnswer).toHaveBeenCalledWith(wrongButton.textContent);
-    expect(container.getAttribute('data-flashing')).toBe('false');
+    expect(wrongButton.getAttribute('data-glowing')).toBe('false');
+    expect(container.getAttribute('data-flashing')).toBeNull();
+    expect(screen.queryByTestId('radial-glow')).toBeNull();
   });
 
-  test('should skip flash when user prefers reduced motion', () => {
+  test('should skip glow when user prefers reduced motion', () => {
     const originalMatchMedia = window.matchMedia;
     window.matchMedia = vi.fn().mockImplementation((query) => ({
       addEventListener: vi.fn(),
@@ -147,15 +159,15 @@ describe('Running', () => {
       </ThemeProvider>,
     );
 
-    const container = screen.getByTestId('quiz-area-container');
     const buttons = screen.getAllByRole('button');
     const correctButton = buttons.find((btn) => btn.textContent === '5')!;
 
     fireEvent.click(correctButton);
     expect(checkAnswer).toHaveBeenCalledWith('5');
 
-    // Should NOT flash because prefers-reduced-motion is true
-    expect(container.getAttribute('data-flashing')).toBe('false');
+    // Should NOT glow because prefers-reduced-motion is true
+    expect(correctButton.getAttribute('data-glowing')).toBe('false');
+    expect(screen.queryByTestId('radial-glow')).toBeNull();
 
     window.matchMedia = originalMatchMedia;
   });

@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import QuizLine from '../../../../src/learn/math/drill/quiz-line.js';
@@ -204,5 +204,86 @@ describe('QuizLine', () => {
     expect(screen.getByText('2.5 seconds')).toBeDefined();
     expect(screen.getByText('\u2717')).toBeDefined();
     expect(screen.queryByText(/Current Speed/)).toBeNull();
+  });
+
+  test('should trigger radial glow on correct choice click and remove after 300ms', async () => {
+    const checkAnswer = vi.fn();
+    render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '2')!;
+    const otherButtons = buttons.filter((btn) => btn !== correctButton);
+
+    fireEvent.click(correctButton);
+    expect(correctButton.getAttribute('data-glowing')).toBe('true');
+    expect(correctButton.querySelector('[data-testid="radial-glow"]')).not.toBeNull();
+
+    for (const otherButton of otherButtons) {
+      expect(otherButton.getAttribute('data-glowing')).toBe('false');
+      expect(otherButton.querySelector('[data-testid="radial-glow"]')).toBeNull();
+    }
+
+    // Successive correct click clears previous timer and maintains glow
+    fireEvent.click(correctButton);
+    expect(correctButton.getAttribute('data-glowing')).toBe('true');
+
+    await waitFor(
+      () => {
+        expect(correctButton.getAttribute('data-glowing')).toBe('false');
+        expect(correctButton.querySelector('[data-testid="radial-glow"]')).toBeNull();
+      },
+      { timeout: 1000 },
+    );
+  });
+
+  test('should not trigger radial glow when reduced motion is preferred', () => {
+    const originalMatchMedia = window.matchMedia;
+    window.matchMedia = vi.fn().mockImplementation((query) => ({
+      addEventListener: vi.fn(),
+      addListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query,
+      onchange: null,
+      removeEventListener: vi.fn(),
+      removeListener: vi.fn(),
+    }));
+
+    const checkAnswer = vi.fn();
+    render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '2')!;
+
+    fireEvent.click(correctButton);
+    expect(correctButton.getAttribute('data-glowing')).toBe('false');
+    expect(screen.queryByTestId('radial-glow')).toBeNull();
+
+    window.matchMedia = originalMatchMedia;
+  });
+
+  test('should clear timer on unmount', () => {
+    const clearTimeoutSpy = vi.spyOn(window, 'clearTimeout');
+    const { unmount } = render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={vi.fn()} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '2')!;
+    fireEvent.click(correctButton);
+
+    unmount();
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+    clearTimeoutSpy.mockRestore();
   });
 });
