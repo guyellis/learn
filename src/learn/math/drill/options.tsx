@@ -1,10 +1,7 @@
 import { Send } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import Stack from '@mui/material/Stack';
-import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import React, { useState } from 'react';
@@ -15,11 +12,9 @@ import type { DrillOptions } from './types.js';
 const { ALPHABET: alphabet, OPERATIONS: operations } = constants;
 
 export interface OptionsProps {
-  largeKeyboard: boolean;
   levelIndex: number;
   minutes: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onscreenKeyboard: boolean;
   onStart: () => void;
   opIndexes: number[];
   setParentState: (state: Partial<DrillOptions>) => void;
@@ -30,11 +25,9 @@ export interface OptionsProps {
 function Options(props: OptionsProps) {
   const [historyCleared, setHistoryCleared] = useState(false);
   const {
-    largeKeyboard,
     levelIndex,
     minutes,
     onChange,
-    onscreenKeyboard,
     onStart,
     opIndexes,
     setParentState,
@@ -122,40 +115,6 @@ function Options(props: OptionsProps) {
           value={totalProblems}
         />
       </Box>
-      <Box>
-        <h3>Keyboard</h3>
-        <FormGroup row>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={onscreenKeyboard}
-                color="primary"
-                name="onscreenKeyboard"
-                onChange={onChange}
-              />
-            }
-            label="Use onscreen keyboard"
-          />
-        </FormGroup>
-      </Box>
-      {onscreenKeyboard && (
-        <Box>
-          <h3>Large Keyboard</h3>
-          <FormGroup row>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={largeKeyboard}
-                  color="secondary"
-                  name="largeKeyboard"
-                  onChange={onChange}
-                />
-              }
-              label="Large Keyboard"
-            />
-          </FormGroup>
-        </Box>
-      )}
       <Box>
         <h3>Your Name (Optional)</h3>
         <TextField

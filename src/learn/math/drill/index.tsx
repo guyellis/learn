@@ -22,10 +22,8 @@ export interface MathDrillState {
   currentRecord?: ScoreRecord | null;
   currentTask: DrillTask;
   endTime?: Temporal.Instant;
-  largeKeyboard: boolean;
   levelIndex: number;
   minutes: string;
-  onscreenKeyboard: boolean;
   opIndexes: number[];
   previousResults: PreviousResult[];
   previousTime?: Temporal.Instant;
@@ -66,10 +64,8 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
     // eslint-disable-next-line react/state-in-constructor
     this.state = {
       currentTask: [] as unknown as DrillTask,
-      largeKeyboard: options.largeKeyboard,
       levelIndex: options.levelIndex,
       minutes: options.minutes,
-      onscreenKeyboard: options.onscreenKeyboard,
       opIndexes: options.opIndexes,
       previousResults: [], // previousResults results of quiz
       questionsRemaining: 0,
@@ -190,8 +186,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
 
   checkAnswer(answer: string) {
     const actual = parseInt(answer, 10);
-    const { totalProblems } = this.state;
-    const { startTime } = this.state;
+    const { endTime, startTime, timeLeft, totalProblems } = this.state;
     const totalProblemsNum = parseInt(totalProblems, 10);
     if (!isNaN(actual)) {
       const { currentTask: task, previousResults } = this.state;
@@ -229,17 +224,29 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
         });
       }
 
+      let newTimeLeft = timeLeft;
+      let newEndTime = endTime;
+      if (!correct) {
+        newTimeLeft = Math.max(0, timeLeft - 1);
+        if (endTime) {
+          const endInstant = helper.toInstant(endTime);
+          newEndTime = endInstant.subtract(Temporal.Duration.from({ seconds: 1 }));
+        }
+      }
+
       const otherState = {
         correct,
         correctCount,
+        endTime: newEndTime,
         previousResults,
         previousTime,
         questionsRemaining: totalProblemsNum - correctCount,
         result: `${actual} is ${correct ? 'correct' : 'wrong'}`,
+        timeLeft: newTimeLeft,
         totalCount,
       };
 
-      if (correctCount === totalProblemsNum) {
+      if (correctCount === totalProblemsNum || (!correct && newTimeLeft <= 0)) {
         this.endQuiz(otherState);
       } else {
         this.setState(otherState);
@@ -251,23 +258,13 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
   }
 
   renderOptions() {
-    const {
-      largeKeyboard,
-      levelIndex,
-      minutes,
-      onscreenKeyboard,
-      opIndexes,
-      totalProblems,
-      userName,
-    } = this.state;
+    const { levelIndex, minutes, opIndexes, totalProblems, userName } = this.state;
 
     return (
       <Options
-        largeKeyboard={largeKeyboard}
         levelIndex={levelIndex}
         minutes={minutes}
         onChange={this.onChange}
-        onscreenKeyboard={onscreenKeyboard}
         onStart={this.onStart}
         opIndexes={opIndexes}
         setParentState={this.setParentState}
@@ -281,9 +278,7 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
     const {
       currentRecord,
       currentTask,
-      largeKeyboard,
       levelIndex,
-      onscreenKeyboard,
       opIndexes,
       previousResults,
       questionsRemaining,
@@ -295,10 +290,8 @@ class MathDrill extends React.Component<MathDrillProps, MathDrillState> {
       <Running
         checkAnswer={this.checkAnswer}
         currentTask={currentTask}
-        largeKeyboard={largeKeyboard}
         levelIndex={levelIndex}
         newRecord={helper.newRecord({ currentRecord, previousResults, startTime })}
-        onscreenKeyboard={onscreenKeyboard}
         opIndexes={opIndexes}
         previousResults={previousResults}
         questionsRemaining={questionsRemaining}

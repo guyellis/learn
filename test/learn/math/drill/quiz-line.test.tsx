@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import QuizLine from '../../../../src/learn/math/drill/quiz-line.js';
@@ -13,157 +13,178 @@ const theme = createTheme();
 
 describe('QuizLine', () => {
   const defaultProblem: DrillTask = [1, 1, 0, 2];
+  const defaultNewRecord: NewRecordComparison = {
+    currentTimePerQuestion: 1.1,
+    existingRecordTimePerQuestion: 1.0,
+    isNewRecord: false,
+  };
 
-  test('should render initial state without keyboard and handle text input and button submit', async () => {
-    const user = userEvent.setup();
+  test('should render problem line and 9 answer choices in a grid', () => {
     const checkAnswer = vi.fn();
-    const newRecord: NewRecordComparison = {
-      currentTimePerQuestion: 1.1,
-      existingRecordTimePerQuestion: 1,
-      isNewRecord: false,
-    };
-
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine
-          checkAnswer={checkAnswer}
-          largeKeyboard={false}
-          newRecord={newRecord}
-          onscreenKeyboard={false}
-          problem={defaultProblem}
-        />
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
+    // Problem line
+    expect(screen.getAllByText('1').length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByText('+')).toBeDefined();
+    expect(screen.getByText('=')).toBeDefined();
+
+    // 9 button cells
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(9);
+
+    // The expected answer (2) is present in the grid
+    const targetButton = buttons.find((btn) => btn.textContent === '2');
+    expect(targetButton).toBeDefined();
+
+    // Initial state has ready message
     expect(screen.getByText('Ready for your first answer...')).toBeDefined();
     expect(screen.getByText('Current Speed 1.1 and Record 1')).toBeDefined();
-
-    const input = document.getElementById('answer-number') as HTMLInputElement;
-    expect(input).toBeDefined();
-
-    await user.type(input, '2');
-    expect(input.value).toBe('2');
-
-    const checkButton = screen.getByRole('button', { name: /Check Answer/i });
-    await user.click(checkButton);
-
-    expect(checkAnswer).toHaveBeenCalledWith('2');
-    expect(input.value).toBe('');
   });
 
-  test('should handle enter key press in answer input', () => {
+  test('should disable a tapped wrong cell, display a red X, and ignore repeated taps', async () => {
+    const user = userEvent.setup();
     const checkAnswer = vi.fn();
-    const newRecord: NewRecordComparison = {
-      currentTimePerQuestion: 1.1,
-      existingRecordTimePerQuestion: 1,
-      isNewRecord: false,
-    };
 
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine
-          checkAnswer={checkAnswer}
-          largeKeyboard={false}
-          newRecord={newRecord}
-          onscreenKeyboard={false}
-          problem={defaultProblem}
-        />
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
-    const input = document.getElementById('answer-number') as HTMLInputElement;
+    const buttons = screen.getAllByRole('button');
+    const wrongButton = buttons.find((btn) => btn.textContent !== '2')!;
+    const wrongAnswer = wrongButton.textContent!;
 
-    fireEvent.keyPress(input, { charCode: 65, key: 'a' });
+    await user.click(wrongButton);
+    expect(checkAnswer).toHaveBeenCalledWith(wrongAnswer);
+    expect(wrongButton.hasAttribute('disabled')).toBe(true);
+
+    // Shows red X icon
+    expect(screen.getByLabelText('incorrect')).toBeDefined();
+
+    // Repeated click on disabled button should not trigger checkAnswer again
+    checkAnswer.mockClear();
+    fireEvent.click(wrongButton);
     expect(checkAnswer).not.toHaveBeenCalled();
-
-    fireEvent.change(input, { target: { name: 'answer', value: '42' } });
-    fireEvent.keyPress(input, { charCode: 13, key: 'Enter' });
-    expect(checkAnswer).toHaveBeenCalledWith('42');
   });
 
-  test('should handle onscreen keyboard typing, backspace, enter, and invalid keys', () => {
+  test('should allow multiple wrong taps on different cells', async () => {
+    const user = userEvent.setup();
+    const checkAnswer = vi.fn();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const wrongButtons = buttons.filter((btn) => btn.textContent !== '2');
+
+    await user.click(wrongButtons[0]);
+    expect(checkAnswer).toHaveBeenCalledWith(wrongButtons[0].textContent);
+    expect(wrongButtons[0].hasAttribute('disabled')).toBe(true);
+
+    await user.click(wrongButtons[1]);
+    expect(checkAnswer).toHaveBeenCalledWith(wrongButtons[1].textContent);
+    expect(wrongButtons[1].hasAttribute('disabled')).toBe(true);
+
+    // Two incorrect icons rendered
+    expect(screen.getAllByLabelText('incorrect')).toHaveLength(2);
+  });
+
+  test('should call checkAnswer on correct tap', async () => {
+    const user = userEvent.setup();
+    const checkAnswer = vi.fn();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const correctButton = buttons.find((btn) => btn.textContent === '2')!;
+
+    await user.click(correctButton);
+    expect(checkAnswer).toHaveBeenCalledWith('2');
+  });
+
+  test('should reset disabled cells and regenerate choices when problem changes', async () => {
+    const user = userEvent.setup();
+    const checkAnswer = vi.fn();
+
+    const { rerender } = render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const wrongButton = buttons.find((btn) => btn.textContent !== '2')!;
+    await user.click(wrongButton);
+    expect(wrongButton.hasAttribute('disabled')).toBe(true);
+
+    // Problem advances to [2, 3, 0, 5]
+    const nextProblem: DrillTask = [2, 3, 0, 5];
+    rerender(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={nextProblem} />
+      </ThemeProvider>,
+    );
+
+    // All cells should be enabled now and include 5
+    const newButtons = screen.getAllByRole('button');
+    expect(newButtons.every((btn) => !btn.hasAttribute('disabled'))).toBe(true);
+    expect(screen.queryByLabelText('incorrect')).toBeNull();
+    const hasFive = newButtons.some((btn) => btn.textContent === '5');
+    expect(hasFive).toBe(true);
+  });
+
+  test('should reset when a previously encountered problem repeats later in the quiz', async () => {
+    const user = userEvent.setup();
+    const checkAnswer = vi.fn();
+
+    const { rerender } = render(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const buttons = screen.getAllByRole('button');
+    const wrongButton = buttons.find((btn) => btn.textContent !== '2')!;
+    await user.click(wrongButton);
+    expect(wrongButton.hasAttribute('disabled')).toBe(true);
+
+    // Intermediate problem
+    rerender(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={[3, 4, 0, 7]} />
+      </ThemeProvider>,
+    );
+
+    // Back to original problem
+    rerender(
+      <ThemeProvider theme={theme}>
+        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+      </ThemeProvider>,
+    );
+
+    const resetButtons = screen.getAllByRole('button');
+    expect(resetButtons.every((btn) => !btn.hasAttribute('disabled'))).toBe(true);
+    expect(screen.queryByLabelText('incorrect')).toBeNull();
+  });
+
+  test('should render correct and incorrect last results and new record badges', () => {
     const checkAnswer = vi.fn();
     const newRecord: NewRecordComparison = {
       currentTimePerQuestion: NaN,
       existingRecordTimePerQuestion: 0,
       isNewRecord: true,
-    };
-    const quizLineRef = React.createRef<QuizLine>();
-
-    render(
-      <ThemeProvider theme={theme}>
-        <QuizLine
-          checkAnswer={checkAnswer}
-          largeKeyboard={false}
-          newRecord={newRecord}
-          onscreenKeyboard
-          problem={defaultProblem}
-          ref={quizLineRef}
-        />
-      </ThemeProvider>,
-    );
-
-    const answerSpan = screen.getByText('=').nextElementSibling;
-
-    expect(screen.getByText('Current Speed [none] and Record [none] NEW RECORD!')).toBeDefined();
-    expect(answerSpan?.textContent).toBe('?');
-
-    const instance = quizLineRef.current!;
-
-    // Type digits
-    act(() => {
-      instance.keyPress(1);
-    });
-    expect(answerSpan?.textContent).toBe('1');
-
-    act(() => {
-      instance.keyPress('5');
-    });
-    expect(answerSpan?.textContent).toBe('15');
-
-    // Backspace
-    act(() => {
-      instance.keyPress('back');
-    });
-    expect(answerSpan?.textContent).toBe('1');
-
-    // Backspace again to empty
-    act(() => {
-      instance.keyPress('back');
-    });
-    expect(answerSpan?.textContent).toBe('?');
-
-    // Backspace on empty does nothing
-    act(() => {
-      instance.keyPress('back');
-    });
-    expect(answerSpan?.textContent).toBe('?');
-
-    // Type 9 and submit with enter
-    act(() => {
-      instance.keyPress(9);
-    });
-    act(() => {
-      instance.keyPress('enter');
-    });
-    expect(checkAnswer).toHaveBeenCalledWith('9');
-    expect(answerSpan?.textContent).toBe('?');
-
-    // Unknown key logs a warning
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    act(() => {
-      instance.keyPress('unknown-key');
-    });
-    expect(warnSpy).toHaveBeenCalledWith('Unknown key in keyPress unknown-key');
-    warnSpy.mockRestore();
-  });
-
-  test('should render correct and incorrect last results', () => {
-    const checkAnswer = vi.fn();
-    const newRecord: NewRecordComparison = {
-      currentTimePerQuestion: 2,
-      existingRecordTimePerQuestion: 3,
-      isNewRecord: false,
     };
     const correctResult: PreviousResult = {
       actuals: [2],
@@ -182,10 +203,8 @@ describe('QuizLine', () => {
       <ThemeProvider theme={theme}>
         <QuizLine
           checkAnswer={checkAnswer}
-          largeKeyboard={false}
           lastResult={correctResult}
           newRecord={newRecord}
-          onscreenKeyboard={false}
           problem={defaultProblem}
         />
       </ThemeProvider>,
@@ -193,15 +212,18 @@ describe('QuizLine', () => {
 
     expect(screen.getByText('1.5 seconds')).toBeDefined();
     expect(screen.getByText('\u2714')).toBeDefined();
+    expect(screen.getByText('Current Speed [none] and Record [none] NEW RECORD!')).toBeDefined();
 
     rerender(
       <ThemeProvider theme={theme}>
         <QuizLine
           checkAnswer={checkAnswer}
-          largeKeyboard={false}
           lastResult={incorrectResult}
-          newRecord={newRecord}
-          onscreenKeyboard={false}
+          newRecord={{
+            currentTimePerQuestion: 2.0,
+            existingRecordTimePerQuestion: 1.8,
+            isNewRecord: false,
+          }}
           problem={defaultProblem}
         />
       </ThemeProvider>,
@@ -209,5 +231,6 @@ describe('QuizLine', () => {
 
     expect(screen.getByText('2.5 seconds')).toBeDefined();
     expect(screen.getByText('\u2717')).toBeDefined();
+    expect(screen.getByText('Current Speed 2 and Record 1.8')).toBeDefined();
   });
 });

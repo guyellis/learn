@@ -57,10 +57,6 @@ class DB {
         options.userName = '';
         DB.saveOptions(options);
       }
-      if (typeof options.largeKeyboard !== 'boolean') {
-        options.largeKeyboard = false;
-        DB.saveOptions(options);
-      }
       if (typeof options.opIndex === 'number') {
         options.opIndexes = [options.opIndex];
         delete options.opIndex;

@@ -98,10 +98,8 @@ describe('DB', () => {
     getItemMock.mockReturnValueOnce(null);
     const actual = db.getOptions();
     const defaultOptions = {
-      largeKeyboard: false,
       levelIndex: 0, // A
       minutes: '10',
-      onscreenKeyboard: false,
       opIndexes: [0], // +
       totalProblems: '20',
       userName: '',
@@ -114,7 +112,6 @@ describe('DB', () => {
     const savedOptions: Record<string, unknown> = {
       levelIndex: 0, // A
       minutes: '1',
-      onscreenKeyboard: true,
       opIndex: 0, // +
       totalProblems: '20',
     };
@@ -122,10 +119,9 @@ describe('DB', () => {
 
     const actual = db.getOptions();
 
-    expect(setItemMock).toHaveBeenCalledTimes(3);
+    expect(setItemMock).toHaveBeenCalledTimes(2);
 
     savedOptions.userName = '';
-    savedOptions.largeKeyboard = false;
     savedOptions.opIndexes = [0];
     delete savedOptions.opIndex;
     expect(setItemMock).toHaveBeenLastCalledWith(MATH_DRILL_OPTIONS, JSON.stringify(savedOptions));
@@ -135,10 +131,8 @@ describe('DB', () => {
 
   test('should get options that do not need converting', () => {
     const savedOptions = {
-      largeKeyboard: true,
       levelIndex: 0, // A
       minutes: '1',
-      onscreenKeyboard: true,
       opIndexes: [0], // A
       totalProblems: '20',
       userName: 'my name',
@@ -150,6 +144,25 @@ describe('DB', () => {
     expect(setItemMock).toHaveBeenCalledTimes(0);
 
     expect(actual).toEqual(savedOptions);
+  });
+
+  test('should tolerate legacy saved options with deprecated keyboard keys', () => {
+    const legacySavedOptions = {
+      largeKeyboard: true,
+      levelIndex: 1,
+      minutes: '5',
+      onscreenKeyboard: true,
+      opIndexes: [1],
+      totalProblems: '15',
+      userName: 'Alice',
+    };
+    getItemMock.mockReturnValueOnce(JSON.stringify(legacySavedOptions));
+
+    const actual = db.getOptions();
+
+    expect(actual).toEqual(legacySavedOptions);
+    expect(actual.levelIndex).toBe(1);
+    expect(actual.userName).toBe('Alice');
   });
 
   test('should update scores and set version to current', () => {

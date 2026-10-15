@@ -38,10 +38,8 @@ export interface ScoresContainerV3 {
 }
 
 export interface DrillOptions {
-  largeKeyboard: boolean;
   levelIndex: number;
   minutes: string;
-  onscreenKeyboard: boolean;
   opIndex?: number;
   opIndexes: number[];
   totalProblems: string;

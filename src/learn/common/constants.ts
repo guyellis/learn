@@ -10,10 +10,8 @@ export const COLOR_HTML: readonly string[] = Object.freeze([
 ]);
 export const COLOR_TEXT: readonly string[] = Object.freeze(['Gold', 'Silver', 'Bronze', 'Blue']);
 export const DEFAULT_OPTIONS: DrillOptions = {
-  largeKeyboard: false,
   levelIndex: 0, // A
   minutes: '10',
-  onscreenKeyboard: false,
   opIndexes: [0], // +
   totalProblems: '20',
   userName: '',
