@@ -3,27 +3,18 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import QuizLine from '../../../../src/learn/math/drill/quiz-line.js';
-import type {
-  DrillTask,
-  NewRecordComparison,
-  PreviousResult,
-} from '../../../../src/learn/math/drill/types.js';
+import type { DrillTask, PreviousResult } from '../../../../src/learn/math/drill/types.js';
 
 const theme = createTheme();
 
 describe('QuizLine', () => {
   const defaultProblem: DrillTask = [1, 1, 0, 2];
-  const defaultNewRecord: NewRecordComparison = {
-    currentTimePerQuestion: 1.1,
-    existingRecordTimePerQuestion: 1.0,
-    isNewRecord: false,
-  };
 
   test('should render problem line and 9 answer choices in a grid', () => {
     const checkAnswer = vi.fn();
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -42,7 +33,7 @@ describe('QuizLine', () => {
 
     // Initial state has ready message
     expect(screen.getByText('Ready for your first answer...')).toBeDefined();
-    expect(screen.getByText('Current Speed 1.1 and Record 1')).toBeDefined();
+    expect(screen.queryByText(/Current Speed/)).toBeNull();
   });
 
   test('should disable a tapped wrong cell, display a red X, and ignore repeated taps', async () => {
@@ -51,7 +42,7 @@ describe('QuizLine', () => {
 
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -78,7 +69,7 @@ describe('QuizLine', () => {
 
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -103,7 +94,7 @@ describe('QuizLine', () => {
 
     render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -120,7 +111,7 @@ describe('QuizLine', () => {
 
     const { rerender } = render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -133,7 +124,7 @@ describe('QuizLine', () => {
     const nextProblem: DrillTask = [2, 3, 0, 5];
     rerender(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={nextProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={nextProblem} />
       </ThemeProvider>,
     );
 
@@ -151,7 +142,7 @@ describe('QuizLine', () => {
 
     const { rerender } = render(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -163,14 +154,14 @@ describe('QuizLine', () => {
     // Intermediate problem
     rerender(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={[3, 4, 0, 7]} />
+        <QuizLine checkAnswer={checkAnswer} problem={[3, 4, 0, 7]} />
       </ThemeProvider>,
     );
 
     // Back to original problem
     rerender(
       <ThemeProvider theme={theme}>
-        <QuizLine checkAnswer={checkAnswer} newRecord={defaultNewRecord} problem={defaultProblem} />
+        <QuizLine checkAnswer={checkAnswer} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
@@ -179,13 +170,8 @@ describe('QuizLine', () => {
     expect(screen.queryByLabelText('incorrect')).toBeNull();
   });
 
-  test('should render correct and incorrect last results and new record badges', () => {
+  test('should render correct and incorrect last results', () => {
     const checkAnswer = vi.fn();
-    const newRecord: NewRecordComparison = {
-      currentTimePerQuestion: NaN,
-      existingRecordTimePerQuestion: 0,
-      isNewRecord: true,
-    };
     const correctResult: PreviousResult = {
       actuals: [2],
       id: 0,
@@ -201,36 +187,22 @@ describe('QuizLine', () => {
 
     const { rerender } = render(
       <ThemeProvider theme={theme}>
-        <QuizLine
-          checkAnswer={checkAnswer}
-          lastResult={correctResult}
-          newRecord={newRecord}
-          problem={defaultProblem}
-        />
+        <QuizLine checkAnswer={checkAnswer} lastResult={correctResult} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
     expect(screen.getByText('1.5 seconds')).toBeDefined();
     expect(screen.getByText('\u2714')).toBeDefined();
-    expect(screen.getByText('Current Speed [none] and Record [none] NEW RECORD!')).toBeDefined();
+    expect(screen.queryByText(/Current Speed/)).toBeNull();
 
     rerender(
       <ThemeProvider theme={theme}>
-        <QuizLine
-          checkAnswer={checkAnswer}
-          lastResult={incorrectResult}
-          newRecord={{
-            currentTimePerQuestion: 2.0,
-            existingRecordTimePerQuestion: 1.8,
-            isNewRecord: false,
-          }}
-          problem={defaultProblem}
-        />
+        <QuizLine checkAnswer={checkAnswer} lastResult={incorrectResult} problem={defaultProblem} />
       </ThemeProvider>,
     );
 
     expect(screen.getByText('2.5 seconds')).toBeDefined();
     expect(screen.getByText('\u2717')).toBeDefined();
-    expect(screen.getByText('Current Speed 2 and Record 1.8')).toBeDefined();
+    expect(screen.queryByText(/Current Speed/)).toBeNull();
   });
 });

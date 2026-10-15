@@ -177,4 +177,127 @@ describe('Running', () => {
     expect(clearTimeoutSpy).toHaveBeenCalled();
     clearTimeoutSpy.mockRestore();
   });
+
+  test('should render timer badge with correct colors at boundary values (2 gold, 3 silver, 4 bronze, 5 blue)', () => {
+    const cases = [
+      {
+        expectedAria: 'Current question time 2 seconds',
+        expectedColor: ['#ffd700', 'rgb(255, 215, 0)'],
+        expectedLabel: '2s',
+        secondsAgo: 2,
+      },
+      {
+        expectedAria: 'Current question time 3 seconds',
+        expectedColor: ['#c0c0c0', 'rgb(192, 192, 192)'],
+        expectedLabel: '3s',
+        secondsAgo: 3,
+      },
+      {
+        expectedAria: 'Current question time 4 seconds',
+        expectedColor: ['#8c7853', '#8C7853', 'rgb(140, 120, 83)'],
+        expectedLabel: '4s',
+        secondsAgo: 4,
+      },
+      {
+        expectedAria: 'Current question time 5 seconds',
+        expectedColor: ['lightblue', 'rgb(173, 216, 230)'],
+        expectedLabel: '5s',
+        secondsAgo: 5,
+      },
+    ];
+
+    for (const { expectedAria, expectedColor, expectedLabel, secondsAgo } of cases) {
+      const questionStartTime = Temporal.Now.instant().subtract(
+        Temporal.Duration.from({ seconds: secondsAgo }),
+      );
+      const { unmount } = render(
+        <ThemeProvider theme={theme}>
+          <Running {...defaultProps} questionStartTime={questionStartTime} />
+        </ThemeProvider>,
+      );
+
+      const chip = screen.getByLabelText(expectedAria);
+      expect(chip).toBeDefined();
+      expect(chip.textContent).toBe(expectedLabel);
+      expect(expectedColor).toContain(chip.style.backgroundColor);
+      unmount();
+    }
+  });
+
+  test('should hide pace chip before the first correct answer (pace is NaN)', () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Running
+          {...defaultProps}
+          newRecord={{
+            currentTimePerQuestion: NaN,
+            existingRecordTimePerQuestion: NaN,
+            isNewRecord: false,
+          }}
+        />
+      </ThemeProvider>,
+    );
+
+    expect(screen.queryByText(/Speed/)).toBeNull();
+  });
+
+  test('should render outlined pace chip with and without an existing record when not a new record', () => {
+    const { rerender } = render(
+      <ThemeProvider theme={theme}>
+        <Running
+          {...defaultProps}
+          newRecord={{
+            currentTimePerQuestion: 2.5,
+            existingRecordTimePerQuestion: NaN,
+            isNewRecord: false,
+          }}
+        />
+      </ThemeProvider>,
+    );
+
+    const withoutRecordChip = screen.getByText('Speed 2.5s').closest('.MuiChip-root')!;
+    expect(withoutRecordChip).toBeDefined();
+    expect(withoutRecordChip.className).toContain('MuiChip-outlined');
+    expect(withoutRecordChip.className).not.toContain('MuiChip-colorSuccess');
+
+    rerender(
+      <ThemeProvider theme={theme}>
+        <Running
+          {...defaultProps}
+          newRecord={{
+            currentTimePerQuestion: 2.5,
+            existingRecordTimePerQuestion: 2.0,
+            isNewRecord: false,
+          }}
+        />
+      </ThemeProvider>,
+    );
+
+    const withRecordChip = screen.getByText('Speed 2.5s · Record 2s').closest('.MuiChip-root')!;
+    expect(withRecordChip).toBeDefined();
+    expect(withRecordChip.className).toContain('MuiChip-outlined');
+    expect(withRecordChip.className).not.toContain('MuiChip-colorSuccess');
+  });
+
+  test('should render filled success pace chip with NEW RECORD! when isNewRecord is true', () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Running
+          {...defaultProps}
+          newRecord={{
+            currentTimePerQuestion: 1.5,
+            existingRecordTimePerQuestion: 2.0,
+            isNewRecord: true,
+          }}
+        />
+      </ThemeProvider>,
+    );
+
+    const newRecordChip = screen
+      .getByText('Speed 1.5s · Record 2s · NEW RECORD!')
+      .closest('.MuiChip-root')!;
+    expect(newRecordChip).toBeDefined();
+    expect(newRecordChip.className).toContain('MuiChip-filled');
+    expect(newRecordChip.className).toContain('MuiChip-colorSuccess');
+  });
 });

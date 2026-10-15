@@ -398,4 +398,45 @@ describe('Drill', () => {
     });
     expect(instance.state.asked.size).toBe(1);
   });
+
+  test('should plumb questionStartTime into Running, not reset on wrong answer, and reset when a new question starts', () => {
+    const { instance } = renderDrill();
+
+    act(() => {
+      instance.onStart();
+      instance.setState({
+        currentTask: [2, 3, 0, 5],
+        totalProblems: '5',
+      });
+    });
+
+    expect(instance.state.previousTime).toBeUndefined();
+
+    // Fast-forward question start by setting startTime 3 seconds in the past
+    const pastTime = Temporal.Now.instant().subtract(Temporal.Duration.from({ seconds: 3 }));
+    act(() => {
+      instance.setState({ startTime: pastTime });
+    });
+
+    expect(screen.getByText('3s')).toBeDefined();
+
+    // Wrong answer should NOT reset question timer; previousTime remains the question start instant
+    act(() => {
+      instance.checkAnswer('4');
+    });
+
+    expect(instance.state.previousTime?.epochMilliseconds).toBe(pastTime.epochMilliseconds);
+    expect(screen.getByText('3s')).toBeDefined();
+
+    // Correct answer advances to next task and updates previousTime, resetting timer
+    act(() => {
+      instance.checkAnswer('5');
+    });
+
+    expect(instance.state.previousTime).toBeDefined();
+    expect(instance.state.previousTime?.epochMilliseconds).toBeGreaterThan(
+      pastTime.epochMilliseconds,
+    );
+    expect(screen.getByText('0s')).toBeDefined();
+  });
 });
