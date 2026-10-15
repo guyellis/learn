@@ -28,8 +28,7 @@ function NotFound() {
       <Typography component="h1" gutterBottom variant="h4">
         Oops! Page Not Found
       </Typography>
-      {/* @ts-expect-error paragraph was removed in MUI v6, but preserved to match existing behavior and tests */}
-      <Typography color="text.secondary" paragraph variant="body1">
+      <Typography color="text.secondary" variant="body1">
         We couldn&apos;t find the page you were looking for. Let&apos;s get you back to practicing
         math!
       </Typography>

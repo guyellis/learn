@@ -28,7 +28,7 @@ describe('NotFound', () => {
     expect(link).toBeDefined();
     expect(link.getAttribute('href')).toEqual('/');
 
-    expect(consoleErrorSpy).toHaveBeenCalled();
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
     consoleErrorSpy.mockRestore();
   });
 });
