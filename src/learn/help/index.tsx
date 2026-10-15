@@ -95,6 +95,14 @@ There is a summary at the top showing all the badges you have earned.
 Below that is a table showing badges by level and operation.
 
 For now badges are only awarded for single-operation tests.
+
+### Bugs and Issues
+
+Math Drill is an open source project and its source code is hosted on GitHub. Bugs and \
+feature requests are tracked there too.
+
+If you find a bug or have an idea for improving Math Drill, please \
+[open an issue on GitHub](https://github.com/guyellis/learn/issues).
 `;
 
 function help() {

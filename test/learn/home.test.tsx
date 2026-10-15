@@ -20,7 +20,8 @@ describe('Home', () => {
     expect(screen.getByRole('button', { name: /Math Drill/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /Scoreboard/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /Help/i })).toBeDefined();
-    expect(screen.getByRole('link', { name: /Issue guyellis\/learn on GitHub/i })).toBeDefined();
+    expect(screen.queryByRole('link', { name: /Issue guyellis\/learn on GitHub/i })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Report a bug/i })).toBeNull();
     expect(screen.queryByRole('button', { name: /Share/i })).toBeNull();
   });
 
