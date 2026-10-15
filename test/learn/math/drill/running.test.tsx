@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import Running, { type RunningProps } from '../../../../src/learn/math/drill/running.js';
 import type {
@@ -76,8 +76,7 @@ describe('Running', () => {
     spy.mockRestore();
   });
 
-  test('should trigger green flash on correct answer tap and return to normal after 300ms', () => {
-    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+  test('should trigger green flash on correct answer tap and return to normal after 300ms', async () => {
     const checkAnswer = vi.fn();
 
     render(
@@ -101,12 +100,12 @@ describe('Running', () => {
     expect(container.getAttribute('data-flashing')).toBe('true');
 
     // After 300ms, returns to false
-    act(() => {
-      vi.advanceTimersByTime(300);
-    });
-    expect(container.getAttribute('data-flashing')).toBe('false');
-
-    vi.useRealTimers();
+    await waitFor(
+      () => {
+        expect(container.getAttribute('data-flashing')).toBe('false');
+      },
+      { timeout: 1000 },
+    );
   });
 
   test('should not trigger flash on wrong answer tap', () => {
@@ -162,7 +161,6 @@ describe('Running', () => {
   });
 
   test('should clear timer on unmount', () => {
-    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const clearTimeoutSpy = vi.spyOn(window, 'clearTimeout');
 
     const { unmount } = render(
@@ -177,8 +175,6 @@ describe('Running', () => {
 
     unmount();
     expect(clearTimeoutSpy).toHaveBeenCalled();
-
-    vi.useRealTimers();
     clearTimeoutSpy.mockRestore();
   });
 });
