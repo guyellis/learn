@@ -1,21 +1,32 @@
-import FloatingActionButton from '@mui/material/Fab';
+import Box from '@mui/material/Box';
 import React from 'react';
 
-const buttonStyle: React.CSSProperties = {
-  fontSize: '1.5em',
-  margin: '5px',
-};
-
 export interface BadgeProps {
-  color?: number | string;
   content: number | string;
 }
 
 function badge({ content }: BadgeProps) {
   return (
-    <FloatingActionButton color="primary" size="medium" style={buttonStyle}>
+    <Box
+      component="span"
+      sx={{
+        alignItems: 'center',
+        bgcolor: 'primary.main',
+        borderRadius: '50%',
+        boxShadow: 6,
+        color: 'primary.contrastText',
+        display: 'inline-flex',
+        fontSize: '1.5em',
+        height: 48,
+        justifyContent: 'center',
+        m: '5px',
+        userSelect: 'none',
+        verticalAlign: 'middle',
+        width: 48,
+      }}
+    >
       {`${content}`}
-    </FloatingActionButton>
+    </Box>
   );
 }
 

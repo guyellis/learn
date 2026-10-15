@@ -21,7 +21,8 @@ describe('Finished Badge', () => {
     expect(
       screen.getByText(/Congratulations on getting a new Silver Badge for Level A Addition!/i),
     ).toBeDefined();
-    expect(screen.getByRole('button', { name: '+' })).toBeDefined();
+    expect(screen.getByText('+')).toBeDefined();
+    expect(screen.queryByRole('button')).toBeNull();
   });
 
   test('should be rendered if multiple opIndexes', () => {
@@ -41,7 +42,8 @@ describe('Finished Badge', () => {
         /Congratulations on getting a new Silver Badge for Level A Mixed Addition \/ Subtraction!/i,
       ),
     ).toBeDefined();
-    expect(screen.getByRole('button', { name: 'M' })).toBeDefined();
+    expect(screen.getByText('M')).toBeDefined();
+    expect(screen.queryByRole('button')).toBeNull();
   });
 
   test('should not be rendered if correct answers under 10', () => {

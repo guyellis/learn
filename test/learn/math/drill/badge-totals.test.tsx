@@ -12,9 +12,10 @@ test('Badge totals should be rendered', () => {
     </ThemeProvider>,
   );
 
-  expect(screen.getByRole('button', { name: '1' })).toBeDefined();
-  expect(screen.getByRole('button', { name: '2' })).toBeDefined();
-  expect(screen.getByRole('button', { name: '3' })).toBeDefined();
+  expect(screen.getByText('1')).toBeDefined();
+  expect(screen.getByText('2')).toBeDefined();
+  expect(screen.getByText('3')).toBeDefined();
+  expect(screen.queryByRole('button')).toBeNull();
   expect(screen.getByText(/Gold Badge\(s\) - 2 seconds or less \(per question\)/i)).toBeDefined();
   expect(
     screen.getByText(/Silver Badge\(s\) - between 2 and 3 seconds \(per question\)/i),

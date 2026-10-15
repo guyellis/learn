@@ -1,7 +1,6 @@
 import React from 'react';
 import constants from '../../common/constants.js';
 import Badge from './badge.js';
-import helper from './helper.js';
 import type { PreviousResult } from './types.js';
 
 const { OPERATIONS } = constants;
@@ -33,11 +32,10 @@ function runningResults(props: RunningResultsProps) {
     const operation = OPERATIONS[opIndex];
     const correct = answer === actual;
     const style = correct ? correctStyle : incorrectStyle;
-    const colorIndex = helper.getBadgeColorIndex(timeTaken);
     return (
       <div key={id} style={style}>
         {showIndex && <span style={spanStyle}>{`${id + 1})`}</span>}
-        <Badge color={colorIndex} content={operation} />
+        <Badge content={operation} />
         <span style={spanStyle}>{left}</span>
         <span style={spanStyle}>{operation}</span>
         <span style={spanStyle}>{right}</span>

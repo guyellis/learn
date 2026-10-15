@@ -29,7 +29,7 @@ function badge(badges?: number[] | null) {
         }
         const key = `${amount}${color}`;
 
-        return <Badge color={color} content={amount.toString()} key={key} />;
+        return <Badge content={amount.toString()} key={key} />;
       })}
     </span>
   );
