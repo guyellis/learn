@@ -5,7 +5,8 @@ updates:
     schedule:
       interval: weekly
       day: monday
-      time: '10:00'
+      time: '02:00'
+      timezone: 'America/Phoenix'
     open-pull-requests-limit: 99
     groups:
       vitest:
