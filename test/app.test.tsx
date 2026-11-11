@@ -32,11 +32,13 @@ describe('App', () => {
     );
   };
 
+  // jsdom 31 slowed the cold first render enough to cross the default 5s
+  // test timeout under full-suite load; give this test room for the cold start.
   test('should render an App component', async () => {
     await renderApp('/');
     expect(await screen.findByRole('button', { name: /Math Drill/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /Scoreboard/i })).toBeDefined();
-  });
+  }, 15_000);
 
   test('should render the Drill route', async () => {
     await renderApp('/math/drill');
