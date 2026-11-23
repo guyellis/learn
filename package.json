@@ -40,7 +40,7 @@
     "globals": "17.14.0",
     "husky": "9.1.7",
     "jsdom": "31.0.1",
-    "lint-staged": "17.6.0",
+    "lint-staged": "17.6.1",
     "prettier": "3.9.10",
     "sass": "1.108.2",
     "typescript": "6.0.3",
